@@ -1,0 +1,488 @@
+<html style="width:100%; height:100em;background-color:#111115">
+<head>
+    <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Draggable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/DrawSVGPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/EaselPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/GSDevTools.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/InertiaPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/MotionPathHelper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/MotionPathPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/MorphSVGPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Observer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Physics2DPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/PhysicsPropsPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/PixiPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrambleTextPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js"></script>
+<!-- ScrollSmoother requires ScrollTrigger -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollSmoother.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/TextPlugin.min.js"></script>
+
+<!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/EasePack.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomEase.min.js"></script>
+<!-- CustomBounce requires CustomEase -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomBounce.min.js"></script>
+<!-- CustomWiggle requires CustomEase -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomWiggle.min.js"></script>
+
+<script src="scripts/gsap.js"></script>
+
+<link rel="stylesheet" href="style.css" >
+</head>
+    <body id="intro" class="engineering-grid">
+        <div class="header" >
+            <div id="introtab" class="tab selected-tab"><a href="#intro">Intro</a></div>
+            <div id="whatidotab" class="tab" ><a href="#whatido" >What I Do</a></div>
+            <div id="engagementtab" class="tab" ><a href="#engagement">Engagement Models</a></div>
+            <div id="pastworktab" class="tab"><a href="#pastwork">Past Work</a></div>
+            <div id="testimonialtab" class="tab"><a href="#testimonials">Testimonials</a></div>
+        </div>
+        <div class="hero">
+            <picture>
+              <source srcset="img/work.png" media="(max-width: 1000px)">
+              <source srcset="img/work-desktop.png" media="(max-width: 1800px)">
+              <img src="img/work-xl.png"  />
+            </picture>
+            <div class="hero-content" style="">
+                <h1 id="hero" style="text-align:center">
+                </h1>
+                <h2 id="hero2" style="text-align:center">
+                </h2>
+                <h3 id="hero3" style="text-align:center">
+                </h3>
+                <div style="text-align:center;">
+                    <a class="card button large" style="width:auto; height:auto;background-color:#55f" >Request a Free Audit</a>
+                </div>
+            </div>
+
+        </div>
+        <div id="whatido">
+        <div  class="section horizontal" >
+            <div class="section-top">
+                <h2 style="padding:0; margin:0; line-height:auto"> What I Do</h2>
+                <div class="normal" style="width:90vw" > I build high-performance simulation and visualization systems—modernizing legacy code, accelerating computation, and turning complex models into interactive tools.</div>
+            </div>
+            <div class="article">
+                <div class="article-content">
+                <h3>Modernize & Optimize Scientific Software </h3>
+                <div class="">I take large, difficult codebases (Fortran, C/C++, Python, mixed stacks) and turn them into fast, reliable, maintainable systems.
+                </div>
+                <ul>
+                    <li>Refactor and stabilize legacy simulation software with minimal disruption
+                    <li>Identify and eliminate performance bottlenecks (2–10× speedups typical)
+                    <li>Resolve hard-to-diagnose numerical and environment-dependent bugs
+                    <li>Port and standardize across platforms (Linux variants, HPC environments)
+                    <li>Improve build systems, deployment pipelines, and reproducibility
+                </ul>
+                Result: Your existing software becomes faster, more reliable, and significantly easier to extend—without rewriting everything.
+                </div>
+            </div>
+            <div class="article">
+                <div class="article-content">
+                <h3>
+                    Critical Bug Resolution & Numerical Debugging
+                </h3>
+                I diagnose and fix issues in complex scientific and HPC systems where failures are costly and difficult to trace.
+
+                Root-cause analysis of non-deterministic behavior (cross-platform, compiler, memory issues)
+                Debugging numerical instability, divergence, and incorrect results
+                Identifying uninitialized state, precision errors, and race conditions
+                Reproducing and isolating issues in large, poorly documented codebases
+                Validating fixes against expected physical or statistical behavior
+
+                Result: Systems that produce consistent, correct results—eliminating silent errors that can invalidate entire studies or simulations.
+
+                </div>
+            </div>
+            <div class="article">
+                <div class="article-content">
+                <h3 >Build Interactive Simulation & Visualization Systems</h3>
+                I design systems that let engineers and researchers see, control, and iterate on simulations in real time.
+                <ul>
+                    <li>
+                        Custom 2D/3D visualization (OpenGL/WebGPU/engine-based)
+                    </li>
+                    <li>
+                        Live parameter control with immediate feedback
+                    </li>
+                     <li>
+                        Integration with existing solvers (CLI, HPC, or custom backends)
+                    </li>
+                    <li>
+                        Scientific UI/UX built for actual workflows—not generic dashboards
+                    </li>
+                    <li>
+                        Data exploration tools for large simulation outputs
+                    </li>
+                </ul>
+
+                Result: Faster insight, faster iteration, and dramatically improved usability of complex models.
+                </div>
+            </div>
+            
+
+            <div class="article">
+                <div class="article-content">
+                <h3>
+                    GPU Compute & Parallelization 
+                </h3>
+                
+                I leverage modern hardware to push simulations and computation to the next level.
+
+                GPU acceleration (OpenGL compute, CUDA-style workflows, WebGPU)
+                Parallelization strategies for large-scale workloads
+                Real-time or near-real-time simulation pipelines
+                Performance profiling and architecture-level optimization
+
+                Result: Orders-of-magnitude improvements in speed and interactivity where it matters.
+                </div>
+            </div>
+            <div class="article">
+
+                <div class="article-content">
+                <h3>
+                    From Research Tool -> Commercial Product
+                </h3>
+                    I help turn internal tools into usable, scalable software systems.
+
+                    Clean architecture (modular, extensible, maintainable)
+                    GUI layers on top of existing solvers
+                    Automation, testing, and deployment workflows
+                    Preparing systems for external users, contracts, or commercialization
+
+                    Result: Software that isn’t just functional—but usable, scalable, and valuable.
+
+                </div>
+            </div>
+ <!-- <div class="article"> -->
+ <!--                <h3> High-Performance Numerical & Computational Engineering</h3> -->
+ <!--                 -->
+ <!--                I build and improve the numerical core behind simulations and computational systems. -->
+ <!---->
+ <!--                PDE/ODE solvers, discretization methods, and numerical stability fixes -->
+ <!--                Scientific computing pipelines (CPU, multi-threaded, distributed) -->
+ <!--                Applied math implementation: linear algebra, optimization, statistics -->
+ <!--                Physics-based modeling (fluids, diffusion, reaction systems, etc.) -->
+ <!--                Debugging numerical inaccuracies and non-deterministic behavior -->
+ <!---->
+ <!--                Result: Models that are correct, stable, and performant—ready for real-world use. -->
+ <!---->
+ <!---->
+ <!--            </div> -->
+ <!---->
+        </div>
+        </div>
+        <div id="engagement">
+            <div  class="section horizontal" >
+                <div class="section-top">
+                    <h2 style="padding:0; margin:0"> Engagement Models</h2>
+                    <p>Ideally start with a free audit, followed by fast-paced fixed scope contracts, followed by a longer term retainer.</p>
+                </div>
+            <div class="article">
+            <div class="article-content">
+                <h3 style="padding:0; margin:0">Short, focused audits</h3>
+                <p>I always start with a short, fixed audit of your existing system and meetings to discuss potential upgrades or development of new software.</p>
+            </div>
+            </div>
+            <div class="article">
+            <div class="article-content">
+                <h3 style="padding:0; margin:0">Fast paced contracts</h3>
+                <p>Fast paced, fixed-scope engagements to upgrade, optimize, fix bugs, build something new, etc.. Usually budgeted as a fixed price based on value</p>
+            </div>
+            </div>
+            <div class="article">
+            <div class="article-content">
+                <h3 style="padding:0; margin:0">Maintenance/Advisory retainers</h3>
+                <p>Lightweight retainers for teams that need continued architectural or maintenance oversight without full-time involvement. These can be long term (years) if wanted.
+            </div>
+            </div>
+            <div class="article">    
+            <div class="article-content">
+                <h3 style="padding:0; margin:0">Strategic partnerships or IP sharing</h3>
+                <p>In limited cases, I'm open to B2B partnerships or shared-IP arrangements where the problem is well-defined, high-impact, and aligns with my interests.
+            </div>
+            </div>
+            </div>
+        </div>
+        <div id="pastwork"> 
+            <div class="section horizontal">
+                <div class="section-top">
+                    <h2 style="padding:0; margin:0">Past Work </h2>
+                </div>
+            <div class="article" style="padding-top:14vh">
+                <div class="article-content">
+                <h3 style="margin:0">2026 HyperFat | Whoosh HPC Lab LLC</h3>
+                    <p>In progress, building a commercial grade interactive UI/UX for a hypersonic adaptive mesh solver. Features planned include editing models, boundary conditions, command bus architecture, save/load scenes, manage batch processes.</p>
+                    <img src="img/comingsoon.png" class="card" style="height:35vh" />
+                </p> 
+
+            </div>
+            </div>
+
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3 style="margin:0">2025-2026 Autoligo</h3>
+                    <p>
+                    An end-to-end platform for non-coding RNA analysis, starting from raw sequencing data and extending through downstream analysis, annotation, and interpretation in colaboration with Kansas University graduate students.
+                        The system ingests FASTQ files and runs reproducible, containerized pipelines for quality control, alignment, quantification, and statistical analysis. It supports multiple ncRNA classes and integrates differential expression workflows across experiments, conditions, and replicates.
+                    </p>
+                    <img src="img/autoligo1.png" class="card" style="height:35vh" />
+                </p> 
+
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2022-2026 CAPARS: Atmospheric Dispersion Modeling</h3>
+                <p>CAPARS is a large-scale atmospheric dispersion modeling system used to develop Emergency Action Levels (EALs) and Protective Action Guidelines (PAGs) in response to simulated chemical and radiological release scenarios.
+                The system was originally developed in the 1990s by multiple engineers. I later took full ownership of the codebase and infrastructure, upgrading, customizing, and deploying CAPARS in a highly secure environment at Sandia National Laboratories.
+                </p>
+
+                <img src="img/capars.png" class="card" style="height:35vh" />
+            </div>
+            </div>
+
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2022-2024 Skills Over Paper</h3>
+                <p>
+                I founded and solo developed a developer–company matchmaking platform built with Next.js, React, and PostgreSQL.  The platform is centered around a structured, skill-based resume that captures detailed and nuanced developer capabilities. Developers are awarded specialty badges at different proficiency levels based on completed courses, demonstrated projects, and verified work experience.
+                </p>
+                <img src="img/sop.png" class="card" style="height:35vh" />
+            </div>
+            </div>
+
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2022 Solvere: An LC Detector</h3>
+                <p>
+                This was a short-term contract with Activated Research Company LLC.
+
+                I worked on an Electron-based application deployed on Raspberry Pi devices, interfacing directly with PID controllers, sensors, and actuators. The system was managed and deployed using Balena OS for fleet management and remote updates.
+
+                I diagnosed and fixed a long-standing socket communication bug that had caused persistent reliability issues in production, resolving a problem that had remained unsolved for several months.
+                </p>
+                <img src="img/solver.png" class="card" style="height:35vh" />
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2021 HealthIQ: Cognitive Quiz</h3>
+                <p>
+                This project was delivered under an aggressive two-week timeline, compressing several months of planned work.
+
+                I designed and built an interactive cognitive assessment application based on standard cognition and Alzheimer’s screening tests, implemented as a React-based UI/UX. The application was integrated into the client’s internal web services and workflows.
+
+                The result was a production-ready, interactive dementia screening tool delivered on a highly accelerated schedule for a health insurance company.
+                </p>
+                <img src="img/healthiq.png" class="card" style="height:35vh" />
+
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2020 Brain Break: A neurotherapeutic game</h3>
+                <p>
+                BrainBrake was a 3D game built from scratch in Unity.
+
+                I designed and implemented a minimalist gameplay loop in which a rotating glass cube continuously spins while the player throws balls to break glass panels of specific colors. As the game progresses, the ball’s rotation speed increases, gradually raising the challenge and intensity.
+
+                The game was intentionally designed as a calming, focus-driven experience, aimed at reducing anxiety and overthinking through repetitive, visually engaging interaction.
+                </p>
+                <img src="img/brainbreak.png" class="card" style="height:35vh" />
+
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2019-2024 AlphaACT: Emergency Response Training Simulator</h3>
+                <p>
+                I’ve worked with the original creator of AlphaACT since 2018, serving as the primary developer responsible for maintaining, upgrading, and customizing the platform for multiple clients.
+
+                AlphaACT is a psychology-based training system designed to help emergency response professionals perform accurately under pressure by simulating a wide range of high-stress emergency scenarios. The platform is used across multiple industries and relies on realistic scenario modeling to build decision-making resilience and situational awareness.
+                </p>
+                <img src="img/alphaact.png" class="card" style="height:35vh" />
+
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2019-2021 IGrad: A data and feature rich financial management platform</h3>
+                <p>
+                This was a longer-term freelance engagement working within a Scrum team of experienced engineers at iGrad.
+
+                I contributed across the stack, including designing and implementing APIs, integrating machine learning–driven features, and building complex, responsive React frontends. My work included developing core web application components, implementing shared systems used across the platform, and migrating existing functionality from Angular to React/Redux.
+                </p>
+                <img src="img/igrad.png" class="card" style="height:35vh" />
+
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2019 Poker Games</h3>
+                <p>
+                    This was a freelance engagement involving multiple game development projects.
+
+                    I worked from existing JavaScript-based game prototypes and mockups and extended them into fully playable casino-style games. This included implementing complete game logic, refining UI/UX, and customizing mechanics to support multiple variants.
+
+                    Deliverables included fully functional implementations of games such as Baccarat, split-bet roulette, and double-ball roulette..
+                </p>
+                <img src="img/poker.png" class="card" style="height:35vh" />
+
+            </div>
+            </div>
+             <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2018-2019 Dorger Software Architects</h3>
+                <p>
+                    I worked at Dorger Software Architects, contributing to the development and maintenance of multiple medium- to large-scale state systems.
+
+                    Across these projects, I built and extended APIs, developed and maintained frontend components, fixed production bugs, and implemented supporting services required to keep complex systems stable and evolving. The work involved navigating existing codebases, improving reliability, and delivering features within the constraints of government-scale software.
+
+                    Notable systems included Mississippi Lands, Mobile Community Corrections software, and other state-level applications.
+
+                    I also built an internal WYSIWYG Change tracking system.
+                </p>
+                <img src="img/dorger.png" class="card" style="height:35vh" />
+
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2016-2017 History 360 education interactive map</h3>
+                <p>
+                I built an interactive map for viewing historical events across time for a local University.
+                </p>
+                <img src="img/history360.png" class="card" style="height:35vh" />
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2014-2015 CARES: Senior Developer role</h3>
+                <p>
+                I worked as a Senior Developer on the Centralized Alabama Recipient Eligibility System, a large-scale web platform serving the state of Alabama.
+
+                I was exposed to a complex ASP.NET web application and associated services, and contributed to core infrastructure development, parts of the automated testing suite, and multiple frontend components. I designed and implemented a visual entity-based UI/UX system for creating dynamic, data-driven forms.
+
+                During this role, I was promoted to Senior Developer and led several small teams, contributing to planning, technical guidance, and code reviews. I was later assigned to the senior core development group, where I focused on higher-complexity technical problems affecting system performance, scalability, and reliability.
+                </p>
+                <img src="img/cares.png" class="card" style="height:35vh" />
+
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2012-2014 Envista Data Migration Tool</h3>
+                <p>
+                    I joined Envista as the company’s first intern after proactively reaching out and negotiating the role.
+
+                    During the internship, I learned C#, WPF, and X++ on the job and worked within a large enterprise ERP codebase. I designed and implemented a data migration tool to transfer large datasets between legacy systems and a modern ERP platform, with a focus on correctness, performance, and reliability.
+
+                    This role provided early exposure to enterprise-scale system design, complex data models, and production software workflows.
+                </p>
+                <img src="img/envista.png" class="card" style="height:35vh" />
+
+            </div>
+            </div>
+            <div class="article" style="padding-top:14vh">
+
+                <div class="article-content">
+                <h3>2011-2013 MDAD: Mississippi Damage Awards Database</h3>
+                <p>
+                    I co-founded and built a damage awards database for legal professionals, designed to help lawyers draw statistical conclusions about potential outcomes in future cases. I built the system from the ground up using ASP.NET Web Forms, including the application architecture, data model, and core business logic.
+
+                    The platform featured a custom database of court cases, multiple analytical pages for exploring case statistics and trends, and a complete pricing and authentication system implemented from scratch.
+
+                    This project provided early experience in full-stack development, data-driven product design, and building a paid web application end to end.
+
+
+                </p>
+                <img src="img/mdad.png" class="card" style="height:35vh" />
+
+            </div>
+            </div>
+            </div>
+        </div>
+        <div id="testimonials">
+        <div class="section horizontal">
+            <div class="section-top"><h3>Testimonials</h3></div>
+            <div class="article" style="padding-top:18vh">
+                <div class="article-content">
+                    “Wes is a highly professional and talented software developer. He tackled complex and difficult issues in more than ten distinctly different assignments and was successful in all of them. He came up to speed quickly on legacy software that was not well documented – a key need in our project. He listened well and quickly gained understanding of what we needed to accomplish, then developed creative solutions to our needs. He managed his time well and met schedule and was close to budget in an exploratory environment where the effort required was difficult to predict. Overall, Wes significantly exceeded our expectations. I would recommend him for any software development and management project that fits his background.” – Reed Hodgin
+                </div>
+            </div>
+            <div class="article" style="padding-top:18vh">
+                <div class="article-content">
+                    “Wes is extremely proficient, diligent and highly competent. He quickly understands a task, finds effective solutions to simple or complex problems and implements on time and within budget. Would more could you ask!?!” – Reed Hodgin
+                </div>
+            </div>
+            <div class="article" style="padding-top:18vh">
+                <div class="article-content">
+                    “Highly Rated Freelancer.” – Dan Hilgert
+                </div>
+            </div>
+            <div class="article" style="padding-top:18vh">
+                <div class="article-content">
+                    “Wes went above and beyond and his knowledge was above the rest of the pack, I will use Wes for other projects and tweaks in the future.” – Max (Vegas Games) again
+                </div>
+            </div>
+            <div class="article" style="padding-top:18vh">
+                <div class="article-content">
+                    “Wes is fast and very good at what he does. I would highly recommend and will use again.” – Max (Vegas Games)
+                </div>
+            </div>
+            <div class="article" style="padding-top:18vh">
+                <div class="article-content">
+                    “Wes is talented, personable and overall a great person to work with. There’s always a challenge in finding someone who can balance communication, skill, and productivity, but Wes really brings them all. I would definitely hire him again for my next project.” – Kurt Roots
+                </div>
+            </div>
+            <div class="article" style="padding-top:18vh">
+                <div class="article-content">
+                    “Wes is a fantastic developer. Easy to work with and produces high quality code. He was able to handle everything we threw at him from legacy code updates to new technology PoCs. He worked well with our team and was very professional in dealing with our vendors.” – Danny Crinion
+                </div>
+            </div>
+            <div class="article" style="padding-top:18vh">
+                <div class="article-content">
+                    “Wesley did a great job on my mobile game, coming up with creative solutions to its challenges. He is easy to work with, consistent and responds quickly to feedback. Highly recommend!” – V (Relative Magnitude)
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="footer"> 
+            <div class="" style="display:inline-block;padding-top:0.4em;padding-left:1em">
+                <a class="button" href="mailto:admin@extropianengineer.com" target="_blank"
+                    style="width:auto; height:auto;padding-top:0.1em; padding-bottom:0.1em;background-color:#55f">Email Me</a>
+            </div>
+            <div class="" style="display:inline-block;padding-top:0.4em;padding-left:1em">
+                <a class="button" href="https://linktr.ee/extropianeng" target="_blank"
+                    style="width:auto;height:auto;padding-top:0.1em; padding-bottom:0.1em;background-color:#555">Links</a>
+            </div>
+            <div class="" style="display:inline-block;padding-top:0.2em;padding-left:1em"> </div>
+        </div>
+ 
+    </body>
+</html>

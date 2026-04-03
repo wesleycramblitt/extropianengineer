@@ -12,14 +12,14 @@
 
 @media (max-width: 768px) {
   :root {
-    --fs-xxs: calc(var(--fs-xxs) * 1.5);
-    --fs-xs:  calc(var(--fs-xs)  * 1.5);
-    --fs-sm:  calc(var(--fs-sm)  * 1.5);
-    --fs-base:calc(var(--fs-base)* 1.5);
-    --fs-lg:  calc(var(--fs-lg)  * 1.5);
-    --fs-xl:  calc(var(--fs-xl)  * 1.5);
-    --fs-2xl: calc(var(--fs-2xl) * 1.5);
-    --fs-3xl: calc(var(--fs-3xl) * 1.5);
+    --fs-xxs: calc(var(--fs-xxs) * 2.5);
+    --fs-xs:  calc(var(--fs-xs)  * 2.5);
+    --fs-sm:  calc(var(--fs-sm)  * 2.5);
+    --fs-base:calc(var(--fs-base)* 2.5);
+    --fs-lg:  calc(var(--fs-lg)  * 2.5);
+    --fs-xl:  calc(var(--fs-xl)  * 2.5);
+    --fs-2xl: calc(var(--fs-2xl) * 2.5);
+    --fs-3xl: calc(var(--fs-3xl) * 2.5);
   }
 }
 

@@ -1,43 +1,44 @@
 <html style="width:100%; height:100em;background-color:#111115">
 <head>
     <meta charset="UTF-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Draggable.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/DrawSVGPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/EaselPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Flip.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/GSDevTools.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/InertiaPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/MotionPathHelper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/MotionPathPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/MorphSVGPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Observer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Physics2DPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/PhysicsPropsPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/PixiPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrambleTextPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js"></script>
-<!-- ScrollSmoother requires ScrollTrigger -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollSmoother.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollToPlugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/SplitText.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/DrawSVGPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/GSDevTools.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/InertiaPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/MotionPathHelper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/MorphSVGPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Physics2DPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/PhysicsPropsPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/PixiPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrambleTextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js"></script>
+    <!-- ScrollSmoother requires ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/TextPlugin.min.js"></script>
 
-<!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/EasePack.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomEase.min.js"></script>
-<!-- CustomBounce requires CustomEase -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomBounce.min.js"></script>
-<!-- CustomWiggle requires CustomEase -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomWiggle.min.js"></script>
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomEase.min.js"></script>
+    <!-- CustomBounce requires CustomEase -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomBounce.min.js"></script>
+    <!-- CustomWiggle requires CustomEase -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomWiggle.min.js"></script>
 
-<script src="scripts/gsap.js"></script>
+    <script src="scripts/gsap.js"></script>
 
-<link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="style.css" >
 </head>
     <body id="intro" class="engineering-grid">
         <div class="header" >
@@ -73,96 +74,64 @@
                 <div class="normal" style="width:90vw" > I build high-performance simulation and visualization systems—modernizing legacy code, accelerating computation, and turning complex models into interactive tools.</div>
             </div>
             <div class="article">
-                <div class="article-content">
-                <h3>Modernize & Optimize Scientific Software </h3>
+                <div class="article-content article-content-flex">
+                <div class="box">
+                <h3 style="margin:0">Modernize & Optimize Scientific Software </h3>
                 <div class="">I take large, difficult codebases (Fortran, C/C++, Python, mixed stacks) and turn them into fast, reliable, maintainable systems.
                 </div>
-                <ul>
-                    <li>Refactor and stabilize legacy simulation software with minimal disruption
-                    <li>Identify and eliminate performance bottlenecks (2–10× speedups typical)
-                    <li>Resolve hard-to-diagnose numerical and environment-dependent bugs
-                    <li>Port and standardize across platforms (Linux variants, HPC environments)
-                    <li>Improve build systems, deployment pipelines, and reproducibility
-                </ul>
-                Result: Your existing software becomes faster, more reliable, and significantly easier to extend—without rewriting everything.
+                </div>
+                <div class=" box">
+                    <video src="vid/modernization.webm" style="width:100%" autoplay muted loop></video>
+                </div>
                 </div>
             </div>
             <div class="article">
-                <div class="article-content">
-                <h3>
+                <div class="article-content article-content-flex">
+                    <div class="box">
+                <h3 style="margin:0">
                     Critical Bug Resolution & Numerical Debugging
                 </h3>
-                I diagnose and fix issues in complex scientific and HPC systems where failures are costly and difficult to trace.
-
-                Root-cause analysis of non-deterministic behavior (cross-platform, compiler, memory issues)
-                Debugging numerical instability, divergence, and incorrect results
-                Identifying uninitialized state, precision errors, and race conditions
-                Reproducing and isolating issues in large, poorly documented codebases
-                Validating fixes against expected physical or statistical behavior
-
-                Result: Systems that produce consistent, correct results—eliminating silent errors that can invalidate entire studies or simulations.
+                <div>I diagnose and fix issues in complex scientific and HPC systems where failures are costly and difficult to trace.
+                </div>
+                    </div>
+                <div class=" box">
+                    <video src="vid/debug.webm" autoplay loop muted style="width:100%"/>
+                </div>
 
                 </div>
             </div>
             <div class="article">
-                <div class="article-content">
-                <h3 >Build Interactive Simulation & Visualization Systems</h3>
+                <div class="article-content article-content-flex">
+                <div class="box">
+                <h3 style="margin:0" >Build Interactive Simulation & Visualization Systems</h3>
                 I design systems that let engineers and researchers see, control, and iterate on simulations in real time.
-                <ul>
-                    <li>
-                        Custom 2D/3D visualization (OpenGL/WebGPU/engine-based)
-                    </li>
-                    <li>
-                        Live parameter control with immediate feedback
-                    </li>
-                     <li>
-                        Integration with existing solvers (CLI, HPC, or custom backends)
-                    </li>
-                    <li>
-                        Scientific UI/UX built for actual workflows—not generic dashboards
-                    </li>
-                    <li>
-                        Data exploration tools for large simulation outputs
-                    </li>
-                </ul>
 
-                Result: Faster insight, faster iteration, and dramatically improved usability of complex models.
                 </div>
+                <div class=" box">
+                    <video src="vid/proto.mp4" autoplay loop muted style="width:100%"/>
+                </div>
+
+
+               </div>
             </div>
             
 
             <div class="article">
-                <div class="article-content">
-                <h3>
+
+                <div class="article-content article-content-flex">
+                <div class="box">
+                <h3 style="margin:0">
                     GPU Compute & Parallelization 
                 </h3>
                 
-                I leverage modern hardware to push simulations and computation to the next level.
-
-                GPU acceleration (OpenGL compute, CUDA-style workflows, WebGPU)
-                Parallelization strategies for large-scale workloads
-                Real-time or near-real-time simulation pipelines
-                Performance profiling and architecture-level optimization
-
-                Result: Orders-of-magnitude improvements in speed and interactivity where it matters.
-                </div>
-            </div>
-            <div class="article">
-
-                <div class="article-content">
-                <h3>
-                    From Research Tool -> Commercial Product
-                </h3>
-                    I help turn internal tools into usable, scalable software systems.
-
-                    Clean architecture (modular, extensible, maintainable)
-                    GUI layers on top of existing solvers
-                    Automation, testing, and deployment workflows
-                    Preparing systems for external users, contracts, or commercialization
-
-                    Result: Software that isn’t just functional—but usable, scalable, and valuable.
+                I leverage modern hardware to push simulations and computation to the next level using GPU Compute and Parrelization strategies.
 
                 </div>
+                <div class=" box">
+                    <video src="vid/gpucompute.webm" autoplay loop muted style="width:100%"/>
+                </div>
+
+
             </div>
  <!-- <div class="article"> -->
  <!--                <h3> High-Performance Numerical & Computational Engineering</h3> -->
@@ -245,30 +214,30 @@
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2022-2026 CAPARS: Atmospheric Dispersion Modeling</h3>
+                <h3 style="margin:0">2022-2026 CAPARS: Atmospheric Dispersion Modeling</h3>
                 <p>CAPARS is a large-scale atmospheric dispersion modeling system used to develop Emergency Action Levels (EALs) and Protective Action Guidelines (PAGs) in response to simulated chemical and radiological release scenarios.
                 The system was originally developed in the 1990s by multiple engineers. I later took full ownership of the codebase and infrastructure, upgrading, customizing, and deploying CAPARS in a highly secure environment at Sandia National Laboratories.
                 </p>
 
-                <img src="img/capars.png" class="card" style="height:35vh" />
+                <img src="img/capars.png" class="" style="height:35vh" />
             </div>
             </div>
 
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2022-2024 Skills Over Paper</h3>
+                <h3 style="margin:0">2022-2024 Skills Over Paper</h3>
                 <p>
                 I founded and solo developed a developer–company matchmaking platform built with Next.js, React, and PostgreSQL.  The platform is centered around a structured, skill-based resume that captures detailed and nuanced developer capabilities. Developers are awarded specialty badges at different proficiency levels based on completed courses, demonstrated projects, and verified work experience.
                 </p>
-                <img src="img/sop.png" class="card" style="height:35vh" />
+                <img src="img/sop.png" class="" style="height:35vh" />
             </div>
             </div>
 
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2022 Solvere: An LC Detector</h3>
+                <h3 style="margin:0">2022 Solvere: An LC Detector</h3>
                 <p>
                 This was a short-term contract with Activated Research Company LLC.
 
@@ -276,13 +245,13 @@
 
                 I diagnosed and fixed a long-standing socket communication bug that had caused persistent reliability issues in production, resolving a problem that had remained unsolved for several months.
                 </p>
-                <img src="img/solver.png" class="card" style="height:35vh" />
+                <img src="img/solvere.jpg" class="" style="height:35vh" />
             </div>
             </div>
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2021 HealthIQ: Cognitive Quiz</h3>
+                <h3 style="margin:0">2021 HealthIQ: Cognitive Quiz</h3>
                 <p>
                 This project was delivered under an aggressive two-week timeline, compressing several months of planned work.
 
@@ -297,7 +266,7 @@
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2020 Brain Break: A neurotherapeutic game</h3>
+                <h3 style="margin:0">2020 Brain Break: A neurotherapeutic game</h3>
                 <p>
                 BrainBrake was a 3D game built from scratch in Unity.
 
@@ -305,40 +274,40 @@
 
                 The game was intentionally designed as a calming, focus-driven experience, aimed at reducing anxiety and overthinking through repetitive, visually engaging interaction.
                 </p>
-                <img src="img/brainbreak.png" class="card" style="height:35vh" />
+                <video src="vid/brainbreak.mp4" class="" loop muted autoplay style="height:35vh" />
 
             </div>
             </div>
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2019-2024 AlphaACT: Emergency Response Training Simulator</h3>
+                <h3 style="margin:0">2019-2024 AlphaACT: Emergency Response Training Simulator</h3>
                 <p>
                 I’ve worked with the original creator of AlphaACT since 2018, serving as the primary developer responsible for maintaining, upgrading, and customizing the platform for multiple clients.
 
                 AlphaACT is a psychology-based training system designed to help emergency response professionals perform accurately under pressure by simulating a wide range of high-stress emergency scenarios. The platform is used across multiple industries and relies on realistic scenario modeling to build decision-making resilience and situational awareness.
                 </p>
-                <img src="img/alphaact.png" class="card" style="height:35vh" />
+                <img src="img/alphaact.gif" class="" style="height:35vh" />
 
             </div>
             </div>
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2019-2021 IGrad: A data and feature rich financial management platform</h3>
+                <h3 style="margin:0">2019-2021 IGrad: A data and feature rich financial management platform</h3>
                 <p>
                 This was a longer-term freelance engagement working within a Scrum team of experienced engineers at iGrad.
 
                 I contributed across the stack, including designing and implementing APIs, integrating machine learning–driven features, and building complex, responsive React frontends. My work included developing core web application components, implementing shared systems used across the platform, and migrating existing functionality from Angular to React/Redux.
                 </p>
-                <img src="img/igrad.png" class="card" style="height:35vh" />
+                <img src="img/igrad.png" class="" style="height:35vh" />
 
             </div>
             </div>
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2019 Poker Games</h3>
+                <h3 style="margin:0">2019 Poker Games</h3>
                 <p>
                     This was a freelance engagement involving multiple game development projects.
 
@@ -346,14 +315,14 @@
 
                     Deliverables included fully functional implementations of games such as Baccarat, split-bet roulette, and double-ball roulette..
                 </p>
-                <img src="img/poker.png" class="card" style="height:35vh" />
+                <video src="vid/doubleballroulette.webm" class="" loop muted autoplay style="height:35vh" />
 
             </div>
             </div>
              <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2018-2019 Dorger Software Architects</h3>
+                <h3 style="margin:0">2018-2019 Dorger Software Architects</h3>
                 <p>
                     I worked at Dorger Software Architects, contributing to the development and maintenance of multiple medium- to large-scale state systems.
 
@@ -363,24 +332,24 @@
 
                     I also built an internal WYSIWYG Change tracking system.
                 </p>
-                <img src="img/dorger.png" class="card" style="height:35vh" />
+                <img src="img/dorger.png" class="" style="height:35vh" />
 
             </div>
             </div>
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2016-2017 History 360 education interactive map</h3>
+                <h3 style="margin:0">2016-2017 History 360 education interactive map</h3>
                 <p>
                 I built an interactive map for viewing historical events across time for a local University.
                 </p>
-                <img src="img/history360.png" class="card" style="height:35vh" />
+                <img src="img/history360.png" class="" style="height:35vh" />
             </div>
             </div>
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2014-2015 CARES: Senior Developer role</h3>
+                <h3 style="margin:0">2014-2015 CARES: Senior Developer role</h3>
                 <p>
                 I worked as a Senior Developer on the Centralized Alabama Recipient Eligibility System, a large-scale web platform serving the state of Alabama.
 
@@ -388,14 +357,14 @@
 
                 During this role, I was promoted to Senior Developer and led several small teams, contributing to planning, technical guidance, and code reviews. I was later assigned to the senior core development group, where I focused on higher-complexity technical problems affecting system performance, scalability, and reliability.
                 </p>
-                <img src="img/cares.png" class="card" style="height:35vh" />
+                <img src="img/cares.webp" class="" style="height:35vh" />
 
             </div>
             </div>
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2012-2014 Envista Data Migration Tool</h3>
+                <h3 style="margin:0">2012-2014 Envista Data Migration Tool</h3>
                 <p>
                     I joined Envista as the company’s first intern after proactively reaching out and negotiating the role.
 
@@ -403,14 +372,14 @@
 
                     This role provided early exposure to enterprise-scale system design, complex data models, and production software workflows.
                 </p>
-                <img src="img/envista.png" class="card" style="height:35vh" />
+                <img src="img/envista.jpg" class="" style="height:35vh" />
 
             </div>
             </div>
             <div class="article" style="padding-top:14vh">
 
                 <div class="article-content">
-                <h3>2011-2013 MDAD: Mississippi Damage Awards Database</h3>
+                <h3 style="margin:0">2011-2013 MDAD: Mississippi Damage Awards Database</h3>
                 <p>
                     I co-founded and built a damage awards database for legal professionals, designed to help lawyers draw statistical conclusions about potential outcomes in future cases. I built the system from the ground up using ASP.NET Web Forms, including the application architecture, data model, and core business logic.
 
@@ -420,7 +389,7 @@
 
 
                 </p>
-                <img src="img/mdad.png" class="card" style="height:35vh" />
+                <img src="img/mdad.png" class="" style="height:35vh" />
 
             </div>
             </div>

@@ -1,27 +1,14 @@
-
 :root {
-  --fs-xxs: clamp(0.85rem, 0.8rem + 0.3vw, 0.95rem);
-  --fs-xs:  clamp(1rem, 0.9rem + 0.4vw, 1.1rem);
-  --fs-sm:  clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
-  --fs-base: clamp(1.4rem, 1.4rem + 0.8vw, 1.8rem);
-  --fs-lg:  clamp(1.5rem, 1.2rem + 1vw, 2rem);
-  --fs-xl:  clamp(2rem, 1.5rem + 1.5vw, 3rem);
-  --fs-2xl: clamp(2.5rem, 2rem + 2vw, 4rem);
-  --fs-3xl: clamp(3rem, 2.5rem + 2.5vw, 5rem);
+  --fs-xxs: clamp(0.7rem, 0.68rem + 0.01vw, 0.8rem);
+  --fs-xs: clamp(0.8rem, 0.76rem + 0.05vw, 0.9rem);
+  --fs-sm: clamp(0.9rem, 0.84rem + 0.1vw, 1.05rem);
+  --fs-base: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  --fs-lg: clamp(1.2rem, 1rem + 0.6vw, 1.6rem);
+  --fs-xl: clamp(1.6rem, 1.25rem + 1vw, 2.4rem);
+  --fs-2xl: clamp(2rem, 1.6rem + 1.5vw, 3.2rem);
+  --fs-3xl: clamp(2.4rem, 2rem + 2vw, 3.6rem);
 }
 
-@media (max-width: 768px) {
-  :root {
-    --fs-xxs: calc(var(--fs-xxs) * 2.5);
-    --fs-xs:  calc(var(--fs-xs)  * 2.5);
-    --fs-sm:  calc(var(--fs-sm)  * 2.5);
-    --fs-base:calc(var(--fs-base)* 2.5);
-    --fs-lg:  calc(var(--fs-lg)  * 2.5);
-    --fs-xl:  calc(var(--fs-xl)  * 2.5);
-    --fs-2xl: calc(var(--fs-2xl) * 2.5);
-    --fs-3xl: calc(var(--fs-3xl) * 2.5);
-  }
-}
 
 html { 
     margin: 0; 
@@ -106,15 +93,27 @@ z-index:1;
 padding:3em;
 text-align:center
 }
+
 .header {
-position:fixed;
-top:0;
-width:100%;
-opacity:1;
-z-index:100;
-background-color: #11111f;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position:fixed;
+    top:0;
+    width:100%;
+    opacity:1;
+    z-index:100;
+    background-color: #11111f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling: touch;
 }
+
+.header > * {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
 .tab:first-of-type { padding-left:1em }
 
 .footer {
@@ -210,7 +209,7 @@ a:link, a:visited {
 
 .section-top {
   padding: 1rem;
-  padding-top: 4rem;
+  padding-top: 3rem;
   padding-bottom: 1rem;
   position: absolute;
   top: 0;
@@ -230,25 +229,40 @@ a:link, a:visited {
   box-sizing: border-box;
   display: grid;
   place-items: start center;
-  padding-top: 20vh;
+  padding-top: 28vh;
 }
 
 .section.horizontal .article-content {
   width: calc(90vw);
-  max-height: 62vh;
+  max-height: 70vh;
   overflow: auto;
   padding: 1em;
-  background-color: #223;
+  background-color: #112;
   transform-style: preserve-3d;
   transform-origin: center center;
   backface-visibility: hidden;
   will-change: transform, opacity;
-}
+  }
 
 
 .article-content {
   padding: 1em;
-  background-color:#223;
 }
 
+.article-content-flex {
+  display:flex;
+  flex-direction:column;
+  gap: 1rem;
+background-color:#223;
 
+}
+
+@media (min-width: 1400px) {
+    .article-content-flex {
+        flex-direction: row;
+    }
+.box {
+    flex:1
+
+}
+}

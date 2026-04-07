@@ -7,7 +7,7 @@
   background-color:#223;
 }
 
-@media (min-width: 1240px) {
+@media (min-width: 1440px) {
     .article-content {
         flex-direction: row;
     }

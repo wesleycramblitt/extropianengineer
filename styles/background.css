@@ -1,0 +1,21 @@
+
+.engineering-grid {
+    background-color: #111115;
+
+    background-image:
+    /* minor grid */
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px),
+
+    /* major grid */
+    linear-gradient(to right, rgba(255,255,255,0.12) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba(255,255,255,0.12) 2px, transparent 2px);
+
+    background-size:
+    20px 20px,
+    20px 20px,
+    100px 100px,
+    100px 100px;
+}
+
+

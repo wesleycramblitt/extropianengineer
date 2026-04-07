@@ -36,10 +36,20 @@
     <!-- CustomWiggle requires CustomEase -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomWiggle.min.js"></script>
 
-    <script src="scripts/gsap.js"></script>
+    <script src="scripts/header-scramble.js"></script>
+    <script src="scripts/header-tabs.js"></script>
+    <script src="scripts/slides.js"></script>
     <script src="scripts/responsive-videos.js"></script>
 
-    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="styles/core.css" >
+    <link rel="stylesheet" href="styles/background.css" >
+    <link rel="stylesheet" href="styles/fonts.css" >
+    <link rel="stylesheet" href="styles/hero.css" >
+    <link rel="stylesheet" href="styles/header.css" >
+    <link rel="stylesheet" href="styles/links.css" >
+    <link rel="stylesheet" href="styles/articles.css" >
+    <link rel="stylesheet" href="styles/card.css" >
+    <link rel="stylesheet" href="styles/slides.css" >
 </head>
     <body id="intro" class="engineering-grid">
         <div class="header" >
@@ -75,25 +85,25 @@
 
         </div>
         <div id="whatido">
-        <div  class="section horizontal" >
+        <div  class="section " >
             <div class="section-top">
                 <h2 style="padding:0; margin:0; line-height:auto"> What I Do</h2>
                 <div class="normal" style="width:90vw" > I build high-performance simulation and visualization systems—modernizing legacy code, accelerating computation, and turning complex models into interactive tools.</div>
             </div>
             <div class="article">
-                <div class="article-content article-content-flex">
-                <div class="box">
-                <h3 style="margin:0">Modernize & Optimize Scientific Software </h3>
-                <div class="">I take large, difficult codebases (Fortran, C/C++, Python, mixed stacks) and turn them into fast, reliable, maintainable systems.
-                </div>
-                </div>
-                <div class="video-crop box">
-                    <video src="vid/modernization.webm" style="width:100%" autoplay muted loop></video>
-                </div>
+                <div class="article-content ">
+                    <div class="box">
+                    <h3 style="margin:0">Modernize & Optimize Scientific Software </h3>
+                    <div class="">I take large, difficult codebases (Fortran, C/C++, Python, mixed stacks) and turn them into fast, reliable, maintainable systems.
+                    </div>
+                    </div>
+                    <div class="box">
+                        <video src="vid/modernization.webm" style="width:100%" autoplay muted loop></video>
+                    </div>
                 </div>
             </div>
             <div class="article">
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">
                     Critical Bug Resolution & Numerical Debugging
@@ -108,13 +118,13 @@
                 </div>
             </div>
             <div class="article">
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                 <div class="box">
                 <h3 style="margin:0" >Build Interactive Simulation & Visualization Systems</h3>
                 I design systems that let engineers and researchers see, control, and iterate on simulations in real time.
 
                 </div>
-                <div class="video-crop box">
+                <div class="-crop box">
                     <video src="vid/proto.mp4" autoplay loop muted style="width:100%"/>
                 </div>
 
@@ -125,7 +135,7 @@
 
             <div class="article">
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                 <div class="box">
                 <h3 style="margin:0">
                     GPU Compute & Parallelization 
@@ -134,7 +144,7 @@
                 I leverage modern hardware to push simulations and computation to the next level using GPU Compute and Parrelization strategies.
 
                 </div>
-                <div class="video-crop box">
+                <div class="box">
                     <video src="vid/gpucompute.webm" autoplay loop muted style="width:100%"/>
                 </div>
 
@@ -159,31 +169,31 @@
         </div>
         </div>
         <div id="engagement">
-            <div  class="section horizontal" >
+            <div  class="" >
                 <div class="section-top">
                     <h2 style="padding:0; margin:0"> Engagement Models</h2>
                     <p style="90vw">Ideally start with a free audit, followed by fast-paced fixed scope contracts, followed by a longer term retainer.</p>
                 </div>
-            <div class="article">
-            <div class="article-content">
+            <div class="article" style="margin:1em">
+            <div class="article-content" style="display:block">
                 <h3 style="padding:0; margin:0">Short, focused audits</h3>
                 <p>I always start with a short, fixed audit of your existing system and meetings to discuss potential upgrades or development of new software.</p>
             </div>
             </div>
-            <div class="article">
-            <div class="article-content">
+            <div class="article" style="margin:1em">
+            <div class="article-content" style="display:block">
                 <h3 style="padding:0; margin:0">Fast paced contracts</h3>
                 <p>Fast paced, fixed-scope engagements to upgrade, optimize, fix bugs, build something new, etc.. Usually budgeted as a fixed price based on value</p>
             </div>
             </div>
-            <div class="article">
-            <div class="article-content">
+            <div class="article" style="margin:1em">
+            <div class="article-content" style="display:block">
                 <h3 style="padding:0; margin:0">Maintenance/Advisory retainers</h3>
                 <p>Lightweight retainers for teams that need continued architectural or maintenance oversight without full-time involvement. These can be long term (years) if wanted.
             </div>
             </div>
-            <div class="article">    
-            <div class="article-content">
+            <div class="article" style="margin:1em">    
+            <div class="article-content" style="display:block">
                 <h3 style="padding:0; margin:0">Strategic partnerships or IP sharing</h3>
                 <p>In limited cases, I'm open to B2B partnerships or shared-IP arrangements where the problem is well-defined, high-impact, and aligns with my interests.
             </div>
@@ -191,12 +201,12 @@
             </div>
         </div>
         <div id="pastwork"> 
-            <div class="section horizontal">
+            <div class="section ">
                 <div class="section-top">
                     <h2 style="padding:0; margin:0">Past Work </h2>
                 </div>
-            <div class="article" style="padding-top:14vh">
-                <div class="article-content article-content-flex">
+            <div class="article" >
+                <div class="article-content ">
                 <div class="box">
                 <h3 style="margin:0">2026 HyperFat | Whoosh HPC Lab LLC</h3>
                     <p>In progress, building a commercial grade interactive UI/UX for a hypersonic adaptive mesh solver. Features planned include editing models, boundary conditions, command bus architecture, save/load scenes, manage batch processes.</p>
@@ -208,9 +218,9 @@
             </div>
             </div>
 
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-             <div class="article-content article-content-flex">
+             <div class="article-content ">
                 <div class="box">
                 <h3 style="margin:0">2025-2026 Autoligo</h3>
                     <p>
@@ -223,9 +233,9 @@
                 </div>
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2022-2026 CAPARS: Atmospheric Dispersion Modeling</h3>
                 <p>CAPARS is a large-scale atmospheric dispersion modeling system used to develop Emergency Action Levels (EALs) and Protective Action Guidelines (PAGs) in response to simulated chemical and radiological release scenarios.
@@ -238,9 +248,9 @@
             </div>
             </div>
 
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2022-2024 Skills Over Paper</h3>
                 <p>
@@ -253,9 +263,9 @@
             </div>
             </div>
 
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2022 Solvere: An LC Detector</h3>
                 <p>
@@ -269,9 +279,9 @@
                 </div>
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2021 HealthIQ: Cognitive Quiz</h3>
                 <p>
@@ -287,9 +297,9 @@
                 </div>
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                 <div class="box">
                 <h3 style="margin:0">2020 Brain Break: A neurotherapeutic game</h3>
                 <p>
@@ -306,9 +316,9 @@
 
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                 <div class="box"
                 <h3 style="margin:0">2019-2024 AlphaACT: Emergency Response Training Simulator</h3>
                 <p>
@@ -322,9 +332,9 @@
                 </div>
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box"
                 <h3 style="margin:0">2019-2021 IGrad: A data and feature rich financial management platform</h3>
                 <p>
@@ -338,9 +348,9 @@
                 </div>
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2019 Poker Games</h3>
                 <p>
@@ -356,9 +366,9 @@
                 </div>
             </div>
             </div>
-             <div class="article" style="padding-top:14vh">
+             <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2018-2019 Dorger Software Architects</h3>
                 <p>
@@ -376,9 +386,9 @@
                 </div>
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2016-2017 History 360 education interactive map</h3>
                 <p>
@@ -390,9 +400,9 @@
                 </div>
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2014-2015 CARES: Senior Developer role</h3>
                 <p>
@@ -408,9 +418,9 @@
                 </div>
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2012-2014 Envista Data Migration Tool</h3>
                 <p>
@@ -426,9 +436,9 @@
                 </div>
             </div>
             </div>
-            <div class="article" style="padding-top:14vh">
+            <div class="article" >
 
-                <div class="article-content article-content-flex">
+                <div class="article-content ">
                     <div class="box">
                 <h3 style="margin:0">2011-2013 MDAD: Mississippi Damage Awards Database</h3>
                 <p>
@@ -450,50 +460,52 @@
             </div>
         </div>
         <div id="testimonials">
-        <div class="section horizontal">
+        <div class=" ">
             <div class="section-top"><h3>Testimonials</h3></div>
-            <div class="article" style="padding-top:18vh">
+            <div class="article" style="margin:1em">
                 <div class="article-content">
                     “Wes is a highly professional and talented software developer. He tackled complex and difficult issues in more than ten distinctly different assignments and was successful in all of them. He came up to speed quickly on legacy software that was not well documented – a key need in our project. He listened well and quickly gained understanding of what we needed to accomplish, then developed creative solutions to our needs. He managed his time well and met schedule and was close to budget in an exploratory environment where the effort required was difficult to predict. Overall, Wes significantly exceeded our expectations. I would recommend him for any software development and management project that fits his background.” – Reed Hodgin
                 </div>
             </div>
-            <div class="article" style="padding-top:18vh">
+            <div class="article" style="margin:1em">
                 <div class="article-content">
                     “Wes is extremely proficient, diligent and highly competent. He quickly understands a task, finds effective solutions to simple or complex problems and implements on time and within budget. Would more could you ask!?!” – Reed Hodgin
                 </div>
             </div>
-            <div class="article" style="padding-top:18vh">
+            <div class="article" style="margin:1em">
                 <div class="article-content">
                     “Highly Rated Freelancer.” – Dan Hilgert
                 </div>
             </div>
-            <div class="article" style="padding-top:18vh">
+            <div class="article" style="margin:1em">
                 <div class="article-content">
                     “Wes went above and beyond and his knowledge was above the rest of the pack, I will use Wes for other projects and tweaks in the future.” – Max (Vegas Games) again
                 </div>
             </div>
-            <div class="article" style="padding-top:18vh">
+            <div class="article" style="margin:1em">
                 <div class="article-content">
                     “Wes is fast and very good at what he does. I would highly recommend and will use again.” – Max (Vegas Games)
                 </div>
             </div>
-            <div class="article" style="padding-top:18vh">
+            <div class="article" style="margin:1em">
                 <div class="article-content">
                     “Wes is talented, personable and overall a great person to work with. There’s always a challenge in finding someone who can balance communication, skill, and productivity, but Wes really brings them all. I would definitely hire him again for my next project.” – Kurt Roots
                 </div>
             </div>
-            <div class="article" style="padding-top:18vh">
+            <div class="article" style="margin:1em">
                 <div class="article-content">
                     “Wes is a fantastic developer. Easy to work with and produces high quality code. He was able to handle everything we threw at him from legacy code updates to new technology PoCs. He worked well with our team and was very professional in dealing with our vendors.” – Danny Crinion
                 </div>
             </div>
-            <div class="article" style="padding-top:18vh">
+            <div class="article" style="margin:1em">
                 <div class="article-content">
                     “Wesley did a great job on my mobile game, coming up with creative solutions to its challenges. He is easy to work with, consistent and responds quickly to feedback. Highly recommend!” – V (Relative Magnitude)
                 </div>
             </div>
         </div>
         </div>
+
+        <div id="spacer" style="height: 50vh"></div>
  
     </body>
 </html>

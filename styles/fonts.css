@@ -1,0 +1,55 @@
+:root {
+  --fs-xxs: clamp(0.7rem, 0.68rem + 0.01vw, 0.8rem);
+  --fs-xs: clamp(0.8rem, 0.76rem + 0.05vw, 0.9rem);
+  --fs-sm: clamp(0.9rem, 0.84rem + 0.3vw, 1.05rem);
+  --fs-base: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  --fs-lg: clamp(1.2rem, 1rem + 0.6vw, 1.6rem);
+  --fs-xl: clamp(1.6rem, 1.25rem + 1vw, 2.4rem);
+  --fs-2xl: clamp(2rem, 1.6rem + 1.5vw, 3.2rem);
+  --fs-3xl: clamp(2.4rem, 2rem + 2vw, 3.6rem);
+}
+
+html { 
+    margin: 0; 
+    padding:0;
+    scroll-behavior: smooth;
+}
+
+body {
+  margin:0;
+  padding:0;
+
+  color: #E6E6EB;
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  
+}
+
+h1 {
+    color:white;
+  font-size: var(--fs-3xl);
+}
+
+h2 {
+    color:white;
+  font-size: var(--fs-2xl);
+}
+
+h3,.large {
+    color:white;
+  font-size: var(--fs-xl);
+}
+
+p,.normal {
+  font-size: var(--fs-base);
+}
+
+small {
+  font-size: var(--fs-sm);
+}
+
+* {
+ font-family: "Iceland", sans-serif;
+ font-weight: 400;
+ font-style: normal
+}

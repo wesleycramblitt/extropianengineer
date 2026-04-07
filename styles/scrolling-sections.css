@@ -1,0 +1,49 @@
+
+.section.horizontal {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  isolation: isolate;
+}
+
+.section-top {
+  padding: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.section.horizontal .article {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: grid;
+  place-items: start center;
+  padding-top: 20vh;
+}
+
+.section.horizontal .article-content {
+  width: calc(90vw);
+  max-height: 80vh;
+  overflow: auto;
+  padding: 1em;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  }
+
+

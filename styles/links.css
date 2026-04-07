@@ -1,0 +1,27 @@
+
+
+a:hover {
+  filter: brightness(120%); 
+}
+
+a {
+    text-decoration: none ;
+    display:inline-block;
+    height: 100%;
+    width: 100%;
+}
+a:link, a:visited {
+  text-decoration: none;
+  color: #E6E6EB;
+ /* Set your desired permanent color */
+}
+
+.button {
+  border: none;
+  padding: 8px ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+

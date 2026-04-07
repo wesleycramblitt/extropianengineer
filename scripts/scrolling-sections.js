@@ -1,13 +1,4 @@
-    // use a script tag or an external JS file
 document.addEventListener("DOMContentLoaded", (event) => {
-    gsap.registerPlugin(Draggable,DrawSVGPlugin,EaselPlugin,Flip,GSDevTools,InertiaPlugin,MotionPathHelper,MotionPathPlugin,MorphSVGPlugin,Observer,Physics2DPlugin,PhysicsPropsPlugin,PixiPlugin,ScrambleTextPlugin,ScrollTrigger,ScrollSmoother,ScrollToPlugin,SplitText,TextPlugin,RoughEase,ExpoScaleEase,SlowMo,CustomEase,CustomBounce,CustomWiggle)
-
-      //Scramble header
-    gsap.to(document.getElementById("hero"), {duration: 1, scrambleText: "Wes Cramblitt"});
-
-    gsap.to(document.getElementById("hero2"), {duration: 1, scrambleText: "Scientific Software Engineer"});
-         
-    gsap.to(document.getElementById("hero3"), {duration: 1, scrambleText: "C++ | OpenGL | Javascript | Python"});
     document.querySelectorAll(".section.horizontal").forEach((section) => {
       const cards = gsap.utils.toArray(section.querySelectorAll(".article-content"));
       if (!cards.length) return;
@@ -131,51 +122,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-
- function updateTabs() {
-      var whatidotab = document.getElementById("whatidotab") 
-      var introtab = document.getElementById("introtab") 
-      var engagementtab = document.getElementById("engagementtab") 
-      var pastworktab = document.getElementById("pastworktab")
-      var testimonialtab = document.getElementById("testimonialtab")
-
-      var tabs = [];
-      tabs.push(introtab);
-      tabs.push(whatidotab);
-      tabs.push(engagementtab);
-      tabs.push(pastworktab);
-      tabs.push(testimonialtab);
-      var selected = 0;
-
-      if (window.scrollY >= document.getElementById("testimonials").offsetTop) {
-           testimonialtab.classList.add("selected-tab")
-           selected = 4; 
-      }
-     else if (window.scrollY >= document.getElementById("pastwork").offsetTop) {
-           pastworktab.classList.add("selected-tab")
-           selected = 3; 
-      }
-      else if (window.scrollY >= document.getElementById("engagement").offsetTop) {
-           engagementtab.classList.add("selected-tab")
-          selected = 2;
-      }
-      else if (window.scrollY >= document.getElementById("whatido").offsetTop) {
-           whatidotab.classList.add("selected-tab")
-          selected = 1;
-      }
-      else {
-          introtab.classList.add("selected-tab")
-          selected = 0;
-      }
-
-      for (var i = 0; i < tabs.length; i++) {
-            if (i == selected) continue;
-           tabs[i].classList.remove("selected-tab")
-      }
-
- }
-
-window.addEventListener('scroll', updateTabs );
-window.addEventListener("load", () => ScrollTrigger.refresh());
-window.addEventListener("resize", () => ScrollTrigger.refresh());
 

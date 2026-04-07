@@ -10,9 +10,9 @@
       var tabs = [];
       tabs.push(introtab);
       tabs.push(whatidotab);
-      tabs.push(engagementtab);
       tabs.push(pastworktab);
       tabs.push(testimonialtab);
+      tabs.push(engagementtab);
       var selected = 0;
 
       if (window.scrollY >= document.getElementById("testimonials").offsetTop) {

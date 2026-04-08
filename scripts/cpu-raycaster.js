@@ -1,3 +1,4 @@
+import { saveJson, loadJson } from './files.js';
 
 document.addEventListener("DOMContentLoaded",async () => {
     // Select the canvas
@@ -193,17 +194,23 @@ document.addEventListener("DOMContentLoaded",async () => {
     }
 
     var mesh = await loadOBJ("../mesh/cat.obj");
+
+
+
     // console.log(mesh);
-    var cat = {
-    "vertices" : mesh.positions, 
-    "indices": mesh.indices, 
-        "T" : T(0,-55,-250),
-        "R" : R([0,0, 0], 0),
-        "S" : S(0.5,0.5,0.5),
-        "world_vertices": [],
-        "screen_vertices": []
-    }
+    // var cat = {
+    // "vertices" : mesh.positions, 
+    // "indices": mesh.indices, 
+    //     "T" : T(0,-55,-250),
+    //     "R" : R([0,0, 0], 0),
+    //     "S" : S(0.5,0.5,0.5),
+    //     "world_vertices": [],
+    //     "screen_vertices": []
+    // }
     
+   var cat = await loadJson("../mesh/cat.json"); 
+    
+
     function updateCircularPosition(object) {
         const r = 1;          // radius
         const speed = 1.0;      // radians per second

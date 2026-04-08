@@ -212,4 +212,23 @@
   .section-slider-count {
     font-size: 0.85rem;
   }
+
+  .section.slider-enabled {
+      position: relative;
+      overflow: hidden;
+      min-height: 87vh;
+    }
+
+     /* viewport */
+    .section-slider-viewport {
+          position: relative;
+          overflow: hidden;
+          width: 100%;
+          min-height: 80vh;
+          touch-action: pan-y;
+          user-select: none;
+          cursor: grab;
+          z-index: 5;
+    }
+
 }

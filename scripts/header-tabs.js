@@ -1,4 +1,68 @@
-    // use a script tag or an external JS file
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const ids = ["whatido", "intro", "engagement", "demos", "pastwork", "testimonials"];
+  const THRESHOLD = 200;
+
+  const sections = ids
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  let snapPoints = [];
+  let maxScroll = 0;
+
+  function computeSnapPoints() {
+    maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    snapPoints = sections.map(el => {
+      const top = el.getBoundingClientRect().top + window.scrollY;
+      return top / maxScroll;
+    });
+  }
+
+  computeSnapPoints();
+
+  ScrollTrigger.addEventListener("refreshInit", computeSnapPoints);
+  window.addEventListener("resize", () => {
+    computeSnapPoints();
+    ScrollTrigger.refresh();
+  });
+
+  ScrollTrigger.create({
+    start: 0,
+    end: () => document.documentElement.scrollHeight - window.innerHeight,
+
+    snap: {
+      snapTo: (progress, self) => {
+        const scroll = self.scroll();
+        const scrollProgress = maxScroll > 0 ? scroll / maxScroll : 0;
+
+        let candidates = [];
+
+        candidates = snapPoints;
+
+        if (!candidates.length) return progress;
+
+        let closest = progress;
+        let minDistPx = Infinity;
+
+        for (const point of candidates) {
+          const distPx = Math.abs(point - scrollProgress) * maxScroll;
+          if (distPx < minDistPx) {
+            minDistPx = distPx;
+            closest = point;
+          }
+        }
+
+        return minDistPx <= THRESHOLD ? closest : progress;
+      },
+
+      duration: 0.05,
+      delay: 0.01,
+      ease: "power1.out"
+    }
+  });
+});
 
  function updateTabs() {
       var whatidotab = document.getElementById("whatidotab") 
@@ -6,39 +70,30 @@
       var engagementtab = document.getElementById("engagementtab") 
       var pastworktab = document.getElementById("pastworktab")
       var testimonialtab = document.getElementById("testimonialtab")
+      var demotab = document.getElementById("demostab")
 
-      var tabs = [];
-      tabs.push(introtab);
-      tabs.push(whatidotab);
-      tabs.push(pastworktab);
-      tabs.push(testimonialtab);
-      tabs.push(engagementtab);
+      var tabs = [
+        ["intro", introtab],
+        ["whatido", whatidotab],
+        ["demos", demotab],
+        ["pastwork", pastworktab],  
+        ["testimonials", testimonialtab],
+        ["engagement", engagementtab]
+
+      ];
       var selected = 0;
 
-      if (window.scrollY >= document.getElementById("testimonials").offsetTop) {
-           testimonialtab.classList.add("selected-tab")
-           selected = 4; 
-      }
-     else if (window.scrollY >= document.getElementById("pastwork").offsetTop) {
-           pastworktab.classList.add("selected-tab")
-           selected = 3; 
-      }
-      else if (window.scrollY >= document.getElementById("engagement").offsetTop) {
-           engagementtab.classList.add("selected-tab")
-          selected = 2;
-      }
-      else if (window.scrollY >= document.getElementById("whatido").offsetTop) {
-           whatidotab.classList.add("selected-tab")
-          selected = 1;
-      }
-      else {
-          introtab.classList.add("selected-tab")
-          selected = 0;
+      for (var i = tabs.length-1; i >= 0; i--) {
+          if (window.scrollY >= document.getElementById(tabs[i][0]).offsetTop) {
+               tabs[i][1].classList.add("selected-tab")
+               selected = i; 
+              break;
+          }
       }
 
       for (var i = 0; i < tabs.length; i++) {
-            if (i == selected) continue;
-           tabs[i].classList.remove("selected-tab")
+           if (i == selected) continue;
+           tabs[i][1].classList.remove("selected-tab")
       }
 
  }

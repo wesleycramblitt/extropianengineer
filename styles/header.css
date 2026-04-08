@@ -1,14 +1,14 @@
 .tab {
- background-color: none;
- font-size: var(--fs-sm);
- height:100%;
- display: inline-block;
- padding:1em;
-vertical-align:middle;
+     background-color: none;
+     font-size: var(--fs-sm);
+     height:100%;
+     display: inline-block;
+     padding:1em;
+    vertical-align:middle;
 }
 
 .tab:hover:not(.selected-tab) {
-background-color: #223; 
+    background-color: #223; 
 }
 
 .header {

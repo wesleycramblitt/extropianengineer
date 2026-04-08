@@ -40,6 +40,8 @@
     <script src="scripts/header-tabs.js"></script>
     <script src="scripts/slides.js"></script>
     <script src="scripts/responsive-videos.js"></script>
+    <script src="scripts/mesh.js"></script>
+    <script src="scripts/cpu-raycaster.js"></script>
 
     <link rel="stylesheet" href="styles/core.css" >
     <link rel="stylesheet" href="styles/background.css" >
@@ -50,12 +52,14 @@
     <link rel="stylesheet" href="styles/articles.css" >
     <link rel="stylesheet" href="styles/card.css" >
     <link rel="stylesheet" href="styles/slides.css" >
+    <link rel="stylesheet" href="styles/canvas.css" >
 </head>
     <body id="intro" class="engineering-grid">
         <div class="header" >
             <div id="introtab" class="tab selected-tab"><a href="#intro">Intro</a></div>
             <div id="whatidotab" class="tab" ><a href="#whatido" >What I Do</a></div>
-            <div id="pastworktab" class="tab"><a href="#pastwork">Past Work</a></div>
+            <div id="demostab" class="tab"><a href="#demos">Demos</a></div>
+            <div id="pastworktab" class="tab"><a href="#pastwork">Work</a></div>
             <div id="testimonialtab" class="tab"><a href="#testimonials">Testimonials</a></div>
             <div id="engagementtab" class="tab" ><a href="#engagement">Engagement Models</a></div>
             <div class="tab">
@@ -66,9 +70,8 @@
             </div>
         </div>
         <div class="hero">
-            <picture style="opacity:0.5;">
-              <source srcset="img/work.png" media="(max-width: 1000px)">
-              <source srcset="img/work-desktop.png" media="(max-width: 1800px)">
+            <picture style="opacity:0.7;">
+              <source srcset="img/work.png" media="(max-width: 1400px)">
               <img style="background-color:#111" src="img/work-xl.png"  />
             </picture>
             <div class="hero-content" style="">
@@ -88,7 +91,7 @@
         <div  class="section " >
             <div class="section-top">
                 <h2 style="padding:0; margin:0; line-height:auto"> What I Do</h2>
-                <div class="normal" style="width:90vw" > I build high-performance simulation and visualization systems—modernizing legacy code, accelerating computation, and turning complex models into interactive tools.</div>
+                <!-- <div class="normal" style="width:90vw" > I build high-performance simulation and visualization systems—modernizing legacy code, accelerating computation, and turning complex models into interactive tools.</div> -->
             </div>
             <div class="article">
                 <div class="article-content ">
@@ -150,28 +153,75 @@
 
 
             </div>
- <!-- <div class="article"> -->
- <!--                <h3> High-Performance Numerical & Computational Engineering</h3> -->
- <!--                 -->
- <!--                I build and improve the numerical core behind simulations and computational systems. -->
- <!---->
- <!--                PDE/ODE solvers, discretization methods, and numerical stability fixes -->
- <!--                Scientific computing pipelines (CPU, multi-threaded, distributed) -->
- <!--                Applied math implementation: linear algebra, optimization, statistics -->
- <!--                Physics-based modeling (fluids, diffusion, reaction systems, etc.) -->
- <!--                Debugging numerical inaccuracies and non-deterministic behavior -->
- <!---->
- <!--                Result: Models that are correct, stable, and performant—ready for real-world use. -->
- <!---->
- <!---->
- <!--            </div> -->
- <!---->
+            <div class="article">
+                 <div class="article-content ">
+                <div class="box">
+                    <h3 style="margin:0">
+                        High-Performance Numerical & Computational Engineering</h3>
+                    </h3>
+                    I have general knowledge of PDE/ODE solvers, discretization methods, and numerical stability, and I'm comfortable maintaining, fixing, and working on numerical computation code across domains.                
+                </div>  
+                <div class="box">
+                    <video src="vid/gpucompute.webm" autoplay loop muted style="width:100%"/>
+                </div>
+            </div>
         </div>
         </div>
+        </div>
+        <div id="demos">
+        <div  class="section " >
+            <div class="section-top">
+                <h2 style="padding:0; margin:0; line-height:auto">Demos</h2>
+                <!-- <div class="normal" style="width:90vw" >  -->
+                <!--     Live, Interactive Proofs of Capability. -->
+                <!-- </div> -->
+            </div>
+            <div class="article">
+                <div class="article-content ">
+                    <div class="box">
+                    <h3 style="margin:0">CPU bound raycaster in canvas</h3>
+                    <div class="">
+                        Proof of Capability: Manual, interactive, low level cpu bound 3d graphics programming.
+                    </div>
+                    </div>
+                    <div class="box">
+                        <canvas id="raycaster" />
+                    </div>
+                </div>
+            </div>
+         <div class="article">
+                <div class="article-content ">
+                    <div class="box">
+                    <h3 style="margin:0">WebGL interactive, real time CFD</h3>
+                    <div class="">
+                        Proof of Capability: Low level WebGL shader programming, Interactive CFD solver with different visualization modes
+                    </div>
+                    </div>
+                    <div class="box">
+                        <canvas id="webgl-sim" />
+                    </div>
+                </div>
+            </div>
+         <div class="article">
+                <div class="article-content ">
+                    <div class="box">
+                    <h3 style="margin:0">WebGPU+WASM interactive, real time CFD + Rigid Bodies</h3>
+                    <div class="">
+                        Proof of Capability: Low level WebGPU programming, web assembly, compute shaders, real-time multiphysics solvers 
+                    </div>
+                    </div>
+                    <div class="box">
+                        <canvas id="webgpu-sim" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
        <div id="pastwork"> 
             <div class="section ">
                 <div class="section-top">
-                    <h2 style="padding:0; margin:0">Past Work </h2>
+                    <h2 style="padding:0; margin:0">Work </h2>
                 </div>
             <div class="article" >
                 <div class="article-content ">
@@ -185,6 +235,19 @@
 
             </div>
             </div>
+            <div class="article" >
+                <div class="article-content ">
+                <div class="box">
+                    <h3 style="margin:0">Real-Time, MultiPhysics Simulator</h3>
+                    <p>Side project I'm intending to eventually take commercial, building a real-time, multiphysics simulator with game engine style controls, and an ECS system.</p>
+                </div>
+                <div class="box">
+                    <video src="vid/proto.mp4" autoplay loop muted style="width:100%"/>
+                </div>
+
+                </div>
+            </div>
+
 
             <div class="article" >
 
@@ -193,7 +256,6 @@
                 <h3 style="margin:0">2025-2026 Autoligo</h3>
                     <p>
                     An end-to-end platform for non-coding RNA analysis, starting from raw sequencing data and extending through downstream analysis, annotation, and interpretation in colaboration with Kansas University graduate students.
-                        The system ingests FASTQ files and runs reproducible, containerized pipelines for quality control, alignment, quantification, and statistical analysis. It supports multiple ncRNA classes and integrates differential expression workflows across experiments, conditions, and replicates.
                     </p>
                 </div>
                 <div class="box">
@@ -222,7 +284,8 @@
                     <div class="box">
                 <h3 style="margin:0">2022-2024 Skills Over Paper</h3>
                 <p>
-                I founded and solo developed a developer–company matchmaking platform built with Next.js, React, and PostgreSQL.  The platform is centered around a structured, skill-based resume that captures detailed and nuanced developer capabilities. Developers are awarded specialty badges at different proficiency levels based on completed courses, demonstrated projects, and verified work experience.
+                I founded and solo developed a developer–company matchmaking platform built with Next.js, React, and PostgreSQL.  
+                The platform is centered around a structured, skill-based resume that captures detailed and nuanced developer capabilities. 
                 </p>
                     </div>
                     <div class="box">
@@ -238,7 +301,6 @@
                 <h3 style="margin:0">2022 Solvere: An LC Detector</h3>
                 <p>
                 Worked on an Electron-based application deployed on Raspberry Pi devices, interfacing directly with PID controllers, sensors, and actuators. The system was managed and deployed using Balena OS for fleet management and remote updates.
-
                 I diagnosed and fixed a long-standing socket communication bug that had caused persistent reliability issues in production, resolving a problem that had remained unsolved for several months.
                 </p>
                     </div>
@@ -254,10 +316,7 @@
                 <h3 style="margin:0">2021 HealthIQ: Cognitive Quiz</h3>
                 <p>
                 This project was delivered under an aggressive two-week timeline, compressing several months of planned work.
-
-                I designed and built an interactive cognitive assessment application based on standard cognition and Alzheimer’s screening tests, implemented as a React-based UI/UX. The application was integrated into the client’s internal web services and workflows.
-
-                The result was a production-ready, interactive dementia screening tool delivered on a highly accelerated schedule for a health insurance company.
+                I designed and built an interactive cognitive assessment application based on standard cognition and Alzheimer’s screening tests, implemented as a React-based UI/UX. 
                 </p>
                 </div>
                 <div class="box">
@@ -271,11 +330,9 @@
                 <div class="box">
                 <h3 style="margin:0">2020 Brain Break: A neurotherapeutic game</h3>
                 <p>
-                BrainBrake was a 3D game built from scratch in Unity.
+                BrainBrake was a neurotherapeutic 3D game built from scratch in Unity.
+                I designed and implemented a minimalist gameplay loop in which a rotating glass cube continuously spins while the player throws balls to break glass panels of specific colors. 
 
-                I designed and implemented a minimalist gameplay loop in which a rotating glass cube continuously spins while the player throws balls to break glass panels of specific colors. As the game progresses, the ball’s rotation speed increases, gradually raising the challenge and intensity.
-
-                The game was intentionally designed as a calming, focus-driven experience, aimed at reducing anxiety and overthinking through repetitive, visually engaging interaction.
                 </p>
                 </div>
                 <div class="box">
@@ -287,12 +344,11 @@
             <div class="article" >
 
                 <div class="article-content ">
-                <div class="box"
+                    <div class="box">
                 <h3 style="margin:0">2019-2024 AlphaACT: Emergency Response Training Simulator</h3>
                 <p>
                 I’ve worked with the original creator of AlphaACT since 2018, serving as the primary developer responsible for maintaining, upgrading, and customizing the platform for multiple clients.
-
-                AlphaACT is a psychology-based training system designed to help emergency response professionals perform accurately under pressure by simulating a wide range of high-stress emergency scenarios. The platform is used across multiple industries and relies on realistic scenario modeling to build decision-making resilience and situational awareness.
+                AlphaACT is a psychology-based training system designed to help emergency response professionals perform accurately under pressure by simulating a wide range of high-stress emergency scenarios. 
                 </p>
                 </div>
                 <div class="box">
@@ -303,12 +359,12 @@
             <div class="article" >
 
                 <div class="article-content ">
-                    <div class="box"
+                    <div class="box">
                 <h3 style="margin:0">2019-2021 IGrad: A data and feature rich financial management platform</h3>
                 <p>
-                This was a longer-term freelance engagement working within a Scrum team of experienced engineers at iGrad.
+                This was a longer-term engagement working within a team of experienced engineers at iGrad.
 
-                I contributed across the stack, including designing and implementing APIs, integrating machine learning–driven features, and building complex, responsive React frontends. My work included developing core web application components, implementing shared systems used across the platform, and migrating existing functionality from Angular to React/Redux.
+                I designed and implementing APIs, integrated machine learning–driven features, and built complex, responsive React frontends
                 </p>
                 </div>
                 <div class="box">
@@ -323,10 +379,8 @@
                 <h3 style="margin:0">2019 Poker Games</h3>
                 <p>
                     This was a freelance engagement involving multiple game development projects.
-
                     I worked from existing JavaScript-based game prototypes and mockups and extended them into fully playable casino-style games. This included implementing complete game logic, refining UI/UX, and customizing mechanics to support multiple variants.
 
-                    Deliverables included fully functional implementations of games such as Baccarat, split-bet roulette, and double-ball roulette..
                 </p>
                     </div>
                 <div class="box">
@@ -341,12 +395,7 @@
                 <h3 style="margin:0">2018-2019 Dorger Software Architects</h3>
                 <p>
                     I worked at Dorger Software Architects, contributing to the development and maintenance of multiple medium- to large-scale state systems.
-
-                    Across these projects, I built and extended APIs, developed and maintained frontend components, fixed production bugs, and implemented supporting services required to keep complex systems stable and evolving. The work involved navigating existing codebases, improving reliability, and delivering features within the constraints of government-scale software.
-
-                    Notable systems included Mississippi Lands, Mobile Community Corrections software, and other state-level applications.
-
-                    I also built an internal WYSIWYG Change tracking system.
+                    Across these projects, I built and extended APIs, developed and maintained frontend components, fixed production bugs, and implemented supporting services required to keep complex systems stable and evolving. 
                 </p>
                 </div>
                 <div class="box">
@@ -375,10 +424,7 @@
                 <h3 style="margin:0">2014-2015 CARES: Senior Developer role</h3>
                 <p>
                 I worked as a Senior Developer on the Centralized Alabama Recipient Eligibility System, a large-scale web platform serving the state of Alabama.
-
                 I was exposed to a complex ASP.NET web application and associated services, and contributed to core infrastructure development, parts of the automated testing suite, and multiple frontend components. I designed and implemented a visual entity-based UI/UX system for creating dynamic, data-driven forms.
-
-                During this role, I was promoted to Senior Developer and led several small teams, contributing to planning, technical guidance, and code reviews. I was later assigned to the senior core development group, where I focused on higher-complexity technical problems affecting system performance, scalability, and reliability.
                 </p>
                 </div>
                 <div class="box">
@@ -393,10 +439,7 @@
                 <h3 style="margin:0">2012-2014 Envista Data Migration Tool</h3>
                 <p>
                     I joined Envista as the company’s first intern after proactively reaching out and negotiating the role.
-
                     During the internship, I learned C#, WPF, and X++ on the job and worked within a large enterprise ERP codebase. I designed and implemented a data migration tool to transfer large datasets between legacy systems and a modern ERP platform, with a focus on correctness, performance, and reliability.
-
-                    This role provided early exposure to enterprise-scale system design, complex data models, and production software workflows.
                 </p>
                 </div>
                 <div class="box">
@@ -413,10 +456,6 @@
                     I co-founded and built a damage awards database for legal professionals, designed to help lawyers draw statistical conclusions about potential outcomes in future cases. I built the system from the ground up using ASP.NET Web Forms, including the application architecture, data model, and core business logic.
 
                     The platform featured a custom database of court cases, multiple analytical pages for exploring case statistics and trends, and a complete pricing and authentication system implemented from scratch.
-
-                    This project provided early experience in full-stack development, data-driven product design, and building a paid web application end to end.
-
-
                 </p>
                     </div>
                     <div class="box">
@@ -428,8 +467,8 @@
             </div>
         </div>
         <div id="testimonials">
-        <div class=" ">
-            <div class="section-top"><h3>Testimonials</h3></div>
+        <div class="section ">
+            <div class="section-top"><h2 style="margin:0">Testimonials</h2></div>
             <div class="article" style="margin:1em">
                 <div class="article-content">
                     “Wes is a highly professional and talented software developer. He tackled complex and difficult issues in more than ten distinctly different assignments and was successful in all of them. He came up to speed quickly on legacy software that was not well documented – a key need in our project. He listened well and quickly gained understanding of what we needed to accomplish, then developed creative solutions to our needs. He managed his time well and met schedule and was close to budget in an exploratory environment where the effort required was difficult to predict. Overall, Wes significantly exceeded our expectations. I would recommend him for any software development and management project that fits his background.” – Reed Hodgin
@@ -473,10 +512,10 @@
         </div>
         </div>
         <div id="engagement">
-            <div  class="" >
+            <div  class="section" >
                 <div class="section-top">
                     <h2 style="padding:0; margin:0"> Engagement Models</h2>
-                    <p style="90vw">Ideally start with a free audit, followed by fast-paced fixed scope contracts, followed by a longer term retainer.</p>
+                    <!-- <p style="90vw">Ideally start with a free audit, followed by fast-paced fixed scope contracts, followed by a longer term retainer.</p> -->
                 </div>
             <div class="article" style="margin:1em">
             <div class="article-content" style="display:block">

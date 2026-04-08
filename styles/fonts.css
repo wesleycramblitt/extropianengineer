@@ -1,7 +1,7 @@
 :root {
   --fs-xxs: clamp(0.7rem, 0.68rem + 0.01vw, 0.8rem);
   --fs-xs: clamp(0.8rem, 0.76rem + 0.05vw, 0.9rem);
-  --fs-sm: clamp(0.9rem, 0.84rem + 0.3vw, 1.05rem);
+  --fs-sm: clamp(0.9rem, 0.84rem + 0.35vw, 1.05rem);
   --fs-base: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
   --fs-lg: clamp(1.2rem, 1rem + 0.6vw, 1.6rem);
   --fs-xl: clamp(1.6rem, 1.25rem + 1vw, 2.4rem);

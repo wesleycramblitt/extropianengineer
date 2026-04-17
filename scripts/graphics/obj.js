@@ -15,16 +15,10 @@ function parseOBJ(objText) {
   function resolveIndex(objIndex, arrayLength) {
     const i = parseInt(objIndex, 10);
     if (Number.isNaN(i)) return null;
-
-    // OBJ is 1-based. Negative indices are relative to the end.
     return i >= 0 ? i - 1 : arrayLength + i;
   }
 
   function getOrCreateVertex(faceToken) {
-    if (vertexMap.has(faceToken)) {
-      return vertexMap.get(faceToken);
-    }
-
     const parts = faceToken.split("/");
     const vStr = parts[0];
     const vtStr = parts[1];
@@ -38,27 +32,36 @@ function parseOBJ(objText) {
       throw new Error(`Invalid position index in face token "${faceToken}"`);
     }
 
+    const key = `${vIndex}/${vtIndex ?? -1}/${vnIndex ?? -1}`;
+
+    if (vertexMap.has(key)) {
+      return vertexMap.get(key);
+    }
+
     const pos = sourcePositions[vIndex];
     finalPositions.push(pos[0], pos[1], pos[2]);
 
     if (vtIndex != null && vtIndex >= 0 && vtIndex < sourceUVs.length) {
       const uv = sourceUVs[vtIndex];
       finalUVs.push(uv[0], uv[1]);
+    } else {
+      finalUVs.push(0, 0);
     }
 
     if (vnIndex != null && vnIndex >= 0 && vnIndex < sourceNormals.length) {
       const n = sourceNormals[vnIndex];
       finalNormals.push(n[0], n[1], n[2]);
+    } else {
+      finalNormals.push(0, 0, 0);
     }
 
     const newIndex = (finalPositions.length / 3) - 1;
-    vertexMap.set(faceToken, newIndex);
+    vertexMap.set(key, newIndex);
     return newIndex;
   }
 
-  for (let rawLine of lines) {
+  for (const rawLine of lines) {
     const line = rawLine.trim();
-
     if (!line || line.startsWith("#")) continue;
 
     const parts = line.split(/\s+/);
@@ -95,8 +98,6 @@ function parseOBJ(objText) {
         faceVertexIndices.push(getOrCreateVertex(token));
       }
 
-      // Fan triangulation:
-      // [0,1,2,3] => [0,1,2], [0,2,3]
       for (let i = 1; i < faceVertexIndices.length - 1; i++) {
         indices.push(
           faceVertexIndices[0],
@@ -107,16 +108,18 @@ function parseOBJ(objText) {
     }
   }
 
+  const hasAnyUVs = sourceUVs.length > 0;
+  const hasAnyNormals = sourceNormals.length > 0;
+
   return {
-    positions: finalPositions,
-    uvs: finalUVs,
-    normals: finalNormals,
-    indices,
+    positions: new Float32Array(finalPositions),
+    uvs: hasAnyUVs ? new Float32Array(finalUVs) : null,
+    normals: hasAnyNormals ? new Float32Array(finalNormals) : null,
+    indices: new Uint32Array(indices),
   };
 }
 
-
-async function loadOBJ(url) {
+export async function loadOBJ(url) {
   const res = await fetch(url);
   const text = await res.text();
   return parseOBJ(text);

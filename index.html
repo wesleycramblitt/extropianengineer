@@ -5,6 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/icons/circuit.png" sizes="32x32">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/Draggable.min.js"></script>
@@ -40,10 +41,11 @@
     <script src="scripts/header-tabs.js"></script>
     <script src="scripts/slides.js"></script>
     <script src="scripts/responsive-videos.js"></script>
-    <script src="scripts/mesh.js"></script>
-    <script type="module" src="scripts/cpu-raycaster.js"></script>
-    <script type="module" src="scripts/files.js"></script>
 
+    <script type="module"  src="scripts/cpu-raycaster-demo/app.js"></script>
+    <script type="module"  src="scripts/dice-demo/app.js"></script>
+    <script type="module"  src="scripts/cfd-demo/app.js"></script>
+    
     <link rel="stylesheet" href="styles/core.css" >
     <link rel="stylesheet" href="styles/background.css" >
     <link rel="stylesheet" href="styles/fonts.css" >
@@ -180,42 +182,75 @@
             <div class="article">
                 <div class="article-content ">
                     <div class="box">
-                    <h3 style="margin:0">CPU bound raycaster in canvas</h3>
+                    <h3 style="margin:0">CPU Bound Raycaster/Hybrid Graphics Pipeline</h3>
                     <div class="">
-                        Proof of Capability: Manual, interactive, low level cpu bound 3d graphics programming.
+                        <p>Proof of Capabilties:</p>
+                        <ul>
+                            <li>
+                                Manual, CPU bound graphics programming
+                            </li>
+                            <li>
+                                Converting vertices from local <=> world <=> view <=> screen
+                            </li>
+                            <li>
+                                Loading meshes, rendering triangles from indices and vertices
+                            </li>
+                        </ul>
                     </div>
                     </div>
-                    <div class="box">
-                        <canvas id="raycaster" />
+                    <div class="box" style="position:relative" >
+                        <canvas id="raycaster"></canvas> 
                     </div>
                 </div>
             </div>
-         <div class="article">
+<!--         <div class="article">
+                <div class="article-content ">
+                    <div class="box">
+                    <h3 style="margin:0">WebGL Interactive, Real Time Rigid Body Dynamics</h3>
+                    <div class="">
+                         <p>Proof of Capabilties:</p>
+                        <ul>
+                            <li>
+                                Full GPU pipeline programming with mesh imports, MVP pipeline, textures, and multiple shaders.
+                            </li>
+                            <li>
+                                Real Time, Rigid Body dynamics ODEs, discretization, time integration 
+                            </li>
+                            <li>
+                                Interactive UI/UX controls that function during a real time simulation
+                            </li>
+                        </ul>                      
+                    </div>
+                    </div>
+                    <div class="box">
+                        <canvas id="dice" />
+                    </div>
+                </div>
+            </div>
+     <div class="article">
                 <div class="article-content ">
                     <div class="box">
                     <h3 style="margin:0">WebGL interactive, real time CFD</h3>
                     <div class="">
-                        Proof of Capability: Low level WebGL shader programming, Interactive CFD solver with different visualization modes
+                         <p>Proofs of Capabilties:</p>
+                        <ul>
+                            <li>
+                                Low level WebGL pipeline programming 
+                            </li>
+                            <li>
+                                Real Time, Computational Fluid Dyanmics from scratch
+                            </li>
+                            <li>
+                                Interactive UI/UX controls that function during a real time simulation
+                            </li>
+                        </ul>                      
                     </div>
                     </div>
                     <div class="box">
-                        <canvas id="webgl-sim" />
+                        <canvas id="cfd" />
                     </div>
                 </div>
-            </div>
-         <div class="article">
-                <div class="article-content ">
-                    <div class="box">
-                    <h3 style="margin:0">WebGPU+WASM interactive, real time CFD + Rigid Bodies</h3>
-                    <div class="">
-                        Proof of Capability: Low level WebGPU programming, web assembly, compute shaders, real-time multiphysics solvers 
-                    </div>
-                    </div>
-                    <div class="box">
-                        <canvas id="webgpu-sim" />
-                    </div>
-                </div>
-            </div>
+</div> -->
         </div>
         </div>
 
@@ -260,7 +295,9 @@
                     </p>
                 </div>
                 <div class="box">
-                    <img src="img/autoligo.png" class="card" style="max-width:100%"/>
+                    <!-- <img src="img/autoligo.png" class="card" style="max-width:100%"/> -->
+
+                    <video src="vid/autoligo.webm" autoplay loop muted style="width:100%"/>
                 </div>
             </div>
             </div>
@@ -274,7 +311,9 @@
                 </p>
                 </div>
                 <div class="box">
-                <img src="img/capars1.png" class="" style="max-width:100%"/>
+                <!-- <img src="img/capars1.png" class="" style="max-width:100%"/> -->
+                
+                    <video src="vid/capars.webm" autoplay loop muted style="width:100%"/>
                 </div>
             </div>
             </div>
@@ -290,7 +329,9 @@
                 </p>
                     </div>
                     <div class="box">
-                <img src="img/sop.png" class="" style="max-width:100%" />
+                <!-- <img src="img/sop.png" class="" style="max-width:100%" /> -->
+
+                    <video src="vid/skillsoverpaper.webm" autoplay loop muted style="width:100%"/>
                     </div>
             </div>
             </div>

@@ -137,7 +137,7 @@ function initSectionSlider(section) {
 
     const tl = gsap.timeline({
       defaults: {
-        duration: 0.4,
+        duration: 0.15,
         ease: "power2.out"
       },
       onComplete: () => {

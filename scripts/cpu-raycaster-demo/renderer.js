@@ -60,7 +60,6 @@ export class Renderer {
       this.drawBackground();
 
       for (var obj of scene["objects"]) {
-          console.log("test");
           ProjectionPipeline.localToWorld(obj);
           ProjectionPipeline.worldToView(obj, scene["camera"]);
           ProjectionPipeline.viewToScreen(obj, scene["camera"],this.canvas);

@@ -83,8 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ];
       var selected = 0;
 
+      tabThreshold = 20;
       for (var i = tabs.length-1; i >= 0; i--) {
-          if (window.scrollY >= document.getElementById(tabs[i][0]).offsetTop) {
+          if (window.scrollY >= (document.getElementById(tabs[i][0]).offsetTop - tabThreshold)) {
                tabs[i][1].classList.add("selected-tab")
                selected = i; 
               break;

@@ -18,10 +18,13 @@ a:link, a:visited {
 
 .button {
   border: none;
-  padding: 8px ;
+  padding: 4px ;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
+  background-color: #55f;
+  margin:0.2em;
+
 }
 

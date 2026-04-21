@@ -10,7 +10,7 @@
     width: 100%;
     top: 0;
     left: 0;
-
+    opacity:0.7;
     /*mask-image: radial-gradient(ellipse, black 70%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse, black 70%, transparent 100%);
     */

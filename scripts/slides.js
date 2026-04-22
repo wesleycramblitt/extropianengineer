@@ -197,18 +197,25 @@ function initSectionSlider(section) {
     }
   }
 
-  function onPointerDown(e) {
-    if (isAnimating) return;
+function isInteractiveTarget(target) {
+  return !!target.closest(
+    'button, a, input, select, textarea, label, [data-no-drag]'
+  );
+}
 
-    pointerDown = true;
-    startX = e.clientX;
-    deltaX = 0;
-    viewport.classList.add("is-dragging");
+function onPointerDown(e) {
+  if (isAnimating) return;
+  if (isInteractiveTarget(e.target)) return;
 
-    if (viewport.setPointerCapture) {
-      viewport.setPointerCapture(e.pointerId);
-    }
+  pointerDown = true;
+  startX = e.clientX;
+  deltaX = 0;
+  viewport.classList.add("is-dragging");
+
+  if (viewport.setPointerCapture) {
+    viewport.setPointerCapture(e.pointerId);
   }
+}
 
   function onPointerMove(e) {
     if (!pointerDown || isAnimating) return;

@@ -72,8 +72,8 @@
 
 .section-slider-btn {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 25vh;
+  transform: none;
 
   width: 64px;
   height: 64px;
@@ -108,7 +108,7 @@
 }
 
 .section-slider-btn:hover {
-  transform: translateY(-50%) scale(1.06);
+  transform: scale(1.06);
   background: rgba(50,50,50,0.4);
 }
 

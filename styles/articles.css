@@ -19,10 +19,12 @@
 
 .section-top {
     padding: 1em;
-    padding-top: 3em; /* for nav header */
+    /*padding-top: 3em; /* for nav header */
 }
 
-
+.pt3 {
+    padding-top: 3em;
+}
 .m1 {
     margin: 1em;
 }

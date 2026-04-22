@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let snapPoints = [];
   let maxScroll = 0;
-
+/*
   function computeSnapPoints() {
     maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       delay: 0.01,
       ease: "power1.out"
     }
-  });
+  });*/
 });
 
  function updateTabs() {
@@ -102,4 +102,5 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener('scroll', updateTabs );
 window.addEventListener("load", () => ScrollTrigger.refresh());
 window.addEventListener("resize", () => ScrollTrigger.refresh());
+
 

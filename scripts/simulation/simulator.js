@@ -1,3 +1,4 @@
+//General purpose in the future for coupling
 class Simulator {
   constructor() {
     this.bodies = [];

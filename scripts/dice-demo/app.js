@@ -5,13 +5,6 @@ import { Camera } from "/scripts/graphics/camera.js";
 import { Renderer } from "/scripts/graphics/renderer.js";
 import { createCubeData, generateGrid, generateAxisLine } from "/scripts/graphics/geometry.js";
 import { loadOBJ } from "/scripts/graphics/obj.js";
-import { litVert } from "/scripts/graphics/shaders/lit.vert.js";
-import { litFrag } from "/scripts/graphics/shaders/lit.frag.js";
-import { unLitVert } from "/scripts/graphics/shaders/unlit.vert.js";
-import { unLitFrag } from "/scripts/graphics/shaders/unlit.frag.js";
-import { backgroundVert } from "/scripts/graphics/shaders/background.vert.js";
-import { backgroundFrag } from "/scripts/graphics/shaders/background.frag.js";
-
 import { vec3 } from "/scripts/math/vec3.js";
 import { quat, fromAxisAngle } from "/scripts/math/quat.js";
 import { mat4 } from "/scripts/math/mat4.js";
@@ -24,12 +17,6 @@ const gl = createGL(canvas);
 
 const renderer = new Renderer(gl, canvas);
 const camera = new Camera();
-
-
-const shader = new ShaderProgram(gl, litVert, litFrag);
-const unLitShader = new ShaderProgram(gl, unLitVert, unLitFrag);
-
-const backgroundShader = new ShaderProgram(gl, backgroundVert, backgroundFrag);
 
 const grid = generateGrid(100,100);
 const x = generateAxisLine(15, "x");
@@ -84,18 +71,18 @@ function frame(time) {
   //renderer.drawBackground(backgroundShader, bgTexture);
   composeTRSFromTranslation(model, gridTranslation);
 
-  renderer.drawLines(gridMesh, unLitShader, model, camera, camera.eye, vec3(0.5,0.5,0.5));
-  renderer.drawLines(xMesh, unLitShader, model, camera, camera.eye, vec3(0,0.8,0));
-  renderer.drawLines(yMesh, unLitShader, model, camera, camera.eye, vec3(0.8,0,0));
-  renderer.drawLines(zMesh, unLitShader, model, camera, camera.eye, vec3(0,0,0.8));
+  renderer.drawLines(gridMesh, model, camera, camera.eye, vec3(0.5,0.5,0.5));
+  renderer.drawLines(xMesh, model, camera, camera.eye, vec3(0,0.8,0));
+  renderer.drawLines(yMesh, model, camera, camera.eye, vec3(0.8,0,0));
+  renderer.drawLines(zMesh, model, camera, camera.eye, vec3(0,0,0.8));
 
   //const angle = t * 0.001;
   //fromAxisAngle(cubeTranslation.rotation, vec3(0, 1, 0), angle);
   composeTRSFromTranslation(model, cubeTranslation);
-  renderer.drawMesh(cubeMesh, shader, model, camera, lightDir, camera.eye, vec3(0.4,0.4,0.8));
+  renderer.drawMesh(cubeMesh, model, camera, lightDir, camera.eye, vec3(0.4,0.4,0.8));
 
   composeTRSFromTranslation(model, cube2Translation);
-  renderer.drawMesh(cubeMesh, shader, model, camera, lightDir, camera.eye, vec3(0.8,0.4,0.4));
+  renderer.drawMesh(cubeMesh,  model, camera, lightDir, camera.eye, vec3(0.8,0.4,0.4));
 
 
   requestAnimationFrame(frame);

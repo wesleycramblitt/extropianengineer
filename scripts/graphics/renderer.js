@@ -1,9 +1,22 @@
 import { resizeCanvasToDisplaySize } from "/scripts/graphics/gl.js";
+import { unLitVert } from "/scripts/graphics/shaders/unlit.vert.js";
+import { unLitFrag } from "/scripts/graphics/shaders/unlit.frag.js";
+import { litVert } from "/scripts/graphics/shaders/lit.vert.js";
+import { litFrag } from "/scripts/graphics/shaders/lit.frag.js";
+import { backgroundVert } from "/scripts/graphics/shaders/background.vert.js";
+import { backgroundFrag } from "/scripts/graphics/shaders/background.frag.js";
+
+import { ShaderProgram } from "/scripts/graphics/shader.js";
+
 
 export class Renderer {
   constructor(gl, canvas) {
     this.gl = gl;
     this.canvas = canvas;
+    this.litShader = new ShaderProgram(gl, litVert, litFrag);
+    this.unLitShader = new ShaderProgram(gl, unLitVert, unLitFrag);
+    this.backgroundShader = new ShaderProgram(gl, backgroundVert, backgroundFrag);
+
   }
 
   beginFrame(camera) {
@@ -19,13 +32,10 @@ export class Renderer {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   }
 
-  drawMesh(mesh, shader, modelMatrix, camera, lightDir, cameraPos, color) {
+  drawMesh(mesh, modelMatrix, camera, lightDir, cameraPos, color) {
     const gl = this.gl;
-
-    gl.enable(gl.DEPTH_TEST);
-    gl.depthMask(true);
-    gl.disable(gl.BLEND);
-
+    
+    var shader = this.litShader;
     shader.use();
     shader.setMat4("uModel", modelMatrix);
     shader.setMat4("uView", camera.view);
@@ -36,11 +46,9 @@ export class Renderer {
     mesh.draw();
   }
 
-  drawLines(mesh, shader, modelMatrix, camera,cameraPos, color) {
+  drawLines(mesh,  modelMatrix, camera,cameraPos, color) {
     const gl = this.gl;
-
-    gl.disable(gl.DEPTH_TEST);
-    gl.disable(gl.BLEND);
+    var shader = this.unlitShader;
 
     shader.use();
     shader.setMat4("uModel", modelMatrix);
@@ -59,6 +67,7 @@ export class Renderer {
       gl.depthMask(false);
       gl.disable(gl.DEPTH_TEST);
 
+      var shader = this.backgroundShader;
       shader.use();
       shader.setTexture("uBackground", texture, 0);
 

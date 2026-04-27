@@ -11,6 +11,7 @@ import { mat4 } from "/scripts/math/mat4.js";
 import { composeTRS } from "/scripts/math/transform.js";
 import { loadTexture } from "../graphics/texture.js";
 import { createHollowCylinder } from '/scripts/graphics/geometry.js';
+import { CFDSimulator } from '/scripts/simulation/cfd-simulator.js';
 
 const canvas = document.getElementById("cfd");
 const gl = createGL(canvas);
@@ -27,6 +28,7 @@ const model = mat4();
 
 const lightDir = vec3(0.5, -1.0, -0.2);
 
+const simulator = new CFDSimulator();
 
 function composeTRSFromTranslation(model, t) {
     composeTRS(model,t.position, t.rotation, t.scale); 

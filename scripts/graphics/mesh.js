@@ -167,6 +167,22 @@ export class Mesh {
     const gl = this.gl;
     gl.bindVertexArray(this.vao);
 
+    if (this.drawMode in [gl.LINES, gl.POINTS, gl.LINE_STRIP, gl.LINE_LOOP]) {
+        gl.disable(gl.DEPTH_TEST);
+        gl.disable(gl.BLEND);
+        //todo maybe enable blend for overlay lines?
+    }
+    else if (this.drawMode in [gl.POINTS]) {
+        gl.enable(gl.DEPTH_TEST);
+        gl.depthMask(gl.FALSE);
+        gl.enable(gl.BLEND);
+    }
+    //Triangles
+    else 
+      gl.enable(gl.DEPTH_TEST);
+      gl.depthMask(gl.TRUE);
+
+
     if (this.isIndexed) {
       gl.drawElements(this.drawMode, this.indexCount, this.indexType, 0);
     } else {

@@ -1,60 +1,85 @@
 import { createGL } from "/scripts/graphics/gl.js";
 import { Mesh } from "/scripts/graphics/mesh.js";
+import { Background } from "/scripts/graphics/background.js";
+import { ParticleSet } from "/scripts/graphics/particle-set.js";
 import { Camera } from "/scripts/graphics/camera.js";
 import { Renderer } from "/scripts/graphics/renderer.js";
-import { createCubeData, createFloorData } from "/scripts/graphics/geometry.js";
+import { generateVortexParticles, createCubeData, createFloorData } from "/scripts/graphics/geometry.js";
 import { loadOBJ } from "/scripts/graphics/obj.js";
 
 import { vec3 } from "/scripts/math/vec3.js";
 import { quat, fromAxisAngle } from "/scripts/math/quat.js";
 import { mat4 } from "/scripts/math/mat4.js";
-import { composeTRS } from "/scripts/math/transform.js";
-import { loadTexture } from "../graphics/texture.js";
-import { createHollowCylinder } from '/scripts/graphics/geometry.js';
+import { CFDSimulator} from "/scripts/simulation/cfd-simulator.js";
 
 const canvas = document.getElementById("cfd");
 const gl = createGL(canvas);
 
-const renderer = new Renderer(gl, canvas);
 const camera = new Camera();
 
-const bgTexture = await loadTexture(gl, "/assets/textures/sky.avif");
-const coffee = await loadOBJ("/assets/mesh/bowl.obj");
+const renderer = new Renderer(gl, canvas,camera);
+const background = new Background(gl,"/assets/textures/sky.avif");
+await background.loadTexture();
+
+const lightDir = vec3(1, -5.0, -0.5);
+
+const entities = [];
+const background_entity = {
+    background: background,
+    draw: () => { background.draw()} 
+}
+entities.push(background_entity);
+
+
 
 const model = mat4();
-
-
-
-const lightDir = vec3(0.5, -1.0, -0.2);
-
-
-function composeTRSFromTranslation(model, t) {
-    composeTRS(model,t.position, t.rotation, t.scale); 
+console.log(model);
+const cube = createCubeData();
+const cubeMesh = new Mesh(gl,cube, camera, model,lightDir, vec3(0.3,0.3,0.3), "lit");
+var cubeTranslation = {
+    position: vec3(0,0,0),
+    rotation: quat(),
+    scale: vec3(1,1,1) 
 }
+const cube_entity = {
+    mesh: cubeMesh,
+    model: cubeMesh.model,
+    translation: cubeTranslation,
+    collision: 1,
+    draw: () => { cubeMesh.draw()}
+}
+entities.push(cube_entity);
 
 
-function frame(t) {
-  renderer.beginFrame(camera);
 
-  //simulator.step()
+const simulator = new CFDSimulator(entities.filter(x => x.collision == 1), {});
 
-  renderer.drawBackground(bgTexture);
+ const { positions ,velocities} = generateVortexParticles(100000, 5, 1, 2.0) 
+simulator.positions = positions;
+simulator.velocities = velocities;
+const cfdParticleSet = new ParticleSet(gl, simulator.positions, simulator.velocities, camera);
+const particles_entity = {
+    particleSet: cfdParticleSet,
+    draw: () => { cfdParticleSet.draw();}
+}
+entities.push(particles_entity);
 
-  // const angle = t * 0.001;
-  // fromAxisAngle(cylinderTranslation.rotation, vec3(1, 0, 0), angle);
-  composeTRSFromTranslation(model, cylinderTranslation);
 
-  renderer.drawMesh(coffeeMesh,  model, camera, lightDir, camera.eye, vec3(3,3,3));
+var lastTime = 0;
 
-  //Draw particles
+function frame(time) {
+  const dt = (time - lastTime)/1000;
+  lastTime = time;
     
+  simulator.step(dt);
+
+  
+  renderer.draw(entities);      
+
   requestAnimationFrame(frame);
+    
 }
 
 requestAnimationFrame(frame);
 
-function drawParticles(u,v,w) {
-    
-
-}
 

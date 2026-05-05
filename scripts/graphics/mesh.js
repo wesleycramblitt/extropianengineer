@@ -1,6 +1,21 @@
+import { unLitVert } from "/scripts/graphics/shaders/unlit.vert.js";
+import { unLitFrag } from "/scripts/graphics/shaders/unlit.frag.js";
+import { litVert } from "/scripts/graphics/shaders/lit.vert.js";
+import { litFrag } from "/scripts/graphics/shaders/lit.frag.js";
+import {ShaderProgram } from "/scripts/graphics/shader.js";
+
 export class Mesh {
-  constructor(gl, data) {
+
+  constructor(gl, data, camera, model,lightDir,color,shader) {
+
     this.gl = gl;
+    this.camera = camera;
+    this.model = model;
+    this.lightDir = lightDir;
+    this.color = color;
+    this.shader = shader;
+    this.unlitShader = new ShaderProgram(gl, unLitVert, unLitFrag);
+    this.litShader = new ShaderProgram(gl, litVert, litFrag);
 
     // Prefer engine-level topology names over raw GL enums
     this.topology = data.topology ?? "triangles";
@@ -163,7 +178,23 @@ export class Mesh {
     }
   }
 
+  activateShader() {
+     
+    var shader = this.shader == "lit" ? this.litShader : this.unlitShader;
+    shader.use();
+    shader.setMat4("uModel", this.model);
+    shader.setMat4("uView", this.camera.view);
+    shader.setMat4("uProjection", this.camera.projection);
+      
+    if (this.shader == "lit")   { 
+      shader.setVec3("uLightDir", this.lightDir);
+    }
+    shader.setVec3("uCameraPos", this.camera.eye);
+    shader.setVec3("uColor", this.color);
+  }
+
   draw() {
+    this.activateShader();
     const gl = this.gl;
     gl.bindVertexArray(this.vao);
 

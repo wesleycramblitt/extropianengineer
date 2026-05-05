@@ -1,6 +1,8 @@
 export function mat4() {
   const out = new Float32Array(16);
   out[0] = out[5] = out[10] = out[15] = 1;
+  out[1] = out[2] = out[3] = out[4] = out[6] = out[7] = out[8]
+  = out[9] = out[11] = out[12] = out[13] = out[14] = 0;
   return out;
 }
 

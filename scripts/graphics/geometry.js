@@ -45,42 +45,62 @@ export function generateGrid(size, divisions) {
 
 export function createCubeData() {
 
-  const vertices = [
+  const positions = [
     // +Z
-    -0.5,-0.5, 0.5,  0,0,1,
-     0.5,-0.5, 0.5,  0,0,1,
-     0.5, 0.5, 0.5,  0,0,1,
-    -0.5, 0.5, 0.5,  0,0,1,
+    -0.5,-0.5, 0.5,
+     0.5,-0.5, 0.5,
+     0.5, 0.5, 0.5,
+    -0.5, 0.5, 0.5,
 
     // -Z
-    0.5,-0.5,-0.5,   0,0,-1,
-   -0.5,-0.5,-0.5,   0,0,-1,
-   -0.5, 0.5,-0.5,   0,0,-1,
-    0.5, 0.5,-0.5,   0,0,-1,
+     0.5,-0.5,-0.5,
+    -0.5,-0.5,-0.5,
+    -0.5, 0.5,-0.5,
+     0.5, 0.5,-0.5,
 
     // +X
-    0.5,-0.5, 0.5,   1,0,0,
-    0.5,-0.5,-0.5,   1,0,0,
-    0.5, 0.5,-0.5,   1,0,0,
-    0.5, 0.5, 0.5,   1,0,0,
+     0.5,-0.5, 0.5,
+     0.5,-0.5,-0.5,
+     0.5, 0.5,-0.5,
+     0.5, 0.5, 0.5,
 
     // -X
-   -0.5,-0.5,-0.5,  -1,0,0,
-   -0.5,-0.5, 0.5,  -1,0,0,
-   -0.5, 0.5, 0.5,  -1,0,0,
-   -0.5, 0.5,-0.5,  -1,0,0,
+    -0.5,-0.5,-0.5,
+    -0.5,-0.5, 0.5,
+    -0.5, 0.5, 0.5,
+    -0.5, 0.5,-0.5,
 
     // +Y
-   -0.5, 0.5, 0.5,   0,1,0,
-    0.5, 0.5, 0.5,   0,1,0,
-    0.5, 0.5,-0.5,   0,1,0,
-   -0.5, 0.5,-0.5,   0,1,0,
+    -0.5, 0.5, 0.5,
+     0.5, 0.5, 0.5,
+     0.5, 0.5,-0.5,
+    -0.5, 0.5,-0.5,
 
     // -Y
-   -0.5,-0.5,-0.5,   0,-1,0,
-    0.5,-0.5,-0.5,   0,-1,0,
-    0.5,-0.5, 0.5,   0,-1,0,
-   -0.5,-0.5, 0.5,   0,-1,0,
+    -0.5,-0.5,-0.5,
+     0.5,-0.5,-0.5,
+     0.5,-0.5, 0.5,
+    -0.5,-0.5, 0.5,
+  ];
+
+  const normals = [
+    // +Z
+     0,0,1,  0,0,1,  0,0,1,  0,0,1,
+
+    // -Z
+     0,0,-1, 0,0,-1, 0,0,-1, 0,0,-1,
+
+    // +X
+     1,0,0,  1,0,0,  1,0,0,  1,0,0,
+
+    // -X
+    -1,0,0, -1,0,0, -1,0,0, -1,0,0,
+
+    // +Y
+     0,1,0,  0,1,0,  0,1,0,  0,1,0,
+
+    // -Y
+     0,-1,0, 0,-1,0, 0,-1,0, 0,-1,0,
   ];
 
   const indices = [
@@ -92,7 +112,12 @@ export function createCubeData() {
     20,21,22, 22,23,20
   ];
 
-  return { positions: vertices, indices:indices };
+  return {
+    positions,
+    normals,
+    indices,
+    topology: "triangles"
+  };
 }
 
 export function createFloorData(size = 30, uvScale = 1) {
@@ -270,4 +295,39 @@ export function createHollowCylinder({
         normals: new Float32Array(normals),
         indices: new Uint32Array(indices)
     };
+}
+
+
+export function generateVortexParticles(count, radius = 3.0, height = 2.0, swirlSpeed = 2.0) {
+  const positions = new Float32Array(count * 3);
+  const velocities = new Float32Array(count * 3);
+
+  for (let i = 0; i < count; i++) {
+    const i3 = i * 3;
+
+    const angle = Math.random() * Math.PI * 2;
+    const r = Math.sqrt(Math.random()) * radius;
+    const y = (Math.random() * 2 - 1) * height * 0.5;
+
+    const x = Math.cos(angle) * r;
+    const z = Math.sin(angle) * r;
+
+    positions[i3 + 0] = x;
+    positions[i3 + 1] = y;
+    positions[i3 + 2] = z;
+
+    // Tangential direction around Y axis
+    const tx = -Math.sin(angle);
+    const tz =  Math.cos(angle);
+
+    // Stronger swirl near center
+    const falloff = 1.0 - r / radius;
+    const speed = swirlSpeed * (0.25 + falloff);
+
+    velocities[i3 + 0] = tx * speed;
+    velocities[i3 + 1] = 0.25;       // upward drift
+    velocities[i3 + 2] = tz * speed;
+  }
+
+  return { positions, velocities };
 }

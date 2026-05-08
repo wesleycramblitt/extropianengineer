@@ -62,7 +62,7 @@ export class CFDSimulator {
         
         //∇ · u = 0
         
-        //pressur Poisson equation
+        //pressure Poisson equation
         //solve ∇²p = ρ/dt ∇·u*
         //correct/subtract pressure gradient
         //u = u* - dt/ρ ∇p

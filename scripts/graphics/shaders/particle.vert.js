@@ -12,5 +12,5 @@ uniform mat4 uProjection;
 void main() {
     gl_Position = uProjection * uView * vec4(aPos, 1.0);
     vSpeed = aSpeed;
-    gl_PointSize = 5.0;
+    gl_PointSize = 2.5;
 }`

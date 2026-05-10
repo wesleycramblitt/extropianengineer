@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded",async () => {
     // x = sqrt(z - y2)
     // y = sqrt(z - x2)
     function frame() { 
-        var fps = 120;
+        var fps = 240;
         rotationDeg += 60/fps%360;
         Translation.rotate([0,1,1],rotationDeg, scene.objects[0]);
 

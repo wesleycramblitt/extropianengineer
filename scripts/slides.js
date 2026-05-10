@@ -1,6 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
     initAllSectionSliders();  
 });
+
 
 function initAllSectionSliders(root = document) {
   const sections = root.querySelectorAll(".section");

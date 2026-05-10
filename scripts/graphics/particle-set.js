@@ -103,6 +103,10 @@ export class ParticleSet {
         gl.bindBuffer(gl.ARRAY_BUFFER, this.speedVBO);
         gl.bufferData(gl.ARRAY_BUFFER, this.speedData, gl.DYNAMIC_DRAW);
 
+        gl.enable(gl.DEPTH_TEST);
+        gl.depthMask(true);
+        gl.enable(gl.BLEND);
+
         gl.drawArrays(gl.POINTS, 0, count);
 
         gl.bindVertexArray(null);

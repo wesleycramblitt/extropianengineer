@@ -21,10 +21,16 @@ export class Mesh {
     this.topology = data.topology ?? "triangles";
     this.drawMode = Mesh.getGLDrawMode(gl, this.topology);
 
-    const positions = data.positions;
-    const normals = data.normals ?? null;
-    const uvs = data.uvs ?? null;
-    const indices = data.indices ?? null;
+    
+    this.positions = data.positions;
+    this.normals = data.normals ?? null;
+    this.uvs = data.uvs ?? null;
+    this.indices = data.indices ?? null;
+
+    const positions = this.positions;
+    const normals = this.normals;
+    const uvs = this.uvs;
+    const indices = this.indices;
 
     if (!positions || positions.length % 3 !== 0) {
       throw new Error("Mesh positions must exist and have length multiple of 3.");
@@ -205,13 +211,13 @@ export class Mesh {
     }
     else if (this.drawMode in [gl.POINTS]) {
         gl.enable(gl.DEPTH_TEST);
-        gl.depthMask(gl.FALSE);
+        gl.depthMask(false);
         gl.enable(gl.BLEND);
     }
     //Triangles
     else 
       gl.enable(gl.DEPTH_TEST);
-      gl.depthMask(gl.TRUE);
+      gl.depthMask(true);
 
 
     if (this.isIndexed) {

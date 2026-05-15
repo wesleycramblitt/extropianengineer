@@ -25,7 +25,7 @@ export class ParticleSet {
         this.positionVBO = gl.createBuffer();
         this.speedVBO = gl.createBuffer();
 
-        this.speedData = new Float32Array(positions.length);
+        this.speedData = new Float32Array(positions.length / 3);
 
         this.configureVAO();
     }
@@ -74,8 +74,7 @@ export class ParticleSet {
             const vx = this.velocities[i];
             const vy = this.velocities[i+1];
             const vz = this.velocities[i+2];
-            this.speedData[i] = Math.sqrt(vx * vx + vy * vy + vz * vz);
-//            if (this.speedData[i] > 3) this.speedData[i] = 3; 
+            this.speedData[i / 3] = Math.sqrt(vx * vx + vy * vy + vz * vz);
         }
     }
 

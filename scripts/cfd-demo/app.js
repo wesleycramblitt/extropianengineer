@@ -1,134 +1,114 @@
-import { createGL } from "/scripts/graphics/gl.js";
-import { Mesh } from "/scripts/graphics/mesh.js";
-import { Background } from "/scripts/graphics/background.js";
-import { ParticleSet } from "/scripts/graphics/particle-set.js";
-import { Camera } from "/scripts/graphics/camera.js";
-import { Renderer } from "/scripts/graphics/renderer.js";
-import { generateVortexParticles, createCubeData, createFloorData, generateGrid, generateAxisLine } from "/scripts/graphics/geometry.js";
-import { loadOBJ } from "/scripts/graphics/obj.js";
+import { createGL }           from "/scripts/graphics/gl.js";
+import { Mesh }                from "/scripts/graphics/mesh.js";
+import { Background }          from "/scripts/graphics/background.js";
+import { ParticleSet }         from "/scripts/graphics/particle-set.js";
+import { Camera }              from "/scripts/graphics/camera.js";
+import { Renderer }            from "/scripts/graphics/renderer.js";
+import { createCubeData, generateGrid, generateAxisLine }
+                               from "/scripts/graphics/geometry.js";
+import { vec3 }                from "/scripts/math/vec3.js";
+import { quat }                from "/scripts/math/quat.js";
+import { mat4 }                from "/scripts/math/mat4.js";
+import { CFDSimulator }        from "/scripts/simulation/cfd-simulator.js";
 
-import { vec3 } from "/scripts/math/vec3.js";
-import { quat, fromAxisAngle } from "/scripts/math/quat.js";
-import { mat4 } from "/scripts/math/mat4.js";
-import { CFDSimulator} from "/scripts/simulation/cfd-simulator.js";
+// ── canvas & WebGL context ──────────────────────────────────────────
 
 const canvas = document.getElementById("cfd");
 const gl = createGL(canvas);
 
-const camera = new Camera();
+// ── camera & renderer ───────────────────────────────────────────────
 
-const renderer = new Renderer(gl, canvas,camera);
-const background = new Background(gl,"/assets/textures/sky.avif");
+const camera   = new Camera();
+const renderer = new Renderer(gl, canvas, camera);
+
+// ── background (skybox) ─────────────────────────────────────────────
+
+const background = new Background(gl, "/assets/textures/sky.avif");
 await background.loadTexture();
+
+const entities = [];
+entities.push({
+    background: background,
+    draw:       () => { background.draw(); },
+});
 
 const lightDir = vec3(1, -5.0, -0.5);
 
-const entities = [];
-const background_entity = {
-    background: background,
-    draw: () => { background.draw()} 
-}
-entities.push(background_entity);
+// ── reference grid & axes ───────────────────────────────────────────
 
-
-const grid = generateGrid(100,100);
-const x = generateAxisLine(15, "x");
-const y = generateAxisLine(15, "y");
-const z = generateAxisLine(15, "z");
+const grid     = generateGrid(100, 100);
+const axisX    = generateAxisLine(15, "x");
+const axisY    = generateAxisLine(15, "y");
+const axisZ    = generateAxisLine(15, "z");
 
 const gridModel = mat4();
-const gridMesh = new Mesh(gl, grid, camera, gridModel, null, vec3(0.8,0.8,0.8), "unlit");
-const xModel = mat4();
-const xMesh = new Mesh(gl, x,camera, xModel, null, vec3(1,0,0), "unlit");
+const gridMesh  = new Mesh(gl, grid,  camera, gridModel,  null, vec3(0.8, 0.8, 0.8), "unlit");
+const xMesh     = new Mesh(gl, axisX, camera, mat4(),      null, vec3(1, 0, 0),      "unlit");
+const yMesh     = new Mesh(gl, axisY, camera, mat4(),      null, vec3(0, 1, 0),      "unlit");
+const zMesh     = new Mesh(gl, axisZ, camera, mat4(),      null, vec3(0, 0, 1),      "unlit");
 
-const yModel = mat4();
-const yMesh = new Mesh(gl, y,camera, yModel, null, vec3(0,1,0), "unlit");
-
-const zModel = mat4();
-const zMesh = new Mesh(gl, z,camera, zModel, null, vec3(0,0,1), "unlit");
-
-const gridEntity = {
-    mesh: gridMesh,
-    model: gridMesh.model,
-    translation: { position: vec3(0,0,0), rotation: quat(), scale: vec3(1,1,1)},
-    draw: () => {gridMesh.draw()}
+function pushStaticEntity(mesh) {
+    entities.push({
+        mesh:        mesh,
+        model:       mesh.model,
+        translation: { position: vec3(0, 0, 0), rotation: quat(), scale: vec3(1, 1, 1) },
+        draw:        () => { mesh.draw(); },
+    });
 }
-entities.push(gridEntity);
 
+pushStaticEntity(gridMesh);
+pushStaticEntity(xMesh);
+pushStaticEntity(yMesh);
+pushStaticEntity(zMesh);
 
-const xEntity = {
-    mesh: xMesh,
-    model: xMesh.model,
-    translation: { position: vec3(0,0,0), rotation: quat(), scale: vec3(1,1,1)},
-    draw: () => {xMesh.draw()}
-}
-entities.push(xEntity);
+// ── solid obstacle (cube) ───────────────────────────────────────────
 
+const cubeModel = mat4();
+const cubeData  = createCubeData();
+const cubeMesh  = new Mesh(gl, cubeData, camera, cubeModel, lightDir, vec3(0.3, 0.3, 0.3), "lit");
 
-
-const yEntity = {
-    mesh: yMesh,
-    model: yMesh.model,
-    translation: { position: vec3(0,0,0), rotation: quat(), scale: vec3(1,1,1)},
-    draw: () => {yMesh.draw()}
-}
-entities.push(yEntity);
-
-
-
-const zEntity = {
-    mesh: zMesh,
-    model: zMesh.model,
-    translation: { position: vec3(0,0,0), rotation: quat(), scale: vec3(1,1,1)},
-    draw: () => {zMesh.draw()}
-}
-entities.push(zEntity);
-
-
-
-const model = mat4();
-const cube = createCubeData();
-const cubeMesh = new Mesh(gl,cube, camera, model,lightDir, vec3(0.3,0.3,0.3), "lit");
-var cubeTranslation = {
-    position: vec3(0,0,0),
+const cubeTranslation = {
+    position: vec3(0, 0, 0),
     rotation: quat(),
-    scale: vec3(1,1,1) 
-}
-const cube_entity = {
-    mesh: cubeMesh,
-    model: cubeMesh.model,
+    scale:    vec3(1, 1, 1),
+};
+
+entities.push({
+    mesh:        cubeMesh,
+    model:       cubeMesh.model,
     translation: cubeTranslation,
-    collision: 1,
-    draw: () => { cubeMesh.draw()}
-}
-entities.push(cube_entity);
+    collision:   1,           // <— marks this entity for solid voxelisation
+    draw:        () => { cubeMesh.draw(); },
+});
 
+// ── simulator ───────────────────────────────────────────────────────
 
+const simulator = new CFDSimulator(
+    entities.filter(e => e.collision === 1),
+    { particleCount: 50000 },
+);
 
-const simulator = new CFDSimulator(entities.filter(x => x.collision == 1), { particleCount: 50000 });
+// ── GPU particle renderer (reads Float32Arrays by reference) ────────
 
 const cfdParticleSet = new ParticleSet(gl, simulator.positions, simulator.velocities, camera);
-const particles_entity = {
+entities.push({
     particleSet: cfdParticleSet,
-    draw: () => { cfdParticleSet.draw();}
-}
-entities.push(particles_entity);
+    draw:        () => { cfdParticleSet.draw(); },
+});
 
-var lastTime = 0;
+// ── render loop ─────────────────────────────────────────────────────
+
+let lastTime = 0;
 
 function frame(time) {
-    var dt = (time - lastTime)/1000;
+    let dt = (time - lastTime) / 1000;
     lastTime = time;
-    dt = Math.min(dt, 1/60);
+    dt = Math.min(dt, 1 / 60);   // cap to ~16 ms to avoid spiral-of-death
 
     simulator.step(dt);
-
-    renderer.draw(entities);      
+    renderer.draw(entities);
 
     requestAnimationFrame(frame);
-    
 }
 
 requestAnimationFrame(frame);
-
-

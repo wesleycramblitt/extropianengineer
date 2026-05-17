@@ -264,12 +264,20 @@ export class CanvasController {
         this._playBtn.style.setProperty('cursor', 'pointer', 'important');
         this._playBtn.style.setProperty('pointer-events', 'auto', 'important');
 
-        const onPause = (e) => {
+        // CSS-rendered pause bars (no Unicode emoji issues on mobile).
+        this._pauseBars = [createBar(), createBar()];
+        this._playBtn.append(this._pauseBars[0], this._pauseBars[1]);
+
+        // Debounced handler — prevents double-fire from pointerdown + click on mobile.
+        var _pauseTs = 0;
+        var onPause = function (e) {
             e.stopImmediatePropagation();
+            var now = Date.now();
+            if (now - _pauseTs < 200) return;
+            _pauseTs = now;
             this.pause();
-        };
+        }.bind(this);
         this._playBtn.addEventListener('pointerdown', onPause, { capture: true });
-        this._playBtn.addEventListener('click',       onPause, { capture: true });
         bar.appendChild(this._playBtn);
 
         // ── fullscreen button ────────────────────────────────────
@@ -282,18 +290,20 @@ export class CanvasController {
         this._fsBtn.style.setProperty('cursor', 'pointer', 'important');
         this._fsBtn.style.setProperty('pointer-events', 'auto', 'important');
 
-        const onFS = (e) => {
+        var _fsTs = 0;
+        var onFS = function (e) {
             e.stopImmediatePropagation();
+            var now = Date.now();
+            if (now - _fsTs < 200) return;
+            _fsTs = now;
             this._toggleFullscreen();
-        };
+        }.bind(this);
         this._fsBtn.addEventListener('pointerdown', onFS, { capture: true });
-        this._fsBtn.addEventListener('click',       onFS, { capture: true });
         bar.appendChild(this._fsBtn);
 
         this._shell.appendChild(bar);
         this._pauseBar = bar;
 
-        this._updatePauseIcon();
         this._updateFullscreenIcon();
     }
 
@@ -303,26 +313,17 @@ export class CanvasController {
 
     _updateUI() {
         if (this._userPaused) {
-            // Paused: show center overlay; hide pause btn, keep fs btn visible
-            if (this._overlay)   this._overlay.style.display = 'flex';
-            if (this._playBtn)   this._playBtn.style.display = 'none';
+            if (this._overlay) this._overlay.style.display = 'flex';
+            if (this._playBtn) this._playBtn.style.display = 'none';
         } else {
-            // Playing: hide overlay; show pause + fs
-            if (this._overlay)   this._overlay.style.display = 'none';
-            if (this._playBtn)   this._playBtn.style.display = '';
+            if (this._overlay) this._overlay.style.display = 'none';
+            if (this._playBtn) this._playBtn.style.display = '';
         }
-        this._updatePauseIcon();
-    }
-
-    _updatePauseIcon() {
-        if (!this._playBtn) return;
-        // ⏸ (pause symbol, shown when playing)
-        this._playBtn.textContent = '\u23F8';
     }
 
     _updateFullscreenIcon() {
         if (!this._fsBtn) return;
-        const isFS = !!document.fullscreenElement;
+        var isFS = !!document.fullscreenElement;
         this._fsBtn.textContent = isFS ? '\u2715' : '\u26F6';   // ✕ / ⛶
     }
 
@@ -378,4 +379,19 @@ export class CanvasController {
             fn(playing);
         }
     }
+}
+
+/** A single vertical pause bar (CSS-rendered, no emoji issues). */
+function createBar() {
+    var bar = document.createElement('span');
+    bar.setAttribute('aria-hidden', 'true');
+    Object.assign(bar.style, {
+        display: 'inline-block',
+        width: '0.22rem',
+        height: '0.9rem',
+        margin: '0 0.12rem',
+        background: '#eee',
+        borderRadius: '1px',
+    });
+    return bar;
 }

@@ -37,6 +37,7 @@ export class CanvasController {
         this._viewportVisible = true;
         this._articleActive    = true;
         this._callbacks        = [];
+        this._lastToggle       = 0;
 
         // ── wrap canvas in a shell if needed ─────────────────────────
         this._wrap();
@@ -73,6 +74,9 @@ export class CanvasController {
     /** Programmatically play (clear user pause). */
     play() {
         if (this._userPaused) {
+            var now = Date.now();
+            if (now - this._lastToggle < 350) return;
+            this._lastToggle = now;
             this._userPaused = false;
             this._updateUI();
             this._fireCallbacks();
@@ -82,6 +86,9 @@ export class CanvasController {
     /** Programmatically pause (set user pause). */
     pause() {
         if (!this._userPaused) {
+            var now = Date.now();
+            if (now - this._lastToggle < 350) return;
+            this._lastToggle = now;
             this._userPaused = true;
             this._updateUI();
             this._fireCallbacks();

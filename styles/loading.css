@@ -1,0 +1,82 @@
+/* ═════════════════════════════════════════════════════════════════════
+   Loading Screen — full-viewport overlay shown while assets load.
+   Pure CSS animation — no JS dependency for the visual effect.
+   ═════════════════════════════════════════════════════════════════════ */
+
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    background: #0a0a10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    pointer-events: all;
+}
+
+/* ── outer rotating ring ─────────────────────────────────────────── */
+.loader-ring {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 3px solid rgba(60, 130, 255, 0.15);
+    border-top-color: rgba(60, 130, 255, 0.85);
+    animation: loader-spin 0.9s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── inner ring (counter-rotating) ───────────────────────────────── */
+.loader-ring-inner {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    border: 2px solid rgba(60, 130, 255, 0.1);
+    border-bottom-color: rgba(60, 130, 255, 0.6);
+    animation: loader-spin 0.6s linear reverse infinite;
+}
+
+@keyframes loader-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── text label ──────────────────────────────────────────────────── */
+.loader-text {
+    font-family: 'Iceland', 'Courier New', monospace;
+    font-size: 1.4rem;
+    letter-spacing: 0.45em;
+    color: rgba(60, 130, 255, 0.8);
+    text-transform: uppercase;
+}
+
+/* ── pulsing dots ────────────────────────────────────────────────── */
+.loader-dots {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.loader-dots span {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: rgba(60, 130, 255, 0.6);
+    animation: loader-dot 1.2s ease-in-out infinite;
+}
+
+.loader-dots span:nth-child(1) { animation-delay: 0.0s; }
+.loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes loader-dot {
+    0%, 80%, 100% {
+        opacity: 0.25;
+        transform: scale(0.8);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}

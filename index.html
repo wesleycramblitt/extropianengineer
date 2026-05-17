@@ -37,6 +37,7 @@
     <!-- CustomWiggle requires CustomEase -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/CustomWiggle.min.js"></script>
 
+    <script src="scripts/loading-screen.js"></script>
     <script src="scripts/header-scramble.js"></script>
     <script src="scripts/header-tabs.js"></script>
     <script src="scripts/slides.js"></script>
@@ -56,8 +57,22 @@
     <link rel="stylesheet" href="styles/card.css" >
     <link rel="stylesheet" href="styles/slides.css" >
     <link rel="stylesheet" href="styles/canvas.css" >
+    <link rel="stylesheet" href="styles/loading.css" >
 </head>
     <body id="intro" class="engineering-grid">
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!--  LOADING SCREEN                                        -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <div id="loading-screen">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+            </div>
+            <div class="loader-text">LOADING</div>
+            <div class="loader-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <!-- ═══════════════════════════════════════════════════════ -->
         <div class="header" >
             <div id="introtab" class="tab selected-tab" style="padding:0">
                 <a href="#intro">

@@ -10,11 +10,16 @@ import { vec3 }                from "/scripts/math/vec3.js";
 import { quat }                from "/scripts/math/quat.js";
 import { mat4 }                from "/scripts/math/mat4.js";
 import { CFDSimulator }        from "/scripts/simulation/cfd-simulator.js";
+import { CanvasController }    from "/scripts/graphics/canvas-controller.js";
 
 // ── canvas & WebGL context ──────────────────────────────────────────
 
 const canvas = document.getElementById("cfd");
 const gl = createGL(canvas);
+
+// ── visibility / pause / fullscreen controller ─────────────────────
+
+const controller = new CanvasController(canvas);
 
 // ── camera & renderer ───────────────────────────────────────────────
 
@@ -101,14 +106,22 @@ entities.push({
 let lastTime = 0;
 
 function frame(time) {
-    let dt = (time - lastTime) / 1000;
-    lastTime = time;
-    dt = Math.min(dt, 1 / 60);   // cap to ~16 ms to avoid spiral-of-death
-
-    simulator.step(dt);
-    renderer.draw(entities);
-
     requestAnimationFrame(frame);
+
+    if (controller.isPlaying) {
+        // Running – step the simulation.
+        let dt = (time - lastTime) / 1000;
+        if (lastTime === 0) dt = 1 / 60;
+        lastTime = time;
+        dt = Math.min(dt, 1 / 30);
+        simulator.step(dt);
+    } else {
+        // Paused – keep the static scene visible, skip simulation.
+        lastTime = 0;
+    }
+
+    // Always render so the canvas is never blank.
+    renderer.draw(entities);
 }
 
 requestAnimationFrame(frame);

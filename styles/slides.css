@@ -48,8 +48,8 @@
   pointer-events: auto;
 }
 
-/* IMPORTANT: allow clicks inside content only */
-.section.slider-enabled .article .article-content {
+/* allow clicks inside the visible article's content */
+.section.slider-enabled .article.is-active .article-content {
   pointer-events: auto;
 }
 

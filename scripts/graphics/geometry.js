@@ -331,3 +331,114 @@ export function generateVortexParticles(count, radius = 3.0, height = 2.0, swirl
 
   return { positions, velocities };
 }
+
+/**
+ * UV sphere — latitude / longitude rings.
+ * @param {number} [radius=0.5]
+ * @param {number} [latSegs=16]   – latitude segments
+ * @param {number} [lonSegs=16]   – longitude segments
+ * @returns {{ positions, normals, indices, topology: 'triangles' }}
+ */
+export function createSphereData(radius = 0.5, latSegs = 16, lonSegs = 16) {
+    const positions = [];
+    const normals  = [];
+    const indices  = [];
+
+    for (let lat = 0; lat <= latSegs; lat++) {
+        const theta = lat * Math.PI / latSegs;
+        const sinT = Math.sin(theta);
+        const cosT = Math.cos(theta);
+
+        for (let lon = 0; lon <= lonSegs; lon++) {
+            const phi = lon * 2 * Math.PI / lonSegs;
+            const sinP = Math.sin(phi);
+            const cosP = Math.cos(phi);
+
+            const nx = cosP * sinT;
+            const ny = cosT;
+            const nz = sinP * sinT;
+
+            positions.push(radius * nx, radius * ny, radius * nz);
+            normals.push(nx, ny, nz);
+        }
+    }
+
+    for (let lat = 0; lat < latSegs; lat++) {
+        for (let lon = 0; lon < lonSegs; lon++) {
+            const first  = lat * (lonSegs + 1) + lon;
+            const second = first + lonSegs + 1;
+
+            indices.push(first, second, first + 1);
+            indices.push(second, second + 1, first + 1);
+        }
+    }
+
+    return {
+        positions: new Float32Array(positions),
+        normals:  new Float32Array(normals),
+        indices:  new Uint32Array(indices),
+        topology: 'triangles',
+    };
+}
+
+/**
+ * Solid cylinder (capped).
+ * @param {number} [radius=0.5]
+ * @param {number} [height=1.0]
+ * @param {number} [segs=32]
+ * @returns {{ positions, normals, indices, topology: 'triangles' }}
+ */
+export function createSolidCylinderData(radius = 0.5, height = 1.0, segs = 32) {
+    const positions = [];
+    const normals  = [];
+    const indices   = [];
+    const halfH = height * 0.5;
+
+    function addVertex(x, y, z, nx, ny, nz) {
+        positions.push(x, y, z);
+        normals.push(nx, ny, nz);
+        return (positions.length / 3) - 1;
+    }
+
+    // ── side wall ──────────────────────────────────────────────
+    const topRing    = [];
+    const bottomRing = [];
+    for (let i = 0; i < segs; i++) {
+        const angle = (i / segs) * Math.PI * 2;
+        const c = Math.cos(angle);
+        const s = Math.sin(angle);
+        const x = c * radius;
+        const z = s * radius;
+        bottomRing.push(addVertex(x, -halfH, z, c, 0, s));
+        topRing.push(addVertex(x,  halfH, z, c, 0, s));
+    }
+
+    for (let i = 0; i < segs; i++) {
+        const n = (i + 1) % segs;
+        const b0 = bottomRing[i], b1 = bottomRing[n];
+        const t0 = topRing[i],    t1 = topRing[n];
+        indices.push(b0, b1, t1);
+        indices.push(b0, t1, t0);
+    }
+
+    // ── top cap ────────────────────────────────────────────────
+    const topCenter = addVertex(0, halfH, 0, 0, 1, 0);
+    for (let i = 0; i < segs; i++) {
+        const n = (i + 1) % segs;
+        indices.push(topCenter, topRing[i], topRing[n]);
+    }
+
+    // ── bottom cap ─────────────────────────────────────────────
+    const bottomCenter = addVertex(0, -halfH, 0, 0, -1, 0);
+    for (let i = 0; i < segs; i++) {
+        const n = (i + 1) % segs;
+        indices.push(bottomCenter, bottomRing[n], bottomRing[i]);
+    }
+
+    return {
+        positions: new Float32Array(positions),
+        normals:  new Float32Array(normals),
+        indices:  new Uint32Array(indices),
+        topology: 'triangles',
+    };
+}

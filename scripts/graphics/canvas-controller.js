@@ -75,7 +75,7 @@ export class CanvasController {
     play() {
         if (this._userPaused) {
             var now = Date.now();
-            if (now - this._lastToggle < 350) return;
+            if (now - this._lastToggle < 500) return;
             this._lastToggle = now;
             this._userPaused = false;
             this._updateUI();
@@ -87,7 +87,7 @@ export class CanvasController {
     pause() {
         if (!this._userPaused) {
             var now = Date.now();
-            if (now - this._lastToggle < 350) return;
+            if (now - this._lastToggle < 500) return;
             this._lastToggle = now;
             this._userPaused = true;
             this._updateUI();
@@ -213,14 +213,14 @@ export class CanvasController {
         btn.appendChild(tri);
 
         // Clicking the overlay or the button starts play.
+        // Only pointerdown — no click, to avoid ghost-clicks on mobile
+        // when the overlay appears under a finger lifting from the pause btn.
         const onPlay = (e) => {
             e.stopImmediatePropagation();
             this.play();
         };
         overlay.addEventListener('pointerdown', onPlay, { capture: true });
-        overlay.addEventListener('click',       onPlay, { capture: true });
         btn.addEventListener('pointerdown',     onPlay, { capture: true });
-        btn.addEventListener('click',           onPlay, { capture: true });
 
         overlay.appendChild(btn);
         this._shell.appendChild(overlay);

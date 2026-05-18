@@ -56,13 +56,13 @@ export class CanvasController {
         this._onFullscreenChange = () => {
             this._updateFullscreenIcon();
             if (!document.fullscreenElement) {
-                // On the next frame, zero the canvas buffer so
-                // resizeCanvasToDisplaySize picks up the real
-                // container dimensions after exiting fullscreen.
-                requestAnimationFrame(() => {
-                    this.canvas.width  = 0;
-                    this.canvas.height = 0;
-                });
+                // Force a synchronous layout so clientWidth / clientHeight
+                // reflect the post-fullscreen container size, THEN zero the
+                // internal buffer so the next resizeCanvasToDisplaySize call
+                // picks up the correct dimensions.
+                void this.canvas.offsetHeight;
+                this.canvas.width  = 0;
+                this.canvas.height = 0;
             }
         };
         document.addEventListener('fullscreenchange', this._onFullscreenChange);

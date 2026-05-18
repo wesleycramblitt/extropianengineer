@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // 'Dice':      diceMesh,
     };
 
-    const camera = [0, 0, ];
+    const camera = [0, 0, -5];
 
     const scene = {
         camera:  camera,

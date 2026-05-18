@@ -113,4 +113,11 @@ export class Particles {
         velocities[base + 1] = wind[1];
         velocities[base + 2] = wind[2];
     }
+
+    /** Respawn every particle at a random inlet position. */
+    resetAll() {
+        for (let p = 0; p < this.particleCount; p++) {
+            this.respawnParticle(p);
+        }
+    }
 }

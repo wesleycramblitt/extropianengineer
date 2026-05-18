@@ -150,6 +150,9 @@ select.addEventListener('change', function () {
     // Update simulator's collision-entity reference and re-voxelise.
     simulator.entities = entities.filter(function (e) { return e.collision === 1; });
     simulator.updateSolidFlagsFromEntities();
+
+    // Reset tracer particles — old positions are invalid for the new shape.
+    simulator.particles.resetAll();
 });
 select.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
 

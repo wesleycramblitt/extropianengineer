@@ -57,12 +57,14 @@ export class CanvasController {
             this._updateFullscreenIcon();
             if (!document.fullscreenElement) {
                 // Force a synchronous layout so clientWidth / clientHeight
-                // reflect the post-fullscreen container size, THEN zero the
-                // internal buffer so the next resizeCanvasToDisplaySize call
-                // picks up the correct dimensions.
+                // reflect the post-fullscreen container size.
                 void this.canvas.offsetHeight;
-                this.canvas.width  = 0;
-                this.canvas.height = 0;
+                // Nudge the internal buffer to a valid-but-wrong size so
+                // the next resizeCanvasToDisplaySize call detects a
+                // mismatch and resizes to the real container dimensions.
+                // (0 × 0 kills the drawing buffer; 1 × 1 keeps it alive.)
+                if (this.canvas.width  !== 1) this.canvas.width  = 1;
+                if (this.canvas.height !== 1) this.canvas.height = 1;
             }
         };
         document.addEventListener('fullscreenchange', this._onFullscreenChange);

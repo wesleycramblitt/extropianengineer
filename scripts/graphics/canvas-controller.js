@@ -53,7 +53,18 @@ export class CanvasController {
         this._setupVisibility();
 
         // ── fullscreen change listener ───────────────────────────────
-        this._onFullscreenChange = () => this._updateFullscreenIcon();
+        this._onFullscreenChange = () => {
+            this._updateFullscreenIcon();
+            if (!document.fullscreenElement) {
+                // On the next frame, zero the canvas buffer so
+                // resizeCanvasToDisplaySize picks up the real
+                // container dimensions after exiting fullscreen.
+                requestAnimationFrame(() => {
+                    this.canvas.width  = 0;
+                    this.canvas.height = 0;
+                });
+            }
+        };
         document.addEventListener('fullscreenchange', this._onFullscreenChange);
     }
 
@@ -173,7 +184,6 @@ export class CanvasController {
             zIndex: '500',
             cursor: 'pointer',
         });
-        overlay.style.setProperty('pointer-events', 'auto', 'important');
 
         // Large centered play button
         const btn = document.createElement('button');
@@ -319,13 +329,15 @@ export class CanvasController {
     // ═══════════════════════════════════════════════════════════════════
 
     _updateUI() {
-        // UI reflects whether the demo is ACTUALLY playing (visible + unpaused).
-        if (this.isPlaying) {
-            if (this._overlay) this._overlay.style.display = 'none';
-            if (this._playBtn) this._playBtn.style.display = '';
-        } else {
-            if (this._overlay) this._overlay.style.display = 'flex';
-            if (this._playBtn) this._playBtn.style.display = 'none';
+        // Show the overlay only when the article is active AND the demo
+        // is not playing.  This prevents inactive-slide overlays from
+        // stacking on top of the active slide and stealing clicks.
+        const showOverlay = this._articleActive && !this.isPlaying;
+        if (this._overlay) {
+            this._overlay.style.display = showOverlay ? 'flex' : 'none';
+        }
+        if (this._playBtn) {
+            this._playBtn.style.display = this.isPlaying ? '' : 'none';
         }
     }
 

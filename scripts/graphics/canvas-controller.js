@@ -53,20 +53,7 @@ export class CanvasController {
         this._setupVisibility();
 
         // ── fullscreen change listener ───────────────────────────────
-        this._onFullscreenChange = () => {
-            this._updateFullscreenIcon();
-            if (!document.fullscreenElement) {
-                // Force a synchronous layout so clientWidth / clientHeight
-                // reflect the post-fullscreen container size.
-                void this.canvas.offsetHeight;
-                // Nudge the internal buffer to a valid-but-wrong size so
-                // the next resizeCanvasToDisplaySize call detects a
-                // mismatch and resizes to the real container dimensions.
-                // (0 × 0 kills the drawing buffer; 1 × 1 keeps it alive.)
-                if (this.canvas.width  !== 1) this.canvas.width  = 1;
-                if (this.canvas.height !== 1) this.canvas.height = 1;
-            }
-        };
+        this._onFullscreenChange = () => this._updateFullscreenIcon();
         document.addEventListener('fullscreenchange', this._onFullscreenChange);
     }
 

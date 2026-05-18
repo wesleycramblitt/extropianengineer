@@ -319,12 +319,13 @@ export class CanvasController {
     // ═══════════════════════════════════════════════════════════════════
 
     _updateUI() {
-        if (this._userPaused) {
-            if (this._overlay) this._overlay.style.display = 'flex';
-            if (this._playBtn) this._playBtn.style.display = 'none';
-        } else {
+        // UI reflects whether the demo is ACTUALLY playing (visible + unpaused).
+        if (this.isPlaying) {
             if (this._overlay) this._overlay.style.display = 'none';
             if (this._playBtn) this._playBtn.style.display = '';
+        } else {
+            if (this._overlay) this._overlay.style.display = 'flex';
+            if (this._playBtn) this._playBtn.style.display = 'none';
         }
     }
 
@@ -356,7 +357,10 @@ export class CanvasController {
         this._viewportObserver = new IntersectionObserver((entries) => {
             const wasVisible = this.isVisible;
             this._viewportVisible = entries[0].isIntersecting;
-            if (wasVisible !== this.isVisible) this._fireCallbacks();
+            if (wasVisible !== this.isVisible) {
+                this._updateUI();
+                this._fireCallbacks();
+            }
         }, { threshold: 0 });
 
         this._viewportObserver.observe(target);
@@ -367,7 +371,10 @@ export class CanvasController {
             this._classObserver = new MutationObserver(() => {
                 const wasVisible = this.isVisible;
                 this._articleActive = article.classList.contains('is-active');
-                if (wasVisible !== this.isVisible) this._fireCallbacks();
+                if (wasVisible !== this.isVisible) {
+                    this._updateUI();
+                    this._fireCallbacks();
+                }
             });
             this._classObserver.observe(article, {
                 attributes: true,

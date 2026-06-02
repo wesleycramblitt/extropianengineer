@@ -195,8 +195,8 @@ const viewBar = document.createElement('div');
 viewBar.setAttribute('data-no-drag', '');
 Object.assign(viewBar.style, {
     position: 'absolute',
-    bottom: '0.5rem',
-    right: '0.5rem',
+    top: '0.5rem',
+    left: '0.5rem',
     display: 'flex',
     gap: '0.3rem',
     zIndex: '999',

@@ -237,7 +237,7 @@ export class CanvasController {
         bar.setAttribute('data-no-drag', '');
         Object.assign(bar.style, {
             position: 'absolute',
-            top: '0.5rem',
+            bottom: '0.5rem',
             right: '0.5rem',
             display: 'flex',
             gap: '0.4rem',

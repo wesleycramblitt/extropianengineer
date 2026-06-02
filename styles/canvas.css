@@ -18,10 +18,10 @@ canvas {
   height: 100%;
 }
 
-/* ── control button bar (top-right overlay) ──────────────────────── */
+/* ── control button bar (bottom-rightoverlay) ──────────────────────── */
 .canvas-controls {
   position: absolute;
-  top: 0.5rem;
+  bottom: 0.5rem;
   right: 0.5rem;
   display: flex;
   gap: 0.4rem;
@@ -60,7 +60,7 @@ canvas {
 /* legacy placeholder kept for backwards compat */
 .canvas-control {
   position: absolute;
-  top: 1rem;
+  bottom: 1rem;
   right: 1rem;
   z-index: 20;
   pointer-events: auto;

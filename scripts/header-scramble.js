@@ -22,6 +22,5 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── Scramble hero text ─────────────────────────────────────────────
 function startScramble() {
     gsap.to(document.getElementById('hero'),  { duration: 1, scrambleText: 'Wes Cramblitt' });
-    gsap.to(document.getElementById('hero2'), { duration: 1, scrambleText: 'Scientific Software Engineer' });
-    gsap.to(document.getElementById('hero3'), { duration: 1, scrambleText: 'C++ | OpenGL | Javascript | Python' });
+    gsap.to(document.getElementById('hero2'), { duration: 1, scrambleText: 'Turning complex models into fast, interactive engineering systems.' });
 }

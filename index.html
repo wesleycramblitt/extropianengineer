@@ -1,4 +1,4 @@
-<html style="width:100%; height:100em;background-color:#111115">
+<html style="width:100%; height:100em;background-color:#111115; overflow-x:hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="styles/canvas.css" >
     <link rel="stylesheet" href="styles/loading.css" >
 </head>
-    <body id="intro" class="engineering-grid">
+<body class="engineering-grid" id="intro">
         <!-- ═══════════════════════════════════════════════════════ -->
         <!--  LOADING SCREEN                                        -->
         <!-- ═══════════════════════════════════════════════════════ -->
@@ -72,31 +72,36 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <!-- ═══════════════════════════════════════════════════════ -->
+
         <div class="header" >
             <div id="introtab" class="tab selected-tab" style="padding:0">
                 <a href="#intro">
                     <img src="img/logo.png" style="height:3.5em" />
                 </a></div>
             <div id="whatidotab" class="tab" ><a href="#whatido" >What I Do</a></div>
+            <div id="casestudiestab" class="tab"><a href="#casestudies">Case Studies</a></div>
+            <div id="pastworktab" class="tab"><a href="#pastwork">Past Work</a></div>
             <div id="demostab" class="tab"><a href="#demos">Demos</a></div>
-            <div id="pastworktab" class="tab"><a href="#pastwork">Work</a></div>
-            <div id="testimonialtab" class="tab"><a href="#testimonials">Testimonials</a></div>
-            <div id="engagementtab" class="tab" ><a href="#engagement">Engagement Models</a></div>
+            <div id="whyworkwithmetab" class="tab"><a href="#whyworkwithme">Why Work With Me</a></div>
+            <div id="engagetab" class="tab" ><a href="#engage">Engage</a></div>
+            <div id="contacttab" class="tab" ><a href="#contact">Contact</a></div>
             <div style="position:fixed; bottom:0.3em; right:1em;">
-                 <div style="display:inline-block; margin-right: 0.2em">
-                 <a class="button" href="https://linktr.ee/extropianeng" target="_blank">
+                 <div style="display:flex; align-items:center; gap:0.35em; background-color:#10101a; border:1px solid #999; border-radius:6px; padding:0.35em 0.5em">
+                 <a href="https://www.linkedin.com/in/wescramblitt" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:5px;background-color:#0077B5;flex-shrink:0" title="LinkedIn">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                 </a>
+                 <a href="https://x.com/extropianeng" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:5px;background-color:#111;flex-shrink:0" title="X / Twitter">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                 </a>
+                 <a class="button" style="display:inline-flex;align-items:center;height:34px;padding:0 10px;line-height:1;width:auto;flex-shrink:0" href="mailto:wes@extropianengineer.com">
                      Contact
                  </a>
-                </div>
-                <div style="display:inline-block; margin-left: 0.2em">
-                <a class="button" style="background-color:#555" href="#intro" >
-                     Back To Top
-                 </a>
+                 <a class="button" style="display:inline-flex;align-items:center;height:34px;padding:0 8px;line-height:1;width:auto;flex-shrink:0;background-color:#2a2a35;font-size:1.2em" href="#intro" >↑</a>
                  </div>
 
             </div>
         </div>
+
         <div class="hero">
             <picture style="opacity:0.7;">
               <source srcset="img/work.png" media="(max-width: 1400px)">
@@ -107,164 +112,417 @@
                 </h1>
                 <h2 id="hero2" style="text-align:center">
                 </h2>
-                <h3 id="hero3" style="text-align:center">
+                <h3 id="hero3" style="text-align:center; display:none">
                 </h3>
-                <div style="text-align:center; padding-top:3em">
-                    <a class="card button large" style="width:auto; height:auto;background-color:#595" href="mailto:wes@extropianengineer.com" >Request a Free Audit</a>
+                <div style="text-align:center; padding-top:3em; display:flex; justify-content:center; gap:1em; flex-wrap:wrap">
+                    <a class="card button large" style="width:auto; height:auto;background-color:#595" href="#casestudies" >View Case Studies</a>
+                    <a class="card button large" style="width:auto; height:auto;background-color:#55a" href="mailto:wes@extropianengineer.com?subject=Technical%20Bottleneck" >Discuss a Technical Bottleneck</a>
                 </div>
             </div>
 
         </div>
+
         <div id="whatido">
         <div  class="section " >
             <div class="section-top">
-                <h2 style="padding:0; margin:0; line-height:auto"> What I Do</h2>
-                <!-- <div class="normal" style="width:90vw" > I build high-performance simulation and visualization systems—modernizing legacy code, accelerating computation, and turning complex models into interactive tools.</div> -->
+                <h2 style="padding:0; margin:0"> What I Do</h2>
+                <div class="normal" style="width:90vw">I help engineering and research teams turn complex models and real-world data into fast, interactive design and digital-twin systems that shorten development cycles, improve decisions, and optimize physical systems throughout their lifecycle.</div>
             </div>
-             <div class="article">
+            <div class="article">
+                <div class="article-content ">
+                    <div class="box">
+                <h3 style="margin:0">Make Complex Results Interactive</h3>
+                <div>I build interactive 2D and 3D tools that help engineers explore results, compare designs, adjust parameters, and communicate complex system behavior more clearly.
+                </div>
+                    </div>
+                <div class="box">
+                    <video autoplay loop muted style="width:100%" src="vid/particles.mp4"></video>
+                </div>
+            </div>
+            </div>
+            <div class="article">
+                <div class="article-content ">
+                    <div class="box">
+                    <h3 style="margin:0">Modernize Proven Scientific Software</h3>
+                    <div class="">I modernize validated scientific and engineering software so it becomes easier to maintain, extend, deploy, and commercialize — without replacing proven models or starting over.
+                    </div>
+                    </div>
+                    <div class="box">
+                        <video src="vid/whoosh.webm" autoplay loop muted style="width:100%"></video>
+                    </div>
+                </div>
+            </div>
+            <div class="article">
                 <div class="article-content ">
                 <div class="box">
-                <h3 style="margin:0" >Build Interactive Simulation & Visualization Systems</h3>
-                I build UI/UX from web and desktop interfaces to 3d graphics systems that let engineers and researchers see, control, and iterate on simulations in real time.
-
+                <h3 style="margin:0">Simplify Complex Simulation Workflows</h3>
+                I build the software around scientific models and solvers—wrapping existing tools with clean APIs, connecting disconnected components, and automating setup, execution, data handling, and post-processing so engineers can run complex studies through one coherent workflow.
                 </div>
                 <div class="-crop box">
-                    <video src="vid/particles.mp4" autoplay loop muted style="width:100%"/>
+                    <video src="vid/autoligo.webm" autoplay loop muted style="width:100%"></video>
                 </div>
-
-
            </div>
-           <div class="article">
-                <div class="article-content ">
-                    <div class="box">
-                    <h3 style="margin:0">Modernize & Optimize Scientific Software </h3>
-                    <div class="">I take large, difficult codebases (Fortran, C/C++, Python, C#, Javascript, OpenGL, mixed stacks) and turn them into fast, reliable, maintainable, and integrated systems.
-                    </div>
-                    </div>
-                    <div class="box">
-                        <video src="vid/modernization.webm" style="width:100%" autoplay muted loop></video>
-                    </div>
-                </div>
-            </div>
-            <div class="article">
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">
-                    Critical Bug Resolution & Numerical Debugging
-                </h3>
-                <div>I diagnose and fix issues in complex scientific and HPC systems where failures are costly and difficult to trace.
-                </div>
-                    </div>
-                <div class="box">
-                    <video autoplay loop muted style="width:100%" src="vid/debug.webm" />
-                </div>
-
-                </div>
-            </div>
-            </div>
-            
-
-            <div class="article">
-
-                <div class="article-content ">
-                <div class="box">
-                <h3 style="margin:0">
-                    GPU Compute & Parallelization 
-                </h3>
-                
-                I leverage modern hardware to push simulations and computation to the next level using GPU Compute and Parrallelization strategies.
-
-                </div>
-                <div class="box">
-                    <video src="vid/gpucompute.webm" autoplay loop muted style="width:100%"/>
-                </div>
-
-
-            </div>
-            <div class="article">
+           </div>
+           <!--            <div class="article">
                  <div class="article-content ">
                 <div class="box">
-                    <h3 style="margin:0">
-                        High-Performance Numerical & Computational Engineering</h3>
-                    </h3>
-                    I have general knowledge of PDE/ODE solvers, discretization methods, and numerical stability across domains.                
-                </div>  
+                    <h3 style="margin:0">Connect Simulation With the Real World</h3>
+                    I build digital twins and real-time technical systems that combine models with sensor, operational, or experimental data to improve monitoring, prediction, decision-making, and control.
+                </div>
                 <div class="box">
-                    <video src="vid/gpucompute.webm" autoplay loop muted style="width:100%"/>
+                    <video src="vid/proto.mp4" autoplay loop muted style="width:100%"></video>
                 </div>
             </div>
-        </div>
-        </div>
-        </div>
-        <div id="demos" class="">
-        <div  class="section " >
-            <div class="section-top">
-                <h2 style="padding:0; margin:0; line-height:auto">Demos</h2>
-                 <div class="normal" style="width:90vw" >  
-                     Live, interactive proofs of concepts
-                 </div> 
+        </div>-->
+<!--            <div class="article">
+                 <div class="article-content ">
+                <div class="box">
+                    <h3 style="margin:0">Optimization &amp; Inverse Design</h3>
+                    I turn manual simulation workflows into automated optimization systems that explore larger design spaces and uncover better-performing designs with less engineering effort.
+                </div>
+                <div class="box">
+                    <video src="vid/gpucompute.webm" autoplay loop muted style="width:100%"></video>
+                </div>
             </div>
-<!--         <div class="article">
+        </div>-->
+        </div>
+        </div>
+
+       <div id="casestudies">
+            <div class="section ">
+                <div class="section-top">
+                    <h2 style="padding:0; margin:0">Case Studies</h2>
+                </div>
+            <div class="article" >
+                <div class="article-content ">
+                <div class="box">
+                <h3 style="margin:0">Modernizing a Legacy Atmospheric-Dispersion Platform for National-Laboratory Deployment</h3>
+                    <p>CAPARS is a large-scale system for modeling chemical and radiological release scenarios, used to develop Emergency Action Levels and Protective Action Guidelines. Originating in the 1990s, it required modernization, customization, and deployment to Sandia National Laboratories. I took technical ownership — upgrading the application, building deployment infrastructure, and operating across every layer of the stack.</p>
+                    <div class="card" style="padding:0.8em; margin-top:1em; background:rgba(85,85,170,0.15); border-left:3px solid #55a; font-style:italic;">
+                        &ldquo;Wes is a highly professional and talented software developer. He tackled complex and difficult issues in more than ten distinctly different assignments and was successful in all of them. He came up to speed quickly on legacy software that was not well documented &mdash; a key need in our project. He listened well and quickly gained understanding of what we needed to accomplish, then developed creative solutions to our needs. He managed his time well and met schedule and was close to budget in an exploratory environment where the effort required was difficult to predict. Overall, Wes significantly exceeded our expectations. I would recommend him for any software development and management project that fits his background.&rdquo; &mdash; Reed Hodgin, CAPARS
+                    </div>
+                </div>
+                <div class="box">
+                    <video src="vid/capars.webm" autoplay loop muted style="width:100%"></video>
+                </div>
+
+            </div>
+            </div>
+            <div class="article" >
+                <div class="article-content ">
+                <div class="box">
+                    <h3 style="margin:0">Building an Interactive Engineering Interface Around a Hypersonic Adaptive-Mesh Solver</h3>
+                    <p>HyperFat is a CFD solver with adaptive mesh refinement for hypersonic flows. The underlying solver was powerful but inaccessible to non-developers. I am building a commercial-grade interactive UI/UX — editing models and boundary conditions, managing batch processes, save/load scenes with reproducibility, and a command-bus architecture separating the UI from computational operations. Active contract with Whoosh HPC Lab LLC.</p>
+                </div>
+                <div class="box">
+                    <video src="vid/whoosh.webm" autoplay loop muted style="width:100%"></video>
+                </div>
+
+            </div>
+            </div>
+
+
+            <div class="article" >
+
+             <div class="article-content ">
+                <div class="box">
+                <h3 style="margin:0">Unifying Fragmented RNA Analysis Into an End-to-End Research Platform</h3>
+                    <p>
+                    Autoligo takes researchers from raw sequencing data through downstream analysis, annotation, and interpretation — replacing a patchwork of disconnected tools with a single reproducible platform. Built in collaboration with Kansas University graduate students, the system reduces manual analysis burden and makes non-coding RNA research accessible to domain scientists rather than only programmers.
+                    </p>
+                </div>
+                <div class="box">
+                    <video src="vid/autoligo.webm" autoplay loop muted style="width:100%"></video>
+                </div>
+            </div>
+            </div>
+            <div class="article" >
+
                 <div class="article-content ">
                     <div class="box">
-                    <h3 style="margin:0">WebGL Interactive, Real Time Rigid Body Dynamics</h3>
-                    <div class="">
-                         <p>Proof of Capabilties:</p>
-                        <ul>
-                            <li>
-                                Full GPU pipeline programming with mesh imports, MVP pipeline, textures, and multiple shaders.
-                            </li>
-                            <li>
-                                Real Time, Rigid Body dynamics ODEs, discretization, time integration 
-                            </li>
-                            <li>
-                                Interactive UI/UX controls that function during a real time simulation
-                            </li>
-                        </ul>                      
-                    </div>
-                    </div>
-                    <div class="box">
-                        <canvas id="dice" />
+                <h3 style="margin:0">Sustaining and Modernizing a Mission-Critical Emergency Response Simulator</h3>
+                <p>AlphaACT is an emergency-response training platform used by government and enterprise clients. Since 2018 I have served as the primary developer — maintaining, upgrading, and customizing the system for multiple deployments. The engagement spans legacy code stewardship, feature development, client-specific customization, and ongoing technical support across years.
+                </p>
+                    <div class="card" style="padding:0.8em; margin-top:1em; background:rgba(85,85,170,0.15); border-left:3px solid #55a; font-style:italic;">
+                        &ldquo;Wes is extremely proficient, diligent and highly competent. He quickly understands a task, finds effective solutions to simple or complex problems and implements on time and within budget. What more could you ask!&rdquo; &mdash; Reed Hodgin, AlphaACT
                     </div>
                 </div>
-</div> -->
+                <div class="box">
+                <img src="img/alphaact.gif" class="" style="max-width:100%" />
+                </div>
+            </div>
+            </div>
+
+            <div class="article" >
+
+                <div class="article-content ">
+                    <div class="box">
+                <h3 style="margin:0">IoT Fleet-Managed Sensor Platform on Raspberry Pi</h3>
+                <p>
+                Solvere is an Electron-based application deployed on Raspberry Pi devices, interfacing directly with PID controllers, sensors, and actuators for real-time liquid chromatography detection. The fleet was managed and deployed remotely using Balena OS for over-the-air updates, health monitoring, and centralized fleet management across distributed hardware installations.
+                </p>
+                    </div>
+                <div class="box">
+                <img src="img/solvere.jpg" class="" style="max-width:100%" />
+                </div>
+            </div>
+            </div>
+
+            </div>
+        </div>
+
+        <div id="pastwork" class="pt3">
+            <div class="section-top" style="text-align:center">
+                <h2 style="margin:0">Past Work</h2>
+                <div class="normal" style="max-width:50em; margin:0.5em auto">Filterable project history across simulation, real-time systems, modernization, and product development.</div>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4em; justify-content:center; padding:0 1em 1.5em">
+                <button class="filter-btn is-active" data-filter="all" style="padding:0.4em 1em; border:1px solid #55a; border-radius:4px; background:rgba(85,85,170,0.2); color:#aac; cursor:pointer; font-family:inherit; font-size:var(--fs-sm)">All</button>
+                <button class="filter-btn" data-filter="scientific" style="padding:0.4em 1em; border:1px solid #555; border-radius:4px; background:transparent; color:#999; cursor:pointer; font-family:inherit; font-size:var(--fs-sm)">Scientific &amp; Simulation</button>
+                <button class="filter-btn" data-filter="realtime" style="padding:0.4em 1em; border:1px solid #555; border-radius:4px; background:transparent; color:#999; cursor:pointer; font-family:inherit; font-size:var(--fs-sm)">Real-Time &amp; Hardware</button>
+                <button class="filter-btn" data-filter="modernization" style="padding:0.4em 1em; border:1px solid #555; border-radius:4px; background:transparent; color:#999; cursor:pointer; font-family:inherit; font-size:var(--fs-sm)">Mission-Critical</button>
+                <button class="filter-btn" data-filter="product" style="padding:0.4em 1em; border:1px solid #555; border-radius:4px; background:transparent; color:#999; cursor:pointer; font-family:inherit; font-size:var(--fs-sm)">Product &amp; Platform</button>
+            </div>
+            <div class="project-grid">
+                <div class="article m1 project-item" data-category="scientific">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">CAPARS: Atmospheric Dispersion Modeling</h3>
+                            <p>Large-scale system for modeling chemical and radiological release scenarios. I took technical ownership of this 1990s-era codebase — upgrading the application, building deployment infrastructure, and delivering it to Sandia National Laboratories.</p>
+                        </div>
+                        <div class="box">
+                    <video src="vid/capars.webm" autoplay loop muted style="width:100%"></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item" data-category="scientific">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">HyperFat: Hypersonic Adaptive-Mesh CFD</h3>
+                            <p>Building a commercial-grade interactive UI/UX for a hypersonic flow solver — model editing, boundary conditions, batch processing, save/load with reproducibility. Active contract with Whoosh HPC Lab LLC.</p>
+                        </div>
+                        <div class="box">
+                            <video src="vid/whoosh.webm" autoplay loop muted style="width:100%"></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item" data-category="scientific">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">Autoligo: Non-Coding RNA Analysis</h3>
+                            <p>End-to-end platform replacing a patchwork of disconnected tools. Takes researchers from raw sequencing through annotation and interpretation. Built in collaboration with Kansas University graduate students.</p>
+                        </div>
+                        <div class="box">
+                            <video src="vid/autoligo.webm" autoplay loop muted style="width:100%"></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item" data-category="scientific">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">Game Engine Style, Multiphysics Simulator</h3>
+                            <p>Real-time, game engine style simulator UI/UX built to unify simulation, visualization, and interaction in a single runtime.</p>
+                        </div>
+                        <div class="box">
+                            <video src="vid/proto.mp4" autoplay loop muted style="width:100%"></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item" data-category="modernization">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">AlphaACT: Emergency Response Training</h3>
+                            <p>Primary developer since 2018 — maintaining, upgrading, and customizing this mission-critical platform for multiple government and enterprise deployments.</p>
+                        </div>
+                        <div class="box">
+                            <img src="img/alphaact.gif" style="max-width:100%" />
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="realtime" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">Solvere: IoT Fleet-Managed LC Detector</h3>
+                            <p>Electron-based app on Raspberry Pi, interfacing with PID controllers, sensors, and actuators. Managed and deployed remotely using Balena OS for fleet-wide updates and health monitoring.</p>
+                        </div>
+                        <div class="box">
+                            <img src="img/solvere.jpg" style="max-width:100%" />
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="product" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">Skills Over Paper</h3>
+                            <p>Founded and solo-developed a developer–company matchmaking platform with Next.js, React, and PostgreSQL. Structured skill-based resumes capture detailed and nuanced developer capabilities.</p>
+                        </div>
+                        <div class="box">
+                            <video src="vid/skillsoverpaper.webm" autoplay loop muted style="width:100%"></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="product" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">HealthIQ: Cognitive Quiz</h3>
+                            <p>Delivered under an aggressive two-week timeline, compressing several months of planned work.</p>
+                            <div class="card" style="padding:0.8em; margin-top:1em; background:rgba(85,85,170,0.15); border-left:3px solid #55a; font-style:italic;">
+                                &ldquo;Wes is talented, personable and overall a great person to work with. There&rsquo;s always a challenge in finding someone who can balance communication, skill, and productivity, but Wes really brings them all. I would definitely hire him again for my next project.&rdquo; &mdash; Kurt Roots, HealthIQ
+                            </div>
+                        </div>
+                        <div class="box">
+                            <img src="img/healthiq.png" class="card" style="max-width:100%" />
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="realtime" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">Brain Break: Neurotherapeutic Game</h3>
+                            <p>3D game where a rotating glass cube continuously spins while the player throws balls to break panels of specific colors. Real-time physics and rendering.</p>
+                            <div class="card" style="padding:0.8em; margin-top:1em; background:rgba(85,85,170,0.15); border-left:3px solid #55a; font-style:italic;">
+                                &ldquo;Wesley did a great job on my mobile game, coming up with creative solutions to its challenges. He is easy to work with, consistent and responds quickly to feedback. Highly recommend!&rdquo; &mdash; V, Relative Magnitude
+                            </div>
+                        </div>
+                        <div class="box">
+                            <video src="vid/brainbreak.mp4" autoplay loop muted style="max-width:100%"></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="product" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">IGrad: Financial Management Platform</h3>
+                            <p>Designed and implemented APIs, integrated ML-driven features, and built complex responsive React frontends.</p>
+                            <div class="card" style="padding:0.8em; margin-top:1em; background:rgba(85,85,170,0.15); border-left:3px solid #55a; font-style:italic;">
+                                &ldquo;Wes is a fantastic developer. Easy to work with and produces high quality code. He was able to handle everything we threw at him from legacy code updates to new technology PoCs. He worked well with our team and was very professional in dealing with our vendors.&rdquo; &mdash; Danny Crinion, IGrad
+                            </div>
+                        </div>
+                        <div class="box">
+                            <img src="img/igrad.png" style="max-width:100%" />
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="product" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">Casino Poker Games</h3>
+                            <p>Multiple game development projects — extended JS prototypes into fully playable casino-style games with complete logic, refined UI/UX, and multiple variants.</p>
+                            <div class="card" style="padding:0.8em; margin-top:1em; background:rgba(85,85,170,0.15); border-left:3px solid #55a; font-style:italic;">
+                                &ldquo;Wes went above and beyond and his knowledge was above the rest of the pack. I will use Wes for other projects and tweaks in the future.&rdquo; &mdash; Max, Vegas Games
+                            </div>
+                        </div>
+                        <div class="box">
+                            <video src="vid/doubleballroulette.webm" autoplay loop muted style="max-width:100%"></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="modernization" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">Dorger Software Architects</h3>
+                            <p>Contributed to multiple medium-to-large state systems — built and extended APIs, maintained frontend components, fixed production bugs, and implemented supporting services.</p>
+                        </div>
+                        <div class="box">
+                            <img src="img/dorger.png" style="max-width:100%" />
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="modernization" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">CARES: Alabama Eligibility System</h3>
+                            <p>Senior Developer on the Centralized Alabama Recipient Eligibility System, a large-scale web platform serving the state of Alabama.</p>
+                        </div>
+                        <div class="box">
+                            <img src="img/cares.webp" style="max-width:100%" />
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="modernization" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">Envista: Data Migration Tool</h3>
+                            <p>Joined as the company&rsquo;s first intern after proactively reaching out and negotiating the role. Built data migration tooling.</p>
+                        </div>
+                        <div class="box">
+                            <img src="img/envista.jpg" style="max-width:100%" />
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="product" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">MDAD: Mississippi Damage Awards Database</h3>
+                            <p>Co-founded and built from scratch using ASP.NET Web Forms — a database helping lawyers draw statistical conclusions about potential case outcomes.</p>
+                        </div>
+                        <div class="box">
+                            <img src="img/mdad.png" style="max-width:100%" />
+                        </div>
+                    </div>
+                </div>
+                <div class="article m1 project-item collapsed" data-category="realtime" style="display:none">
+                    <div class="article-content">
+                        <div class="box">
+                            <h3 style="margin:0">CFD / Raycaster Demos</h3>
+                            <p>WebGL real-time computational fluid dynamics solver and a from-scratch 3D graphics pipeline — demonstrating GPU programming, numerical methods, and interactive UI/UX during live simulation.</p>
+                        </div>
+                        <div class="box">
+                            <img src="img/ss.png" style="max-width:100%" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:1.5em">
+                <button id="show-more-btn" class="card" style="padding:0.5em 1.5em; background:#595; color:#fff; border:none; border-radius:4px; cursor:pointer; font-family:inherit; font-size:var(--fs-base)">Show All 16 Projects ↓</button>
+            </div>
+        </div>
+
+        <div id="demos">
+        <div  class="section " >
+            <div class="section-top">
+                <h2 style="padding:0; margin:0">Demos</h2>
+                 <div class="normal" style="width:90vw" >  
+                     Live, interactive proofs of concept — the same WebGL, numerical methods, and UI integration I use in production systems.
+                 </div> 
+            </div>
      <div class="article">
                 <div class="article-content ">
                     <div class="box">
-                    <h3 style="margin:0">WebGL interactive, real time CFD</h3>
+                    <h3 style="margin:0">WebGL Interactive, Real-Time CFD</h3>
                     <div class="">
-                         <p>Proofs of Capabilties:</p>
+                         <p>What this demonstrates:</p>
                         <ul>
                             <li>
-                                Low level WebGL pipeline programming 
+                                Low-level WebGL pipeline programming with custom shaders
                             </li>
                             <li>
-                                Real Time, Computational Fluid Dyanmics from scratch
+                                Real-time computational fluid dynamics built from scratch
                             </li>
                             <li>
-                                Interactive UI/UX controls that function during a real time simulation
+                                Interactive UI/UX controls that function during a live simulation
                             </li>
                         </ul>                      
                     </div>
                     </div>
                     <div class="box">
-                        <canvas id="cfd" />
+                        <canvas id="cfd"></canvas>
                     </div>
                 </div>
 </div> 
         <div class="article">
                 <div class="article-content ">
                     <div class="box">
-                    <h3 style="margin:0">From scratch 3d Graphics Pipeline</h3>
+                    <h3 style="margin:0">From-Scratch 3D Graphics Pipeline</h3>
                     <div class="">
-                        <p>Proof of Capabilties:</p>
+                        <p>What this demonstrates:</p>
                         <ul>
-                            <li>From scratch graphics programming (pure linear algebra, no OpenGL)</li>
+                            <li>Pure linear algebra graphics programming — no OpenGL dependency</li>
                             <li>
-                                Converting 3d vertices from local <=> world <=> view <=> screen
+                                Full vertex transform pipeline: local → world → view → screen
                             </li>
                             <li>
-                                Loading meshes, rendering triangles from indices and vertices
+                                Triangle rasterization from index buffers and vertex data
                             </li>
                         </ul>
                     </div>
@@ -281,314 +539,152 @@
         </div>
         </div>
 
-       <div id="pastwork"> 
-            <div class="section ">
-                <div class="section-top">
-                    <h2 style="padding:0; margin:0">Work </h2>
-                </div>
-            <div class="article" >
-                <div class="article-content ">
-                <div class="box">
-                <h3 style="margin:0">2026 HyperFat | Whoosh HPC Lab LLC</h3>
-                    <p>Active contract, building a commercial grade interactive UI/UX for a hypersonic adaptive mesh solver. Features planned include editing models, boundary conditions, command bus architecture, save/load scenes, manage batch processes.</p>
-                </div>
-                <div class="box">
-                    <img src="img/whoosh.webp" class="card" style="max-width:100%" />
-                </div>
-
-            </div>
-            </div>
-            <div class="article" >
-                <div class="article-content ">
-                <div class="box">
-                    <h3 style="margin:0">2026 - Present Real-Time, MultiPhysics Simulator</h3>
-                    <p>Building a real-time, multiphysics simulator with game engine style controls, and an ECS system.</p>
-                </div>
-                <div class="box">
-                    <video src="vid/proto.mp4" autoplay loop muted style="width:100%"/>
-                </div>
-
-                </div>
-            </div>
-
-
-            <div class="article" >
-
-             <div class="article-content ">
-                <div class="box">
-                <h3 style="margin:0">2025-2026 Autoligo</h3>
-                    <p>
-                    An end-to-end platform for non-coding RNA analysis, starting from raw sequencing data and extending through downstream analysis, annotation, and interpretation in colaboration with Kansas University graduate students.
-                    </p>
-                </div>
-                <div class="box">
-                    <!-- <img src="img/autoligo.png" class="card" style="max-width:100%"/> -->
-
-                    <video src="vid/autoligo.webm" autoplay loop muted style="width:100%"/>
-                </div>
-            </div>
-            </div>
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2022-2026 CAPARS: Atmospheric Dispersion Modeling</h3>
-                <p>CAPARS is a large-scale atmospheric dispersion modeling system used to develop Emergency Action Levels (EALs) and Protective Action Guidelines (PAGs) in response to simulated chemical and radiological release scenarios.
-                </p>
-                </div>
-                <div class="box">
-                <!-- <img src="img/capars1.png" class="" style="max-width:100%"/> -->
-                
-                    <video src="vid/capars.webm" autoplay loop muted style="width:100%"/>
-                </div>
-            </div>
-            </div>
-
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2022-2024 Skills Over Paper</h3>
-                <p>
-                I founded and solo developed a developer–company matchmaking platform built with Next.js, React, and PostgreSQL.  
-                The platform is centered around a structured, skill-based resume that captures detailed and nuanced developer capabilities. 
-                </p>
-                    </div>
-                    <div class="box">
-                <!-- <img src="img/sop.png" class="" style="max-width:100%" /> -->
-
-                    <video src="vid/skillsoverpaper.webm" autoplay loop muted style="width:100%"/>
-                    </div>
-            </div>
-            </div>
-
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2022 Solvere: An LC Detector</h3>
-                <p>
-                Worked on an Electron-based application deployed on Raspberry Pi devices, interfacing directly with PID controllers, sensors, and actuators. The system was managed and deployed using Balena OS for fleet management and remote updates.
-                </p>
-                    </div>
-                <div class="box">
-                <img src="img/solvere.jpg" class="" style="max-width:100%" />
-                </div>
-            </div>
-            </div>
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2021 HealthIQ: Cognitive Quiz</h3>
-                <p>
-                This project was delivered under an aggressive two-week timeline, compressing several months of planned work.
-                </p>
-                </div>
-                <div class="box">
-                <img src="img/healthiq.png" class="card" style="max-width:100%" />
-                </div>
-            </div>
-            </div>
-            <div class="article" >
-
-                <div class="article-content ">
-                <div class="box">
-                <h3 style="margin:0">2020 Brain Break: A neurotherapeutic game</h3>
-                <p>
-                BrainBrake was a neurotherapeutic 3D game in which a rotating glass cube continuously spins while the player throws balls to break glass panels of specific colors. 
-
-                </p>
-                </div>
-                <div class="box">
-                    <video src="vid/brainbreak.mp4" class="" loop muted autoplay style="max-width:100%" />
-                </div>
-
-            </div>
-            </div>
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2019-2024 AlphaACT: Emergency Response Training Simulator</h3>
-                <p>
-                I’ve worked with the original creator of AlphaACT since 2018, serving as the primary developer responsible for maintaining, upgrading, and customizing the platform for multiple clients.
-                </p>
-                </div>
-                <div class="box">
-                <img src="img/alphaact.gif" class="" style="max-width:100%" />
-                </div>
-            </div>
-            </div>
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2019-2021 IGrad: A data and feature rich financial management platform</h3>
-                <p>
-                I designed and implementing APIs, integrated machine learning–driven features, and built complex, responsive React frontends
-                </p>
-                </div>
-                <div class="box">
-                <img src="img/igrad.png" class="" style="max-width:100%" />
-                </div>
-            </div>
-            </div>
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2019 Poker Games</h3>
-                <p>
-                    This was a freelance engagement involving multiple game development projects.
-                    I worked from existing JavaScript-based game prototypes and mockups and extended them into fully playable casino-style games. This included implementing complete game logic, refining UI/UX, and customizing mechanics to support multiple variants.
-
-                </p>
-                    </div>
-                <div class="box">
-                <video src="vid/doubleballroulette.webm" class="" loop muted autoplay style="max-width:100%" />
-                </div>
-            </div>
-            </div>
-             <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2018-2019 Dorger Software Architects</h3>
-                <p>
-                    I worked at Dorger Software Architects, contributing to the development and maintenance of multiple medium- to large-scale state systems.
-                    Across these projects, I built and extended APIs, developed and maintained frontend components, fixed production bugs, and implemented supporting services required to keep complex systems stable and evolving. 
-                </p>
-                </div>
-                <div class="box">
-                <img src="img/dorger.png" class="" style="max-width:100%" />
-                </div>
-            </div>
-            </div>
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2014-2015 CARES: Senior Developer role</h3>
-                <p>
-                I worked as a Senior Developer on the Centralized Alabama Recipient Eligibility System, a large-scale web platform serving the state of Alabama.
-                </p>
-                </div>
-                <div class="box">
-                <img src="img/cares.webp" class="" style="max-width:100%" />
-                </div>
-            </div>
-            </div>
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2012-2014 Envista Data Migration Tool</h3>
-                <p>
-                    I joined Envista as the company’s first intern after proactively reaching out and negotiating the role.
-                </p>
-                </div>
-                <div class="box">
-                <img src="img/envista.jpg" class="" style="max-width:100%" />
-                </div>
-            </div>
-            </div>
-            <div class="article" >
-
-                <div class="article-content ">
-                    <div class="box">
-                <h3 style="margin:0">2011-2013 MDAD: Mississippi Damage Awards Database</h3>
-                <p>
-                    I co-founded and built a damage awards database for legal professionals, designed to help lawyers draw statistical conclusions about potential outcomes in future cases. I built the system from the ground up using ASP.NET Web Forms, including the application architecture, data model, and core business logic.
-                </p>
-                    </div>
-                    <div class="box">
-                <img src="img/mdad.png" class="" style="max-width:100%" />
-                    </div>
-
-            </div>
-            </div>
-            </div>
-        </div>
-        <div id="testimonials" class="pt3">
-        <div class="">
-            <div class="section-top"><h2 style="margin:0">Testimonials</h2></div>
+        <div id="whyworkwithme" class="pt3">
+            <div class="section-top"><h2 style="margin:0">Why Work With Me</h2></div>
             <div class="article m1" > 
-                <div class="article-content">
-                    “Wes is a highly professional and talented software developer. He tackled complex and difficult issues in more than ten distinctly different assignments and was successful in all of them. He came up to speed quickly on legacy software that was not well documented – a key need in our project. He listened well and quickly gained understanding of what we needed to accomplish, then developed creative solutions to our needs. He managed his time well and met schedule and was close to budget in an exploratory environment where the effort required was difficult to predict. Overall, Wes significantly exceeded our expectations. I would recommend him for any software development and management project that fits his background.” – Reed Hodgin
+                <div class="article-content" style="display:block">
+                    <h3 style="padding:0; margin:0">I take ownership of complex, unfamiliar systems</h3>
+                    <p>Multidisciplinary, poorly documented, and legacy codebases are my default starting point — not an exception. I enter unfamiliar technical systems, understand the real constraint, and deliver results across software, simulation, infrastructure, and product engineering.</p>
                 </div>
             </div>
             <div class="article m1"> 
-                <div class="article-content">
-                    “Wes is extremely proficient, diligent and highly competent. He quickly understands a task, finds effective solutions to simple or complex problems and implements on time and within budget. Would more could you ask!?!” – Reed Hodgin
+                <div class="article-content" style="display:block">
+                    <h3 style="padding:0; margin:0">I deliver working software, not just analysis</h3>
+                    <p>Every engagement produces deployable, tested, documented results — from architecture and performance optimization through interactive interfaces and deployment pipelines.</p>
                 </div>
             </div>
             <div class="article m1"> 
-                <div class="article-content">
-                    “Highly Rated Freelancer.” – Dan Hilgert
-                </div>
+                <div class="article-content" style="display:block">
+                    <h3 style="padding:0; margin:0">I combine depth with breadth</h3>
+                    <p>Simulation, visualization, optimization, GPU computing, and product engineering in one person. No handoffs between specialists, no integration gaps.</p>
             </div>
-            <div class="article m1"> 
-                <div class="article-content">
-                    “Wes went above and beyond and his knowledge was above the rest of the pack, I will use Wes for other projects and tweaks in the future.” – Max (Vegas Games) again
-                </div>
             </div>
-            <div class="article m1"> 
-                <div class="article-content">
-                    “Wes is fast and very good at what he does. I would highly recommend and will use again.” – Max (Vegas Games)
-                </div>
+            <div class="article m1">    
+            <div class="article-content" style="display:block">
+                <h3 style="padding:0; margin:0">Clients rehire me for years</h3>
+                <p>Multi-year retainers, repeat engagements, and referrals drive my work. I earn trust by delivering on schedule and budget in exploratory environments where effort is difficult to predict.</p>
             </div>
-            <div class="article m1"> 
-                <div class="article-content">
-                    “Wes is talented, personable and overall a great person to work with. There’s always a challenge in finding someone who can balance communication, skill, and productivity, but Wes really brings them all. I would definitely hire him again for my next project.” – Kurt Roots
-                </div>
-            </div>
-            <div class="article m1" >
-                <div class="article-content">
-                    “Wes is a fantastic developer. Easy to work with and produces high quality code. He was able to handle everything we threw at him from legacy code updates to new technology PoCs. He worked well with our team and was very professional in dealing with our vendors.” – Danny Crinion
-                </div>
-            </div>
-            <div class="article m1"> 
-                <div class="article-content">
-                    “Wesley did a great job on my mobile game, coming up with creative solutions to its challenges. He is easy to work with, consistent and responds quickly to feedback. Highly recommend!” – V (Relative Magnitude)
-                </div>
             </div>
         </div>
-        </div>
-        <div id="engagement" class="pt3">
+
+        <div id="engage" class="pt3">
             <div  class="" >
                 <div class="section-top">
-                    <h2 style="padding:0.2em; margin:0"> Engagement Models</h2>
-                    <!-- <p style="90vw">Ideally start with a free audit, followed by fast-paced fixed scope contracts, followed by a longer term retainer.</p> -->
+                    <h2 style="padding:0.2em; margin:0">Engagement Models</h2>
+                    <p style="max-width:50em">Every engagement starts with a free 15-minute fit call to discuss your system and goals. If there is a match, I recommend one of the paths below.</p>
                 </div>
             <div class="article m1" >
             <div class="article-content" style="display:block">
-                <h3 style="padding:0; margin:0">Short, focused audits</h3>
-                <p>I always start with a short, fixed audit of your existing system and meetings to discuss potential upgrades or development of new software.</p>
+                <h3 style="padding:0; margin:0">Technical Assessment</h3>
+                <p>A fixed-scope paid audit of your existing system. You receive: findings, risks, options, estimated impact, and recommended next steps — not just a conversation.</p>
             </div>
             </div>
             <div class="article m1" >
             <div class="article-content" style="display:block">
-                <h3 style="padding:0; margin:0">Fast paced contracts</h3>
-                <p>Fast paced, fixed-scope engagements to upgrade, optimize, fix bugs, build something new, etc.. Usually budgeted as a fixed price based on value</p>
+                <h3 style="padding:0; margin:0">Fixed-Scope Modernization Sprint</h3>
+                <p>Time-boxed engagements to upgrade, optimize, fix critical bugs, or build something new. Scoped to a clear deliverable, budgeted as a fixed price based on value.</p>
             </div>
             </div>
             <div class="article m1" >
             <div class="article-content" style="display:block">
-                <h3 style="padding:0; margin:0">Maintenance/Advisory retainers</h3>
-                <p>Lightweight retainers for teams that need continued architectural or maintenance oversight without full-time involvement. These can be long term (years) if wanted.
+                <h3 style="padding:0; margin:0">Embedded Specialist Engagement</h3>
+                <p>Short- to medium-term integration with your team as a hands-on technical contributor — simulation, GPU compute, visualization, or legacy modernization — working alongside your engineers.</p>
+            </div>
+            </div>
+            <div class="article m1" >
+            <div class="article-content" style="display:block">
+                <h3 style="padding:0; margin:0">Ongoing Technical Stewardship</h3>
+                <p>Lightweight retainers for teams that need continued architectural or maintenance oversight without full-time involvement. These can run for years if the relationship is a good fit.</p>
             </div>
             </div>
             <div class="article m1" >    
             <div class="article-content" style="display:block">
-                <h3 style="padding:0; margin:0">Strategic partnerships or IP sharing</h3>
-                <p>In limited cases, I'm open to B2B partnerships or shared-IP arrangements where the problem is well-defined, high-impact, and aligns with my interests.
+                <h3 style="padding:0; margin:0">Strategic Product Partnership</h3>
+                <p>In limited cases, I am open to B2B partnerships or shared-IP arrangements where the problem is well-defined, high-impact, and aligns with my core interests in simulation and scientific computing.</p>
             </div>
             </div>
             </div>
         </div>
- 
+
+        <div id="contact" class="pt3">
+            <div style="max-width:40em; margin:0 auto; padding:1em; text-align:center">
+                <h2 style="margin:0 0 0.5em 0">Contact</h2>
+                <p class="large" style="margin:0 0 1em 0">Describe your technical bottleneck or system. I respond within 24 hours.</p>
+                <a class="card button large" style="width:auto; height:auto;background-color:#595; display:inline-block; padding:0.6em 1em; margin-bottom:0.8em; max-width:90vw; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; box-sizing:border-box" href="mailto:wes@extropianengineer.com">wes@extropianengineer.com</a>
+                <div style="display:flex; justify-content:center; gap:0.8em; margin-top:0.6em">
+                    <a href="https://www.linkedin.com/in/wescramblitt" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:6px;background-color:#0077B5" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="https://x.com/extropianeng" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:6px;background-color:#111" title="X / Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <div id="spacer" style="height: 50vh"></div>
- 
+    <script>
+        // ── Past Work filter ──────────────────────────────────────
+        (function(){
+            const grid = document.querySelector('.project-grid');
+            if (!grid) return;
+            const items = grid.querySelectorAll('.project-item');
+            const btns = document.querySelectorAll('.filter-btn');
+            const showMoreBtn = document.getElementById('show-more-btn');
+            const totalItems = items.length;
+            const INITIAL_VISIBLE = 8;
+            let currentFilter = 'all';
+            let expanded = false;
+
+            function updateVisibility() {
+                let visibleCount = 0;
+                items.forEach(function(item, i) {
+                    const cat = item.dataset.category;
+                    const match = currentFilter === 'all' || cat === currentFilter;
+                    if (match) {
+                        visibleCount++;
+                        if (expanded || visibleCount <= INITIAL_VISIBLE) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                if (visibleCount <= INITIAL_VISIBLE) {
+                    showMoreBtn.style.display = 'none';
+                } else {
+                    showMoreBtn.style.display = '';
+                    showMoreBtn.textContent = expanded ? 'Show Less ↑' : 'Show All ' + visibleCount + ' Projects ↓';
+                }
+            }
+
+            btns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    btns.forEach(function(b) {
+                        b.classList.remove('is-active');
+                        b.style.background = 'transparent';
+                        b.style.color = '#999';
+                        b.style.borderColor = '#555';
+                    });
+                    btn.classList.add('is-active');
+                    btn.style.background = 'rgba(85,85,170,0.2)';
+                    btn.style.color = '#aac';
+                    btn.style.borderColor = '#55a';
+                    currentFilter = btn.dataset.filter;
+                    expanded = false;
+                    updateVisibility();
+                });
+            });
+
+            showMoreBtn.addEventListener('click', function() {
+                expanded = !expanded;
+                updateVisibility();
+            });
+
+            updateVisibility();
+        })();
+    </script>
     </body>
 </html>

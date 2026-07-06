@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  const ids = ["whatido", "intro", "engagement", "demos", "pastwork", "testimonials"];
+  const ids = ["whatido", "intro", "engage", "contact", "demos", "casestudies", "pastwork", "whyworkwithme"];
   const THRESHOLD = 200;
 
   const sections = ids
@@ -64,21 +64,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });*/
 });
 
- function updateTabs() {
+  function updateTabs() {
       var whatidotab = document.getElementById("whatidotab") 
       var introtab = document.getElementById("introtab") 
-      var engagementtab = document.getElementById("engagementtab") 
+      var engagetab = document.getElementById("engagetab") 
+      var casestudiestab = document.getElementById("casestudiestab")
+      var demostab = document.getElementById("demostab")
       var pastworktab = document.getElementById("pastworktab")
-      var testimonialtab = document.getElementById("testimonialtab")
-      var demotab = document.getElementById("demostab")
+      var whyworkwithmetab = document.getElementById("whyworkwithmetab")
+      var contacttab = document.getElementById("contacttab")
 
       var tabs = [
         ["intro", introtab],
         ["whatido", whatidotab],
-        ["demos", demotab],
-        ["pastwork", pastworktab],  
-        ["testimonials", testimonialtab],
-        ["engagement", engagementtab]
+        ["casestudies", casestudiestab],
+        ["pastwork", pastworktab],
+        ["demos", demostab],
+        ["whyworkwithme", whyworkwithmetab],
+        ["engage", engagetab],
+        ["contact", contacttab]
 
       ];
       var selected = 0;
@@ -102,5 +106,3 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener('scroll', updateTabs );
 window.addEventListener("load", () => ScrollTrigger.refresh());
 window.addEventListener("resize", () => ScrollTrigger.refresh());
-
-

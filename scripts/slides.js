@@ -46,8 +46,12 @@ function initSectionSlider(section) {
   const nav = document.createElement("div");
   nav.className = "section-slider-nav";
   nav.innerHTML = `
-    <button class="section-slider-btn prev" type="button" aria-label="Previous testimonial">←</button>
-    <button class="section-slider-btn next" type="button" aria-label="Next testimonial">→</button>
+    <button class="section-slider-btn prev" type="button" aria-label="Previous testimonial">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="section-slider-btn next" type="button" aria-label="Next testimonial">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   `;
   section.appendChild(nav);
 
@@ -87,10 +91,23 @@ function initSectionSlider(section) {
   const swipeThreshold = 70;
   const dragFactor = 0.35;
 
+  function getViewportHeight(index) {
+    const h = articles[index ?? current].offsetHeight;
+    if (window.innerWidth <= 768) {
+      return Math.min(h, window.innerHeight * 0.65);
+    }
+    return h;
+  }
+
   function updateViewportHeight() {
-    const active = articles[current];
-    const h = active.offsetHeight;
+    const h = getViewportHeight();
     viewport.style.height = h + "px";
+    if (window.innerWidth <= 768) {
+      const natural = articles[current].offsetHeight;
+      viewport.style.overflowY = natural > window.innerHeight * 0.65 ? "auto" : "";
+    } else {
+      viewport.style.overflowY = "";
+    }
   }
 
   function updateUI() {
@@ -122,6 +139,7 @@ function initSectionSlider(section) {
     if (isAnimating) return;
     if (index < 0 || index >= articles.length || index === current) return;
 
+    viewport.scrollTop = 0;
     isAnimating = true;
 
     const outgoing = articles[current];
@@ -161,7 +179,7 @@ function initSectionSlider(section) {
     }, 0);
 
     tl.to(viewport, {
-      height: incoming.offsetHeight
+      height: getViewportHeight(index)
     }, 0);
   }
 
@@ -213,7 +231,7 @@ function onPointerDown(e) {
   deltaX = 0;
   viewport.classList.add("is-dragging");
 
-  if (viewport.setPointerCapture) {
+  if (viewport.setPointerCapture && window.innerWidth > 768) {
     viewport.setPointerCapture(e.pointerId);
   }
 }

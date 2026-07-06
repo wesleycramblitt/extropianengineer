@@ -100,10 +100,11 @@
   transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
 }
 
-/* arrow inside button (if using span) */
+/* arrow inside button (SVG or span) */
+.section-slider-btn svg,
 .section-slider-btn .arrow {
-  font-size: 1.6rem;
-  line-height: 1;
+  width: 22px;
+  height: 22px;
   pointer-events: none; /* prevents weird hit issues */
 }
 
@@ -191,10 +192,15 @@
 
 @media (max-width: 768px) {
   .section-slider-btn {
-    width: 22px;
-    height: 22px;
-    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
     top: 45%;
+  }
+
+  .section-slider-btn svg,
+  .section-slider-btn .arrow {
+    width: 18px;
+    height: 18px;
   }
 
   .section-slider-btn.prev {
@@ -217,7 +223,7 @@
 
   .section.slider-enabled {
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
 
      /* viewport */

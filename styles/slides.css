@@ -220,21 +220,4 @@
   .section-slider-count {
     font-size: 0.85rem;
   }
-
-  .section.slider-enabled {
-      position: relative;
-      overflow: visible;
-    }
-
-     /* viewport */
-    .section-slider-viewport {
-          position: relative;
-          overflow: hidden;
-          width: 100%;
-          touch-action: pan-y;
-          user-select: none;
-          cursor: grab;
-          z-index: 5;
-    }
-
 }

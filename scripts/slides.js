@@ -91,23 +91,10 @@ function initSectionSlider(section) {
   const swipeThreshold = 70;
   const dragFactor = 0.35;
 
-  function getViewportHeight(index) {
-    const h = articles[index ?? current].offsetHeight;
-    if (window.innerWidth <= 768) {
-      return Math.min(h, window.innerHeight * 0.65);
-    }
-    return h;
-  }
-
   function updateViewportHeight() {
-    const h = getViewportHeight();
+    const active = articles[current];
+    const h = active.offsetHeight;
     viewport.style.height = h + "px";
-    if (window.innerWidth <= 768) {
-      const natural = articles[current].offsetHeight;
-      viewport.style.overflowY = natural > window.innerHeight * 0.65 ? "auto" : "";
-    } else {
-      viewport.style.overflowY = "";
-    }
   }
 
   function updateUI() {
@@ -139,7 +126,6 @@ function initSectionSlider(section) {
     if (isAnimating) return;
     if (index < 0 || index >= articles.length || index === current) return;
 
-    viewport.scrollTop = 0;
     isAnimating = true;
 
     const outgoing = articles[current];
@@ -179,7 +165,7 @@ function initSectionSlider(section) {
     }, 0);
 
     tl.to(viewport, {
-      height: getViewportHeight(index)
+      height: incoming.offsetHeight
     }, 0);
   }
 
@@ -231,7 +217,7 @@ function onPointerDown(e) {
   deltaX = 0;
   viewport.classList.add("is-dragging");
 
-  if (viewport.setPointerCapture && window.innerWidth > 768) {
+  if (viewport.setPointerCapture) {
     viewport.setPointerCapture(e.pointerId);
   }
 }

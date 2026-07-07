@@ -317,7 +317,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="article m1 project-item" data-category="scientific">
+                <div class="article m1 project-item" data-category="scientific realtime">
                     <div class="article-content">
                         <div class="box">
                             <h3 style="margin:0">Game Engine Style, Multiphysics Simulator</h3>
@@ -468,7 +468,7 @@
                             <p>WebGL real-time computational fluid dynamics solver and a from-scratch 3D graphics pipeline — demonstrating GPU programming, numerical methods, and interactive UI/UX during live simulation.</p>
                         </div>
                         <div class="box">
-                            <img src="img/ss.png" style="max-width:100%" />
+                            <img src="img/sphere.png" style="max-width:100%" />
                         </div>
                     </div>
                 </div>
@@ -640,7 +640,7 @@
                 let visibleCount = 0;
                 items.forEach(function(item, i) {
                     const cat = item.dataset.category;
-                    const match = currentFilter === 'all' || cat === currentFilter;
+                    const match = currentFilter === 'all' || (cat && cat.split(' ').includes(currentFilter));
                     if (match) {
                         visibleCount++;
                         if (expanded || visibleCount <= INITIAL_VISIBLE) {

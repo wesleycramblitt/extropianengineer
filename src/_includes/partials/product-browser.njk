@@ -1,0 +1,96 @@
+{# ────────────────────────────────────────────────────────────────
+   Product browser component
+   Usage: {% from "partials/product-browser.njk" import productBrowser %}
+          {{ productBrowser(collections.productsByOrder, 'pb-home', true) }}
+   Params: itemList (ordered collection pages), id (unique), featuredOnly (bool)
+   ──────────────────────────────────────────────────────────────── #}
+{% macro pbGradientFrame(item) %}
+<div class="pb-frame pb-frame--gradient pv-{{ item.data.category }}">
+  <span class="pv-glyph">{{ item.data.title | glyph }}</span>
+  <span class="pv-note">Interactive demonstration coming soon</span>
+</div>
+{% endmacro %}
+
+{% macro pbMediaFrames(item) %}
+  {%- set singleMedia = [item.data.media] if item.data.media else [] -%}
+  {%- set frames = item.data.gallery or singleMedia -%}
+  {%- for frame in frames -%}
+    {%- if frame.type == 'video' %}
+<div class="pb-frame"><video muted loop playsinline preload="metadata" poster="{{ frame.poster or '' }}"><source src="{{ frame.src }}"></video></div>
+    {%- elif frame.type == 'image' %}
+<div class="pb-frame"><img src="{{ frame.src }}" alt="{{ item.data.title }}" loading="lazy"></div>
+    {%- endif -%}
+  {%- endfor -%}
+{% endmacro %}
+
+{% macro productBrowser(itemList, id, featuredOnly) %}
+<div class="product-browser" id="{{ id }}" data-pb>
+  <div class="pb-toolbar">
+    <div class="pb-chips" role="group" aria-label="Filter by category">
+      <button type="button" class="pb-chip is-on" data-pb-cat="">All</button>
+      {%- for cat in itemList | pbCats(featuredOnly) %}
+      <button type="button" class="pb-chip" data-pb-cat="{{ cat.key }}">{{ cat.name }}</button>
+      {%- endfor %}
+    </div>
+    <input class="pb-search" type="search" placeholder="Search products…" aria-label="Search products">
+    <span class="pb-count" data-pb-count></span>
+  </div>
+
+  <div class="pb-layout">
+    <div class="pb-list" aria-label="Products">
+      {%- for item in itemList %}
+      {%- if not featuredOnly or item.data.featuredOnHome %}
+      <button type="button" class="pb-item" data-pb-slug="{{ item.data.slug or item.fileSlug }}"
+        data-pb-cat="{{ item.data.category }}"
+        data-pb-search="{{ (item.data.title ~ ' ' ~ item.data.tagline) | lower }}"
+        aria-pressed="false">
+        <span class="pb-item-glyph pv-{{ item.data.category }}">{{ item.data.title | glyph }}</span>
+        <span class="pb-item-text">
+          <span class="pb-item-name">{{ item.data.title }}</span>
+          <span class="pb-item-tags"><span class="badge badge--license">{{ item.data.licensing }}</span></span>
+        </span>
+      </button>
+      {%- endif %}
+      {%- endfor %}
+    </div>
+
+    <div class="pb-stage">
+      {%- for item in itemList %}
+      {%- if not featuredOnly or item.data.featuredOnHome %}
+      {%- set singleMedia = [item.data.media] if item.data.media else [] -%}
+      {%- set frames = item.data.gallery or singleMedia -%}
+      <article class="pb-panel" data-pb-panel="{{ item.data.slug or item.fileSlug }}"
+        data-pb-cat="{{ item.data.category }}"
+        data-pb-search="{{ (item.data.title ~ ' ' ~ item.data.tagline) | lower }}"
+        aria-label="{{ item.data.title }}">
+        <div class="pb-slideshow">
+          <div class="pb-frames">
+            {%- if frames and frames.length > 0 %}
+              {{ pbMediaFrames(item) }}
+            {%- else %}
+              {{ pbGradientFrame(item) }}
+            {%- endif %}
+          </div>
+          {%- if frames and frames.length > 1 %}
+          <button type="button" class="pb-arrow pb-prev" aria-label="Previous image">‹</button>
+          <button type="button" class="pb-arrow pb-next" aria-label="Next image">›</button>
+          <div class="pb-dots"></div>
+          <span class="pb-frame-count"></span>
+          {%- endif %}
+        </div>
+        <div class="pb-panel-body">
+          <h3>{{ item.data.title }}</h3>
+          <div class="badge-row">
+            {%- if item.data.type %}<span class="badge badge--type">{{ item.data.type }}</span>{% endif %}
+            {%- if item.data.licensing %}<span class="badge badge--license">{{ item.data.licensing }}</span>{% endif %}
+          </div>
+          <p class="pb-tagline">{{ item.data.tagline }}</p>
+          <a class="button button--ghost pb-details" href="{{ item.url }}">Full details →</a>
+        </div>
+      </article>
+      {%- endif %}
+      {%- endfor %}
+    </div>
+  </div>
+</div>
+{% endmacro %}

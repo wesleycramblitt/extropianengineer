@@ -27,14 +27,8 @@ extraScripts:
     <h2>Products I'm building</h2>
     <p class="normal">A modular scientific software ecosystem — specialized components that combine into complete engineering systems. Interactive demonstrations are on the way.</p>
   </div>
-  <div class="card-grid">
-    {%- set featured = ['caeworkbench', 'spatialui', 'synthesis', 'composer', 'geometry'] %}
-    {%- for item in collections.products %}
-    {%- if item.data.slug in featured %}
-      {% include "partials/product-card.njk" %}
-    {%- endif %}
-    {%- endfor %}
-  </div>
+  {%- from "partials/product-browser.njk" import productBrowser %}
+  {{ productBrowser(collections.productsByOrder, 'pb-home', true) }}
   <div class="cta-row">
     <a class="button button--ghost" href="/products/">View all products →</a>
   </div>

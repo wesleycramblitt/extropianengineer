@@ -329,10 +329,11 @@ subject. Optional media block when `media.src` present. Breadcrumb Home / Produc
 name. `Product` JSON-LD (§10).
 
 ### 7.3 `/products/` (Phase 2)
-H1 Products; H2 "A modular scientific software ecosystem" + intro; 4 category sections
-with cards (media optional; always title + tagline + Type/Licensing badges + link);
-cross-link to
-`/engineering/` ("custom development when products aren't enough").
+H1 Products; intro; **product browser component with ALL products** — same component
+as home: filter chips (category) + search over the rail list, large slideshow stage
+(name, badges, description, detail link). Below: "Every product, one click away" chip
+links to all detail pages; cross-link to `/engineering/` ("custom development when
+products aren't enough"). Product detail pages remain the deepest information layer.
 
 ### 7.4 `/engineering/` (Phase 3)
 One-column flow per site_plan §`/engineering`: (1) Work with existing software;

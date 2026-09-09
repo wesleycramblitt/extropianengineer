@@ -19,13 +19,25 @@
   <p class="lede">{{ tagline }}</p>
 </header>
 
-{%- if media and media.src %}
+{%- set singleMedia = [media] if media else [] -%}
+{%- set frames = gallery or singleMedia -%}
+{%- if frames and frames.length > 0 %}
 <div class="wrap">
-  <div class="media-box{{ ' media-box--wide' if media.wide }}">
-    {%- if media.type == 'video' %}
-    <video autoplay muted loop playsinline poster="{{ media.poster or '' }}"><source src="{{ media.src }}"></video>
-    {%- else %}
-    <img src="{{ media.src }}" alt="{{ title }} — {{ tagline }}">
+  <div class="pb-slideshow product-gallery" data-autoplay="true">
+    <div class="pb-frames">
+      {%- for frame in frames %}
+      {%- if frame.type == 'video' %}
+      <div class="pb-frame"><video muted loop playsinline preload="metadata" poster="{{ frame.poster or '' }}"><source src="{{ frame.src }}"></video></div>
+      {%- elif frame.type == 'image' %}
+      <div class="pb-frame"><img src="{{ frame.src }}" alt="{{ title }} — {{ tagline }}"></div>
+      {%- endif %}
+      {%- endfor %}
+    </div>
+    {%- if frames.length > 1 %}
+    <button type="button" class="pb-arrow pb-prev" aria-label="Previous image">‹</button>
+    <button type="button" class="pb-arrow pb-next" aria-label="Next image">›</button>
+    <div class="pb-dots"></div>
+    <span class="pb-frame-count"></span>
     {%- endif %}
   </div>
 </div>

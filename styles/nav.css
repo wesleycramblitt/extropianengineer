@@ -20,9 +20,8 @@
   display: block;
 }
 .header .contact-tab { margin-left: auto; display: flex; align-items: center; }
-.header .selected-tab {
-  background: linear-gradient(180deg, rgba(90,108,255,0.75), rgba(138,92,255,0.62));
-}
+/* selected state: same per-item gradient as the tab's hover */
+.header .selected-tab { background-color: transparent; }
 .contact-btn {
   background: linear-gradient(135deg, rgba(52,211,153,0.5), rgba(20,184,166,0.32));
   border: 1px solid rgba(110,231,183,0.75);
@@ -36,6 +35,16 @@
 }
 .header .contact-tab:hover { background: none; }
 .contact-btn:hover { filter: brightness(1.18); }
+
+/* ── per-item selected colors (same backgrounds as hover) ──────── */
+.header .tab.nav-products.selected-tab  { background: linear-gradient(135deg, rgba(90,108,255,0.30), rgba(90,108,255,0.08)); }
+.header .tab.nav-services.selected-tab  { background: linear-gradient(135deg, rgba(52,211,153,0.28), rgba(20,184,166,0.08)); }
+.header .tab.nav-portfolio.selected-tab { background: linear-gradient(135deg, rgba(168,85,247,0.30), rgba(138,92,255,0.08)); }
+.header .tab.nav-about.selected-tab     { background: linear-gradient(135deg, rgba(34,211,238,0.28), rgba(90,108,255,0.08)); }
+.header .tab.nav-products.selected-tab a  { color: #dfe6ff; }
+.header .tab.nav-services.selected-tab a  { color: #dcfff1; }
+.header .tab.nav-portfolio.selected-tab a { color: #f0e6ff; }
+.header .tab.nav-about.selected-tab a     { color: #e0f8ff; }
 
 /* ── per-item hover colors (transparent gradient fills) ───────── */
 .header .tab:hover:not(.selected-tab) { background-color: transparent; }

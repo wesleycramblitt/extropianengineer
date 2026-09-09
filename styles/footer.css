@@ -1,10 +1,30 @@
 /* ============================================================
-   FOOTER
+   FOOTER — connects to the page surface (fades in from the
+   content above, continues the grid texture, no seam)
    ============================================================ */
 .site-footer {
-  border-top: 1px solid rgba(153,153,153,0.4);
-  background: rgba(0,0,0,0.35);
-  margin-top: 2em;
+  position: relative;
+  border-top: 1px solid rgba(138,108,255,0.22);
+  background: linear-gradient(180deg,
+    rgba(17,17,19,0.55) 0%,
+    rgba(16,16,18,0.92) 26%,
+    rgba(13,13,15,0.98) 100%);
+  margin-top: 0;
+}
+/* faint engineering grid inside the footer, echoing the page bg */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  pointer-events: none;
+}
+.site-footer .footer-inner {
+  position: relative;
+  z-index: 1;
 }
 .footer-inner {
   max-width: 76em;

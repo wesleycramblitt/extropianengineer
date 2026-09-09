@@ -221,10 +221,12 @@ main a, footer a, .page-hero a {
   color: #e6e8ff;
 }
 
-/* contact band + email pill */
+/* contact band + email pill — bottom fades into the footer */
 .contact-band {
-  background: linear-gradient(180deg, transparent 0%, rgba(24,24,26,0.85) 55%, rgba(14,14,16,0.95) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(22,22,24,0.80) 55%, rgba(16,16,18,0.95) 100%);
+  padding-bottom: 0;
 }
+.site-footer { margin-top: 0; }
 .contact-band .email-big {
   border: 1px solid rgba(110,231,183,0.6);
   background: linear-gradient(135deg, rgba(52,211,153,0.26), rgba(20,184,166,0.14));

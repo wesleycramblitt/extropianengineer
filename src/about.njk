@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+title: About Wes Cramblitt
+description: Scientific software engineering — simulation, visualization, GPU computing, and product development. About Wes Cramblitt, the engineer behind Extropian.
+extraScripts:
+  - https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
+  - https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrambleTextPlugin.min.js
+---
+{% block head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Wes Cramblitt","url":"{{ site.url }}/about/","sameAs":["{{ site.linkedin }}","{{ site.x }}","{{ site.github }}"],"worksFor":{"@type":"Organization","name":"Extropian Engineer","url":"{{ site.url }}"}}
+</script>
+{% endblock %}
+<header class="page-hero">
+  <h1 data-scramble>About Wes Cramblitt</h1>
+  <p class="lede">Scientific software engineering for engineering and research teams.</p>
+</header>
+
+<section class="wrap section-block">
+  <div class="section-top"><h2>Scientific software engineering</h2></div>
+  <div class="wrap-narrow">
+    <p>I help engineering and research teams turn complex models and real-world data into fast, interactive design and digital-twin systems that shorten development cycles, improve decisions, and optimize physical systems throughout their lifecycle &mdash; spanning simulation, visualization, GPU computing, AI, and product development in one person.</p>
+  </div>
+</section>
+
+<section class="wrap section-block">
+  <div class="section-top"><h2>Areas of expertise</h2></div>
+  <div class="card-grid">
+    <div class="info-card"><h3>Interactive scientific software</h3><p class="muted">Interactive 2D and 3D tools that help engineers explore results, compare designs, and adjust parameters.</p></div>
+    <div class="info-card"><h3>Modernization</h3><p class="muted">Modernizing validated scientific software &mdash; easier to maintain, extend, deploy, and commercialize without replacing proven models.</p></div>
+    <div class="info-card"><h3>Simulation workflows</h3><p class="muted">Software around models and solvers: clean APIs, connected components, automated setup and post-processing.</p></div>
+    <div class="info-card"><h3>GPU compute &amp; rendering</h3><p class="muted">Real-time GPU pipelines, from low-level graphics programming to physics simulation built for GPU workloads.</p></div>
+    <div class="info-card"><h3>Product development</h3><p class="muted">Building and stewarding products over years &mdash; architecture, deployment infrastructure, and client-specific customization.</p></div>
+    <div class="info-card"><h3>AI &amp; optimization</h3><p class="muted">Optimization systems and generative-AI-driven design built around engineering domain knowledge.</p></div>
+  </div>
+</section>
+
+<section class="wrap section-block">
+  <div class="section-top"><h2>What I'm building</h2></div>
+  <div class="wrap-narrow">
+    <p>The <strong>Extropian ecosystem</strong>: modular, high-performance scientific software &mdash; simulation engines, engineering UI, rendering, geometry, and AI &mdash; designed to be licensed, customized, or built on.</p>
+    <div class="cta-row"><a class="button button--primary" href="/products/">Explore the ecosystem</a></div>
+  </div>
+</section>
+
+<section class="wrap section-block">
+  <div class="section-top"><h2>Bio &amp; technical background</h2></div>
+  <div class="wrap-narrow muted">
+    <p>[Bio in progress — will cover technical background, professional experience, and selected history.]</p>
+  </div>
+</section>
+
+<section class="wrap section-block">
+  <div class="section-top"><h2>Open source &amp; software ecosystem</h2></div>
+  <div class="wrap-narrow">
+    <p>Relevant repositories and open-source work: <a href="{{ site.github }}">{{ site.github }}</a>.</p>
+    <p class="muted">[Selected repositories to be listed.]</p>
+  </div>
+</section>
+
+<section class="wrap section-block">
+  <div class="section-top"><h2>Interests</h2></div>
+  <div class="wrap-narrow muted">
+    <p>[Interests in progress — technical interests and areas of exploration.]</p>
+  </div>
+</section>
+
+<section class="contact-band" id="contact">
+  <h2>Contact</h2>
+  <p class="normal">Have a technical bottleneck or a system to discuss? I respond within 24 hours.</p>
+  <div class="cta-row">
+    <a class="button button--primary" href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+/* ============================================================
+   NAV — additions on top of the legacy header.css pattern
+   ============================================================ */
+.header { gap: 0.2em; }
+.header .contact-tab { margin-left: auto; display: flex; align-items: center; }
+.contact-btn {
+  background-color: #595;
+  color: #fff !important;
+  padding: 0.45em 1em;
+  border-radius: 5px;
+  font-size: var(--fs-sm);
+  line-height: 1;
+  white-space: nowrap;
+}
+.header .contact-tab:hover { background: none; }
+.contact-btn:hover { filter: brightness(115%); }

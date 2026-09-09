@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Load all meshes in parallel.
     const [catMesh, cubeMesh, b2Mesh, bowlMesh, coffeeMesh, diceMesh] = await Promise.all([
-        Mesh.fromJson("assets/mesh/cat.json"),
+        Mesh.fromJson("/assets/mesh/cat.json"),
         Promise.resolve(getCube()),
         Mesh.fromOBJ("/assets/mesh/b2.obj"),
         Mesh.fromOBJ("/assets/mesh/bowl.obj"),

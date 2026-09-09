@@ -1,0 +1,80 @@
+{
+  "name": "Extropian Engineer",
+  "person": "Wes Cramblitt",
+  "title": "Extropian Engineer \u2014 Scientific Software, Product-Led",
+  "description": "Product-led scientific software engineering: specialized simulation, visualization, GPU computing, and AI software \u2014 licensed, customized, or built on.",
+  "url": "https://extropianengineer.com",
+  "email": "wes@extropianengineer.com",
+  "linkedin": "https://www.linkedin.com/in/extropian-engineer",
+  "x": "https://x.com/extropianeng",
+  "github": "https://github.com/wesleycramblitt",
+  "analytics": {
+    "enabled": true,
+    "src": "https://cdn.fromwiley.com/wiley.js",
+    "site": "k955budqzmmokm97"
+  },
+  "fonts": {
+    "css": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap",
+    "preconnect": [
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com"
+    ]
+  },
+  "nav": [
+    {
+      "label": "Products",
+      "url": "/products/"
+    },
+    {
+      "label": "Engineering",
+      "url": "/engineering/"
+    },
+    {
+      "label": "Portfolio",
+      "url": "/portfolio/"
+    },
+    {
+      "label": "About",
+      "url": "/about/"
+    },
+    {
+      "label": "Demos",
+      "url": "/pocs/"
+    }
+  ],
+  "badges": {
+    "type": [
+      "Software Package",
+      "Modular repository",
+      "End user product"
+    ],
+    "licensing": [
+      "BUSL",
+      "Open Source",
+      "Perpetual",
+      "SaaS"
+    ]
+  },
+  "productCategories": [
+    {
+      "name": "Simulation & AI",
+      "key": "simulation-ai",
+      "blurb": "Solver, optimization, and generative-design engines built for GPU-era compute."
+    },
+    {
+      "name": "Engineering UI",
+      "key": "engineering-ui",
+      "blurb": "User interfaces and interaction systems for engineering and research software."
+    },
+    {
+      "name": "Visualization & interaction",
+      "key": "visualization",
+      "blurb": "Rendering and interactive visualization of complex results and systems."
+    },
+    {
+      "name": "Core platform",
+      "key": "core",
+      "blurb": "Formats, geometry, and content foundations the ecosystem is built on."
+    }
+  ]
+}

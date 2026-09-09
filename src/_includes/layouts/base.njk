@@ -1,0 +1,75 @@
+{%- set pageTitle = (title ~ " — " ~ site.name) if title else site.title -%}
+{%- set pageDesc = description or site.description -%}
+{%- set pageURL = site.url ~ page.url -%}
+{%- set og = ogImage or "/img/og.jpg" -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDesc }}">
+  <link rel="canonical" href="{{ pageURL }}">
+  <meta name="robots" content="{{ 'noindex, follow' if noindex else 'index, follow' }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ pageTitle }}">
+  <meta property="og:description" content="{{ pageDesc }}">
+  <meta property="og:url" content="{{ pageURL }}">
+  <meta property="og:image" content="{{ site.url ~ og }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  {%- for u in site.fonts.preconnect %}
+  <link rel="preconnect" href="{{ u }}">
+  {%- endfor %}
+  <link href="{{ site.fonts.css }}" rel="stylesheet">
+  {%- if site.analytics.enabled %}
+  <script src="{{ site.analytics.src }}" data-site="{{ site.analytics.site }}" async></script>
+  {%- endif %}
+  <link rel="stylesheet" href="/styles/core.css">
+  <link rel="stylesheet" href="/styles/background.css">
+  <link rel="stylesheet" href="/styles/fonts.css">
+  <link rel="stylesheet" href="/styles/type.css">
+  <link rel="stylesheet" href="/styles/hero.css">
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/links.css">
+  <link rel="stylesheet" href="/styles/articles.css">
+  <link rel="stylesheet" href="/styles/card.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/nav.css">
+  <link rel="stylesheet" href="/styles/cards.css">
+  <link rel="stylesheet" href="/styles/footer.css">
+  {%- for css in extraCss %}
+  <link rel="stylesheet" href="{{ css }}">
+  {%- endfor %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.name }}",
+    "url": "{{ site.url }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.name }}",
+      "url": "{{ site.url }}",
+      "sameAs": ["{{ site.linkedin }}", "{{ site.x }}"]
+    }
+  }
+  </script>
+  {%- block head %}{% endblock %}
+</head>
+<body class="engineering-grid {{ bodyClass or '' }}">
+  {% include "partials/header.njk" %}
+  <main class="page">
+    {%- block main -%}
+    {{ content | safe }}
+    {%- endblock -%}
+  </main>
+  {% include "partials/footer.njk" %}
+  {%- for s in extraScripts %}
+  <script src="{{ s }}"></script>
+  {%- endfor %}
+  <script src="/scripts/global.js"></script>
+  {%- block bottom %}{% endblock %}
+</body>
+</html>

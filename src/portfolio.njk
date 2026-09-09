@@ -1,0 +1,79 @@
+---
+layout: layouts/base.njk
+title: Portfolio
+description: Selected engineering and research software — from national-laboratory deployments and mission-critical systems to research platforms and real-time simulation.
+extraScripts:
+  - https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
+  - https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrambleTextPlugin.min.js
+  - /scripts/media-tiles.js
+---
+<header class="page-hero">
+  <h1 data-scramble>Portfolio</h1>
+  <p class="lede">Selected engineering and research software I've built over the years.</p>
+</header>
+
+{%- set featured = portfolio | selectattr("featured") | list %}
+
+<section id="featured" class="wrap section-block">
+  <div class="section-top"><h2>Selected engineering work</h2></div>
+  {%- for proj in featured %}
+  <article class="article m1" id="{{ proj.id }}">
+    <div class="article-content">
+      <div class="box">
+        <h3 style="margin:0">{{ proj.title }}{% if proj.years %} <span class="muted" style="font-size:0.6em">({{ proj.years }})</span>{% endif %}</h3>
+        {%- if proj.detail %}
+        {%- for para in proj.detail %}
+        <p>{{ para }}</p>
+        {%- endfor %}
+        {%- else %}
+        <p>{{ proj.summary }}</p>
+        {%- endif %}
+        {%- if proj.quote %}
+        <div class="card" style="padding:0.8em; margin-top:1em; background:rgba(85,85,170,0.15); border-left:3px solid #55a; font-style:italic;">
+          &ldquo;{{ proj.quote.text }}&rdquo; <span style="display:block; margin-top:0.4em; font-style:normal">&mdash; {{ proj.quote.by }}</span>
+        </div>
+        {%- endif %}
+      </div>
+      <div class="box">
+        {%- if proj.media and proj.media.type == 'video' %}
+          {%- if proj.media.interactive %}
+          <div class="vid-tile" data-src="{{ proj.media.src }}" data-poster="{{ proj.media.poster or '' }}" role="button" tabindex="0" aria-label="Play demo video">
+            {%- if proj.media.poster %}<img src="{{ proj.media.poster }}" alt="" loading="lazy">{% endif %}
+            <div class="play">▶</div>
+          </div>
+          {%- else %}
+          <video autoplay muted loop playsinline poster="{{ proj.media.poster or '' }}"><source src="{{ proj.media.src }}"></video>
+          {%- endif %}
+        {%- elif proj.media and proj.media.type == 'image' %}
+        <img src="{{ proj.media.src }}" alt="{{ proj.title }}" style="max-width:100%">
+        {%- endif %}
+      </div>
+    </div>
+  </article>
+  {%- endfor %}
+</section>
+
+<section id="earlier" class="wrap section-block">
+  <div class="section-top"><h2>Earlier work</h2></div>
+  <div class="card-grid">
+    {%- for proj in portfolio %}
+    {%- if not proj.featured %}
+    <div class="pcard card" id="{{ proj.id }}">
+      {%- if proj.media and proj.media.type == 'video' %}
+      <div class="vid-tile" data-src="{{ proj.media.src }}" data-poster="{{ proj.media.poster or '' }}" role="button" tabindex="0" aria-label="Play demo video">
+        {%- if proj.media.poster %}<img src="{{ proj.media.poster }}" alt="" loading="lazy">{% endif %}
+        <div class="play">▶</div>
+      </div>
+      {%- elif proj.media and proj.media.type == 'image' %}
+      <img src="{{ proj.media.src }}" alt="{{ proj.title }}" style="width:100%; border-radius:8px" loading="lazy">
+      {%- endif %}
+      <h3>{{ proj.title }}{% if proj.years %} <span class="muted" style="font-size:0.6em">({{ proj.years }})</span>{% endif %}</h3>
+      <p>{{ proj.summary }}</p>
+      {%- if proj.quote %}
+      <p class="muted" style="font-size:var(--fs-sm)">&ldquo;{{ proj.quote.text }}&rdquo; &mdash; {{ proj.quote.by }}</p>
+      {%- endif %}
+    </div>
+    {%- endif %}
+    {%- endfor %}
+  </div>
+</section>

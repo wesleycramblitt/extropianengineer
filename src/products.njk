@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+title: Products
+description: A modular scientific software ecosystem — simulation, engineering UI, visualization, and core platform components you can license, customize, or build on.
+extraScripts:
+  - https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
+  - https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrambleTextPlugin.min.js
+---
+<header class="page-hero">
+  <h1 data-scramble>Products</h1>
+  <p class="lede">A modular scientific software ecosystem. Every component is designed to be licensed as-is, customized for your workflow, or used as the foundation for a larger engineering project.</p>
+</header>
+
+{%- for cat in site.productCategories %}
+<section class="wrap section-block" id="{{ cat.key }}">
+  <div class="section-top">
+    <h2>{{ cat.name }}</h2>
+    <p class="normal">{{ cat.blurb }}</p>
+  </div>
+  <div class="card-grid">
+    {%- for item in collections.products %}
+    {%- if item.data.category == cat.key %}
+      {% include "partials/product-card.njk" %}
+    {%- endif %}
+    {%- endfor %}
+  </div>
+</section>
+{%- endfor %}
+
+<section class="wrap section-block">
+  <div class="section-top">
+    <h2>Don't see what you need?</h2>
+    <p class="normal">Products are extended and combined for each engagement — custom development is part of the model.</p>
+  </div>
+  <div class="cta-row">
+    <a class="button button--primary" href="/engineering/">Engineering &amp; licensing</a>
+  </div>
+</section>

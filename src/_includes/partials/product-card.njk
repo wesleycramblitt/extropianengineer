@@ -1,0 +1,24 @@
+<a class="pcard card" href="{{ item.url }}">
+  {%- if item.data.media and item.data.media.src %}
+  <div class="pcard-media">
+    {%- if item.data.media.type == 'video' %}
+    <video autoplay muted loop playsinline poster="{{ item.data.media.poster or '' }}"><source src="{{ item.data.media.src }}"></video>
+    {%- else %}
+    <img src="{{ item.data.media.src }}" alt="" loading="lazy">
+    {%- endif %}
+  </div>
+  {%- else %}
+  <div class="pcard-visual pv-{{ item.data.category }}" aria-hidden="true">
+    <span class="pv-glyph">{{ item.data.title | glyph }}</span>
+  </div>
+  {%- endif %}
+  <h3>{{ item.data.title }}</h3>
+  {%- if item.data.type or item.data.licensing %}
+  <div class="badge-row">
+    {%- if item.data.type %}<span class="badge badge--type">{{ item.data.type }}</span>{% endif %}
+    {%- if item.data.licensing %}<span class="badge badge--license">{{ item.data.licensing }}</span>{% endif %}
+  </div>
+  {%- endif %}
+  <p>{{ item.data.tagline }}</p>
+  <span class="pcard-link">Details →</span>
+</a>

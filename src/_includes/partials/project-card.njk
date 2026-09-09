@@ -1,0 +1,17 @@
+<a class="pcard card" href="/portfolio/#{{ proj.id }}">
+  {%- if proj.media and proj.media.type == 'video' %}
+    {%- if proj.media.interactive %}
+  <span class="vid-tile" data-src="{{ proj.media.src }}" role="button" tabindex="0" aria-label="Play demo video">
+    {%- if proj.media.poster %}<img src="{{ proj.media.poster }}" alt="" loading="lazy">{% endif %}
+    <span class="play">▶</span>
+  </span>
+    {%- else %}
+  <div class="pcard-media"><video autoplay muted loop playsinline><source src="{{ proj.media.src }}"></video></div>
+    {%- endif %}
+  {%- elif proj.media and proj.media.type == 'image' %}
+  <div class="pcard-media"><img src="{{ proj.media.src }}" alt="" loading="lazy"></div>
+  {%- endif %}
+  <h3>{{ proj.title }}{% if proj.years %} <span class="muted" style="font-size:0.6em">({{ proj.years }})</span>{% endif %}</h3>
+  <p>{{ proj.summary }}</p>
+  <span class="pcard-link">Full write-up →</span>
+</a>

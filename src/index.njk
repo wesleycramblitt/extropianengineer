@@ -1,0 +1,116 @@
+---
+layout: layouts/base.njk
+title: Building an ecosystem of modular, high-performance scientific software
+description: Product-led scientific software engineering — Extropian products licensed, customized, or built on for simulation, visualization, GPU computing, and AI.
+extraScripts:
+  - https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js
+  - https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrambleTextPlugin.min.js
+  - /scripts/media-tiles.js
+---
+<div class="hero">
+  <picture style="opacity:0.7;">
+    <source srcset="/img/hero-home.jpg" media="(max-width: 1400px)">
+    <img style="background-color:#111" src="/img/hero-home-xl.jpg" alt="" fetchpriority="high">
+  </picture>
+  <div class="hero-content">
+    <h1 data-scramble>Building an ecosystem of modular, high-performance scientific software</h1>
+    <p class="lede">Product-led engineering for engineering and research teams — combining scientific computing, simulation, visualization, GPU computing, and AI.</p>
+    <div class="cta-row">
+      <a class="button button--primary" href="#products">Explore the products</a>
+      <a class="button button--accent" href="/engineering/">Start an Engagement</a>
+    </div>
+  </div>
+</div>
+
+<section id="products" class="wrap section-block">
+  <div class="section-top">
+    <h2>Products I'm building</h2>
+    <p class="normal">A modular scientific software ecosystem — specialized components that combine into complete engineering systems. Interactive demonstrations are on the way.</p>
+  </div>
+  <div class="card-grid">
+    {%- set featured = ['caeworkbench', 'spatialui', 'synthesis', 'composer', 'geometry'] %}
+    {%- for item in collections.products %}
+    {%- if item.data.slug in featured %}
+      {% include "partials/product-card.njk" %}
+    {%- endif %}
+    {%- endfor %}
+  </div>
+  <div class="cta-row">
+    <a class="button button--ghost" href="/products/">View all products →</a>
+  </div>
+</section>
+
+<section id="offer" class="wrap section-block">
+  <div class="section-top">
+    <h2>Software you can license, customize, or build on</h2>
+    <p class="normal">My software can be licensed as-is, customized for your workflow, or used as the foundation for a larger engineering project. I bring reusable technology to the engagement instead of starting from scratch every time.</p>
+  </div>
+  <div class="card-grid">
+    <a class="pcard card" href="/engineering/#license">
+      <h3>License</h3>
+      <p>Use Extropian software inside your organization under terms structured around your deployment and business requirements.</p>
+      <span class="pcard-link">Engineering &amp; licensing →</span>
+    </a>
+    <a class="pcard card" href="/engineering/#customize">
+      <h3>Customize</h3>
+      <p>Start from an existing Extropian product and adapt it to your workflows, data, interfaces, and domain-specific requirements.</p>
+      <span class="pcard-link">Engineering &amp; licensing →</span>
+    </a>
+    <a class="pcard card" href="/engineering/#build">
+      <h3>Build on the ecosystem</h3>
+      <p>Use the underlying Extropian software ecosystem as the technical foundation for a specialized application.</p>
+      <span class="pcard-link">Engineering &amp; licensing →</span>
+    </a>
+  </div>
+</section>
+
+<section id="ip" class="wrap section-block">
+  <div class="section-top">
+    <h2>Turn technical IP into usable software</h2>
+    <p class="normal">Your models, solvers, algorithms, and research are valuable. I build the software around them so they can be used, explored, optimized, and deployed.</p>
+  </div>
+</section>
+
+<section id="background" class="wrap section-block">
+  <div class="section-top">
+    <h2>Engineering background</h2>
+    <p class="normal">Scientific software engineering across simulation, real-time systems, and product development — from legacy code stewardship to GPU-era interactive tools.</p>
+  </div>
+  <div class="cta-row">
+    <a class="button button--ghost" href="/about/">More about Wes →</a>
+  </div>
+</section>
+
+<section id="workwithme" class="wrap section-block">
+  <div class="section-top">
+    <h2>Work with me</h2>
+    <p class="normal">License existing software, customize a product, or build a specialized system on the Extropian ecosystem.</p>
+  </div>
+  <div class="cta-row">
+    <a class="button button--primary" href="/engineering/">Engineering &amp; licensing options</a>
+  </div>
+</section>
+
+<section id="portfolio" class="wrap section-block">
+  <div class="section-top">
+    <h2>Past portfolio</h2>
+    <p class="normal">Selected engineering and research software built over the years — from national-laboratory deployments to research platforms.</p>
+  </div>
+  <div class="card-grid">
+    {%- set featured = ['capars', 'hyperfat', 'autoligo', 'alphaact'] %}
+    {%- for proj in portfolio %}
+    {%- if proj.id in featured %}
+      {% include "partials/project-card.njk" %}
+    {%- endif %}
+    {%- endfor %}
+  </div>
+  <div class="cta-row">
+    <a class="button button--ghost" href="/portfolio/">Full portfolio →</a>
+  </div>
+</section>
+
+<section id="contact" class="contact-band">
+  <h2>Contact</h2>
+  <p class="normal">Describe your technical bottleneck or system. I respond within 24 hours.</p>
+  <p><a class="email-big" href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+</section>

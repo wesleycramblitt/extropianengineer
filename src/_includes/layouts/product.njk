@@ -1,0 +1,98 @@
+{% extends "layouts/base.njk" %}
+{%- block head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"{{ title }}","description":"{{ tagline }}","url":"{{ site.url }}{{ page.url }}","brand":{"@type":"Brand","name":"Extropian"}}
+</script>
+{%- endblock %}
+{%- block main %}
+<nav class="crumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a> / <a href="/products/">Products</a> / <span>{{ title }}</span>
+</nav>
+<header class="page-hero">
+  <h1 data-scramble>{{ title }}</h1>
+  {%- if type or licensing %}
+  <p class="badge-row" style="justify-content:center; margin-bottom:0.8em;">
+    {%- if type %}<span class="badge badge--type">{{ type }}</span>{% endif %}
+    {%- if licensing %}<span class="badge badge--license">{{ licensing }}</span>{% endif %}
+  </p>
+  {%- endif %}
+  <p class="lede">{{ tagline }}</p>
+</header>
+
+{%- if media and media.src %}
+<div class="wrap">
+  <div class="media-box{{ ' media-box--wide' if media.wide }}">
+    {%- if media.type == 'video' %}
+    <video autoplay muted loop playsinline poster="{{ media.poster or '' }}"><source src="{{ media.src }}"></video>
+    {%- else %}
+    <img src="{{ media.src }}" alt="{{ title }} — {{ tagline }}">
+    {%- endif %}
+  </div>
+</div>
+{%- else %}
+<div class="wrap">
+  <div class="pcard-visual product-band pv-{{ category }}" aria-hidden="true">
+    <span class="pv-glyph">{{ title | glyph }}</span>
+    <span class="pv-note">Interactive demonstration coming soon</span>
+  </div>
+</div>
+{%- endif %}
+
+<article class="wrap-narrow section-block">
+  {{ content | safe }}
+</article>
+
+{%- if capabilities and capabilities.length %}
+<section class="wrap section-block" id="capabilities">
+  <div class="section-top"><h2>Core capabilities</h2></div>
+  <div class="wrap-narrow">
+    <ul class="tick-list">
+    {%- for c in capabilities %}
+      <li>{{ c }}</li>
+    {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+{%- if foundation and foundation.length %}
+<section class="wrap section-block" id="foundation">
+  <div class="section-top"><h2>Technical foundation</h2></div>
+  <div class="wrap-narrow">
+    <ul class="tick-list">
+    {%- for f in foundation %}
+      <li>{{ f }}</li>
+    {%- endfor %}
+    </ul>
+    {%- if related and related.length %}
+    <p class="mt1 muted">Part of the same ecosystem:</p>
+    <div class="chip-row">
+      {%- for slug in related %}
+      <a class="chip" href="/products/{{ slug }}/">{{ collections.products | findTitle(slug) }}</a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}
+
+<section class="wrap section-block" id="licensing">
+  <div class="section-top"><h2>Licensing &amp; customization</h2></div>
+  <div class="wrap-narrow">
+    <p>Licensing is negotiated around the software, deployment model, scope, and ownership requirements of each project — whether {{ title }} is used as-is, customized for your workflows, or embedded in a larger system you are building.</p>
+    {%- if licensing and licensing == 'BUSL' %}
+    <p><strong>BUSL (Business Source License):</strong> source-available with an Additional Use Grant — view and build from the source under terms that prevent offering it as a competing product or service.</p>
+    {%- endif %}
+    <div class="cta-row">
+      <a class="button button--primary" href="mailto:{{ site.email }}?subject={{ ('Licensing%20inquiry%3A%20' ~ title) | urlencode | safe }}">Discuss licensing →</a>
+      <a class="button button--ghost" href="/engineering/">All engineering &amp; licensing options</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact-band">
+  <h2>Start a conversation</h2>
+  <p class="normal">Tell me about your workflow and deployment — I respond within 24 hours.</p>
+  <p><a class="email-big" href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+</section>
+{%- endblock %}

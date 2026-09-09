@@ -1,0 +1,196 @@
+/* ============================================================
+   CARDS — product cards, portfolio cards, badges, chips
+   ============================================================ */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 1.1em;
+  padding: 1em;
+}
+
+/* product / project card (article-like surface) */
+.pcard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55em;
+  background-color: #10101a;
+  border: 1px solid #999;
+  border-radius: 12px;
+  padding: 1.1em;
+  transition: border-color 0.18s ease, transform 0.18s ease;
+  height: 100%;
+  box-sizing: border-box;
+}
+a.pcard:hover { border-color: #55a; transform: translateY(-2px); }
+.pcard h3 { margin: 0; font-size: var(--fs-lg); }
+.pcard p { margin: 0; font-size: var(--fs-sm); color: #c9c9d4; }
+.pcard .pcard-link { margin-top: auto; color: #99bbff; font-size: var(--fs-sm); }
+
+.pcard-media {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+.pcard-media img, .pcard-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pcard-media--none {
+  aspect-ratio: auto;
+  min-height: 4.5em;
+  background:
+    linear-gradient(135deg, rgba(85,85,170,0.18), rgba(85,153,85,0.10) 55%, transparent),
+    repeating-linear-gradient(0deg, transparent 0 8px, rgba(255,255,255,0.03) 8px 9px);
+  border: 1px dashed rgba(153,153,153,0.45);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: var(--fs-sm);
+  text-align: center;
+  padding: 0.8em;
+  box-sizing: border-box;
+}
+
+/* badges */
+.badge-row { display: flex; gap: 0.45em; flex-wrap: wrap; }
+.badge {
+  display: inline-block;
+  font-size: 0.78em;
+  line-height: 1;
+  padding: 0.32em 0.7em;
+  border-radius: 999px;
+  border: 1px solid;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.badge--type    { border-color: #55a; color: #aeb4f0; background: rgba(85,85,170,0.16); }
+.badge--license { border-color: #595; color: #9ccb9c; background: rgba(85,153,85,0.13); }
+
+/* chips (related products, topics) */
+.chip-row { display: flex; gap: 0.5em; flex-wrap: wrap; }
+.chip {
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  color: #cfcfe0;
+  background: rgba(255,255,255,0.04);
+}
+a.chip:hover { border-color: #55a; }
+
+/* click-to-play video tile (earlier work) */
+.vid-tile {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+.vid-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vid-tile .play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.38);
+  font-size: 2.6rem;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+.vid-tile:hover .play { background: rgba(0,0,0,0.22); }
+.vid-tile video { width: 100%; height: 100%; object-fit: cover; display: none; }
+.vid-tile.is-playing .play { display: none; }
+.vid-tile.is-playing video { display: block; }
+
+/* capability / foundation lists */
+.tick-list { list-style: none; padding-left: 0; margin: 0.4em 0; }
+.tick-list li {
+  padding-left: 1.5em;
+  position: relative;
+  margin-bottom: 0.5em;
+  font-size: var(--fs-base);
+}
+.tick-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0.2em;
+  color: #55a;
+}
+
+/* detail two-column info rows (product pages) */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1em;
+  margin-top: 1.2em;
+}
+.info-card {
+  background: #10101a;
+  border: 1px solid #999;
+  border-radius: 12px;
+  padding: 1em 1.1em;
+}
+.info-card h3 { margin: 0 0 0.45em; font-size: var(--fs-base); color: #fff; }
+.info-card .muted { font-size: var(--fs-sm); }
+
+/* gradient placeholder visuals (used until real product captures exist) */
+.pcard-visual {
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.4em;
+  overflow: hidden;
+  position: relative;
+}
+.pcard-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+  pointer-events: none;
+}
+.pv-glyph {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 2px 18px rgba(0,0,0,0.35);
+  position: relative;
+  z-index: 1;
+}
+.pv-note {
+  position: relative;
+  z-index: 1;
+  font-size: var(--fs-xxs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.product-band {
+  aspect-ratio: 21 / 9;
+  border-radius: 14px;
+  min-height: 180px;
+}
+/* category tints */
+.pv-simulation-ai    { background: linear-gradient(135deg, #0e2f33 0%, #123c3a 45%, #0a1a24 100%); }
+.pv-engineering-ui   { background: linear-gradient(135deg, #141438 0%, #26265e 55%, #101020 100%); }
+.pv-visualization    { background: linear-gradient(135deg, #2b1038 0%, #4a1a5e 55%, #150a1e 100%); }
+.pv-core             { background: linear-gradient(135deg, #23232d 0%, #38384a 55%, #15151c 100%); }

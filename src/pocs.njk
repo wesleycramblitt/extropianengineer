@@ -1,0 +1,61 @@
+---
+layout: layouts/base.njk
+title: Demos
+description: Live, interactive WebGL proofs of concept — real-time CFD, a from-scratch 3D graphics pipeline, and GPU computing running in the browser.
+bodyClass: demos-page
+---
+<header class="page-hero">
+  <h1 data-scramble>Demos</h1>
+  <p class="lede">Live, interactive proofs of concept — the same WebGL, numerical methods, and UI integration I use in production systems.</p>
+</header>
+
+<section class="wrap section-block">
+  <div class="article">
+    <div class="article-content">
+      <div class="box">
+        <h3 style="margin:0">WebGL Interactive, Real-Time CFD</h3>
+        <p>What this demonstrates:</p>
+        <ul>
+          <li>Low-level WebGL pipeline programming with custom shaders</li>
+          <li>Real-time computational fluid dynamics built from scratch</li>
+          <li>Interactive UI/UX controls that function during a live simulation</li>
+        </ul>
+      </div>
+      <div class="box">
+        <div class="canvas-shell" style="height:min(60vh,520px)">
+          <canvas id="cfd"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-content">
+      <div class="box">
+        <h3 style="margin:0">From-Scratch 3D Graphics Pipeline</h3>
+        <p>What this demonstrates:</p>
+        <ul>
+          <li>Pure linear algebra graphics programming — no OpenGL dependency</li>
+          <li>Full vertex transform pipeline: local → world → view → screen</li>
+          <li>Triangle rasterization from index buffers and vertex data</li>
+        </ul>
+      </div>
+      <div class="box">
+        <div class="canvas-shell" style="height:min(60vh,520px)">
+          <canvas id="raycaster"></canvas>
+          <div class="canvas-control" data-no-drag></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section-block">
+  <div class="section-top">
+    <h2>Under the hood</h2>
+    <p class="normal">The demos run on my own graphics, math, and simulation libraries — GPU particle simulation, ECS-style renderers, and numerical methods written from the ground up. These same building blocks ship inside the Extropian ecosystem.</p>
+  </div>
+  <div class="cta-row">
+    <a class="button button--primary" href="/products/">See the ecosystem</a>
+  </div>
+</section>

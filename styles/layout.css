@@ -1,0 +1,147 @@
+/* ============================================================
+   LAYOUT — page shells, heroes, containers (new multi-page site)
+   ============================================================ */
+
+/* links.css sets a global width/height:100%; rescope for the new site */
+main a, footer a, .page-hero a {
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+/* offset fixed header */
+.header + .page {
+  padding-top: 4.2em;
+}
+@media (max-width: 768px) {
+  .header + .page { padding-top: 4.4em; }
+}
+
+/* container */
+.wrap {
+  max-width: 76em;
+  margin: 0 auto;
+  padding: 0.5em 1em 2.5em;
+}
+.wrap-narrow {
+  max-width: 60em;
+  margin: 0 auto;
+  padding: 0.5em 1em 2.5em;
+}
+
+/* ── page hero (subpages) ─────────────────────────────────── */
+.page-hero {
+  padding: clamp(2rem, 5vw, 4.5rem) 1em clamp(1.2rem, 3vw, 2.2rem);
+  text-align: center;
+  border-bottom: 1px solid rgba(153,153,153,0.25);
+}
+.page-hero h1 {
+  margin: 0 0 0.35em;
+  text-wrap: balance;
+}
+.page-hero .lede {
+  max-width: 52em;
+  margin: 0 auto;
+  font-size: var(--fs-lg);
+  color: #c9c9d4;
+}
+
+/* ── home hero (full-bleed art, legacy .hero pattern) ─────── */
+.hero h1 { margin: 0.2em 0 0.3em; text-wrap: balance; }
+.hero .lede {
+  max-width: 46em;
+  margin: 0 auto;
+  font-size: var(--fs-lg);
+  color: #d6d6e0;
+}
+
+/* ── section rhythm inside a page ─────────────────────────── */
+.section-block {
+  padding: clamp(1.5rem, 4vw, 3rem) 0;
+}
+.section-top { text-align: center; }
+.section-top h2 { margin: 0 0 0.4em; }
+.section-top .normal { max-width: 52em; margin: 0 auto; }
+
+/* call-to-action row */
+.cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin-top: 1.6em;
+}
+.cta-row .button {
+  width: auto;
+  height: auto;
+  padding: 0.6em 1.4em;
+  font-size: var(--fs-base);
+  border-radius: 6px;
+}
+.button--primary { background-color: #595; color: #fff; }
+.button--accent  { background-color: #55a; color: #fff; }
+.button--ghost   { background-color: #22222e; color: #E6E6EB; border: 1px solid #777; }
+
+/* contact band */
+.contact-band {
+  text-align: center;
+  padding: clamp(2rem, 5vw, 3.5rem) 1em;
+  border-top: 1px solid rgba(153,153,153,0.35);
+}
+.contact-band .email-big {
+  font-size: var(--fs-xl);
+  color: #fff;
+  border: 1px solid #595;
+  background: rgba(85,153,85,0.12);
+  padding: 0.4em 1em;
+  border-radius: 8px;
+  display: inline-block;
+  max-width: 92vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* media */
+.media-box { display: block; }
+.media-box video,
+.media-box img {
+  width: 100%;
+  display: block;
+}
+.media-box video { aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
+.media-box--wide video { aspect-ratio: 21 / 9; }
+
+/* misc helpers */
+.muted { color: #9a9aab; }
+.mt1 { margin-top: 1em; }
+.mb0 { margin-bottom: 0; }
+.balance { text-wrap: balance; }
+
+/* crumbs + quotes + article media sizing */
+.crumbs {
+  max-width: 76em;
+  margin: 0 auto;
+  padding: 1.1em 1em 0;
+  font-size: var(--fs-xs);
+  color: #9a9aab;
+}
+.crumbs a { color: #cfcfe0; }
+.quote {
+  border-left: 3px solid #55a;
+  background: rgba(85,85,170,0.12);
+  padding: 0.8em 1em;
+  margin: 1.2em 0;
+  font-style: italic;
+  color: #d8d8e2;
+}
+.quote cite { display: block; margin-top: 0.5em; font-style: normal; color: #9a9aab; font-size: var(--fs-sm); }
+.article .box video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; display: block; }
+.article .box img { max-width: 100%; }
+
+/* demo canvases keep a reserved area */
+.demos-page .canvas-shell { min-height: 0; }

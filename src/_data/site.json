@@ -23,19 +23,23 @@
   "nav": [
     {
       "label": "Products",
-      "url": "/products/"
+      "url": "/products/",
+      "key": "products"
     },
     {
-      "label": "Engineering",
-      "url": "/engineering/"
+      "label": "Services & Licensing",
+      "url": "/engineering/",
+      "key": "services"
     },
     {
       "label": "Portfolio",
-      "url": "/portfolio/"
+      "url": "/portfolio/",
+      "key": "portfolio"
     },
     {
       "label": "About",
-      "url": "/about/"
+      "url": "/about/",
+      "key": "about"
     }
   ],
   "badges": {

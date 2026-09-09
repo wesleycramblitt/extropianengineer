@@ -36,3 +36,14 @@
 }
 .header .contact-tab:hover { background: none; }
 .contact-btn:hover { filter: brightness(1.18); }
+
+/* ── per-item hover colors (transparent gradient fills) ───────── */
+.header .tab:hover:not(.selected-tab) { background-color: transparent; }
+.header .tab.nav-products:hover:not(.selected-tab)  { background: linear-gradient(135deg, rgba(90,108,255,0.30), rgba(90,108,255,0.08)); }
+.header .tab.nav-services:hover:not(.selected-tab)  { background: linear-gradient(135deg, rgba(52,211,153,0.28), rgba(20,184,166,0.08)); }
+.header .tab.nav-portfolio:hover:not(.selected-tab) { background: linear-gradient(135deg, rgba(168,85,247,0.30), rgba(138,92,255,0.08)); }
+.header .tab.nav-about:hover:not(.selected-tab)     { background: linear-gradient(135deg, rgba(34,211,238,0.28), rgba(90,108,255,0.08)); }
+.header .tab.nav-products:hover:not(.selected-tab) a  { color: #dfe6ff; }
+.header .tab.nav-services:hover:not(.selected-tab) a  { color: #dcfff1; }
+.header .tab.nav-portfolio:hover:not(.selected-tab) a { color: #f0e6ff; }
+.header .tab.nav-about:hover:not(.selected-tab) a     { color: #e0f8ff; }

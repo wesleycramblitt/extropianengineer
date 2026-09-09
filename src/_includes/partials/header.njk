@@ -6,9 +6,9 @@
   {%- endif %}
   {%- for item in site.nav %}
   {%- if (page.url == item.url) or (item.url != '/' and page.url and (page.url | startswith(item.url))) %}
-  <div class="tab selected-tab"><a href="{{ item.url }}">{{ item.label }}</a></div>
+  <div class="tab nav-{{ item.key }} selected-tab"><a href="{{ item.url }}">{{ item.label }}</a></div>
   {%- else %}
-  <div class="tab"><a href="{{ item.url }}">{{ item.label }}</a></div>
+  <div class="tab nav-{{ item.key }}"><a href="{{ item.url }}">{{ item.label }}</a></div>
   {%- endif %}
   {%- endfor %}
   <div class="tab contact-tab"><a class="contact-btn" href="mailto:{{ site.email }}">Contact</a></div>

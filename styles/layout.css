@@ -88,6 +88,30 @@ main a, footer a, .page-hero a {
   margin: 0 auto;
 }
 
+/* license tier ladder */
+.license-ladder { max-width: 62em; margin: 0 auto; }
+.ladder-tier {
+  display: grid;
+  grid-template-columns: minmax(14em, auto) 1fr;
+  gap: 0.5em 1.4em;
+  align-items: center;
+  padding: 1em 1.2em;
+  border: 1px solid rgba(138,108,255,0.22);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+}
+.ladder-tier .chip-row { grid-column: 1 / -1; }
+.ladder-arrow {
+  text-align: center;
+  color: #777;
+  font-size: var(--fs-sm);
+  padding: 0.25em 0;
+  line-height: 1;
+}
+@media (max-width: 720px) {
+  .ladder-tier { grid-template-columns: 1fr; }
+}
+
 /* call-to-action row */
 .cta-row {
   display: flex;

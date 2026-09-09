@@ -52,6 +52,19 @@
 .pb-search:focus { outline: 1px solid var(--c-blue); border-color: var(--c-blue); }
 .pb-count { font-size: var(--fs-xs); color: #9a9aab; white-space: nowrap; }
 
+/* panel CTA: smaller + green, distinct from "View all products" */
+.pb-details {
+  align-self: flex-start;
+  margin-top: 0.1em;
+  padding: 0.38em 0.9em;
+  font-size: var(--fs-xs);
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(52,211,153,0.32), rgba(20,184,166,0.14));
+  border-color: rgba(110,231,183,0.55);
+  color: #dcfff1;
+}
+.pb-details:hover { filter: brightness(1.12); }
+
 .pb-layout {
   display: grid;
   grid-template-columns: minmax(250px, 300px) 1fr;

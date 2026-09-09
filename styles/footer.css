@@ -6,9 +6,9 @@
   position: relative;
   border-top: 1px solid rgba(138,108,255,0.22);
   background: linear-gradient(180deg,
-    rgba(17,17,19,0.55) 0%,
-    rgba(16,16,18,0.92) 26%,
-    rgba(13,13,15,0.98) 100%);
+    rgba(17,17,19,0.88) 0%,
+    rgba(15,15,17,0.96) 28%,
+    rgba(12,12,14,0.99) 100%);
   margin-top: 0;
 }
 /* faint engineering grid inside the footer, echoing the page bg */

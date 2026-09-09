@@ -263,3 +263,10 @@ main a, footer a, .page-hero a {
 
 /* neutral surfaces (override legacy blue-tinted #10101a) */
 .article-content, .pcard, .info-card, .pb-item { background-color: #16161a; }
+
+/* every page's final section connects flush to the footer:
+   no trailing gap, no lighter band — the footer fades in directly */
+.page > :last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}

@@ -13,12 +13,21 @@ main a, footer a, .page-hero a {
   min-height: 100vh;
 }
 
-/* offset fixed header */
+/* offset fixed header: pages paint their own top clearance */
 .header + .page {
-  padding-top: 4.2em;
+  padding-top: 0;
 }
 @media (max-width: 768px) {
-  .header + .page { padding-top: 4.4em; }
+  .header + .page { padding-top: 0; }
+}
+
+/* readability veil over the engineering grid: grid stays visible but
+   content sits on a dimmed, slightly frosted surface */
+.page {
+  background: linear-gradient(180deg,
+    rgba(13,13,22,0.25) 0%,
+    rgba(15,15,26,0.82) 14%,
+    rgba(15,15,26,0.86) 100%);
 }
 
 /* container */
@@ -35,9 +44,13 @@ main a, footer a, .page-hero a {
 
 /* ── page hero (subpages) ─────────────────────────────────── */
 .page-hero {
-  padding: clamp(2rem, 5vw, 4.5rem) 1em clamp(1.2rem, 3vw, 2.2rem);
+  padding: clamp(5.2em, 10vw, 7.6em) 1em clamp(1.4rem, 3vw, 2.4rem);
   text-align: center;
-  border-bottom: 1px solid rgba(153,153,153,0.25);
+  border-bottom: 1px solid rgba(138,108,255,0.28);
+  background: linear-gradient(180deg,
+    rgba(24,24,56,0.92) 0%,
+    rgba(19,19,40,0.55) 62%,
+    transparent 100%);
 }
 .page-hero h1 {
   margin: 0 0 0.35em;
@@ -52,6 +65,7 @@ main a, footer a, .page-hero a {
 
 /* ── home hero (full-bleed art, legacy .hero pattern) ─────── */
 .hero h1 { margin: 0.2em 0 0.3em; text-wrap: balance; }
+.hero-content { padding-top: clamp(5.2em, 10vw, 7.6em); }
 .hero .lede {
   max-width: 46em;
   margin: 0 auto;
@@ -145,3 +159,79 @@ main a, footer a, .page-hero a {
 
 /* demo canvases keep a reserved area */
 .demos-page .canvas-shell { min-height: 0; }
+
+/* ============================================================
+   2026-09-09 — brand palette (blues & purples, from the logo)
+   ============================================================ */
+:root {
+  --c-blue:   #5a6cff;
+  --c-violet: #8a5cff;
+  --c-blue-soft:  rgba(90, 108, 255, 0.16);
+  --c-violet-soft: rgba(138, 92, 255, 0.14);
+}
+
+/* ── hero: gradient art instead of the photo ────────────────── */
+.hero--gradient {
+  background:
+    radial-gradient(1100px 520px at 88% -12%, rgba(138, 92, 255, 0.38), transparent 62%),
+    radial-gradient(950px 520px at 6% 112%, rgba(90, 108, 255, 0.34), transparent 60%),
+    linear-gradient(180deg, #101028 0%, #171734 55%, #0d0d1e 100%);
+  border-bottom: 1px solid rgba(138, 108, 255, 0.35);
+}
+.hero--gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 88%);
+          mask-image: radial-gradient(ellipse at center, black 30%, transparent 88%);
+  pointer-events: none;
+}
+.hero--gradient .hero-content { position: relative; z-index: 1; }
+
+/* ── buttons: translucent gradient + colored border ─────────── */
+.button {
+  background: linear-gradient(135deg, rgba(90,108,255,0.30), rgba(138,92,255,0.16));
+  border: 1px solid rgba(138,108,255,0.55);
+  border-radius: 8px;
+  color: #eceeff;
+  padding: 0.55em 1.25em;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  transition: filter 0.15s ease, border-color 0.15s ease;
+}
+.button:hover { filter: brightness(1.18); border-color: rgba(160,140,255,0.95); }
+.button--primary {
+  background: linear-gradient(135deg, rgba(90,108,255,0.5), rgba(138,92,255,0.32));
+  border-color: rgba(128,112,255,0.85);
+  color: #fff;
+}
+.button--accent {
+  background: linear-gradient(135deg, rgba(138,92,255,0.5), rgba(90,108,255,0.30));
+  border-color: rgba(150,120,255,0.85);
+  color: #fff;
+}
+.button--ghost {
+  background: linear-gradient(135deg, rgba(90,108,255,0.14), rgba(138,92,255,0.10));
+  border-color: rgba(138,108,255,0.42);
+  color: #e6e8ff;
+}
+
+/* contact band + email pill */
+.contact-band {
+  background: linear-gradient(180deg, transparent 0%, rgba(22,22,48,0.85) 55%, rgba(16,16,32,0.95) 100%);
+}
+.contact-band .email-big {
+  border: 1px solid rgba(138,108,255,0.6);
+  background: linear-gradient(135deg, rgba(90,108,255,0.22), rgba(138,92,255,0.14));
+  color: #fff;
+}
+
+/* quotes */
+.quote {
+  border-left: 3px solid var(--c-violet);
+  background: rgba(138, 92, 255, 0.10);
+}

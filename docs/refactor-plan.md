@@ -95,8 +95,10 @@ site**:
 | `/engineering/` | Licensing + custom development | site_plan `/engineering` |
 | `/portfolio/` | Selected featured rows + earlier work | site_plan `/portfolio` |
 | `/about/` | Bio, expertise, building, OSS, interests, contact | site_plan `/about` |
-| `/pocs/` | Live WebGL demos | site_plan `/pocs` |
 | `/404.html` | Custom not-found | new |
+
+> 2026-09-09: `/pocs/` (WebGL demos page) **removed** — the demo scripts and assets
+> remain in the repo but no page links to them. Re-add later if wanted.
 | `sitemap.xml`, `robots.txt` | SEO | new |
 
 ### 4.1 Product categories (for `/products/`)
@@ -111,7 +113,7 @@ site**:
 
 ### 4.3 Nav (all pages, header)
 Logo → `/`; Products → `/products/`; Engineering → `/engineering/`; Portfolio →
-`/portfolio/`; About → `/about/`; Demos → `/pocs/` (label TBD §13); Contact mailto
+`/portfolio/`; About → `/about/`; Contact mailto
 button in header right; footer = socials + email + copyright. Drop the old floating
 bottom-right cluster.
 

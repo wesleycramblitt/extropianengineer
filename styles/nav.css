@@ -1,16 +1,38 @@
 /* ============================================================
    NAV — additions on top of the legacy header.css pattern
    ============================================================ */
-.header { gap: 0.2em; }
+.header {
+  gap: 0.2em;
+  align-items: center;
+}
+/* logo tab sits flush with the nav baseline */
+.header .tab:first-of-type {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 0.6em;
+}
+.header .tab:first-of-type a {
+  display: flex;
+  align-items: center;
+}
+.header .tab:first-of-type img {
+  display: block;
+}
 .header .contact-tab { margin-left: auto; display: flex; align-items: center; }
+.header .selected-tab {
+  background: linear-gradient(180deg, rgba(90,108,255,0.75), rgba(138,92,255,0.62));
+}
 .contact-btn {
-  background-color: #595;
+  background: linear-gradient(135deg, rgba(90,108,255,0.5), rgba(138,92,255,0.34));
+  border: 1px solid rgba(138,108,255,0.8);
   color: #fff !important;
-  padding: 0.45em 1em;
-  border-radius: 5px;
+  padding: 0.5em 1.05em;
+  border-radius: 7px;
   font-size: var(--fs-sm);
   line-height: 1;
   white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 .header .contact-tab:hover { background: none; }
-.contact-btn:hover { filter: brightness(115%); }
+.contact-btn:hover { filter: brightness(1.18); }

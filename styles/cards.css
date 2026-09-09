@@ -22,7 +22,7 @@
   height: 100%;
   box-sizing: border-box;
 }
-a.pcard:hover { border-color: #55a; transform: translateY(-2px); }
+a.pcard:hover { border-color: rgba(138,108,255,0.8); transform: translateY(-2px); }
 .pcard h3 { margin: 0; font-size: var(--fs-lg); }
 .pcard p { margin: 0; font-size: var(--fs-sm); color: #c9c9d4; }
 .pcard .pcard-link { margin-top: auto; color: #99bbff; font-size: var(--fs-sm); }
@@ -69,21 +69,21 @@ a.pcard:hover { border-color: #55a; transform: translateY(-2px); }
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
-.badge--type    { border-color: #55a; color: #aeb4f0; background: rgba(85,85,170,0.16); }
-.badge--license { border-color: #595; color: #9ccb9c; background: rgba(85,153,85,0.13); }
+.badge--type    { border-color: var(--c-blue);   color: #b4bfff; background: var(--c-blue-soft); }
+.badge--license { border-color: var(--c-violet); color: #d2beff; background: var(--c-violet-soft); }
 
 /* chips (related products, topics) */
 .chip-row { display: flex; gap: 0.5em; flex-wrap: wrap; }
 .chip {
   display: inline-block;
   padding: 0.3em 0.8em;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(138,108,255,0.35);
   border-radius: 999px;
   font-size: var(--fs-xs);
-  color: #cfcfe0;
-  background: rgba(255,255,255,0.04);
+  color: #d3d8ff;
+  background: rgba(90,108,255,0.08);
 }
-a.chip:hover { border-color: #55a; }
+a.chip:hover { border-color: var(--c-violet); }
 
 /* click-to-play video tile (earlier work) */
 .vid-tile {
@@ -125,7 +125,7 @@ a.chip:hover { border-color: #55a; }
   content: "▸";
   position: absolute;
   left: 0.2em;
-  color: #55a;
+  color: var(--c-blue);
 }
 
 /* detail two-column info rows (product pages) */
@@ -190,7 +190,7 @@ a.chip:hover { border-color: #55a; }
   min-height: 180px;
 }
 /* category tints */
-.pv-simulation-ai    { background: linear-gradient(135deg, #0e2f33 0%, #123c3a 45%, #0a1a24 100%); }
-.pv-engineering-ui   { background: linear-gradient(135deg, #141438 0%, #26265e 55%, #101020 100%); }
-.pv-visualization    { background: linear-gradient(135deg, #2b1038 0%, #4a1a5e 55%, #150a1e 100%); }
-.pv-core             { background: linear-gradient(135deg, #23232d 0%, #38384a 55%, #15151c 100%); }
+.pv-simulation-ai    { background: linear-gradient(135deg, #0a1733 0%, #14306b 55%, #0a1226 100%); }
+.pv-engineering-ui   { background: linear-gradient(135deg, #12123c 0%, #2d2d92 55%, #0c0c22 100%); }
+.pv-visualization    { background: linear-gradient(135deg, #250f45 0%, #5a1f9e 55%, #140a24 100%); }
+.pv-core             { background: linear-gradient(135deg, #1a1a30 0%, #3a3a6e 55%, #101018 100%); }

@@ -1,8 +1,8 @@
 {
   "name": "Extropian Engineer",
   "person": "Wes Cramblitt",
-  "title": "Extropian Engineer \u2014 Scientific Software, Product-Led",
-  "description": "Product-led scientific software engineering: specialized simulation, visualization, GPU computing, and AI software \u2014 licensed, customized, or built on.",
+  "title": "Extropian Engineer \u2014 Product-Led Scientific Software",
+  "description": "Building an ecosystem of modular, high-performance scientific software \u2014 put to work through product-led consulting: licensed, customized, or built on for engineering and research teams.",
   "url": "https://extropianengineer.com",
   "email": "wes@extropianengineer.com",
   "linkedin": "https://www.linkedin.com/in/extropian-engineer",
@@ -36,10 +36,6 @@
     {
       "label": "About",
       "url": "/about/"
-    },
-    {
-      "label": "Demos",
-      "url": "/pocs/"
     }
   ],
   "badges": {

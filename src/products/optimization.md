@@ -4,10 +4,11 @@ tags: products
 title: Extropian Optimization
 description: Modular optimization engine for engineering design spaces — Extropian Optimization licensing, customization, and build-on options.
 tagline: A modular optimization engine for exploring larger design spaces and finding better-performing designs.
-category: simulation-ai
+category: [optimization]
 type: Modular repository
-licensing: Open Source
-order: 2
+licensing: Open Source (Apache 2.0)
+builtFor: build
+order: 11
 featuredOnHome: false
 capabilities:
   - Modular optimization engine that wraps simulation and analysis workflows

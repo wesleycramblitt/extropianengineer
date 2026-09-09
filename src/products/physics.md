@@ -4,10 +4,11 @@ tags: products
 title: Extropian Physics
 description: Modular multiphysics numerical methods engine with GPU-first solvers and coupling strategies — Extropian Physics licensing, customization, and build-on options.
 tagline: A modular numerical methods engine with multiphysics solvers and modular coupling strategies, built from the ground up for GPU compute workloads.
-category: simulation-ai
+category: [simulation]
 type: Modular repository
-licensing: Perpetual
-order: 1
+licensing: Perpetual, closed source
+builtFor: build
+order: 10
 featuredOnHome: false
 capabilities:
   - Multiphysics solver architecture with modular coupling strategies

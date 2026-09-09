@@ -14,8 +14,8 @@ module.exports = function (eleventyConfig) {
     var seen = [];
     (list || []).forEach(function (p) {
       if (featuredOnly && !p.data.featuredOnHome) return;
-      var k = p.data.category;
-      if (seen.indexOf(k) < 0) seen.push(k);
+      var ks = Array.isArray(p.data.category) ? p.data.category : [p.data.category];
+      ks.forEach(function (k) { if (seen.indexOf(k) < 0) seen.push(k); });
     });
     return seen.map(function (k) { return { key: k, name: catNames[k] || k }; });
   });
@@ -27,10 +27,15 @@ module.exports = function (eleventyConfig) {
       .sort(function (a, b) { return (a.data.order || 99) - (b.data.order || 99); });
   });
 
-  // CSS-safe slug for badge values ("End user product" -> "end-user-product")
+  // CSS-safe slug for badge values ("End user product" -> "end-user-product");
+  // arrays map to per-element slugs (multi-category products)
   eleventyConfig.addFilter("badgeClass", function (v) {
-    return String(v || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    if (Array.isArray(v)) return v.map(function (x) { return badgeSlug(x); });
+    return badgeSlug(v);
   });
+  function badgeSlug(v) {
+    return String(v || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
 
   // Product visual monogram: first letters of title words (skip "Extropian")
   eleventyConfig.addFilter("glyph", function (title) {
@@ -42,6 +47,32 @@ module.exports = function (eleventyConfig) {
   // Active-nav helper: does this page URL begin with the nav item URL?
   eleventyConfig.addFilter("startswith", function (str, prefix) {
     return typeof str === "string" && str.indexOf(prefix) === 0;
+  });
+
+  // "Built for" chip values present in a (possibly filtered) product list
+  eleventyConfig.addFilter("pbBuiltFors", function (list, featuredOnly) {
+    var seen = [];
+    (list || []).forEach(function (p) {
+      if (featuredOnly && !p.data.featuredOnHome) return;
+      var k = p.data.builtFor;
+      if (k && seen.indexOf(k) < 0) seen.push(k);
+    });
+    return seen;
+  });
+
+  // Display label for "Built for" keys ("build" -> "Build your own")
+  eleventyConfig.addFilter("builtForLabel", function (k) {
+    return { build: "Build your own", buy: "Out of the box" }[k] || k;
+  });
+
+  // Category key -> display name
+  eleventyConfig.addFilter("catName", function (k) {
+    try {
+      var cfg = require("./src/_data/site.json");
+      var hit = cfg.productCategories.find(function (c) { return c.key === k; });
+      if (hit) return hit.name;
+    } catch (e) {}
+    return k;
   });
 
   // Product-card "related" chips: map a slug back to its title

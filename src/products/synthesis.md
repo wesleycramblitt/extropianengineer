@@ -4,10 +4,11 @@ tags: products
 title: Extropian Synthesis
 description: Generative AI and optimization platform for synthesizing novel machines from known physics, geometry, and materials — Extropian Synthesis.
 tagline: A generative AI and optimization powered platform for synthesizing known laws of nature, geometries, materials, and computational algorithms to invent novel machines at any scale.
-category: simulation-ai
+category: [generative-ai, simulation, optimization]
 type: End user product
-licensing: Perpetual
-order: 3
+licensing: Perpetual, closed source
+builtFor: buy
+order: 2
 featuredOnHome: true
 capabilities:
   - Generative synthesis grounded in known laws of nature rather than free-form generation

@@ -108,10 +108,15 @@
 
     function visibleList() {
       var q = (search && search.value ? search.value : "").trim().toLowerCase();
-      var chip = root.querySelector(".pb-chip.is-on");
-      var cat = chip ? chip.dataset.pbCat : "";
+      var catChip = root.querySelector(".pb-chip[data-pb-cat].is-on");
+      var bfChip = root.querySelector(".pb-chip[data-pb-bf].is-on");
+      var cat = catChip ? catChip.dataset.pbCat : "";
+      var bf = bfChip ? bfChip.dataset.pbBf : "";
       var vis = panels.map(function (p) {
-        var ok = (!cat || p.dataset.pbCat === cat) && (!q || (p.dataset.pbSearch || "").indexOf(q) > -1);
+        var cats = (p.dataset.pbCat || "").split(" ").filter(Boolean);
+        var ok = (!cat || cats.indexOf(cat) > -1)
+              && (!bf || (p.dataset.pbBf || "") === bf)
+              && (!q || (p.dataset.pbSearch || "").indexOf(q) > -1);
         p.classList.toggle("pb-hidden", !ok);
         return { slug: p.dataset.pbPanel, ok: ok };
       });
@@ -146,7 +151,8 @@
 
     chips.forEach(function (chip) {
       chip.addEventListener("click", function () {
-        chips.forEach(function (c) { c.classList.remove("is-on"); });
+        var group = chip.parentElement;
+        Array.prototype.forEach.call(group.children, function (c) { c.classList.remove("is-on"); });
         chip.classList.add("is-on");
         visibleList();
       });

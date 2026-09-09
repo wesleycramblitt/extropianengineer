@@ -190,16 +190,32 @@ a.chip:hover { border-color: var(--c-violet); }
   min-height: 180px;
 }
 /* category tints */
-.pv-simulation-ai    { background: linear-gradient(135deg, #062a33 0%, #0e6a7d 55%, #04151a 100%); }
-.pv-engineering-ui   { background: linear-gradient(135deg, #0a0f33 0%, #2540c0 55%, #070b1e 100%); }
-.pv-visualization    { background: linear-gradient(135deg, #1d0f3f 0%, #6d28d9 55%, #120a24 100%); }
-.pv-core             { background: linear-gradient(135deg, #2a1d07 0%, #a16207 55%, #191205 100%); }
+.pv-core-platform              { background: linear-gradient(135deg, #2a1d07 0%, #a16207 55%, #191205 100%); }
+.pv-generative-ai              { background: linear-gradient(135deg, #2b0a2a 0%, #c026d3 55%, #17061a 100%); }
+.pv-simulation                 { background: linear-gradient(135deg, #062a33 0%, #0e6a7d 55%, #04151a 100%); }
+.pv-optimization               { background: linear-gradient(135deg, #06251f 0%, #0d9488 55%, #041512 100%); }
+.pv-engineering-ui             { background: linear-gradient(135deg, #0a0f33 0%, #2540c0 55%, #070b1e 100%); }
+.pv-visualization-interaction  { background: linear-gradient(135deg, #1d0f3f 0%, #6d28d9 55%, #120a24 100%); }
+.pv-custom-integration         { background: linear-gradient(135deg, #2a0a14 0%, #e11d48 55%, #17060d 100%); }
 
 /* ── badge colors by value (full wheel, harmonized) ─────────────── */
 .badge-val-software-package    { border-color: #22d3ee; color: #a5f3fc; background: rgba(34,211,238,0.14); }
 .badge-val-modular-repository  { border-color: #fbbf24; color: #fde68a; background: rgba(251,191,36,0.13); }
 .badge-val-end-user-product    { border-color: #fb7185; color: #fecdd3; background: rgba(251,113,133,0.14); }
-.badge-val-busl                { border-color: #a855f7; color: #e9d5ff; background: rgba(168,85,247,0.16); }
-.badge-val-open-source         { border-color: #34d399; color: #a7f3d0; background: rgba(52,211,153,0.13); }
-.badge-val-perpetual           { border-color: #60a5fa; color: #bfdbfe; background: rgba(96,165,250,0.14); }
-.badge-val-saas                { border-color: #f472b6; color: #fbcfe8; background: rgba(244,114,182,0.14); }
+.badge-val-customizable-software-platform { border-color: #14b8a6; color: #99f6e4; background: rgba(20,184,166,0.13); }
+.badge-val-ui-ux-library                  { border-color: #a855f7; color: #e9d5ff; background: rgba(168,85,247,0.15); }
+.badge-val-open-source-apache-2-0         { border-color: #34d399; color: #a7f3d0; background: rgba(52,211,153,0.13); }
+.badge-val-perpetual-closed-source        { border-color: #60a5fa; color: #bfdbfe; background: rgba(96,165,250,0.14); }
+.badge-val-polyform-shield                { border-color: #a855f7; color: #e9d5ff; background: rgba(168,85,247,0.16); }
+.badge--built { border-color: var(--c-blue); color: #b4bfff; background: var(--c-blue-soft); }
+.badge-val-build { border-color: #5a6cff; color: #d3d8ff; background: rgba(90,108,255,0.15); }
+.badge-val-buy   { border-color: #34d399; color: #a7f3d0; background: rgba(52,211,153,0.13); }
+.badge-val-build-your-own                 { border-color: #5a6cff; color: #d3d8ff; background: rgba(90,108,255,0.15); }
+.badge-val-out-of-the-box                 { border-color: #34d399; color: #a7f3d0; background: rgba(52,211,153,0.13); }
+.badge-val-core-platform                  { border-color: #fbbf24; color: #fde68a; background: rgba(251,191,36,0.13); }
+.badge-val-generative-ai                  { border-color: #f472b6; color: #fbcfe8; background: rgba(244,114,182,0.14); }
+.badge-val-simulation                     { border-color: #22d3ee; color: #a5f3fc; background: rgba(34,211,238,0.14); }
+.badge-val-optimization                   { border-color: #34d399; color: #a7f3d0; background: rgba(52,211,153,0.13); }
+.badge-val-engineering-ui                 { border-color: #60a5fa; color: #bfdbfe; background: rgba(96,165,250,0.14); }
+.badge-val-visualization-interaction      { border-color: #a855f7; color: #e9d5ff; background: rgba(168,85,247,0.16); }
+.badge-val-custom-integration             { border-color: #fb7185; color: #fecdd3; background: rgba(251,113,133,0.14); }

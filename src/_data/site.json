@@ -46,35 +46,55 @@
     "type": [
       "Software Package",
       "Modular repository",
-      "End user product"
+      "End user product",
+      "Customizable software platform",
+      "UI/UX library"
     ],
     "licensing": [
-      "BUSL",
-      "Open Source",
-      "Perpetual",
-      "SaaS"
+      "Open Source (Apache 2.0)",
+      "Perpetual, closed source",
+      "Polyform Shield"
+    ],
+    "builtFor": [
+      "Build your own",
+      "Out of the box"
     ]
   },
   "productCategories": [
     {
-      "name": "Simulation & AI",
-      "key": "simulation-ai",
-      "blurb": "Solver, optimization, and generative-design engines built for GPU-era compute."
+      "name": "Core Platform",
+      "key": "core-platform",
+      "blurb": "Formats, geometry, and content foundations the ecosystem is built on."
+    },
+    {
+      "name": "Generative AI",
+      "key": "generative-ai",
+      "blurb": "Generative synthesis grounded in physics, geometry, and materials."
+    },
+    {
+      "name": "Simulation",
+      "key": "simulation",
+      "blurb": "Solver and numerical-methods engines built for GPU-era compute."
+    },
+    {
+      "name": "Optimization",
+      "key": "optimization",
+      "blurb": "Design-space exploration and automated optimization workflows."
     },
     {
       "name": "Engineering UI",
       "key": "engineering-ui",
-      "blurb": "User interfaces and interaction systems for engineering and research software."
+      "blurb": "User interfaces and interaction systems for engineering software."
     },
     {
-      "name": "Visualization & interaction",
-      "key": "visualization",
+      "name": "Visualization & Interaction",
+      "key": "visualization-interaction",
       "blurb": "Rendering and interactive visualization of complex results and systems."
     },
     {
-      "name": "Core platform",
-      "key": "core",
-      "blurb": "Formats, geometry, and content foundations the ecosystem is built on."
+      "name": "Custom Integration",
+      "key": "custom-integration",
+      "blurb": "Embedding Extropian components into your own products and workflows."
     }
   ]
 }

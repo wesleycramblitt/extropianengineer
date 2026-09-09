@@ -4,10 +4,11 @@ tags: products
 title: Extropian CAE
 description: A modular, unified CAE format for representing any multiphysics problem — the data foundation of the ecosystem.
 tagline: A modular, unified CAE format for representing any multiphysics problem.
-category: core
+category: [core-platform]
 type: Modular repository
-licensing: Open Source
-order: 9
+licensing: Open Source (Apache 2.0)
+builtFor: build
+order: 8
 featuredOnHome: false
 capabilities:
   - A single representation for multiphysics problems across the ecosystem

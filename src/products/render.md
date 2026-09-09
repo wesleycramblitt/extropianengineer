@@ -4,9 +4,10 @@ tags: products
 title: Extropian Render
 description: Modular ECS-based renderer with built-in interaction, shaders, and gizmo support for any GL backend.
 tagline: A modular, ECS-based renderer with built-in interaction, shaders, and gizmo support for any GL backend.
-category: visualization
+category: [visualization-interaction]
 type: Modular repository
-licensing: BUSL
+licensing: Polyform Shield
+builtFor: build
 order: 6
 featuredOnHome: false
 capabilities:

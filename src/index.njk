@@ -10,9 +10,9 @@ extraScripts:
 <div class="hero hero--gradient">
   <div class="hero-content">
     <h1 data-scramble>Wes Cramblitt</h1>
-    <p class="lede">Building an ecosystem of modular, high-performance scientific software — and putting it to work through product-led consulting: licensed, customized, or built on for engineering and research teams.</p>
+    <p class="hero-sub">Scientific Software Engineer&nbsp;| C++ OpenGL Web</p>
+    <p class="lede">Building an ecosystem of modular, high-performance scientific software for engineering and research teams.</p>
     <div class="cta-row">
-      <a class="button button--blue-light" href="#products">Explore the products</a>
       <a class="button button--green" href="/engineering/">Start an Engagement</a>
     </div>
   </div>
@@ -21,7 +21,8 @@ extraScripts:
 <section id="products" class="wrap section-block">
   <div class="section-top">
     <h2>Extropian Ecosystem</h2>
-    <p class="normal">A modular scientific software ecosystem of specialized components that combine into complete engineering systems. Interactive demonstrations are on the way.</p>
+    <p class="normal">A modular scientific software ecosystem of specialized components that combine into complete CAE systems. 
+    </p>
     
   </div>
   {%- from "partials/product-browser.njk" import productBrowser %}
@@ -34,7 +35,8 @@ extraScripts:
 <section id="offer" class="wrap section-block">
   <div class="section-top">
     <h2>Software you can license, customize, or build on</h2>
-    <p class="normal">My software can be licensed as-is, customized for your workflow, or used as the foundation for a larger engineering project. I bring reusable technology to the engagement instead of starting from scratch every time.</p>
+    <p class="normal">My software can be licensed as-is, customized for your workflow, or used as the foundation for a larger engineering project. 
+    I bring reusable technology to the engagement instead of starting from scratch every time.</p>
   </div>
   <div class="card-grid">
     <a class="pcard card" href="/engineering/#license">
@@ -53,42 +55,17 @@ extraScripts:
       <span class="pcard-link">Services &amp; licensing →</span>
     </a>
   </div>
-</section>
-
-<section id="ip" class="wrap section-block">
-  <div class="section-top">
-    <h2>Turn technical IP into usable software</h2>
-    <p class="normal">Your models, solvers, algorithms, and research are valuable. I build the software around them so they can be used, explored, optimized, and deployed.</p>
-  </div>
-</section>
-
-<section id="background" class="wrap section-block">
-  <div class="section-top">
-    <h2>Engineering background</h2>
-    <p class="normal">Scientific software engineering across simulation, real-time systems, and product development — from legacy code stewardship to GPU-era interactive tools.</p>
-  </div>
-  <div class="cta-row">
-    <a class="button button--ghost" href="/about/">More about Wes →</a>
-  </div>
-</section>
-
-<section id="workwithme" class="wrap section-block">
-  <div class="section-top">
-    <h2>Work with me</h2>
-    <p class="normal">License existing software, customize a product, or build a specialized system on the Extropian ecosystem.</p>
-  </div>
   <div class="cta-row">
     <a class="button button--blue" href="/engineering/">Services &amp; licensing options</a>
   </div>
 </section>
-
 <section id="portfolio" class="wrap section-block">
   <div class="section-top">
     <h2>Past portfolio</h2>
-    <p class="normal">Selected engineering and research software built over the years — from national-laboratory deployments to research platforms.</p>
+    <p class="normal">Selected engineering and research software built over the years, from national-laboratory deployments to research platforms.</p>
   </div>
   <div class="card-grid">
-    {%- set featured = ['capars', 'hyperfat', 'autoligo', 'alphaact'] %}
+    {%- set featured = ['hyperfat', 'capars', 'autoligo', 'alphaact'] %}
     {%- for proj in portfolio %}
     {%- if proj.id in featured %}
       {% include "partials/project-card.njk" %}

@@ -241,7 +241,7 @@ analyticsSite k955budqzmmokm97; nav array.
 title, tagline (edited-for-publication from products.md — grammar fixes only, no
                factual invention; Wes sign-off in Phase 2),
 category (§4.1), type (§6.3 — one of: Software Package | Modular repository |
-End user product), licensing (§6.3 — one of: BUSL | Open Source | Perpetual | SaaS),
+End user product), licensing (§6.3 — one of: Polyform Shield | Open Source (Apache 2.0) | Perpetual, closed source),
 order (within category), featuredOnHome (bool),
 media: { type: video|image|none, src, poster? }   // optional
 capabilities: [ ... ]        // H2 "Core capabilities"
@@ -266,21 +266,21 @@ site.json documents the allowed sets for consistent template rendering.
 - `End user product` — a complete application aimed at end users.
 
 **Licensing** — how it is offered 
-- `BUSL` — Source-available while having an Additional Use Grant to prevent competitive product or services.
+- `Polyform Shield` — Source-available; use/modify/build internally, restricted only as a competing product or service.
 - `Open Source` — open-source licensed, typically GPL
 - `Perpetual` — Closed source, perptual one-time license for organizational use.
-- `SaaS` — hosted subscription.
+- `Perpetual, closed source` — one-time license, no recurring fees.
 
 **Proposed per-product assignment — Wes reviews at the Phase 2 kickoff (same sign-off
 as the tagline copy-edit; adjust freely, these are starting points only):**
 
 | Product | Type | Licensing |
 |---|---|---|
-| CAE Workbench | End user product | BUSL |
+| CAE Workbench | Customizable software platform | Polyform Shield |
 | Spatial UI | Modular repository | Perpetual |
 | Synthesis | End user product | Perpetual |
 | Composer | End user product | Perpetual |
-| Render | Modular repository | BUSL |
+| Render | Modular repository | Polyform Shield |
 | Geometry | Modular repository | Open Source |
 | CAE (unified format) | Modular repository | Open Source |
 | Viz | Software Package | Perpetual |
@@ -340,7 +340,7 @@ products aren't enough"). Product detail pages remain the deepest information la
 ### 7.4 `/engineering/` (Phase 3)
 One-column flow per site_plan §`/engineering`: (1) Work with existing software;
 (2) Customize an existing product; (3) Build on the ecosystem; (4) Flexible licensing —
-licensing models as cards (perpetual / SaaS-hosted / project-scoped development /
+licensing models as cards (Polyform Shield / perpetual closed source / Apache 2.0 /
 stewardship retainer, aligned with existing engagement models); (5) Custom development
 — fold in current engagement models: Technical Assessment, Fixed-Scope Modernization
 Sprint, Embedded Specialist, Ongoing Stewardship, Strategic Product Partnership (copy

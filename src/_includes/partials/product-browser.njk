@@ -5,7 +5,7 @@
    Params: itemList (ordered collection pages), id (unique), featuredOnly (bool)
    ──────────────────────────────────────────────────────────────── #}
 {% macro pbGradientFrame(item) %}
-<div class="pb-frame pb-frame--gradient pv-{{ item.data.category }}">
+<div class="pb-frame pb-frame--gradient pv-{{ item.data.category[0] }}">
   <span class="pv-glyph">{{ item.data.title | glyph }}</span>
   <span class="pv-note">Interactive demonstration coming soon</span>
 </div>
@@ -32,6 +32,13 @@
       <button type="button" class="pb-chip" data-pb-cat="{{ cat.key }}">{{ cat.name }}</button>
       {%- endfor %}
     </div>
+    <div class="pb-chips" role="group" aria-label="Filter by built for">
+      <span class="pb-chip-label">Built for:</span>
+      <button type="button" class="pb-chip is-on" data-pb-bf="">All</button>
+      {%- for bf in itemList | pbBuiltFors(featuredOnly) %}
+      <button type="button" class="pb-chip" data-pb-bf="{{ bf }}">{{ bf | builtForLabel }}</button>
+      {%- endfor %}
+    </div>
     <input class="pb-search" type="search" placeholder="Search products…" aria-label="Search products">
     <span class="pb-count" data-pb-count></span>
   </div>
@@ -41,10 +48,11 @@
       {%- for item in itemList %}
       {%- if not featuredOnly or item.data.featuredOnHome %}
       <button type="button" class="pb-item" data-pb-slug="{{ item.data.slug or item.fileSlug }}"
-        data-pb-cat="{{ item.data.category }}"
+        data-pb-cat="{{ item.data.category | join(' ') }}"
+        data-pb-bf="{{ item.data.builtFor }}"
         data-pb-search="{{ (item.data.title ~ ' ' ~ item.data.tagline) | lower }}"
         aria-pressed="false">
-        <span class="pb-item-glyph pv-{{ item.data.category }}">{{ item.data.title | glyph }}</span>
+        <span class="pb-item-glyph pv-{{ item.data.category[0] }}">{{ item.data.title | glyph }}</span>
         <span class="pb-item-text">
           <span class="pb-item-name">{{ item.data.title }}</span>
           <span class="pb-item-tags"><span class="badge badge--license badge-val-{{ item.data.licensing | badgeClass }}">{{ item.data.licensing }}</span></span>
@@ -60,7 +68,8 @@
       {%- set singleMedia = [item.data.media] if item.data.media else [] -%}
       {%- set frames = item.data.gallery or singleMedia -%}
       <article class="pb-panel" data-pb-panel="{{ item.data.slug or item.fileSlug }}"
-        data-pb-cat="{{ item.data.category }}"
+        data-pb-cat="{{ item.data.category | join(' ') }}"
+        data-pb-bf="{{ item.data.builtFor }}"
         data-pb-search="{{ (item.data.title ~ ' ' ~ item.data.tagline) | lower }}"
         aria-label="{{ item.data.title }}">
         <div class="pb-slideshow">
@@ -83,6 +92,8 @@
           <div class="badge-row">
             {%- if item.data.type %}<span class="badge badge--type badge-val-{{ item.data.type | badgeClass }}">{{ item.data.type }}</span>{% endif %}
             {%- if item.data.licensing %}<span class="badge badge--license badge-val-{{ item.data.licensing | badgeClass }}">{{ item.data.licensing }}</span>{% endif %}
+            {%- if item.data.builtFor %}<span class="badge badge--built badge-val-{{ item.data.builtFor }}">Built for: {{ item.data.builtFor | builtForLabel }}</span>{% endif %}
+            {%- for c in item.data.category %}<span class="badge badge--cat badge-val-{{ c }}">{{ c | catName }}</span>{% endfor %}
           </div>
           <p class="pb-tagline">{{ item.data.tagline }}</p>
           <a class="button button--ghost pb-details" href="{{ item.url }}">Full details →</a>

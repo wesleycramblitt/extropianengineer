@@ -4,10 +4,11 @@ tags: products
 title: Extropian CAE Workbench
 description: Extendable GL-based UI/UX workbench for configuring and running numerical solvers — the interface layer of the Extropian ecosystem.
 tagline: An extendable, GL-based UI/UX workbench for configuring and running numerical solvers.
-category: engineering-ui
-type: End user product
-licensing: BUSL
-order: 4
+category: [engineering-ui, visualization-interaction, custom-integration]
+type: Customizable software platform
+licensing: Polyform Shield
+builtFor: build
+order: 3
 featuredOnHome: true
 capabilities:
   - Interactive scene-based editing of models, meshes, and boundary conditions

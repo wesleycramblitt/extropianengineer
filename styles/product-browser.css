@@ -12,6 +12,14 @@
   padding: 0.6em 0 1em;
 }
 .pb-chips { display: flex; gap: 0.45em; flex-wrap: wrap; }
+.pb-chip-label {
+  font-size: var(--fs-xxs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #777;
+  align-self: center;
+  margin-right: 0.2em;
+}
 .pb-chip {
   font-family: var(--font-display);
   font-size: var(--fs-xs);

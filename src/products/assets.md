@@ -4,12 +4,6 @@ tags: products
 title: Extropian Assets
 description: A collection of assets for GL-based scenes — meshes, materials, and textures for engineering visualization.
 tagline: A collection of assets for GL-based scenes.
-category: [core-platform]
-type: Modular repository
-licensing: ["Open Source (Apache 2.0)"]
-builtFor: build
-order: 12
-featuredOnHome: false
 capabilities:
   - Meshes, materials, and textures for GL-based engineering scenes
   - Scene-ready assets that work with Extropian Render and Spatial UI

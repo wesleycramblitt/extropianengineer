@@ -4,12 +4,6 @@ tags: products
 title: Extropian Viz
 description: Post-processing and visualization tooling for simulation results — turn solver output into insight.
 tagline: Post-processing and visualization for simulation results.
-category: [visualization-interaction]
-type: Modular repository
-licensing: ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
-builtFor: build
-order: 9
-featuredOnHome: false
 capabilities:
   - Post-processing of solver output into interactive visual results
   - Exploration of results across parameters and design comparisons

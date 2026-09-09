@@ -4,6 +4,16 @@
 // /scripts) are preserved in the built site.
 
 module.exports = function (eleventyConfig) {
+  // Catalog metadata lookup by product slug
+  function pmeta(slug, field) {
+    try {
+      var meta = require("./src/_data/productmeta.json");
+      var m = meta[slug];
+      if (m && m[field] !== undefined) return m[field];
+    } catch (e) {}
+    return undefined;
+  }
+
   // Categories present in a (possibly filtered) product list, for the browser chips
   eleventyConfig.addFilter("pbCats", function (list, featuredOnly) {
     var catNames = {};
@@ -13,18 +23,24 @@ module.exports = function (eleventyConfig) {
     } catch (e) {}
     var seen = [];
     (list || []).forEach(function (p) {
-      if (featuredOnly && !p.data.featuredOnHome) return;
-      var ks = Array.isArray(p.data.category) ? p.data.category : [p.data.category];
-      ks.forEach(function (k) { if (seen.indexOf(k) < 0) seen.push(k); });
+      var slug = p.data.slug || p.fileSlug;
+      if (featuredOnly && !(pmeta(slug, "featuredOnHome") ?? p.data.featuredOnHome)) return;
+      var cat = pmeta(slug, "category") || p.data.category;
+      var ks = Array.isArray(cat) ? cat : [cat];
+      ks.forEach(function (k) { if (k && seen.indexOf(k) < 0) seen.push(k); });
     });
     return seen.map(function (k) { return { key: k, name: catNames[k] || k }; });
   });
 
-  // Products collection sorted by front-matter `order` (categories stay grouped)
+  // Products collection sorted by catalog `order` (JSON, front-matter fallback)
   eleventyConfig.addCollection("productsByOrder", function (collectionApi) {
     return collectionApi
       .getFilteredByTag("products")
-      .sort(function (a, b) { return (a.data.order || 99) - (b.data.order || 99); });
+      .sort(function (a, b) {
+        var ao = pmeta(a.data.slug || a.fileSlug, "order") ?? a.data.order ?? 99;
+        var bo = pmeta(b.data.slug || b.fileSlug, "order") ?? b.data.order ?? 99;
+        return ao - bo;
+      });
   });
 
   // CSS-safe slug for badge values ("End user product" -> "end-user-product");
@@ -53,8 +69,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("pbBuiltFors", function (list, featuredOnly) {
     var seen = [];
     (list || []).forEach(function (p) {
-      if (featuredOnly && !p.data.featuredOnHome) return;
-      var k = p.data.builtFor;
+      var slug = p.data.slug || p.fileSlug;
+      if (featuredOnly && !(pmeta(slug, "featuredOnHome") ?? p.data.featuredOnHome)) return;
+      var k = pmeta(slug, "builtFor") || p.data.builtFor;
       if (k && seen.indexOf(k) < 0) seen.push(k);
     });
     return seen;
@@ -73,6 +90,16 @@ module.exports = function (eleventyConfig) {
       if (hit) return hit.name;
     } catch (e) {}
     return k;
+  });
+
+  // Catalog metadata for a product item: JSON first, front matter fallback
+  eleventyConfig.addFilter("pmeta", function (item, field) {
+    try {
+      var meta = require("./src/_data/productmeta.json");
+      var m = meta[item.data.slug || item.fileSlug];
+      if (m && m[field] !== undefined) return m[field];
+    } catch (e) {}
+    return item.data[field];
   });
 
   // Product-card "related" chips: map a slug back to its title

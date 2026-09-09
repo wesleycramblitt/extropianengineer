@@ -4,12 +4,6 @@ tags: products
 title: Extropian Spatial UI
 description: Lightweight, performant 2D UI/UX system built directly into any GL context — deployable on any system.
 tagline: A lightweight, performant 2D UI/UX system built directly into any GL context, deployable on any system.
-category: [engineering-ui, visualization-interaction]
-type: UI/UX library
-licensing: ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
-builtFor: build
-order: 3
-featuredOnHome: true
 capabilities:
   - 2D UI/UX rendered inside the GL context — no DOM layer required
   - Lightweight enough for embedded and real-time environments

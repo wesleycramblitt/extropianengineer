@@ -4,12 +4,6 @@ tags: products
 title: Extropian Core
 description: The foundational C++ platform library of the ecosystem — math, memory, ECS, and GL integration primitives that every Extropian component builds on.
 tagline: The foundational C++ platform library — math, memory, ECS, and GL integration primitives for the whole ecosystem.
-category: [core-platform]
-type: Modular repository
-licensing: ["Open Source (Apache 2.0)"]
-builtFor: build
-order: 13
-featuredOnHome: true
 capabilities:
   - Core math, containers, and memory primitives for high-performance compute
   - ECS and scene-graph foundations shared by Render, Physics, and Spatial UI

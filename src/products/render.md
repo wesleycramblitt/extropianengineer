@@ -4,12 +4,6 @@ tags: products
 title: Extropian Render
 description: Modular ECS-based renderer with built-in interaction, shaders, and gizmo support for any GL backend.
 tagline: A modular, ECS-based renderer with built-in interaction, shaders, and gizmo support for any GL backend.
-category: [visualization-interaction]
-type: Modular repository
-licensing: ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
-builtFor: build
-order: 6
-featuredOnHome: false
 capabilities:
   - ECS-based scene architecture for large, dynamic engineering scenes
   - Built-in interaction, shaders, and gizmo support

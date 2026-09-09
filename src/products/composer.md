@@ -4,12 +4,6 @@ tags: products
 title: Extropian Composer
 description: Context-aware, interactive visualization of complex topics or systems — explain, explore, and communicate.
 tagline: Context-aware, interactive visualization of complex topics or systems.
-category: [visualization-interaction]
-type: End user product
-licensing: ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
-builtFor: buy
-order: 4
-featuredOnHome: true
 capabilities:
   - Interactive composition of complex systems for exploration and communication
   - Context-aware presentation that adapts to what is being examined

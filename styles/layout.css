@@ -224,7 +224,8 @@ main a, footer a, .page-hero a {
 /* contact band + email pill — bottom fades into the footer */
 .contact-band {
   background: linear-gradient(180deg, transparent 0%, rgba(22,22,24,0.80) 55%, rgba(16,16,18,0.95) 100%);
-  padding-bottom: 0;
+  border-top: none;
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
 .site-footer { margin-top: 0; }
 .contact-band .email-big {
@@ -264,9 +265,10 @@ main a, footer a, .page-hero a {
 /* neutral surfaces (override legacy blue-tinted #10101a) */
 .article-content, .pcard, .info-card, .pb-item { background-color: #16161a; }
 
-/* every page's final section connects flush to the footer:
-   no trailing gap, no lighter band — the footer fades in directly */
-.page > :last-child {
-  padding-bottom: 0;
+/* sections ending a page sit close to the footer (no trailing gap);
+   contact bands keep their own breathing room + fade (below) */
+.page > .wrap:last-child,
+.page > .wrap-narrow:last-child {
+  padding-bottom: 0.6em;
   margin-bottom: 0;
 }

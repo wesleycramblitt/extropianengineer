@@ -6,7 +6,7 @@ description: Lightweight, performant 2D UI/UX system built directly into any GL 
 tagline: A lightweight, performant 2D UI/UX system built directly into any GL context, deployable on any system.
 category: [engineering-ui, visualization-interaction]
 type: UI/UX library
-licensing: Perpetual, closed source
+licensing: ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
 builtFor: build
 order: 3
 featuredOnHome: true

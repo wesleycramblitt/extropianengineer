@@ -6,7 +6,7 @@ description: Modular ECS-based renderer with built-in interaction, shaders, and 
 tagline: A modular, ECS-based renderer with built-in interaction, shaders, and gizmo support for any GL backend.
 category: [visualization-interaction]
 type: Modular repository
-licensing: Polyform Shield
+licensing: ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
 builtFor: build
 order: 6
 featuredOnHome: false

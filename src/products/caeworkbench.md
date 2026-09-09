@@ -6,7 +6,7 @@ description: Extendable GL-based UI/UX workbench for configuring and running num
 tagline: An extendable, GL-based UI/UX workbench for configuring and running numerical solvers.
 category: [engineering-ui, visualization-interaction, custom-integration]
 type: Customizable software platform
-licensing: Polyform Shield
+licensing: ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
 builtFor: build
 order: 1
 featuredOnHome: true

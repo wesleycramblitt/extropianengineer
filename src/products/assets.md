@@ -6,7 +6,7 @@ description: A collection of assets for GL-based scenes — meshes, materials, a
 tagline: A collection of assets for GL-based scenes.
 category: [core-platform]
 type: Modular repository
-licensing: Open Source (Apache 2.0)
+licensing: ["Open Source (Apache 2.0)"]
 builtFor: build
 order: 12
 featuredOnHome: false

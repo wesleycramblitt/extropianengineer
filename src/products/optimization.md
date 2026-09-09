@@ -6,7 +6,7 @@ description: Modular optimization engine for engineering design spaces — Extro
 tagline: A modular optimization engine for exploring larger design spaces and finding better-performing designs.
 category: [optimization]
 type: Modular repository
-licensing: Open Source (Apache 2.0)
+licensing: ["Open Source (Apache 2.0)"]
 builtFor: build
 order: 11
 featuredOnHome: false

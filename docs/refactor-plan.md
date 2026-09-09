@@ -241,7 +241,7 @@ analyticsSite k955budqzmmokm97; nav array.
 title, tagline (edited-for-publication from products.md — grammar fixes only, no
                factual invention; Wes sign-off in Phase 2),
 category (§4.1), type (§6.3 — one of: Software Package | Modular repository |
-End user product), licensing (§6.3 — one of: Polyform Shield | Open Source (Apache 2.0) | Perpetual, closed source),
+End user product), licensing (§6.3 — tier ladder: Open Source (Apache 2.0) → Source Available (PolyForm Shield) → Binary Distribution (Proprietary) → Internal Use (Proprietary); products list one or more available tiers),
 order (within category), featuredOnHome (bool),
 media: { type: video|image|none, src, poster? }   // optional
 capabilities: [ ... ]        // H2 "Core capabilities"
@@ -266,21 +266,21 @@ site.json documents the allowed sets for consistent template rendering.
 - `End user product` — a complete application aimed at end users.
 
 **Licensing** — how it is offered 
-- `Polyform Shield` — Source-available; use/modify/build internally, restricted only as a competing product or service.
+- `Source Available (PolyForm Shield)` — source-available; restricted only as a competing product or service.
 - `Open Source` — open-source licensed, typically GPL
 - `Perpetual` — Closed source, perptual one-time license for organizational use.
-- `Perpetual, closed source` — one-time license, no recurring fees.
+- `Binary Distribution (Proprietary)` / `Internal Use (Proprietary)` — one-time proprietary tiers for distributing binaries or internal use.
 
 **Proposed per-product assignment — Wes reviews at the Phase 2 kickoff (same sign-off
 as the tagline copy-edit; adjust freely, these are starting points only):**
 
 | Product | Type | Licensing |
 |---|---|---|
-| CAE Workbench | Customizable software platform | Polyform Shield |
+| CAE Workbench | Customizable software platform | PolyForm Shield / Binary / Internal |
 | Spatial UI | Modular repository | Perpetual |
 | Synthesis | End user product | Perpetual |
 | Composer | End user product | Perpetual |
-| Render | Modular repository | Polyform Shield |
+| Render | Modular repository | PolyForm Shield / Binary / Internal |
 | Geometry | Modular repository | Open Source |
 | CAE (unified format) | Modular repository | Open Source |
 | Viz | Software Package | Perpetual |
@@ -340,7 +340,7 @@ products aren't enough"). Product detail pages remain the deepest information la
 ### 7.4 `/engineering/` (Phase 3)
 One-column flow per site_plan §`/engineering`: (1) Work with existing software;
 (2) Customize an existing product; (3) Build on the ecosystem; (4) Flexible licensing —
-licensing models as cards (Polyform Shield / perpetual closed source / Apache 2.0 /
+licensing models as cards (4-tier ladder: Apache 2.0 / PolyForm Shield / binary / internal use /
 stewardship retainer, aligned with existing engagement models); (5) Custom development
 — fold in current engagement models: Technical Assessment, Fixed-Scope Modernization
 Sprint, Embedded Specialist, Ongoing Stewardship, Strategic Product Partnership (copy

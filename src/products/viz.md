@@ -6,7 +6,7 @@ description: Post-processing and visualization tooling for simulation results â€
 tagline: Post-processing and visualization for simulation results.
 category: [visualization-interaction]
 type: Modular repository
-licensing: Perpetual, closed source
+licensing: ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
 builtFor: build
 order: 9
 featuredOnHome: false

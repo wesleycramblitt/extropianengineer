@@ -6,7 +6,7 @@ description: A modular 2D and 3D parametric geometry engine — geometry as a fo
 tagline: A modular, parametric geometry engine for 2D and 3D.
 category: [core-platform]
 type: Modular repository
-licensing: Open Source (Apache 2.0)
+licensing: ["Open Source (Apache 2.0)"]
 builtFor: build
 order: 7
 featuredOnHome: true

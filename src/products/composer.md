@@ -6,7 +6,7 @@ description: Context-aware, interactive visualization of complex topics or syste
 tagline: Context-aware, interactive visualization of complex topics or systems.
 category: [visualization-interaction]
 type: End user product
-licensing: Perpetual, closed source
+licensing: ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
 builtFor: buy
 order: 4
 featuredOnHome: true

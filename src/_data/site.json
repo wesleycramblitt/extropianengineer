@@ -51,8 +51,9 @@
     ],
     "licensing": [
       "Open Source (Apache 2.0)",
-      "Perpetual, closed source",
-      "Polyform Shield"
+      "Source Available (PolyForm Shield)",
+      "Binary Distribution (Proprietary)",
+      "Internal Use (Proprietary)"
     ],
     "builtFor": [
       "Software teams",

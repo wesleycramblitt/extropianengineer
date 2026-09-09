@@ -13,7 +13,7 @@
   {%- if type or licensing or builtFor or category %}
   <p class="badge-row" style="justify-content:center; margin-bottom:0.8em;">
     {%- if type %}<span class="badge badge--type badge-val-{{ type | badgeClass }}">{{ type }}</span>{% endif %}
-    {%- if licensing %}<span class="badge badge--license badge-val-{{ licensing | badgeClass }}">{{ licensing }}</span>{% endif %}
+    {%- for lic in licensing %}<span class="badge badge--license badge-val-{{ lic | badgeClass }}">{{ lic }}</span>{% endfor %}
     {%- if builtFor %}<span class="badge badge--built badge-val-{{ builtFor }}">Built for: {{ builtFor | builtForLabel }}</span>{% endif %}
     {%- for c in category %}<span class="badge badge--cat badge-val-{{ c }}">{{ c | catName }}</span>{% endfor %}
   </p>
@@ -94,13 +94,17 @@
   <div class="section-top"><h2>Licensing &amp; customization</h2></div>
   <div class="wrap-narrow">
     <p>Licensing is negotiated around the software, deployment model, scope, and ownership requirements of each project — whether {{ title }} is used as-is, customized for your workflows, or embedded in a larger system you are building.</p>
-    {%- if licensing == 'Polyform Shield' %}
-    <p><strong>Polyform Shield:</strong> source-available — use, modify, and build on the source internally; only offering it as a competing product or service is restricted. No license fees or royalties.</p>
-    {%- elif licensing == 'Perpetual, closed source' %}
-    <p><strong>Perpetual, closed source:</strong> one-time license for ongoing use of the software as delivered — no subscriptions or recurring fees; source is not included.</p>
-    {%- elif licensing == 'Open Source (Apache 2.0)' %}
-    <p><strong>Apache 2.0:</strong> free to use, modify, and distribute — including in commercial products — with attribution.</p>
+    {%- for lic in licensing %}
+    {%- if lic == 'Open Source (Apache 2.0)' %}
+    <p><strong>Open Source (Apache 2.0):</strong> free to use, modify, and distribute — including in commercial products — with attribution.</p>
+    {%- elif lic == 'Source Available (PolyForm Shield)' %}
+    <p><strong>Source Available (PolyForm Shield):</strong> view and build from the source under terms that prevent offering it as a competing product or service — no license fees or royalties.</p>
+    {%- elif lic == 'Binary Distribution (Proprietary)' %}
+    <p><strong>Binary Distribution (Proprietary):</strong> one-time license to use and distribute the software in binary form, including inside products you sell.</p>
+    {%- elif lic == 'Internal Use (Proprietary)' %}
+    <p><strong>Internal Use (Proprietary):</strong> one-time license for ongoing internal use of the software as delivered — no distribution, no recurring fees.</p>
     {%- endif %}
+    {%- endfor %}
     <div class="cta-row">
       <a class="button button--green" href="mailto:{{ site.email }}?subject={{ ('Licensing%20inquiry%3A%20' ~ title) | urlencode | safe }}">Discuss licensing →</a>
       <a class="button button--ghost" href="/engineering/">All services &amp; licensing options</a>

@@ -6,7 +6,7 @@ description: Modular multiphysics numerical methods engine with GPU-first solver
 tagline: A modular numerical methods engine with multiphysics solvers and modular coupling strategies, built from the ground up for GPU compute workloads.
 category: [simulation]
 type: Modular repository
-licensing: Perpetual, closed source
+licensing: ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
 builtFor: build
 order: 10
 featuredOnHome: false

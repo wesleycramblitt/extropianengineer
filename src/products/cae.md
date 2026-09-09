@@ -6,7 +6,7 @@ description: A modular, unified CAE format for representing any multiphysics pro
 tagline: A modular, unified CAE format for representing any multiphysics problem.
 category: [core-platform]
 type: Modular repository
-licensing: Open Source (Apache 2.0)
+licensing: ["Open Source (Apache 2.0)"]
 builtFor: build
 order: 8
 featuredOnHome: false

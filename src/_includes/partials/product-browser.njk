@@ -94,7 +94,7 @@
           <h3>{{ item.data.title }}</h3>
           <div class="badge-row">
             {%- if item.data.type %}<span class="badge badge--type badge-val-{{ item.data.type | badgeClass }}">{{ item.data.type }}</span>{% endif %}
-            {%- if item.data.licensing %}<span class="badge badge--license badge-val-{{ item.data.licensing | badgeClass }}">{{ item.data.licensing }}</span>{% endif %}
+            {%- for lic in item.data.licensing %}<span class="badge badge--license badge-val-{{ lic | badgeClass }}">{{ lic }}</span>{% endfor %}
             {%- if item.data.builtFor %}<span class="badge badge--built badge-val-{{ item.data.builtFor }}">Built for: {{ item.data.builtFor | builtForLabel }}</span>{% endif %}
             {%- for c in item.data.category %}<span class="badge badge--cat badge-val-{{ c }}">{{ c | catName }}</span>{% endfor %}
           </div>

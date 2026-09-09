@@ -6,7 +6,7 @@ description: Generative AI and optimization platform for synthesizing novel mach
 tagline: A generative AI and optimization powered platform for synthesizing known laws of nature, geometries, materials, and computational algorithms to invent novel machines at any scale.
 category: [generative-ai, simulation, optimization]
 type: End user product
-licensing: Perpetual, closed source
+licensing: ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"]
 builtFor: buy
 order: 2
 featuredOnHome: true

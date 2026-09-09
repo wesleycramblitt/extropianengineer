@@ -23,9 +23,11 @@
   {%- endfor -%}
 {% endmacro %}
 
-{% macro productBrowser(itemList, id, featuredOnly) %}
+{% macro productBrowser(itemList, id, featuredOnly, showFilters) %}
+{%- if showFilters == undefined %}{% set showFilters = true %}{% endif %}
 <div class="product-browser" id="{{ id }}" data-pb>
-  <div class="pb-toolbar">
+  <div class="pb-toolbar{% if showFilters == false %} pb-toolbar--min{% endif %}">
+    {%- if showFilters != false %}
     <div class="pb-chips" role="group" aria-label="Filter by category">
       <button type="button" class="pb-chip is-on" data-pb-cat="">All</button>
       {%- for cat in itemList | pbCats(featuredOnly) %}
@@ -40,6 +42,7 @@
       {%- endfor %}
     </div>
     <input class="pb-search" type="search" placeholder="Search products…" aria-label="Search products">
+    {%- endif %}
     <span class="pb-count" data-pb-count></span>
   </div>
 

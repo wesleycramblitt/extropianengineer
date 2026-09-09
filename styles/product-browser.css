@@ -4,6 +4,7 @@
 .product-browser {
   margin: 1.2em 0 0.4em;
 }
+.pb-toolbar--min { padding-bottom: 0.4em; }
 .pb-toolbar {
   display: flex;
   align-items: center;

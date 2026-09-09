@@ -82,6 +82,12 @@ main a, footer a, .page-hero a {
 .section-top h2 { margin: 0 0 0.4em; }
 .section-top .normal { max-width: 52em; margin: 0 auto; }
 
+/* offer cards: centered group (fixed max width, centered on wide screens) */
+#offer .card-grid {
+  max-width: min(1080px, 100%);
+  margin: 0 auto;
+}
+
 /* call-to-action row */
 .cta-row {
   display: flex;

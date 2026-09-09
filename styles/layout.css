@@ -97,9 +97,9 @@ main a, footer a, .page-hero a {
   font-size: var(--fs-base);
   border-radius: 6px;
 }
-.button--primary { background-color: #595; color: #fff; }
-.button--accent  { background-color: #55a; color: #fff; }
-.button--ghost   { background-color: #22222e; color: #E6E6EB; border: 1px solid #777; }
+.button--primary { background-color: rgba(90,108,255,0.5); color: #fff; }
+.button--accent  { background-color: rgba(138,92,255,0.5); color: #fff; }
+.button--ghost   { background-color: rgba(90,108,255,0.12); color: #E6E6EB; border: 1px solid rgba(138,108,255,0.4); }
 
 /* contact band */
 .contact-band {
@@ -109,9 +109,9 @@ main a, footer a, .page-hero a {
 }
 .contact-band .email-big {
   font-size: var(--fs-xl);
-  color: #fff;
-  border: 1px solid #595;
-  background: rgba(85,153,85,0.12);
+  color: #dcfff1;
+  border: 1px solid rgba(110,231,183,0.6);
+  background: rgba(52,211,153,0.18);
   padding: 0.4em 1em;
   border-radius: 8px;
   display: inline-block;
@@ -147,8 +147,8 @@ main a, footer a, .page-hero a {
 }
 .crumbs a { color: #cfcfe0; }
 .quote {
-  border-left: 3px solid #55a;
-  background: rgba(85,85,170,0.12);
+  border-left: 3px solid var(--c-violet);
+  background: rgba(138,92,255,0.10);
   padding: 0.8em 1em;
   margin: 1.2em 0;
   font-style: italic;

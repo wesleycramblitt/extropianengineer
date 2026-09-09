@@ -12,8 +12,7 @@ generated from `src/` into `dist/`, deployed to GitHub Pages via GitHub Actions.
 ## Layout
 
 - `src/` — templates, layouts (`src/_includes`), data (`src/_data`)
-  - `src/products/*.md` — product pages (canonical product copy; `products.md`
-    at the repo root is only a human-readable index)
+  - `src/products/*.md` — product pages (canonical product copy)
   - `src/_data/portfolio.js` — portfolio entries
 - `img/ vid/ assets/ styles/ scripts/` — static sources, passthrough-copied
   into `dist/` unchanged (paths like `/img/...` are stable)

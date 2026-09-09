@@ -55,7 +55,7 @@
         <span class="pb-item-glyph pv-{{ item.data.category[0] }}">{{ item.data.title | glyph }}</span>
         <span class="pb-item-text">
           <span class="pb-item-name">{{ item.data.title }}</span>
-          <span class="pb-item-tags"><span class="badge badge--license badge-val-{{ item.data.licensing | badgeClass }}">{{ item.data.licensing }}</span></span>
+          <span class="pb-item-tags"><span class="badge badge--type badge-val-{{ item.data.type | badgeClass }}">{{ item.data.type }}</span></span>
         </span>
       </button>
       {%- endif %}

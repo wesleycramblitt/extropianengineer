@@ -8,7 +8,7 @@ category: [engineering-ui, visualization-interaction]
 type: UI/UX library
 licensing: Perpetual, closed source
 builtFor: build
-order: 4
+order: 3
 featuredOnHome: true
 capabilities:
   - 2D UI/UX rendered inside the GL context — no DOM layer required

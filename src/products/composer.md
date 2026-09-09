@@ -8,7 +8,7 @@ category: [visualization-interaction]
 type: End user product
 licensing: Perpetual, closed source
 builtFor: buy
-order: 5
+order: 4
 featuredOnHome: true
 capabilities:
   - Interactive composition of complex systems for exploration and communication

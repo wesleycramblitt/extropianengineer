@@ -26,7 +26,7 @@ extraScripts:
     
   </div>
   {%- from "partials/product-browser.njk" import productBrowser %}
-  {{ productBrowser(collections.productsByOrder, 'pb-home', true) }}
+  {{ productBrowser(collections.productsByOrder, 'pb-home', false) }}
   <div class="cta-row">
     <a class="button button--ghost" href="/products/">View all products →</a>
   </div>

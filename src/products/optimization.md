@@ -8,7 +8,7 @@ category: [optimization]
 type: Modular repository
 licensing: Open Source (Apache 2.0)
 builtFor: build
-order: 11
+order: 10
 featuredOnHome: false
 capabilities:
   - Modular optimization engine that wraps simulation and analysis workflows

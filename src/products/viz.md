@@ -8,7 +8,7 @@ category: [visualization-interaction]
 type: Software Package
 licensing: Perpetual, closed source
 builtFor: buy
-order: 9
+order: 5
 featuredOnHome: false
 capabilities:
   - Post-processing of solver output into interactive visual results

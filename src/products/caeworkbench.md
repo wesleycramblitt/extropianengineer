@@ -8,7 +8,7 @@ category: [engineering-ui, visualization-interaction, custom-integration]
 type: Customizable software platform
 licensing: Polyform Shield
 builtFor: build
-order: 3
+order: 1
 featuredOnHome: true
 capabilities:
   - Interactive scene-based editing of models, meshes, and boundary conditions

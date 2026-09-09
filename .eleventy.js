@@ -60,9 +60,9 @@ module.exports = function (eleventyConfig) {
     return seen;
   });
 
-  // Display label for "Built for" keys ("build" -> "Build your own")
+  // Display label for "Built for" keys — WHO it is built for
   eleventyConfig.addFilter("builtForLabel", function (k) {
-    return { build: "Build your own", buy: "Out of the box" }[k] || k;
+    return { build: "Software teams", buy: "Engineering & research teams" }[k] || k;
   });
 
   // Category key -> display name

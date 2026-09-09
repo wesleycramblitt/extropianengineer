@@ -75,7 +75,9 @@ extraScripts:
       <h3>{{ proj.title }}{% if proj.years %} <span class="muted" style="font-size:0.6em">({{ proj.years }})</span>{% endif %}</h3>
       <p>{{ proj.summary }}</p>
       {%- if proj.quote %}
-      <p class="muted" style="font-size:var(--fs-sm)">&ldquo;{{ proj.quote.text }}&rdquo; &mdash; {{ proj.quote.by }}</p>
+      <div class="card quote" style="padding:0.8em; margin-top:0.8em">
+        &ldquo;{{ proj.quote.text }}&rdquo; <span style="display:block; margin-top:0.4em; font-style:normal">&mdash; {{ proj.quote.by }}</span>
+      </div>
       {%- endif %}
     </div>
     {%- endif %}

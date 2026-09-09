@@ -1,7 +1,4 @@
-// Portfolio data — single source of truth for featured + earlier work.
-// Copy preserved from the legacy site (index.html / archive.html).
 module.exports = [
-  // ── FEATURED ──────────────────────────────────────────────────
   {
     id: "extropian",
     title: "Extropian Ecosystem",
@@ -77,16 +74,15 @@ module.exports = [
     title: "Solvere: IoT Fleet-Managed LC Detector",
     years: null,
     category: "realtime",
-    featured: true,
+    featured: false,
     summary: "Electron-based application on Raspberry Pi interfacing with PID controllers, sensors, and actuators — fleet-managed with Balena OS.",
     detail: [
       "Solvere is an Electron-based application deployed on Raspberry Pi devices, interfacing directly with PID controllers, sensors, and actuators for real-time liquid chromatography detection.",
       "The fleet was managed and deployed remotely using Balena OS for over-the-air updates, health monitoring, and centralized fleet management across distributed hardware installations."
     ],
     media: { type: "image", src: "/img/solvere.jpg" },
-    quote: null
+    quote: { text: "Top Rated Freelancer", by: "Dan Hilgert" }
   } ,
-  // ── EARLIER WORK ─────────────────────────────────────────────
   {
     id: "skillsoverpaper",
     title: "Skills Over Paper",
@@ -96,7 +92,7 @@ module.exports = [
     summary: "Founded and solo-developed a developer–company matchmaking platform with Next.js, React, and PostgreSQL — structured, skill-based resumes capture nuanced developer capabilities.",
     media: { type: "video", src: "/vid/skillsoverpaper.webm", interactive: true, poster: "/img/posters/skillsoverpaper.jpg" },
     quote: null
-  },
+  } ,
   {
     id: "healthiq",
     title: "HealthIQ: Cognitive Quiz",
@@ -106,7 +102,7 @@ module.exports = [
     summary: "Delivered under an aggressive two-week timeline, compressing several months of planned work.",
     media: { type: "image", src: "/img/healthiq.png" },
     quote: { text: "Wes is talented, personable and overall a great person to work with. There's always a challenge in finding someone who can balance communication, skill, and productivity, but Wes really brings them all. I would definitely hire him again for my next project.", by: "Kurt Roots, HealthIQ" }
-  },
+  } ,
   {
     id: "brainbreak",
     title: "Brain Break: Neurotherapeutic Game",
@@ -116,7 +112,7 @@ module.exports = [
     summary: "3D game where a rotating glass cube continuously spins while the player throws balls to break panels of specific colors — real-time physics and rendering.",
     media: { type: "video", src: "/vid/brainbreak.mp4", interactive: true, poster: "/img/posters/brainbreak.jpg" },
     quote: { text: "Wesley did a great job on my mobile game, coming up with creative solutions to its challenges. He is easy to work with, consistent and responds quickly to feedback. Highly recommend!", by: "V, Relative Magnitude" }
-  },
+  } ,
   {
     id: "igrad",
     title: "IGrad: Financial Management Platform",
@@ -126,7 +122,7 @@ module.exports = [
     summary: "Designed and implemented APIs, integrated ML-driven features, and built complex responsive React frontends.",
     media: { type: "image", src: "/img/igrad.png" },
     quote: { text: "Wes is a fantastic developer. Easy to work with and produces high quality code. He was able to handle everything we threw at him from legacy code updates to new technology PoCs. He worked well with our team and was very professional in dealing with our vendors.", by: "Danny Crinion, IGrad" }
-  },
+  } ,
   {
     id: "casino",
     title: "Casino Poker Games",
@@ -136,7 +132,7 @@ module.exports = [
     summary: "Extended JS prototypes into fully playable casino-style games with complete logic, refined UI/UX, and multiple variants.",
     media: { type: "video", src: "/vid/doubleballroulette.webm", interactive: true, poster: "/img/posters/doubleballroulette.jpg" },
     quote: { text: "Wes went above and beyond and his knowledge was above the rest of the pack. I will use Wes for other projects and tweaks in the future.", by: "Max, Vegas Games" }
-  },
+  } ,
   {
     id: "dorger",
     title: "Dorger Software Architects",
@@ -146,7 +142,7 @@ module.exports = [
     summary: "Contributed to multiple medium-to-large state systems — built and extended APIs, maintained frontend components, fixed production bugs, and implemented supporting services.",
     media: { type: "image", src: "/img/dorger.png" },
     quote: null
-  },
+  } ,
   {
     id: "cares",
     title: "CARES: Alabama Eligibility System",
@@ -156,7 +152,7 @@ module.exports = [
     summary: "Senior Developer on the Centralized Alabama Recipient Eligibility System, a large-scale web platform serving the state of Alabama.",
     media: { type: "image", src: "/img/cares.webp" },
     quote: null
-  },
+  } ,
   {
     id: "envista",
     title: "Envista: Data Migration Tool",
@@ -166,7 +162,7 @@ module.exports = [
     summary: "Joined as the company's first intern after proactively reaching out and negotiating the role — built data migration tooling.",
     media: { type: "image", src: "/img/envista.jpg" },
     quote: null
-  },
+  } ,
   {
     id: "mdad",
     title: "MDAD: Mississippi Damage Awards Database",
@@ -176,5 +172,5 @@ module.exports = [
     summary: "Co-founded and built from scratch using ASP.NET Web Forms — a database helping lawyers draw statistical conclusions about potential case outcomes.",
     media: { type: "image", src: "/img/mdad.png" },
     quote: null
-  }
+  } ,
 ];

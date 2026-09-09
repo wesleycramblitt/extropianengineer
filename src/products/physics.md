@@ -8,7 +8,7 @@ category: [simulation]
 type: Modular repository
 licensing: Perpetual, closed source
 builtFor: build
-order: 9
+order: 10
 featuredOnHome: false
 capabilities:
   - Multiphysics solver architecture with modular coupling strategies

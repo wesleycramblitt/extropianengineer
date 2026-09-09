@@ -8,7 +8,7 @@ category: [core-platform]
 type: Modular repository
 licensing: Open Source (Apache 2.0)
 builtFor: build
-order: 11
+order: 12
 featuredOnHome: false
 capabilities:
   - Meshes, materials, and textures for GL-based engineering scenes

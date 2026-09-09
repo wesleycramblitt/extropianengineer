@@ -8,7 +8,7 @@ category: [core-platform]
 type: Modular repository
 licensing: Open Source (Apache 2.0)
 builtFor: build
-order: 12
+order: 13
 featuredOnHome: true
 capabilities:
   - Core math, containers, and memory primitives for high-performance compute

@@ -235,3 +235,25 @@ main a, footer a, .page-hero a {
   border-left: 3px solid var(--c-violet);
   background: rgba(138, 92, 255, 0.10);
 }
+
+/* ── button color variants (harmonious blue/purple/green family) ── */
+.button--blue-light {
+  background: linear-gradient(135deg, rgba(125,196,255,0.42), rgba(90,108,255,0.22));
+  border-color: rgba(147,197,253,0.65);
+  color: #eaf4ff;
+}
+.button--blue {
+  background: linear-gradient(135deg, rgba(59,130,246,0.5), rgba(29,78,216,0.34));
+  border-color: rgba(96,165,250,0.8);
+  color: #fff;
+}
+.button--purple {
+  background: linear-gradient(135deg, rgba(168,85,247,0.5), rgba(138,92,255,0.3));
+  border-color: rgba(192,132,252,0.75);
+  color: #fff;
+}
+.button--green {
+  background: linear-gradient(135deg, rgba(52,211,153,0.42), rgba(20,184,166,0.18));
+  border-color: rgba(110,231,183,0.55);
+  color: #dcfff1;
+}

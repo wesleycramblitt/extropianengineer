@@ -3,19 +3,19 @@
 module.exports = [
   // ── FEATURED ──────────────────────────────────────────────────
   {
-    id: "capars",
-    title: "CAPARS: Atmospheric Dispersion Modeling",
-    years: null,
-    category: "scientific",
+    id: "extropian",
+    title: "Extropian Ecosystem",
+    years: "2025–present",
+    category: "product",
     featured: true,
-    summary: "Large-scale system for modeling chemical and radiological release scenarios — modernized, customized, and deployed to Sandia National Laboratories.",
+    summary: "A product-led ecosystem of modular C++/OpenGL scientific software — core platform libraries, solvers, renderers, and UI systems composing into end-user products.",
     detail: [
-      "CAPARS is a large-scale system for modeling chemical and radiological release scenarios, used to develop Emergency Action Levels and Protective Action Guidelines. Originating in the 1990s, it required modernization, customization, and deployment to Sandia National Laboratories.",
-      "I took technical ownership — upgrading the application, building deployment infrastructure, and operating across every layer of the stack."
+      "The Extropian ecosystem is the evolution of my real-time multiphysics simulation work into a product-led platform: modular C++ libraries and OpenGL-based systems — a core platform, physics and optimization engines, a renderer, and UI libraries — that compose into end-user products like the CAE Workbench, Synthesis, and Composer.",
+      "Every component is available as a modular repository to build on, or as a finished product to run — see the Products page for the full catalog and licensing."
     ],
-    media: { type: "video", src: "/vid/capars.webm", interactive: true, poster: "/img/posters/capars.jpg" },
-    quote: { text: "Wes is a highly professional and talented software developer. He tackled complex and difficult issues in more than ten distinctly different assignments and was successful in all of them. He came up to speed quickly on legacy software that was not well documented — a key need in our project. He listened well and quickly gained understanding of what we needed to accomplish, then developed creative solutions to our needs. He managed his time well and met schedule and was close to budget in an exploratory environment where the effort required was difficult to predict. Overall, Wes significantly exceeded our expectations. I would recommend him for any software development and management project that fits his background.", by: "Reed Hodgin, CAPARS" }
-  },
+    media: null,
+    quote: null
+  } ,
   {
     id: "hyperfat",
     title: "HyperFat: Hypersonic Adaptive-Mesh CFD",
@@ -29,7 +29,21 @@ module.exports = [
     ],
     media: { type: "video", src: "/vid/whoosh.webm", interactive: false },
     quote: null
-  },
+  } ,
+  {
+    id: "capars",
+    title: "CAPARS: Atmospheric Dispersion Modeling",
+    years: null,
+    category: "scientific",
+    featured: true,
+    summary: "Large-scale system for modeling chemical and radiological release scenarios — modernized, customized, and deployed to Sandia National Laboratories.",
+    detail: [
+      "CAPARS is a large-scale system for modeling chemical and radiological release scenarios, used to develop Emergency Action Levels and Protective Action Guidelines. Originating in the 1990s, it required modernization, customization, and deployment to Sandia National Laboratories.",
+      "I took technical ownership — upgrading the application, building deployment infrastructure, and operating across every layer of the stack."
+    ],
+    media: { type: "video", src: "/vid/capars.webm", interactive: true, poster: "/img/posters/capars.jpg" },
+    quote: { text: "Wes is a highly professional and talented software developer. He tackled complex and difficult issues in more than ten distinctly different assignments and was successful in all of them. He came up to speed quickly on legacy software that was not well documented — a key need in our project. He listened well and quickly gained understanding of what we needed to accomplish, then developed creative solutions to our needs. He managed his time well and met schedule and was close to budget in an exploratory environment where the effort required was difficult to predict. Overall, Wes significantly exceeded our expectations. I would recommend him for any software development and management project that fits his background.", by: "Reed Hodgin, CAPARS" }
+  } ,
   {
     id: "autoligo",
     title: "Autoligo: Non-Coding RNA Analysis",
@@ -43,7 +57,7 @@ module.exports = [
     ],
     media: { type: "video", src: "/vid/autoligo.webm", interactive: true, poster: "/img/posters/autoligo.jpg" },
     quote: null
-  },
+  } ,
   {
     id: "alphaact",
     title: "AlphaACT: Emergency Response Training",
@@ -57,7 +71,7 @@ module.exports = [
     ],
     media: { type: "image", src: "/img/alphaact.gif" },
     quote: { text: "Wes is extremely proficient, diligent and highly competent. He quickly understands a task, finds effective solutions to simple or complex problems and implements on time and within budget. What more could you ask!", by: "Reed Hodgin, AlphaACT" }
-  },
+  } ,
   {
     id: "solvere",
     title: "Solvere: IoT Fleet-Managed LC Detector",
@@ -71,19 +85,8 @@ module.exports = [
     ],
     media: { type: "image", src: "/img/solvere.jpg" },
     quote: null
-  },
-
+  } ,
   // ── EARLIER WORK ─────────────────────────────────────────────
-  {
-    id: "simulator",
-    title: "Real-Time Multiphysics Simulator",
-    years: "2026–present",
-    category: "scientific",
-    featured: false,
-    summary: "Real-time, game engine style simulator UI/UX built to unify simulation, visualization, and interaction in a single runtime.",
-    media: { type: "video", src: "/vid/proto.mp4", interactive: true, poster: "/img/posters/proto.jpg" },
-    quote: null
-  },
   {
     id: "skillsoverpaper",
     title: "Skills Over Paper",

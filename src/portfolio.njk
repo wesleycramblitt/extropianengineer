@@ -46,6 +46,11 @@ extraScripts:
           {%- endif %}
         {%- elif proj.media and proj.media.type == 'image' %}
         <img src="{{ proj.media.src }}" alt="{{ proj.title }}" style="max-width:100%">
+        {%- elif not proj.media %}
+        <div class="pcard-visual pv-core-platform" aria-hidden="true" style="aspect-ratio:auto; min-height:9em">
+          <span class="pv-glyph">E</span>
+          <span class="pv-note">Product-led ecosystem &middot; see Products</span>
+        </div>
         {%- endif %}
       </div>
     </div>

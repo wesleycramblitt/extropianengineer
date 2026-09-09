@@ -18,7 +18,7 @@ capabilities:
 foundation:
   - Written for GPU compute architectures (WebGL/WebGPU-era pipelines)
   - Modular, composable solver and coupling design
-  - Backs the real-time multiphysics simulator shown in the portfolio demos
+  - Powers the real-time simulation and visualization demos across the Extropian ecosystem
   - Ecosystem sibling to Extropian CAE (unified problem format) and Extropian Optimization
 related:
   - optimization

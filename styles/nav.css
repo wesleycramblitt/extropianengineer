@@ -24,15 +24,15 @@
   background: linear-gradient(180deg, rgba(90,108,255,0.75), rgba(138,92,255,0.62));
 }
 .contact-btn {
-  background: linear-gradient(135deg, rgba(90,108,255,0.5), rgba(138,92,255,0.34));
-  border: 1px solid rgba(138,108,255,0.8);
-  color: #fff !important;
+  background: linear-gradient(135deg, rgba(52,211,153,0.5), rgba(20,184,166,0.32));
+  border: 1px solid rgba(110,231,183,0.75);
+  color: #dcfff1 !important;
   padding: 0.5em 1.05em;
   border-radius: 7px;
   font-size: var(--fs-sm);
   line-height: 1;
   white-space: nowrap;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.35);
 }
 .header .contact-tab:hover { background: none; }
 .contact-btn:hover { filter: brightness(1.18); }

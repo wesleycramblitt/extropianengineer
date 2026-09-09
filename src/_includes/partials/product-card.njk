@@ -16,8 +16,8 @@
   <h3>{{ item.data.title }}</h3>
   {%- if item.data.type or item.data.licensing %}
   <div class="badge-row">
-    {%- if item.data.type %}<span class="badge badge--type">{{ item.data.type }}</span>{% endif %}
-    {%- if item.data.licensing %}<span class="badge badge--license">{{ item.data.licensing }}</span>{% endif %}
+    {%- if item.data.type %}<span class="badge badge--type badge-val-{{ item.data.type | badgeClass }}">{{ item.data.type }}</span>{% endif %}
+    {%- if item.data.licensing %}<span class="badge badge--license badge-val-{{ item.data.licensing | badgeClass }}">{{ item.data.licensing }}</span>{% endif %}
   </div>
   {%- endif %}
   <p>{{ item.data.tagline }}</p>

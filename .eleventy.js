@@ -27,6 +27,11 @@ module.exports = function (eleventyConfig) {
       .sort(function (a, b) { return (a.data.order || 99) - (b.data.order || 99); });
   });
 
+  // CSS-safe slug for badge values ("End user product" -> "end-user-product")
+  eleventyConfig.addFilter("badgeClass", function (v) {
+    return String(v || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  });
+
   // Product visual monogram: first letters of title words (skip "Extropian")
   eleventyConfig.addFilter("glyph", function (title) {
     var words = String(title || "").replace(/^Extropian\s+/, "").split(/\s+/).slice(0, 2);

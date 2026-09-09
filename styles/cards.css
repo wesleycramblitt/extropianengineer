@@ -190,7 +190,16 @@ a.chip:hover { border-color: var(--c-violet); }
   min-height: 180px;
 }
 /* category tints */
-.pv-simulation-ai    { background: linear-gradient(135deg, #0a1733 0%, #14306b 55%, #0a1226 100%); }
-.pv-engineering-ui   { background: linear-gradient(135deg, #12123c 0%, #2d2d92 55%, #0c0c22 100%); }
-.pv-visualization    { background: linear-gradient(135deg, #250f45 0%, #5a1f9e 55%, #140a24 100%); }
-.pv-core             { background: linear-gradient(135deg, #1a1a30 0%, #3a3a6e 55%, #101018 100%); }
+.pv-simulation-ai    { background: linear-gradient(135deg, #062a33 0%, #0e6a7d 55%, #04151a 100%); }
+.pv-engineering-ui   { background: linear-gradient(135deg, #0a0f33 0%, #2540c0 55%, #070b1e 100%); }
+.pv-visualization    { background: linear-gradient(135deg, #1d0f3f 0%, #6d28d9 55%, #120a24 100%); }
+.pv-core             { background: linear-gradient(135deg, #2a1d07 0%, #a16207 55%, #191205 100%); }
+
+/* ── badge colors by value (full wheel, harmonized) ─────────────── */
+.badge-val-software-package    { border-color: #22d3ee; color: #a5f3fc; background: rgba(34,211,238,0.14); }
+.badge-val-modular-repository  { border-color: #fbbf24; color: #fde68a; background: rgba(251,191,36,0.13); }
+.badge-val-end-user-product    { border-color: #fb7185; color: #fecdd3; background: rgba(251,113,133,0.14); }
+.badge-val-busl                { border-color: #a855f7; color: #e9d5ff; background: rgba(168,85,247,0.16); }
+.badge-val-open-source         { border-color: #34d399; color: #a7f3d0; background: rgba(52,211,153,0.13); }
+.badge-val-perpetual           { border-color: #60a5fa; color: #bfdbfe; background: rgba(96,165,250,0.14); }
+.badge-val-saas                { border-color: #f472b6; color: #fbcfe8; background: rgba(244,114,182,0.14); }

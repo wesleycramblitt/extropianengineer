@@ -32,7 +32,7 @@
 .pb-search {
   margin-left: auto;
   min-width: min(20em, 100%);
-  background: #0c0c14;
+  background: #101013;
   border: 1px solid #555;
   border-radius: 6px;
   color: #E6E6EB;
@@ -65,7 +65,7 @@
   gap: 0.7em;
   width: 100%;
   text-align: left;
-  background: #10101a;
+  background: #16161a;
   border: 1px solid #333;
   border-radius: 10px;
   padding: 0.55em 0.7em;

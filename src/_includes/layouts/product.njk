@@ -12,8 +12,8 @@
   <h1 data-scramble>{{ title }}</h1>
   {%- if type or licensing %}
   <p class="badge-row" style="justify-content:center; margin-bottom:0.8em;">
-    {%- if type %}<span class="badge badge--type">{{ type }}</span>{% endif %}
-    {%- if licensing %}<span class="badge badge--license">{{ licensing }}</span>{% endif %}
+    {%- if type %}<span class="badge badge--type badge-val-{{ type | badgeClass }}">{{ type }}</span>{% endif %}
+    {%- if licensing %}<span class="badge badge--license badge-val-{{ licensing | badgeClass }}">{{ licensing }}</span>{% endif %}
   </p>
   {%- endif %}
   <p class="lede">{{ tagline }}</p>

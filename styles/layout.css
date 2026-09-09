@@ -22,13 +22,14 @@ main a, footer a, .page-hero a {
 }
 
 /* readability veil over the engineering grid: grid stays visible but
-   content sits on a dimmed, slightly frosted surface */
+   content sits on a dimmed, slightly frosted surface (neutral grays) */
 .page {
   background: linear-gradient(180deg,
-    rgba(13,13,22,0.25) 0%,
-    rgba(15,15,26,0.82) 14%,
-    rgba(15,15,26,0.86) 100%);
+    rgba(16,16,18,0.30) 0%,
+    rgba(17,17,19,0.84) 14%,
+    rgba(17,17,19,0.88) 100%);
 }
+.engineering-grid { background-color: #141416; }
 
 /* container */
 .wrap {
@@ -48,8 +49,8 @@ main a, footer a, .page-hero a {
   text-align: center;
   border-bottom: 1px solid rgba(138,108,255,0.28);
   background: linear-gradient(180deg,
-    rgba(24,24,56,0.92) 0%,
-    rgba(19,19,40,0.55) 62%,
+    rgba(30,30,33,0.94) 0%,
+    rgba(22,22,24,0.60) 62%,
     transparent 100%);
 }
 .page-hero h1 {
@@ -173,9 +174,9 @@ main a, footer a, .page-hero a {
 /* ── hero: gradient art instead of the photo ────────────────── */
 .hero--gradient {
   background:
-    radial-gradient(1100px 520px at 88% -12%, rgba(138, 92, 255, 0.38), transparent 62%),
-    radial-gradient(950px 520px at 6% 112%, rgba(90, 108, 255, 0.34), transparent 60%),
-    linear-gradient(180deg, #101028 0%, #171734 55%, #0d0d1e 100%);
+    radial-gradient(1100px 520px at 88% -12%, rgba(255,255,255,0.07), transparent 62%),
+    radial-gradient(950px 520px at 6% 112%, rgba(255,255,255,0.05), transparent 60%),
+    linear-gradient(180deg, #232327 0%, #17171a 55%, #0e0e11 100%);
   border-bottom: 1px solid rgba(138, 108, 255, 0.35);
 }
 .hero--gradient::before {
@@ -222,12 +223,12 @@ main a, footer a, .page-hero a {
 
 /* contact band + email pill */
 .contact-band {
-  background: linear-gradient(180deg, transparent 0%, rgba(22,22,48,0.85) 55%, rgba(16,16,32,0.95) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(24,24,26,0.85) 55%, rgba(14,14,16,0.95) 100%);
 }
 .contact-band .email-big {
-  border: 1px solid rgba(138,108,255,0.6);
-  background: linear-gradient(135deg, rgba(90,108,255,0.22), rgba(138,92,255,0.14));
-  color: #fff;
+  border: 1px solid rgba(110,231,183,0.6);
+  background: linear-gradient(135deg, rgba(52,211,153,0.26), rgba(20,184,166,0.14));
+  color: #dcfff1;
 }
 
 /* quotes */
@@ -257,3 +258,6 @@ main a, footer a, .page-hero a {
   border-color: rgba(110,231,183,0.55);
   color: #dcfff1;
 }
+
+/* neutral surfaces (override legacy blue-tinted #10101a) */
+.article-content, .pcard, .info-card, .pb-item { background-color: #16161a; }

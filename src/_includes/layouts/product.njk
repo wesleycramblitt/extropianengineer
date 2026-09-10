@@ -5,11 +5,6 @@
 </script>
 {%- endblock %}
 {%- block main %}
-{%- set _pm = productmeta[page.fileSlug] or {} -%}
-{%- set category = _pm.category or category -%}
-{%- set type = _pm.type or type -%}
-{%- set licensing = _pm.licensing or licensing -%}
-{%- set builtFor = _pm.builtFor or builtFor -%}
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="/">Home</a> / <a href="/products/">Products</a> / <span>{{ title }}</span>
 </nav>
@@ -58,7 +53,7 @@
 {%- endif %}
 
 <article class="wrap-narrow section-block">
-  {{ content | safe }}
+  {{ product.body | markdown | safe }}
 </article>
 
 {%- if capabilities and capabilities.length %}

@@ -68,22 +68,6 @@ module.exports = function (eleventyConfig) {
     return typeof str === "string" && str.indexOf(prefix) === 0;
   });
 
-  // "Built for" chip values present in a (possibly filtered) product list
-  eleventyConfig.addFilter("pbBuiltFors", function (list, featuredOnly) {
-    var seen = [];
-    (list || []).forEach(function (p) {
-      if (featuredOnly && !p.data.featuredOnHome) return;
-      var k = p.data.builtFor;
-      if (k && seen.indexOf(k) < 0) seen.push(k);
-    });
-    return seen;
-  });
-
-  // Display label for "Built for" keys — WHO it is built for
-  eleventyConfig.addFilter("builtForLabel", function (k) {
-    return { build: "Software teams", buy: "Engineering & research teams" }[k] || k;
-  });
-
   // Category key -> display name
   eleventyConfig.addFilter("catName", function (k) {
     try {
@@ -94,7 +78,7 @@ module.exports = function (eleventyConfig) {
     return k;
   });
 
-  // Product-card "related" chips: map a slug back to its title
+  // Ecosystem chips: map a slug back to its title
   eleventyConfig.addFilter("findTitle", function (arr, slug) {
     if (!arr) return slug;
     var hit = arr.find(function (p) { return (p.data.slug || p.fileSlug) === slug; });
@@ -138,7 +122,7 @@ function validateProducts() {
   var orders = {};
   products.forEach(function (p, i) {
     var where = "products.json[" + i + (p && p.slug ? ":" + p.slug : "") + "]";
-    ["slug", "title", "description", "tagline", "type", "builtFor", "body"].forEach(function (f) {
+    ["slug", "title", "description", "tagline", "type", "body"].forEach(function (f) {
       if (!p[f] || (typeof p[f] !== "string")) {
         throw new Error(where + ": required string field `" + f + "` missing/empty");
       }
@@ -154,11 +138,8 @@ function validateProducts() {
     if (typeof p.featuredOnHome !== "boolean") {
       throw new Error(where + ": `featuredOnHome` must be boolean");
     }
-    if (p.builtFor !== "build" && p.builtFor !== "buy") {
-      throw new Error(where + ": `builtFor` must be 'build' or 'buy'");
-    }
-    ["category", "licensing", "capabilities", "related"].forEach(function (f) {
-      if (!Array.isArray(p[f]) || (f !== "related" && p[f].length === 0)) {
+    ["category", "licensing", "capabilities", "uses"].forEach(function (f) {
+      if (!Array.isArray(p[f]) || (f !== "uses" && p[f].length === 0)) {
         throw new Error(where + ": `" + f + "` must be a non-empty array");
       }
     });
@@ -175,12 +156,12 @@ function validateProducts() {
     }
   });
   products.forEach(function (p) {
-    (p.related || []).forEach(function (r) {
+    (p.uses || []).forEach(function (r) {
       if (!slugs[r]) {
-        throw new Error("products.json:" + p.slug + ": related slug `" + r + "` does not exist");
+        throw new Error("products.json:" + p.slug + ": uses slug `" + r + "` does not exist");
       }
       if (r === p.slug) {
-        throw new Error("products.json:" + p.slug + ": related must not self-reference");
+        throw new Error("products.json:" + p.slug + ": uses must not self-reference");
       }
     });
   });

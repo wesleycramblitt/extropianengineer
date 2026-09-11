@@ -28,3 +28,18 @@ a:link, a:visited {
 
 }
 
+/* Icon buttons (e.g. LinkedIn / X beside a CTA) */
+.social-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+

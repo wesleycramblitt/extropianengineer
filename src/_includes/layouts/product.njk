@@ -10,13 +10,15 @@
 </nav>
 <header class="page-hero">
   <h1 data-scramble>{{ title }}</h1>
-  {%- if type or licensing or builtFor or category %}
-  <p class="badge-row" style="justify-content:center; margin-bottom:0.8em;">
-    {%- if type %}<span class="badge badge--type badge-val-{{ type | badgeClass }}">{{ type }}</span>{% endif %}
-    {%- for lic in licensing %}<span class="badge badge--license badge-val-{{ lic | badgeClass }}">{{ lic }}</span>{% endfor %}
-    {%- if builtFor %}<span class="badge badge--built badge-val-{{ builtFor }}">Built for: {{ builtFor | builtForLabel }}</span>{% endif %}
-    {%- for c in category %}<span class="badge badge--cat badge-val-{{ c }}">{{ c | catName }}</span>{% endfor %}
-  </p>
+  {%- if type or category %}
+  <div class="badge-table">
+    {%- if type %}
+    <div class="badge-line"><span class="badge-label">Type:</span><span class="badge-row"><span class="badge badge--type badge-val-{{ type | badgeClass }}">{{ type }}</span></span></div>
+    {%- endif %}
+    {%- if category and category.length %}
+    <div class="badge-line"><span class="badge-label">{% if category.length > 1 %}Categories:{% else %}Category:{% endif %}</span><span class="badge-row">{%- for c in category %}<span class="badge badge--cat badge-val-{{ c }}">{{ c | catName }}</span>{% endfor %}</span></div>
+    {%- endif %}
+  </div>
   {%- endif %}
   <p class="lede">{{ tagline }}</p>
 </header>
@@ -78,10 +80,26 @@
       <li>{{ f }}</li>
     {%- endfor %}
     </ul>
-    {%- if related and related.length %}
-    <p class="mt1 muted">Part of the same ecosystem:</p>
+  </div>
+</section>
+{%- endif %}
+
+{%- if (uses and uses.length) or (usedBy and usedBy.length) %}
+<section class="wrap section-block" id="ecosystem">
+  <div class="section-top"><h2>Ecosystem connections</h2></div>
+  <div class="wrap-narrow">
+    {%- if uses and uses.length %}
+    <p class="muted">Uses:</p>
     <div class="chip-row">
-      {%- for slug in related %}
+      {%- for slug in uses %}
+      <a class="chip" href="/products/{{ slug }}/">{{ collections.products | findTitle(slug) }}</a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    {%- if usedBy and usedBy.length %}
+    <p class="muted">Used by:</p>
+    <div class="chip-row">
+      {%- for slug in usedBy %}
       <a class="chip" href="/products/{{ slug }}/">{{ collections.products | findTitle(slug) }}</a>
       {%- endfor %}
     </div>
@@ -93,6 +111,11 @@
 <section class="wrap section-block" id="licensing">
   <div class="section-top"><h2>Licensing &amp; customization</h2></div>
   <div class="wrap-narrow">
+    {%- if licensing and licensing.length %}
+    <p class="badge-row" style="margin-bottom:0.9em;">
+      {%- for lic in licensing %}<span class="badge badge--license badge-val-{{ lic | badgeClass }}">{{ lic }}</span>{% endfor %}
+    </p>
+    {%- endif %}
     <p>Licensing is negotiated around the software, deployment model, scope, and ownership requirements of each project — whether {{ title }} is used as-is, customized for your workflows, or embedded in a larger system you are building. I prefer perpetual licenses per major version: one fee licenses the version you chose for as long as you use it, with maintenance updates included within that major version.</p>
     {%- for lic in licensing %}
     {%- if lic == 'Open Source (Apache 2.0)' %}

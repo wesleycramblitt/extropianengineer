@@ -34,13 +34,6 @@
       <button type="button" class="pb-chip" data-pb-cat="{{ cat.key }}">{{ cat.name }}</button>
       {%- endfor %}
     </div>
-    <div class="pb-chips" role="group" aria-label="Filter by built for">
-      <span class="pb-chip-label">Built for:</span>
-      <button type="button" class="pb-chip is-on" data-pb-bf="">All</button>
-      {%- for bf in itemList | pbBuiltFors(featuredOnly) %}
-      <button type="button" class="pb-chip" data-pb-bf="{{ bf }}">{{ bf | builtForLabel }}</button>
-      {%- endfor %}
-    </div>
     <input class="pb-search" type="search" placeholder="Search products…" aria-label="Search products">
     {%- endif %}
     <span class="pb-count" data-pb-count></span>
@@ -52,13 +45,11 @@
       {%- if not featuredOnly or item.data.featuredOnHome %}
       <button type="button" class="pb-item" data-pb-slug="{{ item.data.slug }}"
         data-pb-cat="{{ item.data.category | join(' ') }}"
-        data-pb-bf="{{ item.data.builtFor }}"
         data-pb-search="{{ (item.data.title ~ ' ' ~ item.data.tagline) | lower }}"
         aria-pressed="false">
         <span class="pb-item-glyph pv-{{ (item.data.category)[0] }}">{{ item.data.title | glyph }}</span>
         <span class="pb-item-text">
           <span class="pb-item-name">{{ item.data.title }}</span>
-          <span class="pb-item-tags"><span class="badge badge--type badge-val-{{ item.data.type | badgeClass }}">{{ item.data.type }}</span></span>
         </span>
       </button>
       {%- endif %}
@@ -72,7 +63,6 @@
       {%- set frames = item.data.gallery or singleMedia -%}
       <article class="pb-panel" data-pb-panel="{{ item.data.slug }}"
         data-pb-cat="{{ item.data.category | join(' ') }}"
-        data-pb-bf="{{ item.data.builtFor }}"
         data-pb-search="{{ (item.data.title ~ ' ' ~ item.data.tagline) | lower }}"
         aria-label="{{ item.data.title }}">
         <div class="pb-slideshow">
@@ -94,8 +84,6 @@
           <h3>{{ item.data.title }}</h3>
           <div class="badge-row">
             {%- if item.data.type %}<span class="badge badge--type badge-val-{{ item.data.type | badgeClass }}">{{ item.data.type }}</span>{% endif %}
-            {%- for lic in item.data.licensing %}<span class="badge badge--license badge-val-{{ lic | badgeClass }}">{{ lic }}</span>{% endfor %}
-            {%- if item.data.builtFor %}<span class="badge badge--built badge-val-{{ item.data.builtFor }}">Built for: {{ item.data.builtFor | builtForLabel }}</span>{% endif %}
             {%- for c in item.data.category %}<span class="badge badge--cat badge-val-{{ c }}">{{ c | catName }}</span>{% endfor %}
           </div>
           <p class="pb-tagline">{{ item.data.tagline }}</p>

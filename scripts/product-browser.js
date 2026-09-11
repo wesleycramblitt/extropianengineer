@@ -1,6 +1,6 @@
 /* Product browser component + standalone slideshows.
    - [data-pb] browsers: category chips + text search filter the product
-     list rail; the stage shows the active product with a slideshow
+      list rail; the stage shows the active product with a slideshow
    - .pb-slideshow elements outside a browser (product detail pages)
      get slideshow behavior automatically
    All content is server-rendered; this script only toggles/enhances. */
@@ -109,13 +109,10 @@
     function visibleList() {
       var q = (search && search.value ? search.value : "").trim().toLowerCase();
       var catChip = root.querySelector(".pb-chip[data-pb-cat].is-on");
-      var bfChip = root.querySelector(".pb-chip[data-pb-bf].is-on");
       var cat = catChip ? catChip.dataset.pbCat : "";
-      var bf = bfChip ? bfChip.dataset.pbBf : "";
       var vis = panels.map(function (p) {
         var cats = (p.dataset.pbCat || "").split(" ").filter(Boolean);
         var ok = (!cat || cats.indexOf(cat) > -1)
-              && (!bf || (p.dataset.pbBf || "") === bf)
               && (!q || (p.dataset.pbSearch || "").indexOf(q) > -1);
         p.classList.toggle("pb-hidden", !ok);
         return { slug: p.dataset.pbPanel, ok: ok };

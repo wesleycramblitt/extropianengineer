@@ -2,12 +2,11 @@
   {
     "slug": "caeworkbench",
     "title": "Extropian CAE Workbench",
-    "description": "Extendable GL-based UI/UX workbench for configuring and running numerical solvers — the interface layer of the Extropian ecosystem.",
-    "tagline": "An extendable, GL-based UI/UX workbench for configuring and running numerical solvers.",
-    "category": ["engineering-ui", "visualization-interaction", "custom-integration"],
-    "type": "Customizable software platform",
+    "description": "An extensible UI/UX layout for configuring simulation state and preprocessing, running simulations, and viewing post processing. The system can be customized to most any numerical solver or input formats for simulation state.",
+    "tagline": "An extensible UI/UX layout for configuring simulation state and preprocessing, running simulations, and viewing post processing.",
+    "category": ["engineering-ui", "visualization-interaction"],
+    "type": "Extensible Software",
     "licensing": ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
-    "builtFor": "build",
     "order": 1,
     "featuredOnHome": true,
     "capabilities": [
@@ -17,13 +16,14 @@
       "Built directly on GL rendering for fluid, real-time interaction"
     ],
     "foundation": [
-      "The interface layer proven in the HyperFat hypersonic CFD engagement",
+      "The concept proven in the HyperFat hypersonic CFD engagement",
       "Renders through Extropian Render and Extropian Spatial UI components",
       "Configures and drives Extropian Physics solvers or your existing solver",
-      "Designed to be customized per solver or per domain workflow"
+      "Designed to be customized per solver or per domain workflow",
+      "Uses Extropian Viz for post processing"
     ],
-    "related": ["spatialui", "render", "physics"],
-    "body": "Extropian CAE Workbench is the application layer of the ecosystem: an extendable, GL-based workbench for configuring and running numerical solvers. It turns a powerful but developer-only solver into something engineers can drive — editing models and boundary conditions, managing batch processes, and saving and reloading scenes with reproducibility.\n\nThe workbench is the same interface technology in active use on the HyperFat hypersonic CFD engagement, and it is designed to be adapted to a different solver, mesh, or domain rather than rewritten.",
+    "uses": ["spatial-ui", "render", "physics", "viz", "cae", "geometry", "optimization", "extropian-mcp"],
+    "body": "Extropian CAE Workbench is the application layer of the ecosystem: an extensible, GL-based workbench for configuring and running numerical solvers. It turns a powerful but developer-only solver into something engineers can drive — editing models and boundary conditions, managing batch processes, and saving and reloading scenes with reproducibility.\n\nThe workbench is the same interface technology in active use on the HyperFat hypersonic CFD engagement, and it is designed to be adapted to a different solver, mesh, or domain rather than rewritten.",
     "media": null,
     "gallery": null
   },
@@ -33,9 +33,8 @@
     "description": "Generative AI and optimization platform for synthesizing novel machines from known physics, geometry, and materials — Extropian Synthesis.",
     "tagline": "A generative AI and optimization powered platform for synthesizing known laws of nature, geometries, materials, and computational algorithms to invent novel machines at any scale.",
     "category": ["generative-ai", "simulation", "optimization"],
-    "type": "End user product",
+    "type": "End User Software",
     "licensing": ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
-    "builtFor": "buy",
     "order": 2,
     "featuredOnHome": true,
     "capabilities": [
@@ -49,20 +48,19 @@
       "Draws on Extropian Physics, Extropian Geometry, and Extropian Optimization",
       "Designed to output designs that existing solvers can validate"
     ],
-    "related": ["physics", "optimization", "geometry"],
+    "uses": ["physics", "optimization", "geometry", "viz", "extropian-mcp", "spatial-ui", "render", "cae"],
     "body": "Extropian Synthesis is the ecosystem's generative design platform: instead of generating imagery or text, it synthesizes *machines* — combining known laws of nature, geometries, materials, and computational algorithms to invent novel designs at any scale.\n\nThe premise is that generated concepts are only useful when they can be simulated and validated. Synthesis is being built on the Extropian simulation stack so that every proposed design is checkable against real physics.",
     "media": null,
     "gallery": null
   },
   {
-    "slug": "spatialui",
+    "slug": "spatial-ui",
     "title": "Extropian Spatial UI",
     "description": "Lightweight, performant 2D UI/UX system built directly into any GL context — deployable on any system.",
     "tagline": "A lightweight, performant 2D UI/UX system built directly into any GL context, deployable on any system.",
     "category": ["engineering-ui", "visualization-interaction"],
     "type": "UI/UX library",
     "licensing": ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
-    "builtFor": "build",
     "order": 3,
     "featuredOnHome": true,
     "capabilities": [
@@ -72,11 +70,11 @@
       "Deployable on any system that runs a GL context"
     ],
     "foundation": [
-      "The interaction layer under Extropian CAE Workbench interfaces",
+      "The widget layer under Extropian CAE Workbench interfaces",
       "Pairs with Extropian Render for unified GL-based applications",
       "Removes the traditional DOM/engine divide in engineering tools"
     ],
-    "related": ["caeworkbench", "render", "composer"],
+    "uses": ["render", "geometry", "assets", "core"],
     "body": "Most engineering software lives with a split personality: a native or DOM-based UI bolted onto a graphics engine. Extropian Spatial UI eliminates that divide by drawing the 2D interface directly inside the GL context — lightweight, performant, and deployable anywhere a GL context runs.\n\nThat makes it the interaction foundation for engineering tools that need UI and visualization to behave as one system.",
     "media": null,
     "gallery": null
@@ -87,9 +85,8 @@
     "description": "Context-aware, interactive visualization of complex topics or systems — explain, explore, and communicate.",
     "tagline": "Context-aware, interactive visualization of complex topics or systems.",
     "category": ["visualization-interaction"],
-    "type": "End user product",
+    "type": "End User Product",
     "licensing": ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
-    "builtFor": "buy",
     "order": 4,
     "featuredOnHome": true,
     "capabilities": [
@@ -102,7 +99,7 @@
       "Renders through Extropian Render with Extropian Spatial UI interaction",
       "Reuses the interactive-visualization patterns proven in engineering engagements"
     ],
-    "related": ["render", "viz", "spatialui"],
+    "uses": ["render", "spatial-ui", "geometry" , "core"],
     "body": "Complex systems are hard to communicate. Extropian Composer is built for context-aware, interactive visualization of complex topics or systems — letting viewers explore relationships, states, and behavior instead of staring at static diagrams.\n\nIt shares its rendering and interaction foundation with the engineering tools, so a Composer view can sit on top of real simulation or sensor data rather than being a stylized mock.",
     "media": null,
     "gallery": null
@@ -115,8 +112,7 @@
     "category": ["visualization-interaction"],
     "type": "Modular repository",
     "licensing": ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
-    "builtFor": "build",
-    "order": 6,
+    "order": 13,
     "featuredOnHome": false,
     "capabilities": [
       "ECS-based scene architecture for large, dynamic engineering scenes",
@@ -129,7 +125,7 @@
       "ECS design keeps scenes modular and extensible",
       "Gizmo and interaction primitives built in rather than bolted on"
     ],
-    "related": ["spatialui", "viz", "assets"],
+    "uses": ["assets", "geometry", "core"],
     "body": "Extropian Render is the visualization core of the ecosystem: a modular, ECS-based renderer with interaction, shaders, and gizmo support built in, and no loyalty to a single GL backend. Scenes are data — entities and components — which keeps engineering visualizations modular, extensible, and composable with the rest of the stack.",
     "media": null,
     "gallery": null
@@ -139,10 +135,9 @@
     "title": "Extropian Geometry",
     "description": "A modular 2D and 3D parametric geometry engine — geometry as a foundation, not an add-on.",
     "tagline": "A modular, parametric geometry engine for 2D and 3D.",
-    "category": ["core-platform"],
+    "category": ["visualization-interaction"],
     "type": "Modular repository",
-    "licensing": ["Open Source (Apache 2.0)"],
-    "builtFor": "build",
+    "licensing": ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
     "order": 7,
     "featuredOnHome": true,
     "capabilities": [
@@ -155,7 +150,7 @@
       "Core geometry layer beneath Extropian CAE, Physics, and Synthesis",
       "Designed for the interactive performance engineering tools demand"
     ],
-    "related": ["cae", "physics", "synthesis"],
+    "uses": ["core", "assets"],
     "body": "Extropian Geometry is the shape foundation of the ecosystem: a modular, parametric 2D and 3D geometry engine. Rather than being an isolated CAD-style island, it is built to feed downstream consumers — meshing, simulation, visualization, and generative design — from one parametric description.",
     "media": null,
     "gallery": null
@@ -167,8 +162,7 @@
     "tagline": "A modular, unified CAE format for representing any multiphysics problem.",
     "category": ["core-platform"],
     "type": "Modular repository",
-    "licensing": ["Open Source (Apache 2.0)"],
-    "builtFor": "build",
+    "licensing": ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
     "order": 8,
     "featuredOnHome": false,
     "capabilities": [
@@ -181,7 +175,7 @@
       "The data backbone shared by Extropian CAE Workbench and Extropian Physics",
       "Scene save/load with reproducibility (as used in the HyperFat engagement)"
     ],
-    "related": ["physics", "geometry", "caeworkbench"],
+    "uses": ["geometry", "core"],
     "body": "Every engineering tool family eventually fights its own file formats. Extropian CAE is the ecosystem's answer: a modular, unified format for representing any multiphysics problem — geometry, mesh, physics, boundary conditions, and study setup in one reproducible structure.\n\nBecause the format is modular, it is designed to represent problem types that do not exist yet, not just the ones solved today.",
     "media": null,
     "gallery": null
@@ -194,7 +188,6 @@
     "category": ["visualization-interaction"],
     "type": "Modular repository",
     "licensing": ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
-    "builtFor": "build",
     "order": 9,
     "featuredOnHome": false,
     "capabilities": [
@@ -206,7 +199,7 @@
       "Complements Extropian Render with result-oriented visualization features",
       "Pairs with Extropian CAE Workbench for full configure-solve-visualize loops"
     ],
-    "related": ["render", "composer", "caeworkbench"],
+    "uses": ["render"],
     "body": "Solver output is only valuable when it can be seen, compared, and understood. Extropian Viz covers the post-processing side of the simulation loop — turning raw results into interactive visualizations engineers can explore and compare. It is being built on the same modern rendering stack as the rest of the ecosystem rather than on aging visualization toolkits.",
     "media": null,
     "gallery": null
@@ -219,7 +212,6 @@
     "category": ["simulation"],
     "type": "Modular repository",
     "licensing": ["Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
-    "builtFor": "build",
     "order": 10,
     "featuredOnHome": false,
     "capabilities": [
@@ -234,7 +226,7 @@
       "Powers the real-time simulation and visualization demos across the Extropian ecosystem",
       "Ecosystem sibling to Extropian CAE (unified problem format) and Extropian Optimization"
     ],
-    "related": ["optimization", "cae", "caeworkbench"],
+    "uses": ["cae", "core"],
     "body": "Extropian Physics is the numerical heart of the ecosystem: a modular engine for building multiphysics simulations without locking you into a monolithic solver. It is designed around GPU compute from the first line of code, so workloads that traditionally require offline batch infrastructure can run interactive and real-time.\n\nBecause the engine is modular, an engagement rarely adopts it whole — more often a solver, a coupling strategy, or the GPU execution layer becomes the starting point for a specialized application.",
     "media": null,
     "gallery": null
@@ -246,9 +238,8 @@
     "tagline": "A modular optimization engine for exploring larger design spaces and finding better-performing designs.",
     "category": ["optimization"],
     "type": "Modular repository",
-    "licensing": ["Open Source (Apache 2.0)"],
-    "builtFor": "build",
-    "order": 11,
+    "licensing": ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
+    "order": 6,
     "featuredOnHome": false,
     "capabilities": [
       "Modular optimization engine that wraps simulation and analysis workflows",
@@ -261,7 +252,7 @@
       "Designed to sit on top of Extropian Physics or existing validated solvers",
       "Pairs with Extropian Synthesis for generative design exploration"
     ],
-    "related": ["physics", "synthesis", "caeworkbench"],
+    "uses": [] ,
     "body": "Optimization turns engineering judgment loops into automated search. Extropian Optimization is a modular engine for driving simulations and analyses toward better designs with less manual effort — exploring design spaces that would be impractical to cover by hand.\n\nIts modular design means the optimization layer can wrap your existing solver rather than requiring you to migrate to a new one.",
     "media": null,
     "gallery": null
@@ -273,9 +264,8 @@
     "tagline": "A collection of assets for GL-based scenes.",
     "category": ["core-platform"],
     "type": "Modular repository",
-    "licensing": ["Open Source (Apache 2.0)"],
-    "builtFor": "build",
-    "order": 12,
+    "licensing": ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
+    "order": 14,
     "featuredOnHome": false,
     "capabilities": [
       "Meshes, materials, and textures for GL-based engineering scenes",
@@ -285,21 +275,20 @@
     "foundation": [
       "Asset library exercised by the ecosystem demos and product development"
     ],
-    "related": ["render", "spatialui"],
+    "uses": [],
     "body": "Every graphics pipeline needs content. Extropian Assets is the ecosystem's collection of meshes, materials, and textures for GL-based scenes — the practical content layer that keeps demos, products, and engagements from reinventing the same basic scene elements.",
     "media": null,
     "gallery": null
   },
   {
-    "slug": "extropian-core",
+    "slug": "core",
     "title": "Extropian Core",
     "description": "The foundational C++ platform library of the ecosystem — math, memory, ECS, and GL integration primitives that every Extropian component builds on.",
     "tagline": "The foundational C++ platform library — math, memory, ECS, and GL integration primitives for the whole ecosystem.",
     "category": ["core-platform"],
     "type": "Modular repository",
     "licensing": ["Open Source (Apache 2.0)"],
-    "builtFor": "build",
-    "order": 13,
+    "order": 16,
     "featuredOnHome": true,
     "capabilities": [
       "Core math, containers, and memory primitives for high-performance compute",
@@ -307,8 +296,83 @@
       "GL integration primitives — context, resources, and backend abstraction"
     ],
     "foundation": [],
-    "related": ["geometry", "cae", "physics", "render"],
+    "uses": [],
     "body": "**Extropian Core** is the shared foundation of the ecosystem: the C++ libraries every other Extropian component composes. It is open source under Apache 2.0 so teams can build their own software on the same primitives the products use.\n\nEverything else in the ecosystem — Geometry, CAE, Physics, Render, Spatial UI — is built on Core and available as modular repositories that drop into your own codebase.",
+    "media": null,
+    "gallery": null
+  },
+  {
+    "slug": "extropian-mcp",
+    "title": "Extropian MCP",
+    "description": "LLM conversational state manager with tool access to the Extropian ecosystem — solvers, geometry, and visualization behind one protocol.",
+    "tagline": "An LLM conversational state manager with tool access across the ecosystem.",
+    "category": ["generative-ai", "core-platform"],
+    "type": "Modular repository",
+    "licensing": ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
+    "order": 11,
+    "featuredOnHome": false,
+    "capabilities": [
+      "Conversational state management for LLM-driven engineering workflows",
+      "Tool access to ecosystem components — solvers, geometry, and visualization",
+      "Session persistence with reproducible conversation state",
+      "Plugs into existing LLM clients via the Model Context Protocol"
+    ],
+    "foundation": [
+      "Built on Extropian Core primitives",
+      "Exposes Extropian Physics, Geometry, and Render capabilities as tools"
+    ],
+    "uses": ["core"],
+    "body": "Extropian MCP brings the ecosystem to the LLM: a conversational state manager that gives language models structured tool access to Extropian solvers, geometry, and visualization — so a chat session can configure simulations, query models, and pull results instead of just talking about them.\n\nState is managed explicitly and reproducibly, so a conversation that produced a design or a result can be replayed, inspected, and continued.",
+    "media": null,
+    "gallery": null
+  },
+  {
+    "slug": "extropian-voice",
+    "title": "Extropian Voice",
+    "description": "Open source text-to-speech and speech-to-text for engineering software — Extropian Voice.",
+    "tagline": "Text-to-speech and speech-to-text for engineering software.",
+    "category": ["engineering-ui"],
+    "type": "Modular repository",
+    "licensing": ["Open Source (Apache 2.0)"],
+    "order": 12,
+    "featuredOnHome": false,
+    "capabilities": [
+      "Text-to-speech synthesis for training, guidance, and status reporting",
+      "Speech-to-text recognition for hands-free interaction in lab and shop environments",
+      "Real-time audio pipelines built for interactive use",
+      "Embeddable in any Extropian interface or your own application"
+    ],
+    "foundation": [
+      "Built on Extropian Core primitives",
+      "Pairs with Extropian Spatial UI for voice-driven interaction"
+    ],
+    "uses": ["core"],
+    "body": "Engineering software should listen as well as it shows. Extropian Voice adds text-to-speech and speech-to-text to the ecosystem — synthesis for guidance and reporting, recognition for hands-free control where keyboards are impractical.\n\nIt is open source under Apache 2.0, so teams can embed voice interaction in their own products as freely as the rest of the Core-based stack.",
+    "media": null,
+    "gallery": null
+  },
+  {
+    "slug": "extropian-app",
+    "title": "Extropian App",
+    "description": "Cross-platform window and event management with SDL3 — the application shell for Extropian software.",
+    "tagline": "Window and event management with SDL3 — the application shell.",
+    "category": ["core-platform"],
+    "type": "Modular repository",
+    "licensing": ["Source Available (PolyForm Shield)", "Binary Distribution (Proprietary)", "Internal Use (Proprietary)"],
+    "order": 15,
+    "featuredOnHome": false,
+    "capabilities": [
+      "Cross-platform window creation and management via SDL3",
+      "Unified event handling — input, focus, and application lifecycle",
+      "GL context setup for Render and Spatial UI applications",
+      "Embeddable shell for existing native applications"
+    ],
+    "foundation": [
+      "Platform layer beneath the ecosystem's desktop applications",
+      "Pairs with Extropian Render for GL context creation and swap control"
+    ],
+    "uses": ["core"],
+    "body": "Every desktop application starts with a window and an event loop. Extropian App is the ecosystem's application shell: cross-platform window and event management built on SDL3, with GL context setup for the rendering stack.\n\nIt keeps platform code in one maintained place so products like the CAE Workbench target features instead of operating systems.",
     "media": null,
     "gallery": null
   }

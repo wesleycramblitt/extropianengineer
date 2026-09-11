@@ -90,11 +90,6 @@
       "name": "Visualization & Interaction",
       "key": "visualization-interaction",
       "blurb": "Rendering and interactive visualization of complex results and systems."
-    },
-    {
-      "name": "Custom Integration",
-      "key": "custom-integration",
-      "blurb": "Embedding Extropian components into your own products and workflows."
     }
   ]
 }

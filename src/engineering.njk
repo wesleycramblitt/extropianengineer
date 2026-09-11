@@ -23,7 +23,7 @@ extraScripts:
         <p class="muted" style="margin:0">How it works: the source is public and free to use, modify, and distribute — including in commercial products — with attribution. No license agreement required.</p>
         <p class="ladder-cost"><strong>Typical cost:</strong> no cost.</p>
       </div>
-      <div class="chip-row"><span class="chip chip--primary">Extropian Core</span><span class="chip chip--primary">Extropian Geometry</span><span class="chip chip--primary">Extropian CAE</span><span class="chip chip--primary">Extropian Optimization</span><span class="chip chip--primary">Extropian Assets</span></div>
+      <div class="chip-row">{%- for item in collections.productsByOrder %}{%- if 'Open Source (Apache 2.0)' in item.data.licensing %}<span class="chip chip--primary">{{ item.data.title }}</span>{% endif %}{%- endfor %}</div>
     </div>
     <div class="ladder-arrow">&#8595;</div>
     <div class="ladder-tier">
@@ -32,7 +32,7 @@ extraScripts:
         <p class="muted" style="margin:0">How it works: a license agreement grants access to the source with permission to build on it internally — restricted only from offering it as a competing product or service. The choice when you want the code and the protection that keeps the ecosystem viable.</p>
         <p class="ladder-cost"><strong>Typical cost:</strong> one-time license fee scaled to organization size and scope — no royalties, no recurring fees.</p>
       </div>
-      <div class="chip-row"><span class="chip chip--primary">Extropian CAE Workbench</span><span class="chip chip--primary">Extropian Render</span></div>
+      <div class="chip-row">{%- for item in collections.productsByOrder %}{%- if 'Source Available (PolyForm Shield)' in item.data.licensing %}<span class="chip chip--primary">{{ item.data.title }}</span>{% endif %}{%- endfor %}</div>
     </div>
     <div class="ladder-arrow">&#8595;</div>
     <div class="ladder-tier">
@@ -41,7 +41,7 @@ extraScripts:
         <p class="muted" style="margin:0">How it works: a license agreement covers use and distribution of the software in binary form — including inside products you sell. You get the capability without the source.</p>
         <p class="ladder-cost"><strong>Typical cost:</strong> one-time license fee per product and deployment — no royalties, no recurring fees.</p>
       </div>
-      <div class="chip-row"><span class="chip chip--primary">Extropian CAE Workbench</span><span class="chip chip--primary">Extropian Render</span><span class="chip chip--primary">Extropian Synthesis</span><span class="chip chip--primary">Extropian Spatial UI</span><span class="chip chip--primary">Extropian Composer</span><span class="chip chip--primary">Extropian Viz</span><span class="chip chip--primary">Extropian Physics</span></div>
+      <div class="chip-row">{%- for item in collections.productsByOrder %}{%- if 'Binary Distribution (Proprietary)' in item.data.licensing %}<span class="chip chip--primary">{{ item.data.title }}</span>{% endif %}{%- endfor %}</div>
     </div>
     <div class="ladder-arrow">&#8595;</div>
     <div class="ladder-tier">
@@ -50,7 +50,7 @@ extraScripts:
         <p class="muted" style="margin:0">How it works: a license agreement covers internal use of the software as delivered — no distribution, no source access. The simplest option when only your team uses it.</p>
         <p class="ladder-cost"><strong>Typical cost:</strong> one-time license fee per product — typically the most economical tier; no recurring fees.</p>
       </div>
-      <div class="chip-row"><span class="chip chip--primary">Extropian CAE Workbench</span><span class="chip chip--primary">Extropian Render</span><span class="chip chip--primary">Extropian Synthesis</span><span class="chip chip--primary">Extropian Spatial UI</span><span class="chip chip--primary">Extropian Composer</span><span class="chip chip--primary">Extropian Viz</span><span class="chip chip--primary">Extropian Physics</span></div>
+      <div class="chip-row">{%- for item in collections.productsByOrder %}{%- if 'Internal Use (Proprietary)' in item.data.licensing %}<span class="chip chip--primary">{{ item.data.title }}</span>{% endif %}{%- endfor %}</div>
     </div>
   </div>
   <p class="wrap-narrow normal" style="text-align:center; margin-top:1em">My preferred model is a perpetual license per major version: one fee licenses the version you chose, for as long as you use it — including maintenance updates within that major version. New major versions are licensed separately, only if and when you want them. No subscriptions, no forced upgrades.</p>

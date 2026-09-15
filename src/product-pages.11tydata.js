@@ -28,7 +28,12 @@ module.exports = {
         .map(function (p) { return p.slug; })
         .sort(function (a, b) { return (orderOf[a] ?? 99) - (orderOf[b] ?? 99); });
     },
-    media: (data) => data.product && data.product.media,
-    gallery: (data) => data.product && data.product.gallery
+    status: (data) => data.product && data.product.status,
+    // gallery: manual gallery from products.json takes precedence; otherwise auto-discovered from img/<slug>/ and vid/<slug>/
+    gallery: (data) => {
+      if (data.product && data.product.gallery && data.product.gallery.length) return data.product.gallery;
+      return data.gallery && data.gallery[data.product.slug] ? data.gallery[data.product.slug] : null;
+    },
+    media: (data) => data.product && data.product.media
   }
 };

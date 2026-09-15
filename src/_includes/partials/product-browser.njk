@@ -11,14 +11,16 @@
 </div>
 {% endmacro %}
 
-{% macro pbMediaFrames(item) %}
-  {%- set singleMedia = [item.data.media] if item.data.media else [] -%}
-  {%- set frames = item.data.gallery or singleMedia -%}
+{% macro pbMediaFrames(item, frames) %}
+  {%- if not frames -%}
+    {%- set singleMedia = [item.data.media] if item.data.media else [] -%}
+    {%- set frames = item.data.gallery or singleMedia -%}
+  {%- endif -%}
   {%- for frame in frames -%}
     {%- if frame.type == 'video' %}
-<div class="pb-frame"><video muted loop playsinline preload="metadata" poster="{{ frame.poster or '' }}"><source src="{{ frame.src }}"></video></div>
+<div class="pb-frame"><video muted loop playsinline preload="metadata" poster="{{ frame.poster or '' }}"><source src="{{ frame.src }}"></video>{% if frame.caption %}<span class="pb-caption">{{ frame.caption }}</span>{% endif %}</div>
     {%- elif frame.type == 'image' %}
-<div class="pb-frame"><img src="{{ frame.src }}" alt="{{ item.data.title }}" loading="lazy"></div>
+<div class="pb-frame"><img src="{{ frame.src }}" alt="{{ item.data.title }}{% if frame.caption %} — {{ frame.caption }}{% endif %}" loading="lazy">{% if frame.caption %}<span class="pb-caption">{{ frame.caption }}</span>{% endif %}</div>
     {%- endif -%}
   {%- endfor -%}
 {% endmacro %}
@@ -47,9 +49,17 @@
         data-pb-cat="{{ item.data.category | join(' ') }}"
         data-pb-search="{{ (item.data.title ~ ' ' ~ item.data.tagline) | lower }}"
         aria-pressed="false">
-        <span class="pb-item-glyph pv-{{ (item.data.category)[0] }}">{{ item.data.title | glyph }}</span>
+        {%- set singleMedia = [item.data.media] if item.data.media else [] -%}
+        {%- set manualGallery = item.data.gallery or [] -%}
+        {%- set autoGallery = gallery[item.data.slug] if (gallery and gallery[item.data.slug]) else [] -%}
+        {%- set frames = manualGallery if manualGallery.length else (autoGallery if autoGallery.length else singleMedia) -%}
+        {%- set thumb = frames[0] if frames.length else none -%}
+        <span class="pb-item-glyph pv-{{ (item.data.category)[0] }}">{% if thumb and thumb.type == 'image' %}<img src="{{ thumb.src }}" alt="" loading="lazy">{% elif thumb and thumb.poster %}<img src="{{ thumb.poster }}" alt="" loading="lazy">{% else %}{{ item.data.title | glyph }}{% endif %}</span>
         <span class="pb-item-text">
           <span class="pb-item-name">{{ item.data.title }}</span>
+          {%- if item.data.type %}
+          <span class="pb-item-type"><span class="badge badge--type badge-val-{{ item.data.type | badgeClass }}">{{ item.data.type }}</span></span>
+          {%- endif %}
         </span>
       </button>
       {%- endif %}
@@ -60,7 +70,9 @@
       {%- for item in itemList %}
       {%- if not featuredOnly or item.data.featuredOnHome %}
       {%- set singleMedia = [item.data.media] if item.data.media else [] -%}
-      {%- set frames = item.data.gallery or singleMedia -%}
+      {%- set manualGallery = item.data.gallery or [] -%}
+      {%- set autoGallery = gallery[item.data.slug] if (gallery and gallery[item.data.slug]) else [] -%}
+      {%- set frames = manualGallery if manualGallery.length else (autoGallery if autoGallery.length else singleMedia) -%}
       <article class="pb-panel" data-pb-panel="{{ item.data.slug }}"
         data-pb-cat="{{ item.data.category | join(' ') }}"
         data-pb-search="{{ (item.data.title ~ ' ' ~ item.data.tagline) | lower }}"
@@ -68,7 +80,7 @@
         <div class="pb-slideshow">
           <div class="pb-frames">
             {%- if frames and frames.length > 0 %}
-              {{ pbMediaFrames(item) }}
+              {{ pbMediaFrames(item, frames) }}
             {%- else %}
               {{ pbGradientFrame(item) }}
             {%- endif %}
@@ -85,6 +97,7 @@
           <div class="badge-row">
             {%- if item.data.type %}<span class="badge badge--type badge-val-{{ item.data.type | badgeClass }}">{{ item.data.type }}</span>{% endif %}
             {%- for c in item.data.category %}<span class="badge badge--cat badge-val-{{ c }}">{{ c | catName }}</span>{% endfor %}
+            {%- if item.data.status %}<span class="badge badge--status badge-val-status-{{ item.data.status | badgeClass }}">{{ item.data.status }}</span>{% endif %}
           </div>
           <p class="pb-tagline">{{ item.data.tagline }}</p>
           <a class="button button--ghost pb-details" href="{{ item.url }}">Full details →</a>

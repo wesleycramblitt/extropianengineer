@@ -18,6 +18,9 @@
     {%- if category and category.length %}
     <div class="badge-line"><span class="badge-label">{% if category.length > 1 %}Categories:{% else %}Category:{% endif %}</span><span class="badge-row">{%- for c in category %}<span class="badge badge--cat badge-val-{{ c }}">{{ c | catName }}</span>{% endfor %}</span></div>
     {%- endif %}
+    {%- if status %}
+    <div class="badge-line"><span class="badge-label">Status:</span><span class="badge-row"><span class="badge badge--status badge-val-status-{{ status | badgeClass }}">{{ status }}</span></span></div>
+    {%- endif %}
   </div>
   {%- endif %}
   <p class="lede">{{ tagline }}</p>
@@ -26,14 +29,14 @@
 {%- set singleMedia = [media] if media else [] -%}
 {%- set frames = gallery or singleMedia -%}
 {%- if frames and frames.length > 0 %}
-<div class="wrap">
+<div class="wrap wrap--wide">
   <div class="pb-slideshow product-gallery" data-autoplay="true">
     <div class="pb-frames">
       {%- for frame in frames %}
       {%- if frame.type == 'video' %}
-      <div class="pb-frame"><video muted loop playsinline preload="metadata" poster="{{ frame.poster or '' }}"><source src="{{ frame.src }}"></video></div>
+      <div class="pb-frame"><video muted loop playsinline preload="metadata" poster="{{ frame.poster or '' }}"><source src="{{ frame.src }}"></video>{% if frame.caption %}<span class="pb-caption">{{ frame.caption }}</span>{% endif %}</div>
       {%- elif frame.type == 'image' %}
-      <div class="pb-frame"><img src="{{ frame.src }}" alt="{{ title }} — {{ tagline }}"></div>
+      <div class="pb-frame"><img src="{{ frame.src }}" alt="{{ title }}{% if frame.caption %} — {{ frame.caption }}{% endif %}">{% if frame.caption %}<span class="pb-caption">{{ frame.caption }}</span>{% endif %}</div>
       {%- endif %}
       {%- endfor %}
     </div>

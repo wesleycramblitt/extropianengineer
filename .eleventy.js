@@ -138,6 +138,10 @@ function validateProducts() {
     if (typeof p.featuredOnHome !== "boolean") {
       throw new Error(where + ": `featuredOnHome` must be boolean");
     }
+    var validStatus = ["planned", "in-development", "prototype", "alpha", "beta", "production-grade"];
+    if (!p.status || typeof p.status !== "string" || validStatus.indexOf(p.status) < 0) {
+      throw new Error(where + ": `status` must be one of " + JSON.stringify(validStatus));
+    }
     ["category", "licensing", "capabilities", "uses"].forEach(function (f) {
       if (!Array.isArray(p[f]) || (f !== "uses" && p[f].length === 0)) {
         throw new Error(where + ": `" + f + "` must be a non-empty array");
@@ -154,6 +158,29 @@ function validateProducts() {
     if (p.body.indexOf("{{") >= 0 || p.body.indexOf("{%") >= 0) {
       throw new Error(where + ": body must not contain Nunjucks tokens {{ or {% (page uses markdownTemplateEngine njk)");
     }
+    // gallery/media frames: {type, src, poster?, caption?}
+    ["gallery", "media"].forEach(function (f) {
+      if (p[f] === undefined || p[f] === null) return;
+      var frames = Array.isArray(p[f]) ? p[f] : [p[f]];
+      if (f === "gallery" && !Array.isArray(p[f])) {
+        throw new Error(where + ": `gallery` must be an array of frames");
+      }
+      frames.forEach(function (fr, j) {
+        var fwhere = where + ":" + f + "[" + j + "]";
+        if (!fr || (fr.type !== "image" && fr.type !== "video")) {
+          throw new Error(fwhere + ": frame `type` must be `image` or `video`");
+        }
+        if (!fr.src || typeof fr.src !== "string" || fr.src.charAt(0) !== "/") {
+          throw new Error(fwhere + ": frame `src` must be a site-rooted path string starting with `/`");
+        }
+        if (fr.poster !== undefined && (typeof fr.poster !== "string" || !fr.poster)) {
+          throw new Error(fwhere + ": frame `poster` must be a non-empty string when present");
+        }
+        if (fr.caption !== undefined && (typeof fr.caption !== "string" || !fr.caption.trim() || fr.caption.length > 140)) {
+          throw new Error(fwhere + ": frame `caption` must be a non-empty string of max 140 chars when present");
+        }
+      });
+    });
   });
   products.forEach(function (p) {
     (p.uses || []).forEach(function (r) {

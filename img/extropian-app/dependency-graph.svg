@@ -1,0 +1,526 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"
+      font-family="system-ui, sans-serif" style="background:#0a0d16">
+      <defs>
+        <pattern id="exd-print-grid" width="26" height="26" patternUnits="userSpaceOnUse">
+          <circle cx="1.4" cy="1.4" r="1.4" fill="rgba(140, 160, 220, .05)"></circle>
+        </pattern>
+      </defs>
+      <rect x="0" y="0" width="1920" height="1080" fill="url(#exd-print-grid)"></rect>
+      <text x="44" y="46" font-size="15" letter-spacing="2" fill="#718cff">C++23 · SDL3 · OpenGL 4.6</text>
+      <text x="44" y="98" font-size="52" font-weight="800" fill="#e8ecff">Extropian App</text>
+      <text x="44" y="140" font-size="19" fill="#8b93b0">Minimal desktop shell — an SDL3 window with an OpenGL 4.6 core context, per-frame input snapshots, and a</text><text x="44" y="166" font-size="19" fill="#8b93b0">three-hook application lifecycle, exposing input through core::WindowState so the renderer stays SDL-free.</text>
+      <g>
+        <rect x="1142" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1156" y="124" font-size="30" font-weight="800" fill="#e8ecff">6</text>
+        <text x="1156" y="148" font-size="12.5" fill="#8b93b0">headers</text>
+      </g><g>
+        <rect x="1330" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1344" y="124" font-size="30" font-weight="800" fill="#e8ecff">1.3k</text>
+        <text x="1344" y="148" font-size="12.5" fill="#8b93b0">loc</text>
+      </g><g>
+        <rect x="1518" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1532" y="124" font-size="30" font-weight="800" fill="#e8ecff">55</text>
+        <text x="1532" y="148" font-size="12.5" fill="#8b93b0">test cases</text>
+      </g><g>
+        <rect x="1706" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1720" y="124" font-size="30" font-weight="800" fill="#e8ecff">3</text>
+        <text x="1720" y="148" font-size="12.5" fill="#8b93b0">deps</text>
+      </g>
+      <g>
+        <text x="44" y="194" font-size="21" font-weight="700" fill="#e8ecff">Window · SDL3 + OpenGL 4.6</text>
+        <text x="44" y="213" font-size="12.5" fill="#8b93b0">SDL3 window wrapper that implements core::WindowState — the renderer never t</text>
+        <g transform="translate(44 271.1029411764706) scale(0.9516806722689075)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s0-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s0-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker><marker id="s0-exd-mk-calls" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#c792ea"></path></marker><marker id="s0-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="952" height="294" fill="url(#s0-exd-grid)"></rect>
+        <path class="edge" data-from="window" data-to="window-desc" d="M 192 131 C 228 131, 228 236, 259 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="window" data-to="gl-context" d="M 192 131 C 228 131, 228 96, 259 96" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s0-exd-mk-calls)"></path><path class="edge" data-from="window" data-to="poll-loop" d="M 192 131 C 228 131, 228 166, 259 166" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s0-exd-mk-calls)"></path><path class="edge" data-from="gl-context" data-to="glad" d="M 440 96 C 476 96, 476 96, 507 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="glad" data-to="opengl" d="M 688 96 C 724 96, 724 131, 755 131" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s0-exd-mk-calls)"></path><path class="edge" data-from="window" data-to="sdl" d="M 192 131 C 352 131, 352 166, 507 166" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s0-exd-mk-depends)"></path><path class="edge" data-from="poll-loop" data-to="sdl" d="M 440 166 C 476 166, 476 166, 507 166" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s0-exd-mk-calls)"></path><path class="edge" data-from="window" data-to="opengl" d="M 192 131 C 476 131, 476 131, 755 131" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="window" data-to="core-ws" d="M 192 131 C 228 131, 228 26, 259 26" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s0-exd-mk-depends)"><title>implements</title></path><g class="node drill" data-node="window" tabindex="0" role="button"
+        aria-label="Window (drill in)" transform="translate(16,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Window</text>
+        
+        <text class="meta" x="28" y="44">122</text>
+        
+        <text class="chev" x="166" y="30" text-anchor="end">›</text>
+      </g><g class="node" data-node="window-desc" tabindex="0" role="button"
+        aria-label="WindowDesc" transform="translate(264,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">WindowDesc</text>
+        
+        <text class="meta" x="28" y="44">122</text>
+        
+        
+      </g><g class="node" data-node="gl-context" tabindex="0" role="button"
+        aria-label="GL context" transform="translate(264,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">GL context</text>
+        
+        <text class="meta" x="28" y="44">309</text>
+        
+        
+      </g><g class="node" data-node="glad" tabindex="0" role="button"
+        aria-label="GLAD" transform="translate(512,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">GLAD</text>
+        
+        <text class="meta" x="28" y="44">1.9k</text>
+        
+        
+      </g><g class="node" data-node="poll-loop" tabindex="0" role="button"
+        aria-label="poll_events" transform="translate(264,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">poll_events</text>
+        
+        <text class="meta" x="28" y="44">309</text>
+        
+        
+      </g><g class="node" data-node="sdl" tabindex="0" role="button"
+        aria-label="SDL3" transform="translate(512,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#8a93a8"></rect>
+        <text class="icon" x="13" y="28" fill="#8a93a8">⛶</text>
+        <text class="lbl" x="28" y="28">SDL3</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node" data-node="opengl" tabindex="0" role="button"
+        aria-label="OpenGL 4.6" transform="translate(760,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#8a93a8"></rect>
+        <text class="icon" x="13" y="28" fill="#8a93a8">⛶</text>
+        <text class="lbl" x="28" y="28">OpenGL 4.6</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node ext" data-node="core-ws" tabindex="0" role="button"
+        aria-label="core::WindowState" transform="translate(264,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">core::WindowState</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g><g>
+        <text x="970" y="194" font-size="21" font-weight="700" fill="#e8ecff">EventState · per-frame input</text>
+        <text x="970" y="213" font-size="12.5" fill="#8b93b0">Keyboard, mouse, scroll, and gamepad state snapshotted once per frame by pol</text>
+        <g transform="translate(970 271.1029411764706) scale(0.9516806722689075)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s1-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s1-exd-mk-owns" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#ffd166"></path></marker><marker id="s1-exd-mk-calls" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#c792ea"></path></marker><marker id="s1-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="952" height="294" fill="url(#s1-exd-grid)"></rect>
+        <path class="edge" data-from="event-state" data-to="keyboard" d="M 440 131 C 476 131, 476 96, 507 96" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-owns)"></path><path class="edge" data-from="event-state" data-to="mouse" d="M 440 131 C 476 131, 476 166, 507 166" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-owns)"></path><path class="edge" data-from="event-state" data-to="scroll" d="M 440 131 C 476 131, 476 236, 507 236" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-owns)"></path><path class="edge" data-from="event-state" data-to="gamepad" d="M 440 131 C 476 131, 476 26, 507 26" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-owns)"></path><path class="edge" data-from="begin-frame" data-to="keyboard" d="M 192 96 C 352 96, 352 96, 507 96" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s1-exd-mk-calls)"></path><path class="edge" data-from="begin-frame" data-to="scroll" d="M 192 96 C 352 96, 352 236, 507 236" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s1-exd-mk-calls)"></path><path class="edge" data-from="window" data-to="event-state" d="M 192 166 C 228 166, 228 131, 259 131" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-owns)"></path><path class="edge" data-from="gamepad" data-to="sdl" d="M 688 26 C 724 26, 724 131, 755 131" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-depends)"></path><g class="node drill" data-node="event-state" tabindex="0" role="button"
+        aria-label="EventState (drill in)" transform="translate(264,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">EventState</text>
+        
+        <text class="meta" x="28" y="44">75</text>
+        
+        <text class="chev" x="166" y="30" text-anchor="end">›</text>
+      </g><g class="node" data-node="keyboard" tabindex="0" role="button"
+        aria-label="keyboard" transform="translate(512,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">keyboard</text>
+        
+        <text class="meta" x="28" y="44">75</text>
+        
+        
+      </g><g class="node" data-node="mouse" tabindex="0" role="button"
+        aria-label="mouse" transform="translate(512,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">mouse</text>
+        
+        <text class="meta" x="28" y="44">75</text>
+        
+        
+      </g><g class="node" data-node="scroll" tabindex="0" role="button"
+        aria-label="scroll" transform="translate(512,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">scroll</text>
+        
+        <text class="meta" x="28" y="44">75</text>
+        
+        
+      </g><g class="node" data-node="gamepad" tabindex="0" role="button"
+        aria-label="gamepad" transform="translate(512,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">gamepad</text>
+        
+        <text class="meta" x="28" y="44">75</text>
+        
+        
+      </g><g class="node" data-node="begin-frame" tabindex="0" role="button"
+        aria-label="begin_frame" transform="translate(16,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">begin_frame</text>
+        
+        <text class="meta" x="28" y="44">19</text>
+        
+        
+      </g><g class="node ext" data-node="window" tabindex="0" role="button"
+        aria-label="Window" transform="translate(16,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◆</text>
+        <text class="lbl" x="28" y="28">Window</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node ext" data-node="sdl" tabindex="0" role="button"
+        aria-label="SDL3" transform="translate(760,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">⛶</text>
+        <text class="lbl" x="28" y="28">SDL3</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g><g>
+        <text x="44" y="616" font-size="21" font-weight="700" fill="#e8ecff">Input modes &amp; cursor</text>
+        <text x="44" y="635" font-size="12.5" fill="#8b93b0">FPS vs UI input, Normal/Hidden/Captured cursor, and hard-coded key toggles</text>
+        <g transform="translate(44 774.865) scale(0.755)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s2-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s2-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker><marker id="s2-exd-mk-calls" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#c792ea"></path></marker><marker id="s2-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="1200" height="154" fill="url(#s2-exd-grid)"></rect>
+        <path class="edge" data-from="set-input-mode" data-to="input-mode" d="M 440 61 C 476 61, 476 26, 507 26" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="set-input-mode" data-to="set-cursor-mode" d="M 440 61 C 476 61, 476 96, 507 96" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s2-exd-mk-calls)"></path><path class="edge" data-from="set-cursor-mode" data-to="cursor-mode" d="M 688 96 C 724 96, 724 26, 755 26" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="set-cursor-mode" data-to="sdl" d="M 688 96 C 724 96, 724 96, 755 96" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s2-exd-mk-calls)"></path><path class="edge" data-from="key-toggles" data-to="set-input-mode" d="M 192 61 C 228 61, 228 61, 259 61" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s2-exd-mk-calls)"></path><path class="edge" data-from="input-mode" data-to="core-ws" d="M 688 26 C 848 26, 848 61, 1003 61" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s2-exd-mk-depends)"></path><path class="edge" data-from="cursor-mode" data-to="core-ws" d="M 936 26 C 972 26, 972 61, 1003 61" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s2-exd-mk-depends)"></path><g class="node" data-node="input-mode" tabindex="0" role="button"
+        aria-label="InputMode" transform="translate(512,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">InputMode</text>
+        
+        <text class="meta" x="28" y="44">84</text>
+        
+        
+      </g><g class="node" data-node="cursor-mode" tabindex="0" role="button"
+        aria-label="CursorMode" transform="translate(760,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">CursorMode</text>
+        
+        <text class="meta" x="28" y="44">84</text>
+        
+        
+      </g><g class="node" data-node="set-input-mode" tabindex="0" role="button"
+        aria-label="set_input_mode" transform="translate(264,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">set_input_mode</text>
+        
+        <text class="meta" x="28" y="44">309</text>
+        
+        
+      </g><g class="node" data-node="set-cursor-mode" tabindex="0" role="button"
+        aria-label="set_cursor_mode" transform="translate(512,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">set_cursor_mode</text>
+        
+        <text class="meta" x="28" y="44">309</text>
+        
+        
+      </g><g class="node" data-node="key-toggles" tabindex="0" role="button"
+        aria-label="key toggles" transform="translate(16,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">key toggles</text>
+        
+        <text class="meta" x="28" y="44">309</text>
+        
+        
+      </g><g class="node ext" data-node="core-ws" tabindex="0" role="button"
+        aria-label="core::WindowState" transform="translate(1008,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">core::WindowState</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node ext" data-node="sdl" tabindex="0" role="button"
+        aria-label="SDL3" transform="translate(760,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">⛶</text>
+        <text class="lbl" x="28" y="28">SDL3</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g><g>
+        <text x="970" y="616" font-size="21" font-weight="700" fill="#e8ecff">Build &amp; tests</text>
+        <text x="970" y="635" font-size="12.5" fill="#8b93b0">One static library, three fetched deps, two Catch2 test executables</text>
+        <g transform="translate(989.5850340136054 652) scale(1.2312925170068028)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s3-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s3-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker><marker id="s3-exd-mk-owns" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#ffd166"></path></marker><marker id="s3-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="704" height="294" fill="url(#s3-exd-grid)"></rect>
+        <path class="edge" data-from="app-target" data-to="exd-core" d="M 440 131 C 476 131, 476 26, 507 26" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s3-exd-mk-depends)"></path><path class="edge" data-from="app-target" data-to="sdl3" d="M 440 131 C 476 131, 476 236, 507 236" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s3-exd-mk-depends)"></path><path class="edge" data-from="app-target" data-to="opengl" d="M 440 131 C 476 131, 476 166, 507 166" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s3-exd-mk-depends)"></path><path class="edge" data-from="app-target" data-to="glad-src" d="M 440 131 C 476 131, 476 96, 507 96" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s3-exd-mk-owns)"></path><path class="edge" data-from="cmake" data-to="app-target" d="M 192 61 C 228 61, 228 131, 259 131" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s3-exd-mk-owns)"></path><path class="edge" data-from="test-suite" data-to="app-target" d="M 192 131 C 228 131, 228 131, 259 131" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s3-exd-mk-depends)"></path><path class="edge" data-from="test-window" data-to="app-target" d="M 192 201 C 228 201, 228 131, 259 131" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s3-exd-mk-depends)"></path><path class="edge" data-from="test-window" data-to="sdl3" d="M 192 201 C 352 201, 352 236, 507 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><g class="node" data-node="cmake" tabindex="0" role="button"
+        aria-label="CMakeLists" transform="translate(16,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#b8b8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#b8b8d0">⚑</text>
+        <text class="lbl" x="28" y="28">CMakeLists</text>
+        
+        <text class="meta" x="28" y="44">112</text>
+        
+        
+      </g><g class="node" data-node="app-target" tabindex="0" role="button"
+        aria-label="exd-app" transform="translate(264,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#6ee7a0"></rect>
+        <text class="icon" x="13" y="28" fill="#6ee7a0">◈</text>
+        <text class="lbl" x="28" y="28">exd-app</text>
+        
+        <text class="meta" x="28" y="44">282</text>
+        
+        
+      </g><g class="node" data-node="glad-src" tabindex="0" role="button"
+        aria-label="glad gl.c" transform="translate(512,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff9e64"></rect>
+        <text class="icon" x="13" y="28" fill="#ff9e64">▣</text>
+        <text class="lbl" x="28" y="28">glad gl.c</text>
+        
+        <text class="meta" x="28" y="44">1.9k</text>
+        
+        
+      </g><g class="node ext" data-node="exd-core" tabindex="0" role="button"
+        aria-label="extropian-core" transform="translate(512,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">extropian-core</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node ext" data-node="sdl3" tabindex="0" role="button"
+        aria-label="SDL3" transform="translate(512,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">⛶</text>
+        <text class="lbl" x="28" y="28">SDL3</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node ext" data-node="opengl" tabindex="0" role="button"
+        aria-label="OpenGL" transform="translate(512,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">⛶</text>
+        <text class="lbl" x="28" y="28">OpenGL</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node" data-node="test-suite" tabindex="0" role="button"
+        aria-label="exd-app-tests" transform="translate(16,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#8ce99a"></rect>
+        <text class="icon" x="13" y="28" fill="#8ce99a">✓</text>
+        <text class="lbl" x="28" y="28">exd-app-tests</text>
+        
+        <text class="meta" x="28" y="44">449</text>
+        
+        
+      </g><g class="node" data-node="test-window" tabindex="0" role="button"
+        aria-label="test-window" transform="translate(16,175)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#8ce99a"></rect>
+        <text class="icon" x="13" y="28" fill="#8ce99a">✓</text>
+        <text class="lbl" x="28" y="28">test-window</text>
+        
+        <text class="meta" x="28" y="44">159</text>
+        
+        
+      </g></g>
+      </g>
+      <g transform="translate(44 1032)"><text x="0" y="0" font-size="16" fill="#ff7ab8">◆</text></g><g transform="translate(140 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">class</text></g><g transform="translate(236 1032)"><text x="0" y="0" font-size="16" fill="#4dd8d0">≣</text></g><g transform="translate(332 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">data</text></g><g transform="translate(428 1032)"><text x="0" y="0" font-size="16" fill="#c792ea">ƒ</text></g><g transform="translate(524 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">function</text></g><g transform="translate(620 1032)"><text x="0" y="0" font-size="16" fill="#a78bfa">⬡</text></g><g transform="translate(716 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">lib</text></g><g transform="translate(812 1032)"><text x="0" y="0" font-size="16" fill="#8a93a8">⛶</text></g><g transform="translate(908 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">external</text></g><g transform="translate(1004 1032)"><text x="0" y="0" font-size="16" fill="#6ee7a0">◈</text></g><g transform="translate(1100 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">module</text></g><g transform="translate(1196 1032)"><text x="0" y="0" font-size="16" fill="#b8b8d0">⚑</text></g><g transform="translate(1292 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">config</text></g><g transform="translate(1388 1032)"><text x="0" y="0" font-size="16" fill="#ff9e64">▣</text></g><g transform="translate(1484 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">file</text></g><g transform="translate(1580 1032)"><text x="0" y="0" font-size="16" fill="#8ce99a">✓</text></g><g transform="translate(1676 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">test</text></g><g transform="translate(1772 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#4dd8d0" stroke-width="2.4" stroke-dasharray="2 5"></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">uses</text></g><g transform="translate(1868 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#c792ea" stroke-width="2.4" stroke-dasharray="6 4"></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">calls</text></g><g transform="translate(1964 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#8b93b0" stroke-width="2.4" ></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">depends on</text></g><g transform="translate(2060 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#ffd166" stroke-width="2.4" ></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">owns</text></g>
+    </svg>

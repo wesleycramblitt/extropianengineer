@@ -31,13 +31,25 @@ function discoverGallery() {
       const slugDir = path.join(imgRoot, slug);
       const frames = [];
 
-      // Images/GIFs
+      // Images/GIFs. Prefer SVG over a same-stem raster (dependency-graph.svg
+      // wins over dependency-graph.png) so vector posters are the primary frame.
       const imgFiles = fs.readdirSync(slugDir)
-        .filter((f) => /\.(png|jpg|jpeg|webp|gif)$/i.test(f))
+        .filter((f) => /\.(png|jpg|jpeg|webp|gif|svg)$/i.test(f))
         .sort();
 
+      const byStem = {};
       for (const file of imgFiles) {
+        const ext = path.extname(file).toLowerCase();
         const stem = path.parse(file).name;
+        const prev = byStem[stem];
+        // SVG outranks all rasters; otherwise first (alphabetical) wins.
+        if (!prev || (ext === ".svg" && prev.ext !== ".svg")) {
+          byStem[stem] = { file, ext };
+        }
+      }
+
+      for (const stem of Object.keys(byStem).sort()) {
+        const { file } = byStem[stem];
         frames.push({
           type: "image",
           src: `/img/${slug}/${file}`,

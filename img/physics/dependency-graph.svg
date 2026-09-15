@@ -1,0 +1,579 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"
+      font-family="system-ui, sans-serif" style="background:#0a0d16">
+      <defs>
+        <pattern id="exd-print-grid" width="26" height="26" patternUnits="userSpaceOnUse">
+          <circle cx="1.4" cy="1.4" r="1.4" fill="rgba(140, 160, 220, .05)"></circle>
+        </pattern>
+      </defs>
+      <rect x="0" y="0" width="1920" height="1080" fill="url(#exd-print-grid)"></rect>
+      <text x="44" y="46" font-size="15" letter-spacing="2" fill="#718cff">C++23 · 106 headers · 51k LOC</text>
+      <text x="44" y="98" font-size="52" font-weight="800" fill="#e8ecff">Extropian Physics</text>
+      <text x="44" y="140" font-size="19" fill="#8b93b0">One composable multiphysics runtime — FDM CFD, grid-first continuum solvers, mean-line turbomachinery, and the</text><text x="44" y="166" font-size="19" fill="#8b93b0">coupling engine that composes them.</text>
+      <g>
+        <rect x="1142" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1156" y="124" font-size="30" font-weight="800" fill="#e8ecff">106</text>
+        <text x="1156" y="148" font-size="12.5" fill="#8b93b0">headers</text>
+      </g><g>
+        <rect x="1330" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1344" y="124" font-size="30" font-weight="800" fill="#e8ecff">51k</text>
+        <text x="1344" y="148" font-size="12.5" fill="#8b93b0">loc</text>
+      </g><g>
+        <rect x="1518" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1532" y="124" font-size="30" font-weight="800" fill="#e8ecff">115</text>
+        <text x="1532" y="148" font-size="12.5" fill="#8b93b0">unit tests</text>
+      </g><g>
+        <rect x="1706" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1720" y="124" font-size="30" font-weight="800" fill="#e8ecff">20+</text>
+        <text x="1720" y="148" font-size="12.5" fill="#8b93b0">solver entries</text>
+      </g>
+      <g>
+        <text x="44" y="194" font-size="21" font-weight="700" fill="#e8ecff">Foundation — core · mesh · numerics</text>
+        <text x="44" y="213" font-size="12.5" fill="#8b93b0">State, structured meshes, matrix-free operators, and the linear/ODE stack ev</text>
+        <g transform="translate(44 326.44) scale(0.755)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s0-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s0-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker><marker id="s0-exd-mk-owns" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#ffd166"></path></marker><marker id="s0-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="1200" height="224" fill="url(#s0-exd-grid)"></rect>
+        <path class="edge" data-from="core-exec" data-to="core-state" d="M 1184 52 C 1113.6 72, 1113.6 212, 1043.2 192" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="mesh-gen" data-to="mesh-grid" d="M 192 61 C 600 61, 600 96, 1003 96" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s0-exd-mk-owns)"></path><path class="edge" data-from="fdm-ops" data-to="mesh-grid" d="M 936 96 C 972 96, 972 96, 1003 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="fdm-ops" data-to="core-exec" d="M 936 96 C 972 96, 972 26, 1003 26" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="fdm-lap" data-to="fdm-ops" d="M 688 96 C 724 96, 724 96, 755 96" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s0-exd-mk-depends)"></path><path class="edge" data-from="numerics-lin" data-to="fdm-lap" d="M 440 61 C 476 61, 476 96, 507 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="numerics-ode" data-to="core-state" d="M 440 131 C 724 131, 724 166, 1003 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="physics-g" data-to="fdm-ops" d="M 192 131 C 476 131, 476 96, 755 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="physics-g" data-to="numerics-ode" d="M 192 131 C 228 131, 228 131, 259 131" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="physics-g" data-to="numerics-lin" d="M 192 131 C 228 131, 228 61, 259 61" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><g class="node" data-node="core-state" tabindex="0" role="button"
+        aria-label="State · Field" transform="translate(1008,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">State · Field</text>
+        
+        <text class="meta" x="28" y="44">1.1k</text>
+        
+        
+      </g><g class="node" data-node="core-exec" tabindex="0" role="button"
+        aria-label="ExecutionGraph" transform="translate(1008,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">ExecutionGraph</text>
+        
+        <text class="meta" x="28" y="44">0.1k</text>
+        
+        
+      </g><g class="node" data-node="mesh-grid" tabindex="0" role="button"
+        aria-label="StructuredGrid" transform="translate(1008,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">StructuredGrid</text>
+        
+        <text class="meta" x="28" y="44">1.3k</text>
+        
+        
+      </g><g class="node" data-node="mesh-gen" tabindex="0" role="button"
+        aria-label="MeshGen · BC" transform="translate(16,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">MeshGen · BC</text>
+        
+        <text class="meta" x="28" y="44">0.6k</text>
+        
+        
+      </g><g class="node" data-node="fdm-ops" tabindex="0" role="button"
+        aria-label="FDM Operators" transform="translate(760,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">FDM Operators</text>
+        
+        <text class="meta" x="28" y="44">0.5k</text>
+        
+        
+      </g><g class="node" data-node="fdm-lap" tabindex="0" role="button"
+        aria-label="Matrix-free Ops" transform="translate(512,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Matrix-free Ops</text>
+        
+        <text class="meta" x="28" y="44">0.3k</text>
+        
+        
+      </g><g class="node" data-node="numerics-lin" tabindex="0" role="button"
+        aria-label="Linear Solvers" transform="translate(264,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">Linear Solvers</text>
+        
+        <text class="meta" x="28" y="44">1.5k</text>
+        
+        
+      </g><g class="node" data-node="numerics-ode" tabindex="0" role="button"
+        aria-label="ODE Integrators" transform="translate(264,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">ODE Integrators</text>
+        
+        <text class="meta" x="28" y="44">0.8k</text>
+        
+        
+      </g><g class="node ext" data-node="physics-g" tabindex="0" role="button"
+        aria-label="physics" transform="translate(16,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">physics</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g><g>
+        <text x="970" y="194" font-size="21" font-weight="700" fill="#e8ecff">Continuum solvers — fluid &amp; grid physics</text>
+        <text x="970" y="213" font-size="12.5" fill="#8b93b0">FDM CFD plus thermal, structural, acoustics, EM, species, and the reduced-or</text>
+        <g transform="translate(970 237.79411764705884) scale(0.9516806722689075)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s1-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s1-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker><marker id="s1-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="952" height="364" fill="url(#s1-exd-grid)"></rect>
+        <path class="edge" data-from="fdm3" data-to="fdm2" d="M 440 166 C 476 166, 476 131, 507 131" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-depends)"></path><path class="edge" data-from="fdm3" data-to="thermal" d="M 440 166 C 476 166, 476 201, 507 201" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="structural" data-to="thermal" d="M 192 236 C 352 236, 352 201, 507 201" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="acoustics" data-to="fdm3" d="M 192 26 C 228 26, 228 166, 259 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="species" data-to="fdm3" d="M 192 96 C 228 96, 228 166, 259 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="species" data-to="ops-g" d="M 192 96 C 476 96, 476 166, 755 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="electromag" data-to="ops-g" d="M 192 306 C 476 306, 476 166, 755 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="fdm2" data-to="ops-g" d="M 688 131 C 724 131, 724 166, 755 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="fdm3" data-to="ops-g" d="M 440 166 C 600 166, 600 166, 755 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><g class="node" data-node="fdm2" tabindex="0" role="button"
+        aria-label="FDM 2D fluid" transform="translate(512,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">FDM 2D fluid</text>
+        
+        <text class="meta" x="28" y="44">5.1k</text>
+        
+        
+      </g><g class="node drill" data-node="fdm3" tabindex="0" role="button"
+        aria-label="FDM 3D fluid (drill in)" transform="translate(264,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">FDM 3D fluid</text>
+        
+        <text class="meta" x="28" y="44">3.6k</text>
+        
+        <text class="chev" x="166" y="30" text-anchor="end">›</text>
+      </g><g class="node" data-node="bem" tabindex="0" role="button"
+        aria-label="BEM Turbine" transform="translate(16,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">BEM Turbine</text>
+        
+        <text class="meta" x="28" y="44">2.4k</text>
+        
+        
+      </g><g class="node" data-node="thermal" tabindex="0" role="button"
+        aria-label="Thermal" transform="translate(512,175)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Thermal</text>
+        
+        <text class="meta" x="28" y="44">2.5k</text>
+        
+        
+      </g><g class="node" data-node="structural" tabindex="0" role="button"
+        aria-label="Structural" transform="translate(16,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Structural</text>
+        
+        <text class="meta" x="28" y="44">1.4k</text>
+        
+        
+      </g><g class="node" data-node="acoustics" tabindex="0" role="button"
+        aria-label="Acoustics" transform="translate(16,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Acoustics</text>
+        
+        <text class="meta" x="28" y="44">1.0k</text>
+        
+        
+      </g><g class="node" data-node="electromag" tabindex="0" role="button"
+        aria-label="Electromagnetics" transform="translate(16,280)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Electromagnetics</text>
+        
+        <text class="meta" x="28" y="44">1.9k</text>
+        
+        
+      </g><g class="node" data-node="species" tabindex="0" role="button"
+        aria-label="Species" transform="translate(16,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">Species</text>
+        
+        <text class="meta" x="28" y="44">0.8k</text>
+        
+        
+      </g><g class="node ext" data-node="ops-g" tabindex="0" role="button"
+        aria-label="FDM Ops" transform="translate(760,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">FDM Ops</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g><g>
+        <text x="44" y="616" font-size="21" font-weight="700" fill="#e8ecff">Machinery — turbomachinery · engines · bodies</text>
+        <text x="44" y="635" font-size="12.5" fill="#8b93b0">Mean-line stages, Greitzer surge, slider-crank engines, turbines, and the 6-</text>
+        <g transform="translate(146.93406593406593 652) scale(0.9945054945054945)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s2-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s2-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="704" height="364" fill="url(#s2-exd-grid)"></rect>
+        <path class="edge" data-from="compression" data-to="plenum" d="M 192 96 C 228 96, 228 26, 259 26" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="compression" data-to="turb-stage" d="M 192 96 C 228 96, 228 96, 259 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="compression" data-to="control" d="M 192 96 C 228 96, 228 166, 259 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="turb-stage" data-to="thermo" d="M 440 96 C 476 96, 476 166, 507 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="plenum" data-to="thermo" d="M 440 26 C 476 26, 476 166, 507 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="engine" data-to="thermo" d="M 192 166 C 352 166, 352 166, 507 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="engine" data-to="control" d="M 192 166 C 228 166, 228 166, 259 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="turbine" data-to="control" d="M 192 236 C 228 236, 228 166, 259 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="turbine" data-to="rigidbody" d="M 192 236 C 228 236, 228 306, 259 306" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="turbine" data-to="fdm3-g" d="M 192 236 C 228 236, 228 236, 259 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><g class="node drill" data-node="turb-stage" tabindex="0" role="button"
+        aria-label="Mean-line Stage (drill in)" transform="translate(264,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Mean-line Stage</text>
+        
+        <text class="meta" x="28" y="44">2.9k</text>
+        
+        <text class="chev" x="166" y="30" text-anchor="end">›</text>
+      </g><g class="node" data-node="plenum" tabindex="0" role="button"
+        aria-label="Greitzer Plenum" transform="translate(264,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Greitzer Plenum</text>
+        
+        <text class="meta" x="28" y="44">0.7k</text>
+        
+        
+      </g><g class="node" data-node="compression" tabindex="0" role="button"
+        aria-label="Compression Sys" transform="translate(16,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">Compression Sys</text>
+        
+        <text class="meta" x="28" y="44">0.5k</text>
+        
+        
+      </g><g class="node" data-node="engine" tabindex="0" role="button"
+        aria-label="Engine Preset" transform="translate(16,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">Engine Preset</text>
+        
+        <text class="meta" x="28" y="44">1.5k</text>
+        
+        
+      </g><g class="node" data-node="turbine" tabindex="0" role="button"
+        aria-label="Turbine Preset" transform="translate(16,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">Turbine Preset</text>
+        
+        <text class="meta" x="28" y="44">2.7k</text>
+        
+        
+      </g><g class="node" data-node="thermo" tabindex="0" role="button"
+        aria-label="Thermo · EOS" transform="translate(512,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Thermo · EOS</text>
+        
+        <text class="meta" x="28" y="44">0.9k</text>
+        
+        
+      </g><g class="node" data-node="control" tabindex="0" role="button"
+        aria-label="PI Control" transform="translate(264,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">PI Control</text>
+        
+        <text class="meta" x="28" y="44">0.3k</text>
+        
+        
+      </g><g class="node" data-node="rigidbody" tabindex="0" role="button"
+        aria-label="Rigid Body" transform="translate(264,280)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">Rigid Body</text>
+        
+        <text class="meta" x="28" y="44">2.1k</text>
+        
+        
+      </g><g class="node ext" data-node="fdm3-g" tabindex="0" role="button"
+        aria-label="FDM 3D fluid" transform="translate(264,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">FDM 3D fluid</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g><g>
+        <text x="970" y="616" font-size="21" font-weight="700" fill="#e8ecff">Coupling — execution · presets · output</text>
+        <text x="970" y="635" font-size="12.5" fill="#8b93b0">CouplingManager exchange, multi-rate drivers, CAEModel import, validated pre</text>
+        <g transform="translate(970 695.59) scale(0.755)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s3-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s3-exd-mk-owns" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#ffd166"></path></marker><marker id="s3-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker><marker id="s3-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="1200" height="364" fill="url(#s3-exd-grid)"></rect>
+        <path class="edge" data-from="coupled-sim" data-to="coupling-manager" d="M 192 26 C 352 26, 352 166, 507 166" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s3-exd-mk-owns)"></path><path class="edge" data-from="coupled-sim" data-to="channels" d="M 192 26 C 476 26, 476 166, 755 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="coupling-manager" data-to="channels" d="M 688 166 C 724 166, 724 166, 755 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="channels" data-to="physics-g" d="M 936 166 C 972 166, 972 166, 1003 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="contracts" data-to="physics-g" d="M 192 166 C 600 166, 600 166, 1003 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="pipeline" data-to="coupling-manager" d="M 440 166 C 476 166, 476 166, 507 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="presets" data-to="pipeline" d="M 192 96 C 228 96, 228 166, 259 166" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s3-exd-mk-depends)"></path><path class="edge" data-from="presets" data-to="physics-g" d="M 192 96 C 600 96, 600 166, 1003 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="import" data-to="physics-g" d="M 192 236 C 600 236, 600 166, 1003 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="output" data-to="physics-g" d="M 192 306 C 600 306, 600 166, 1003 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><g class="node drill" data-node="coupling-manager" tabindex="0" role="button"
+        aria-label="CouplingManager (drill in)" transform="translate(512,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">CouplingManager</text>
+        
+        <text class="meta" x="28" y="44">0.7k</text>
+        
+        <text class="chev" x="166" y="30" text-anchor="end">›</text>
+      </g><g class="node" data-node="coupled-sim" tabindex="0" role="button"
+        aria-label="CoupledSimulation" transform="translate(16,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">CoupledSimulation</text>
+        
+        <text class="meta" x="28" y="44">0.3k</text>
+        
+        
+      </g><g class="node" data-node="channels" tabindex="0" role="button"
+        aria-label="Field Channels" transform="translate(760,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">Field Channels</text>
+        
+        <text class="meta" x="28" y="44">0.8k</text>
+        
+        
+      </g><g class="node" data-node="contracts" tabindex="0" role="button"
+        aria-label="Contracts" transform="translate(16,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">Contracts</text>
+        
+        <text class="meta" x="28" y="44">0.5k</text>
+        
+        
+      </g><g class="node" data-node="pipeline" tabindex="0" role="button"
+        aria-label="Sim Pipeline" transform="translate(264,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">Sim Pipeline</text>
+        
+        <text class="meta" x="28" y="44">0.3k</text>
+        
+        
+      </g><g class="node" data-node="presets" tabindex="0" role="button"
+        aria-label="Field Presets" transform="translate(16,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#6ee7a0"></rect>
+        <text class="icon" x="13" y="28" fill="#6ee7a0">◈</text>
+        <text class="lbl" x="28" y="28">Field Presets</text>
+        
+        <text class="meta" x="28" y="44">1.0k</text>
+        
+        
+      </g><g class="node" data-node="import" tabindex="0" role="button"
+        aria-label="CAEModel Import" transform="translate(16,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">CAEModel Import</text>
+        
+        <text class="meta" x="28" y="44">2.3k</text>
+        
+        
+      </g><g class="node" data-node="output" tabindex="0" role="button"
+        aria-label="Output Channels" transform="translate(16,280)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">Output Channels</text>
+        
+        <text class="meta" x="28" y="44">0.7k</text>
+        
+        
+      </g><g class="node ext" data-node="physics-g" tabindex="0" role="button"
+        aria-label="physics" transform="translate(1008,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">physics</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g>
+      <g transform="translate(44 1032)"><text x="0" y="0" font-size="16" fill="#4dd8d0">≣</text></g><g transform="translate(140 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">data</text></g><g transform="translate(236 1032)"><text x="0" y="0" font-size="16" fill="#ff7ab8">◆</text></g><g transform="translate(332 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">class</text></g><g transform="translate(428 1032)"><text x="0" y="0" font-size="16" fill="#c792ea">ƒ</text></g><g transform="translate(524 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">function</text></g><g transform="translate(620 1032)"><text x="0" y="0" font-size="16" fill="#6ee7a0">◈</text></g><g transform="translate(716 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">module</text></g><g transform="translate(812 1032)"><text x="0" y="0" font-size="16" fill="#a78bfa">⬡</text></g><g transform="translate(908 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">lib</text></g><g transform="translate(1004 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#4dd8d0" stroke-width="2.4" stroke-dasharray="2 5"></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">uses</text></g><g transform="translate(1100 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#ffd166" stroke-width="2.4" ></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">owns</text></g><g transform="translate(1196 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#8b93b0" stroke-width="2.4" ></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">depends on</text></g>
+    </svg>

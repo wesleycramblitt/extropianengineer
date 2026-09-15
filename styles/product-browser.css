@@ -245,7 +245,18 @@
 
 /* product detail page gallery: break out of the narrow text column */
 .wrap--wide { max-width: 100em; }
-.product-gallery { max-height: min(82vh, 820px); }
+.product-gallery {
+  max-height: min(82vh, 820px);
+  margin: 0 auto;                /* center the poster on the detail page */
+}
+.product-gallery .pb-frame img {
+  object-fit: contain;           /* keep the full 16:9 poster visible */
+}
+.product-gallery .pb-slideshow,
+.product-gallery {
+  width: 100%;
+  max-width: 100%;
+}
 
 @media (max-width: 900px) {
   .pb-layout { grid-template-columns: 1fr; }

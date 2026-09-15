@@ -2,8 +2,8 @@
   {
     "slug": "caeworkbench",
     "title": "Extropian CAE Workbench",
-    "description": "An extensible UI/UX layout for configuring simulation state and preprocessing, running simulations, and viewing post processing. The system can be customized to most any numerical solver or input formats for simulation state.",
-    "tagline": "An extensible UI/UX layout for configuring simulation state and preprocessing, running simulations, and viewing post processing.",
+    "description": "A desktop workbench for unified CAE \u2014 open and inspect models, manipulate them with gizmos, configure and run solver studies, and extend with custom gizmos, solver configs, and workflows.",
+    "tagline": "One desktop platform for unified CAE \u2014 import, model, solve, and visualize, extended by you.",
     "category": [
       "engineering-ui",
       "visualization-interaction"
@@ -17,17 +17,16 @@
     "order": 1,
     "featuredOnHome": true,
     "capabilities": [
-      "Interactive scene-based editing of models, meshes, and boundary conditions",
-      "Batch process management and reproducible save/load of simulation scenes",
-      "Command-bus architecture separating UI from computational operations",
-      "Built directly on GL rendering for fluid, real-time interaction"
+      "Unified CAE host: open, inspect (model tree + inspector), and manipulate models with gizmos in a 3D viewport",
+      "Schema-driven solver run configuration on a worker thread with live, per-stamp post-processing",
+      "Parallel, deterministic design studies over real solver physics",
+      "JSON command surface + `wb` shim for automation from any language, workflow recipes, in-process Lua, and MCP agents",
+      "Extension API for custom gizmos, solver backends, and styles; savable JSON project state"
     ],
     "foundation": [
-      "The concept proven in the HyperFat hypersonic CFD engagement",
-      "Renders through Extropian Render and Extropian Spatial UI components",
-      "Configures and drives Extropian Physics solvers or your existing solver",
-      "Designed to be customized per solver or per domain workflow",
-      "Uses Extropian Viz for post processing"
+      "Mirrors and consumes the Extropian ecosystem: exd::cae, exd::render, exd::physics, exd::geometry, exd::viz, exd::optimization, exd::spatial-ui, exd::mcp",
+      "CommandBus/EventBus platform nervous system over an ECS core (exd::core)",
+      "Panels staged on extropian-spatial-ui (Dear ImGui retired); UI-agnostic content dumps underneath"
     ],
     "uses": [
       "spatial-ui",
@@ -39,7 +38,7 @@
       "optimization",
       "extropian-mcp"
     ],
-    "body": "Extropian CAE Workbench is the application layer of the ecosystem: an extensible, GL-based workbench for configuring and running numerical solvers. It turns a powerful but developer-only solver into something engineers can drive \u2014 editing models and boundary conditions, managing batch processes, and saving and reloading scenes with reproducibility.\n\nThe workbench is the same interface technology in active use on the HyperFat hypersonic CFD engagement, and it is designed to be adapted to a different solver, mesh, or domain rather than rewritten.",
+    "body": "The Extropian CAE Workbench is the platform product of the Extropian ecosystem: a desktop app where an engineer opens a model from the unified CAE IR (machine recipes, or OBJ/STL/Gmsh adapters), inspects it in a model tree and inspector, manipulates parts with gizmos in a full-window 3D viewport, and configures a solver run from typed schemas. Solver work runs on a worker thread with live post-processing \u2014 velocity and pressure fields streamed from the running solver rebuild slices, streamlines, and particle clouds every stamp, and parallel design studies optimize over real variables.\n\nArchitecturally it is the `exd::workbench` library plus one reference app. Every user action is a command on a CommandBus (named and undoable); cross-system notifications are typed events on an EventBus; panels read ECS state, dispatch commands, and subscribe to events. The UI is staged on Extropian Spatial UI widget trees with UI-agnostic content dumps underneath, so panels can re-render elsewhere without touching services. Everything consumes \u2014 never reimplements \u2014 the ecosystem mirror (extropian-cae, render, physics, geometry, viz, optimization, spatial-ui, mcp).\n\nExtensibility and automation are first-class platform promises. Users register custom gizmos, solver backends, and styles against an unconditional extension API; a JSON command surface (socket/CLI/event-stream, plus a tiny `wb` shim) lets researchers drive the workbench from any language; workflow recipes orchestrate multi-step studies; in-process Lua covers interactive niches; and AI agents talk to the same surface via extropian-mcp.",
     "media": null,
     "gallery": null,
     "status": "in-development"
@@ -90,8 +89,8 @@
   {
     "slug": "spatial-ui",
     "title": "Extropian Spatial UI",
-    "description": "Lightweight, performant 2D UI/UX system built directly into any GL context \u2014 deployable on any system.",
-    "tagline": "A lightweight, performant 2D UI/UX system built directly into any GL context, deployable on any system.",
+    "description": "2D/2.5D UI rendered directly inside any GL context \u2014 widgets as ordinary ECS entities in the same scene graph as 3D geometry. No DOM, no document runtime.",
+    "tagline": "2.5D UI as ECS entities in your GL scene \u2014 widgets, layout, and interaction, no DOM.",
     "category": [
       "engineering-ui",
       "visualization-interaction"
@@ -104,68 +103,32 @@
     "order": 3,
     "featuredOnHome": true,
     "capabilities": [
-      "2D UI/UX rendered inside the GL context \u2014 no DOM layer required",
-      "Lightweight enough for embedded and real-time environments",
-      "Performant interaction during live simulation and visualization",
-      "Deployable on any system that runs a GL context"
+      "Widgets as ordinary ECS entities in one scene graph with 3D geometry",
+      "Deterministic dirty-driven pipeline: size, flex layout, mesh, interaction",
+      "Pure-math layout \u2014 Column/Row/Absolute plus a built-in flex engine",
+      "Rich widget catalog: controls, containers, charts, diagrams, and LLM-authored JSON schema",
+      "Headless-first and WASM-safe: null-window tests, injected mesh creation, screenshot capture"
     ],
     "foundation": [
-      "The widget layer under Extropian CAE Workbench interfaces",
-      "Pairs with Extropian Render for unified GL-based applications",
-      "Removes the traditional DOM/engine divide in engineering tools"
+      "Pure ECS + SceneGraph from extropian-core, text and meshes from extropian-geometry, GL rendering via extropian-render, window/input from extropian-app",
+      "FreeType SDF glyph atlas and HarfBuzz-driven text pipeline",
+      "CPU-side mesh generation only \u2014 no GPU, DOM, or document runtime in the library"
     ],
     "uses": [
       "render",
       "geometry",
-      "assets",
       "core"
     ],
-    "body": "Most engineering software lives with a split personality: a native or DOM-based UI bolted onto a graphics engine. Extropian Spatial UI eliminates that divide by drawing the 2D interface directly inside the GL context \u2014 lightweight, performant, and deployable anywhere a GL context runs.\n\nThat makes it the interaction foundation for engineering tools that need UI and visualization to behave as one system.",
+    "body": "Most engineering software lives with a split personality: a native or DOM-based UI bolted onto a graphics engine. Extropian Spatial UI eliminates that divide by rendering 2D/2.5D UI directly inside the GL context. Widgets \u2014 panels, buttons, labels, headers, separators \u2014 are ordinary spatial entities living in the same `ecs::Registry` and `ecs::SceneGraph` as 3D geometry, CAE models, and data visualizations. There is no separate 2D scene, no DOM, and no document runtime.\n\nResolution runs as a deterministic dirty-tag pipeline: a font/viewport structural phase, a layout phase where Column/Row/Absolute containers reflow through a pure-math flex engine, then a mesh-generation and interaction phase that uploads meshes and assigns stable pick IDs. The library never touches the GPU \u2014 meshes are uploaded through an injected mesh-create function into the Extropian Render graphics context, while hit resolution and event dispatch (hover/click/drag, keyboard focus, scroll, selection) stay in this library.\n\nThe system is headless-first and WASM-safe: every stage runs with a null window and an injected mesh callback, verified by a headless doctest suite and scriptable screenshot capture. The widget catalog spans controls, containers, charts and data-viz, and diagram widgets \u2014 including widgets authored from an LLM-style JSON schema via the semantic builder.",
     "media": null,
     "gallery": null,
     "status": "in-development"
   },
   {
-    "slug": "composer",
-    "title": "Extropian Composer",
-    "description": "Context-aware, interactive visualization of complex topics or systems \u2014 explain, explore, and communicate.",
-    "tagline": "Context-aware, interactive visualization of complex topics or systems.",
-    "category": [
-      "visualization-interaction"
-    ],
-    "type": "End User Product",
-    "licensing": [
-      "Binary Distribution (Proprietary)",
-      "Internal Use (Proprietary)"
-    ],
-    "order": 4,
-    "featuredOnHome": true,
-    "capabilities": [
-      "Interactive composition of complex systems for exploration and communication",
-      "Context-aware presentation that adapts to what is being examined",
-      "Built on the Extropian rendering and interaction stack",
-      "Suited to digital-twin views, training, and technical communication"
-    ],
-    "foundation": [
-      "Renders through Extropian Render with Extropian Spatial UI interaction",
-      "Reuses the interactive-visualization patterns proven in engineering engagements"
-    ],
-    "uses": [
-      "render",
-      "spatial-ui",
-      "geometry",
-      "core"
-    ],
-    "body": "Complex systems are hard to communicate. Extropian Composer is built for context-aware, interactive visualization of complex topics or systems \u2014 letting viewers explore relationships, states, and behavior instead of staring at static diagrams.\n\nIt shares its rendering and interaction foundation with the engineering tools, so a Composer view can sit on top of real simulation or sensor data rather than being a stylized mock.",
-    "media": null,
-    "gallery": null,
-    "status": "planned"
-  },
-  {
     "slug": "render",
     "title": "Extropian Render",
-    "description": "Modular ECS-based renderer with built-in interaction, shaders, and gizmo support for any GL backend.",
-    "tagline": "A modular, ECS-based renderer with built-in interaction, shaders, and gizmo support for any GL backend.",
+    "description": "A modular, ECS-based 3D rendering framework for the Extropian ecosystem \u2014 multi-pass scenes, built-in cameras, picking, and a 3D transform gizmo.",
+    "tagline": "Modular ECS rendering engine for the Extropian ecosystem \u2014 PBR, NPR, particles, volume, and built-in interaction.",
     "category": [
       "visualization-interaction"
     ],
@@ -178,22 +141,22 @@
     "order": 13,
     "featuredOnHome": false,
     "capabilities": [
-      "ECS-based scene architecture for large, dynamic engineering scenes",
-      "Built-in interaction, shaders, and gizmo support",
-      "Backend-agnostic \u2014 supports any GL context",
-      "Composable rendering pipeline for domain-specific visualization"
+      "Multi-pass ECS-driven rendering: sky, opaque, PBR, NPR, particles, volume, highlights, and a 2D UI overlay",
+      "Default hot-reloadable shader library: Lambert/Phong, PBR metallic-roughness with IBL, and four NPR styles",
+      "Unified camera system \u2014 FPS, orbit, walk, and ortho-2D modes with runtime FOV",
+      "Built-in interaction: CPU raycast picking, GPU ID-buffer picking, hover/selection highlighting, and a 3D transform gizmo",
+      "GPU resource managers with instanced draw-call batching and external mesh import (OBJ/STL/FBX/STEP)"
     ],
     "foundation": [
-      "The rendering core used by Extropian CAE Workbench and the demo pipeline",
-      "ECS design keeps scenes modular and extensible",
-      "Gizmo and interaction primitives built in rather than bolted on"
+      "Built on extropian-core (ECS, math, SceneGraph) and extropian-app (window, input, OpenGL context)",
+      "Systems scheduled by core::SystemGraph; renderer owns no registry, no UI semantics",
+      "IRenderer abstraction across OpenGL 4.6, WebGL 2.0, headless Null, and a committed Vulkan slot"
     ],
     "uses": [
-      "assets",
       "geometry",
       "core"
     ],
-    "body": "Extropian Render is the visualization core of the ecosystem: a modular, ECS-based renderer with interaction, shaders, and gizmo support built in, and no loyalty to a single GL backend. Scenes are data \u2014 entities and components \u2014 which keeps engineering visualizations modular, extensible, and composable with the rest of the stack.",
+    "body": "Extropian Render is the rendering backend of the ecosystem: a reusable, ECS-based 3D rendering framework that consumes plain ECS entities and draws them through a multi-pass pipeline. It depends only on extropian-core and extropian-app, and treats everything submitted as ECS state identically \u2014 direct scene entities, external models, or spatial-ui widgets \u2014 with no UI, app, or orchestration coupling.\n\nA platform-agnostic RenderSystem drives passes for sky, opaque, Phong, PBR, four NPR styles, reflective, transparent, particles, volume ray-march, highlight, gizmo overlay, and a 2D orthographic UI layer. GPU resource managers handle upload, hot-reloadable shaders, and instanced draw-call batching, while an `IRenderer` interface targets OpenGL 4.6 today with WebGL 2.0 and Vulkan as committed targets.\n\nBuilt-in tooling supports scientific and engineering visualization: a unified camera (FPS/orbit/walk/ortho-2D with runtime FOV), CPU raycast and GPU ID-buffer picking, hover/selection highlighting, and a 3D transform gizmo. Default shaders include PBR metallic-roughness with optional IBL and NPR cel/technical/hatch/blueprint styles; meshes import from OBJ, STL, FBX, and STEP with optional diffuse textures.",
     "media": null,
     "gallery": null,
     "status": "alpha"
@@ -201,8 +164,8 @@
   {
     "slug": "geometry",
     "title": "Extropian Geometry",
-    "description": "A modular 2D and 3D parametric geometry engine \u2014 geometry as a foundation, not an add-on.",
-    "tagline": "A modular, parametric geometry engine for 2D and 3D.",
+    "description": "A renderer-independent parametric geometry engine \u2014 deterministic 2D and 3D meshing from structured descriptors, with construction operators, mesh processing, and interaction gizmos.",
+    "tagline": "Geometry as a foundation, not an add-on \u2014 deterministic parametric 2D/3D meshing, renderer-independent by design.",
     "category": [
       "visualization-interaction"
     ],
@@ -215,20 +178,21 @@
     "order": 7,
     "featuredOnHome": true,
     "capabilities": [
-      "Parametric 2D and 3D geometry construction and manipulation",
-      "Modular design that composes into larger modeling workflows",
-      "Feeds meshing, simulation, and visualization downstream",
-      "Foundation for generative design exploration"
+      "Deterministic 2D and 3D primitive mesh generation from immutable descriptors",
+      "Construction operators: extrusion, lathe, helix, loft/skin, SDF blending, terrain, deformation and FFD cages",
+      "Mesh processing: merge, transform, weld, normal recomputation, triangulation, exact CSG booleans, watertight gate",
+      "SVG-like Path2D fills/strokes, FreeType/HarfBuzz text shaping, glyph and SDF font atlases",
+      "Per-part transform and deform gizmos with a pure, headless-testable edit kernel"
     ],
     "foundation": [
-      "Core geometry layer beneath Extropian CAE, Physics, and Synthesis",
-      "Designed for the interactive performance engineering tools demand"
+      "Depends only on extropian-core for math and mesh types; pure CPU math, no GPU, no ECS",
+      "Compiles to WASM with zero changes; tiered static library targets (2d, 3d, model, io, text, noise)",
+      "Designed as a layered kernel: geometry kernel \u2192 construction operators \u2192 domain recipes"
     ],
     "uses": [
-      "core",
-      "assets"
+      "core"
     ],
-    "body": "Extropian Geometry is the shape foundation of the ecosystem: a modular, parametric 2D and 3D geometry engine. Rather than being an isolated CAD-style island, it is built to feed downstream consumers \u2014 meshing, simulation, visualization, and generative design \u2014 from one parametric description.",
+    "body": "Extropian Geometry is a pure computational C++23 library: describe a shape with a structured descriptor, call a `generate_*_mesh()` function, get back deterministic `MeshData`. It covers a wide set of 2D primitives (rect, circle, arc, ring, star, grid, regular polygon, \u2026) and 3D primitives (sphere, box, cylinder, torus, cone, tube, capsule, icosahedron, \u2026), an SVG-like `Path2D` system, and extended construction \u2014 extrusion, lathe, helix, loft/skin between sections, heightmap/terrain, SDF blending via marching cubes, and bend/twist/taper/noise deformation plus FFD lattice cages. Mesh ops include merge, transform, welding, normal recomputation, concave polygon triangulation with holes, exact CSG booleans, and a watertight/closed-manifold gate.\n\nThe architecture is layered: a generic geometry kernel (profiles, paths, parametric surfaces, scalar fields, lofts, tessellation), construction operators (extrude, revolve, sweep, loft, implicit-field extraction, deform), and domain recipes built on top. It stays deliberately renderer-independent \u2014 no GPU, no ECS, only extropian-core for math/mesh types \u2014 and compiles to WASM with zero changes. Text shaping (FreeType + HarfBuzz glyph meshing, SDF font atlases) and per-part interaction gizmos (TRS plus bend/twist/taper/lattice) are included, with a pure, headless-testable edit kernel for parametric and direct editing.\n\nThe CAD/CAE model layer (parts, patches, materials, boundary conditions, format adapters, mass properties, machine recipes) now lives in the sibling extropian-cae, which builds on this library and relies on its documented face-ordering contracts. Geometry is pure shape generation again.",
     "media": null,
     "gallery": null,
     "status": "alpha"
@@ -236,8 +200,8 @@
   {
     "slug": "cae",
     "title": "Extropian CAE",
-    "description": "A modular, unified CAE format for representing any multiphysics problem \u2014 the data foundation of the ecosystem.",
-    "tagline": "A modular, unified CAE format for representing any multiphysics problem.",
+    "description": "A modular C++ library built around CAEModel \u2014 a unified, format-agnostic in-memory representation of any multiphysics problem, with deterministic file-format adapters and two import/export tiers.",
+    "tagline": "One model for any multiphysics problem \u2014 geometry, motion, loads, and analysis state, format-agnostic.",
     "category": [
       "core-platform"
     ],
@@ -250,29 +214,31 @@
     "order": 8,
     "featuredOnHome": false,
     "capabilities": [
-      "A single representation for multiphysics problems across the ecosystem",
-      "Modular format that grows with problem types rather than freezing them",
-      "Reproducible scenes: models, boundary conditions, and setup in one place",
-      "Exchangeable with existing solver and mesh tooling"
+      "Unified CAEModel IR spanning geometry, patches, materials, multiphysics topology, loads, motion, and analysis state",
+      "Deterministic adapters for STL, OBJ, Gmsh .msh, VTK/VTU, faceted STEP, MJCF, and URDF",
+      "Dependency-free WASM-clean importers, plus an optional OpenCASCADE/Assimp tier for STEP, IGES, BREP, FBX, glTF, 3DS, and more",
+      "Motion graph with fixed/revolute/continuous/prismatic joints, limits and compliance, and gear/belt/rack couplings",
+      "Mass properties and parametric machine recipes producing watertight, patched assemblies"
     ],
     "foundation": [
-      "The data backbone shared by Extropian CAE Workbench and Extropian Physics",
-      "Scene save/load with reproducibility (as used in the HyperFat engagement)"
+      "Built on extropian-core math/mesh types and extropian-geometry mesh generation",
+      "Dependency-free core library with heavy deps isolated in the opt-in exd-cae-io module",
+      "Designed for solver intake: capability negotiation, content hashes, and deterministic validation"
     ],
     "uses": [
       "geometry",
       "core"
     ],
-    "body": "Every engineering tool family eventually fights its own file formats. Extropian CAE is the ecosystem's answer: a modular, unified format for representing any multiphysics problem \u2014 geometry, mesh, physics, boundary conditions, and study setup in one reproducible structure.\n\nBecause the format is modular, it is designed to represent problem types that do not exist yet, not just the ones solved today.",
+    "body": "Extropian CAE is the ecosystem's data foundation: a modular, dependency-light C++ library organized around **CAEModel**, a unified, format-agnostic in-memory IR. One model per part or machine carries everything an analysis needs: parts and assemblies with labelled CAE patches, a deterministic material database, multiphysics regions/domains/interfaces, physics-tagged boundary conditions and body loads, symmetry/cyclic/rotating frames, a motion graph of joints and couplings, and the analysis state itself \u2014 volume discretization, initial and ambient conditions, time domain, and physics couplings.\n\nEvery file format is an adapter over the model. Deterministic exporters cover OBJ, STL, Gmsh .msh, VTK/VTU, faceted STEP, and MJCF/URDF for mechanisms; importers rebuild CAEModel from OBJ, STL, Gmsh, FBX, and analytic STEP in a WASM-clean, dependency-free core. An opt-in tier (`exd-cae-io`) adds analytic STEP/IGES/BREP via OpenCASCADE and the wider mesh zoo (FBX/glTF/3DS/COLLADA/\u2026) plus glTF 2.0 export via Assimp, with dependencies fetched automatically \u2014 no OS configuration required.\n\nParametric machine recipes (turbine, compressor, single-cylinder steam engine) return patched assemblies with mechanisms; full demo analysis scenes \u2014 from a ~2 m turbofan down to a \u00b5m-scale MEMS biosensor \u2014 populate every field and pass `validate_analysis()` with zero errors. Mass properties come from Mirtich tetrahedron decomposition.",
     "media": null,
     "gallery": null,
-    "status": "prototype"
+    "status": "in-development"
   },
   {
     "slug": "viz",
     "title": "Extropian Viz",
-    "description": "Post-processing and visualization tooling for simulation results \u2014 turn solver output into insight.",
-    "tagline": "Post-processing and visualization for simulation results.",
+    "description": "Turns solver output into insight \u2014 slices, iso-surfaces, streamlines, particles, derived fields, and tensor glyphs from scalar, vector, and tensor fields.",
+    "tagline": "Post-process solver output into insight \u2014 slices, iso-surfaces, streamlines, glyphs, and derived fields.",
     "category": [
       "visualization-interaction"
     ],
@@ -284,18 +250,21 @@
     "order": 9,
     "featuredOnHome": false,
     "capabilities": [
-      "Post-processing of solver output into interactive visual results",
-      "Exploration of results across parameters and design comparisons",
-      "Built on the Extropian rendering stack with no legacy visualization debt"
+      "Slice planes + scientific colormaps (grayscale, hot, jet, viridis, inferno, cool_warm) with auto-scaling from percentile stats",
+      "Watertight iso-surfaces (marching tets), streamlines (RK2/RK4, deterministic seeds), and particles",
+      "Field-on-mesh annotation: per-vertex coloring, plane cross-sections, iso-contour lines",
+      "Derived fields: gradient, curl, divergence, vorticity, Q-criterion",
+      "Tensor glyphs via Jacobi eigen-decomposition and fractional anisotropy, plus bounded-history point probes"
     ],
     "foundation": [
-      "Complements Extropian Render with result-oriented visualization features",
-      "Pairs with Extropian CAE Workbench for full configure-solve-visualize loops"
+      "Built on exd::core math/mesh types and generic solver-output fields, with no dependency on a solver",
+      "Planned GPU path behind a ComputeBackend, borrowing Extropian Render's shared GL context",
+      "Headless-testable CPU reference cores with analytic references and _into reuse for real-time use"
     ],
     "uses": [
       "render"
     ],
-    "body": "Solver output is only valuable when it can be seen, compared, and understood. Extropian Viz covers the post-processing side of the simulation loop \u2014 turning raw results into interactive visualizations engineers can explore and compare. It is being built on the same modern rendering stack as the rest of the ecosystem rather than on aging visualization toolkits.",
+    "body": "Solver output is only valuable when it can be seen, compared, and understood. Extropian Viz (`exd::viz`) is a generic scientific-field visualization library that consumes scalar/vector/tensor fields on uniform grids (`UniformGrid`, `Field3D<T>`) and produces the core post-processing and visualization techniques: slice planes with transfer-function colormapping, watertight iso-surfaces via marching tets, RK2/RK4 streamlines, particles, bounded-history point probes, tensor glyphs (Jacobi eigen-decomposition, fractional anisotropy), and derived fields (gradient, curl, divergence, vorticity, Q-criterion). Data maps onto existing geometry too \u2014 per-vertex field coloring, plane cross-sections, and iso-contour lines on meshes \u2014 without ever rewriting topology.\n\nArchitecturally it is interface-first and GPU-behind-the-interface: every algorithm ships as a deterministic CPU reference implementation with analytic headless tests, and a `ComputeBackend` interface is planned so GPU kernels (slice extraction, iso compaction, particle advection, resampling) can arrive without touching the public API. The library depends on `exd::core` only and never on a solver or renderer; solver outputs and product data are adapted into viz inputs by consuming repos.\n\nThe optional showcase demo walks every landed technique on an analytic Taylor\u2013Green vortex rendered through Extropian Render, and the planned ECS layer publishes render outputs so a host render pipeline draws them without knowing viz exists.",
     "media": null,
     "gallery": null,
     "status": "in-development"
@@ -303,8 +272,8 @@
   {
     "slug": "physics",
     "title": "Extropian Physics",
-    "description": "Modular multiphysics numerical methods engine with GPU-first solvers and coupling strategies \u2014 Extropian Physics licensing, customization, and build-on options.",
-    "tagline": "A modular numerical methods engine with multiphysics solvers and modular coupling strategies, built from the ground up for GPU compute workloads.",
+    "description": "A modular multiphysics numerical engine \u2014 compose independent solvers (CFD, thermal, structural, electromagnetics, turbomachinery, and more) through a validated coupling engine, GPU-portable by design.",
+    "tagline": "One composable runtime \u2014 couple physics, not solvers.",
     "category": [
       "simulation"
     ],
@@ -316,31 +285,32 @@
     "order": 10,
     "featuredOnHome": false,
     "capabilities": [
-      "Multiphysics solver architecture with modular coupling strategies",
-      "Numerical methods designed for GPU compute workloads from the ground up",
-      "Component-level solvers that combine into larger simulation systems",
-      "Real-time and interactive simulation potential (GPU-first design)"
+      "Coupled multiphysics runs (FSI, conjugate heat transfer, thermal stress, joule heating, aeroacoustics, species-in-flow) via a validated coupling engine",
+      "FDM-based incompressible 3D CFD with immersed solids and Boussinesq natural convection",
+      "Grid-first solvers: thermal, structural elasticity, acoustics, particles, chemistry, porous media, electromagnetics, species transport",
+      "Axial mean-line turbomachinery (stages, operating maps, Greitzer surge) and reduced-order BEM turbines",
+      "Rotating-machine presets: coupled turbines, Otto-cycle combustion and Rankine-lite steam engines with governors and generator loads",
+      "Deterministic, batchable entry points with real-time field/CSV output channels"
     ],
     "foundation": [
-      "Written for GPU compute architectures (WebGL/WebGPU-era pipelines)",
-      "Modular, composable solver and coupling design",
-      "Powers the real-time simulation and visualization demos across the Extropian ecosystem",
-      "Ecosystem sibling to Extropian CAE (unified problem format) and Extropian Optimization"
+      "Composable runtime abstraction: data, operators, physics, discretization, coupling, execution, hardware",
+      "Fidelity profiles from REALTIME to HIGH_FIDELITY across the same configurations",
+      "No-exceptions design (ModelStatus) with typed config/result contracts, verified by analytic-anchored unit tests"
     ],
     "uses": [
       "cae",
       "core"
     ],
-    "body": "Extropian Physics is the numerical heart of the ecosystem: a modular engine for building multiphysics simulations without locking you into a monolithic solver. It is designed around GPU compute from the first line of code, so workloads that traditionally require offline batch infrastructure can run interactive and real-time.\n\nBecause the engine is modular, an engagement rarely adopts it whole \u2014 more often a solver, a coupling strategy, or the GPU execution layer becomes the starting point for a specialized application.",
+    "body": "Extropian Physics is the numerical heart of the ecosystem: a single composable numerical engine, not a collection of monolithic solvers. It builds simulations from data + operators + physics + discretization + coupling + execution + hardware: physics modules declare mathematical requirements, a coupling engine links them over typed field channels with validated contracts (units, rank, conservation, temporal behavior), and presets assemble verified configurations \u2014 coupled wind/water turbines, Otto-cycle and steam engines, incompressible 3D FDM CFD, conjugate heat transfer, aeroacoustics, and more. It runs CPU today (parallel_for/reduce/stencil primitives) behind a hardware-independent design that targets a CUDA GPU backend.\n\nThe solver cores are real and analytic-verified: FDM stencil operators (gradient/divergence/curl/Laplacian/advection), matrix-free linear solvers (CG/GMRES/BiCGSTAB), eight ODE integrators, and grid-first domains including thermal, acoustics, linear elasticity, particles, chemistry, porous media, and species transport. Turbomachinery covers axial mean-line stages and stacks (compressor/turbine senses emerge from geometry), operating maps, and Greitzer surge dynamics. A deterministic import pipeline turns external CAE models into solver-ready meshes and materials; output streams binary field stamps and CSV machine-state series at a real-time cadence for visualization and optimization loops.\n\nBecause the engine is modular, an engagement rarely adopts it whole \u2014 more often a solver, a coupling strategy, or the execution layer becomes the starting point for a specialized application.",
     "media": null,
     "gallery": null,
-    "status": "prototype"
+    "status": "in-development"
   },
   {
     "slug": "optimization",
     "title": "Extropian Optimization",
-    "description": "Modular optimization engine for engineering design spaces \u2014 Extropian Optimization licensing, customization, and build-on options.",
-    "tagline": "A modular optimization engine for exploring larger design spaces and finding better-performing designs.",
+    "description": "A domain-independent optimization library for black-box engineering design spaces \u2014 five pluggable algorithms, deterministic reproducible runs, constraint handling, and a steppable embedding API.",
+    "tagline": "Deterministic, embeddable optimization engine for black-box engineering design spaces.",
     "category": [
       "optimization"
     ],
@@ -353,48 +323,19 @@
     "order": 6,
     "featuredOnHome": false,
     "capabilities": [
-      "Modular optimization engine that wraps simulation and analysis workflows",
-      "Turns manual iteration into automated design-space exploration",
-      "Plugs into existing solvers, models, and evaluation pipelines",
-      "Composable with generative and AI-driven search strategies"
+      "Five pluggable algorithms: CMA-ES, NSGA-II, Nelder-Mead, Hooke-Jeeves, differential evolution",
+      "Deterministic, bit-for-bit reproducible runs \u2014 invariant to thread count",
+      "Continuous, integer, and categorical variables with constraint handling (adaptive penalty, constrained domination)",
+      "Parallel batch evaluation via an index-ordered thread pool",
+      "Steppable embedding API for hosts that own their evaluation pipeline, plus JSON-defined problems"
     ],
     "foundation": [
-      "Modular optimizer core, independent of any single simulation package",
-      "Designed to sit on top of Extropian Physics or existing validated solvers",
-      "Pairs with Extropian Synthesis for generative design exploration"
+      "Built for the Extropian ecosystem on exd-core (platform-deterministic PCG32 RNG)",
+      "Deterministic batch protocol (sample_batch/update_batch) shared by all algorithms",
+      "Business Source License 1.1 (free for personal/educational/research/internal use)"
     ],
     "uses": [],
-    "body": "Optimization turns engineering judgment loops into automated search. Extropian Optimization is a modular engine for driving simulations and analyses toward better designs with less manual effort \u2014 exploring design spaces that would be impractical to cover by hand.\n\nIts modular design means the optimization layer can wrap your existing solver rather than requiring you to migrate to a new one.",
-    "media": null,
-    "gallery": null,
-    "status": "alpha"
-  },
-  {
-    "slug": "assets",
-    "title": "Extropian Assets",
-    "description": "A collection of assets for GL-based scenes \u2014 meshes, materials, and textures for engineering visualization.",
-    "tagline": "A collection of assets for GL-based scenes.",
-    "category": [
-      "core-platform"
-    ],
-    "type": "Modular repository",
-    "licensing": [
-      "Source Available (PolyForm Shield)",
-      "Binary Distribution (Proprietary)",
-      "Internal Use (Proprietary)"
-    ],
-    "order": 14,
-    "featuredOnHome": false,
-    "capabilities": [
-      "Meshes, materials, and textures for GL-based engineering scenes",
-      "Scene-ready assets that work with Extropian Render and Spatial UI",
-      "Grows with the ecosystem's demonstration and product needs"
-    ],
-    "foundation": [
-      "Asset library exercised by the ecosystem demos and product development"
-    ],
-    "uses": [],
-    "body": "Every graphics pipeline needs content. Extropian Assets is the ecosystem's collection of meshes, materials, and textures for GL-based scenes \u2014 the practical content layer that keeps demos, products, and engagements from reinventing the same basic scene elements.",
+    "body": "Optimization turns engineering judgment loops into automated search. Extropian Optimization is a domain-independent C++ library built around a modular optimizer core and a batch execution protocol (`sample_batch`/`update_batch`). It ships five pluggable algorithms \u2014 CMA-ES (flagship, active covariance + IPOP restarts), NSGA-II for multi-objective Pareto fronts, deterministic Nelder-Mead and Hooke-Jeeves for low-dimension polish, and differential evolution for coarse global search.\n\nRuns are deterministic by contract: the same seed yields a bit-for-bit identical trajectory regardless of thread count, with candidates generated before evaluation and consumed in index order. A thread pool handles parallel batch evaluation, while an embedded stepper mode hands control to hosts that own their evaluation pipeline \u2014 such as a simulator's frame-batched solver pools \u2014 with bit-identical results to one-shot runs.\n\nProblems are expressed via a `[0,1]^d` design space mapped to engineering units (continuous, integer, categorical), with adaptive penalty and constrained domination for constraints, budgets/plateau/wall-clock stopping, JSON-defined problems for runtime configuration, and result history including multi-objective Pareto archives.",
     "media": null,
     "gallery": null,
     "status": "alpha"
@@ -402,8 +343,8 @@
   {
     "slug": "core",
     "title": "Extropian Core",
-    "description": "The foundational C++ platform library of the ecosystem \u2014 math, memory, ECS, and GL integration primitives that every Extropian component builds on.",
-    "tagline": "The foundational C++ platform library \u2014 math, memory, ECS, and GL integration primitives for the whole ecosystem.",
+    "description": "The foundational C++23 platform library of the ecosystem \u2014 math, a sparse-set ECS, SceneGraph and transforms, and core utilities that every Extropian component builds on.",
+    "tagline": "One shared C++23 foundation for the Extropian ecosystem \u2014 math, ECS, transforms, and utilities.",
     "category": [
       "core-platform"
     ],
@@ -414,13 +355,19 @@
     "order": 16,
     "featuredOnHome": true,
     "capabilities": [
-      "Core math, containers, and memory primitives for high-performance compute",
-      "ECS and scene-graph foundations shared by Render, Physics, and Spatial UI",
-      "GL integration primitives \u2014 context, resources, and backend abstraction"
+      "Header-only GLM-style linear algebra \u2014 vectors, matrices, quaternions, dual quaternions, bounds, raycasting",
+      "Sparse-set, archetype-free ECS with entity generation counters, views, command buffers, and ordered system graphs",
+      "Generic SceneGraph hierarchy with LocalTransform/WorldTransform derived by TransformSystem",
+      "Core utilities: config with TOML I/O, thread-safe logging, bump allocators, serialization, event bus, plugin loader, abstract WindowState input",
+      "JSON-serializable authored document schemas (VisualDocument, StyleProfile, semantic input, UI presentation state)"
     ],
-    "foundation": [],
+    "foundation": [
+      "C++23 and the C++ standard library \u2014 no runtime dependencies, compiles to WASM with zero changes",
+      "No GPU abstraction lives in core; GPU, audio, windowing, and app logic are explicit non-goals",
+      "Consumed as the shared foundation by render, spatial-ui, CAE, geometry, and app"
+    ],
     "uses": [],
-    "body": "**Extropian Core** is the shared foundation of the ecosystem: the C++ libraries every other Extropian component composes. It is open source under Apache 2.0 so teams can build their own software on the same primitives the products use.\n\nEverything else in the ecosystem \u2014 Geometry, CAE, Physics, Render, Spatial UI \u2014 is built on Core and available as modular repositories that drop into your own codebase.",
+    "body": "Extropian Core is the lowest-level shared infrastructure for the entire Extropian ecosystem. Every other Extropian library \u2014 render, spatial-ui, CAE, geometry, app \u2014 depends on it, and it in turn depends on nothing beyond C++23 and the standard library. It provides `exd::math` (templated Vec2\u2013Vec4, Mat3/Mat4, Quat, DualQuat, Bounds3, Raycast, Color, all header-only), the `exd::ecs` framework (Entity, Registry, sparse-set component storage, Views, CommandBuffer, SystemGraph, ISystem), and `exd::core` utilities (config, logging, units, allocators, serialization, event bus, plugin loader, and an abstract WindowState input interface).\n\nArchitecturally the ecosystem converged on one spine hosted here: entities and components are common state, a generic `exd::ecs::SceneGraph` is the only hierarchy model, and transforms are component state \u2014 `LocalTransform` plus `WorldTransform` derived each update by `TransformSystem`. UI, CAE, and render semantics are carried as components rather than graph features, so one ECS and one SceneGraph serve spatial 2.5D UI, multiphysics scenes, and rendering alike. Core deliberately does not own GPU resources, audio, window creation, or application logic.\n\nExtropian Core also owns the cross-language schema structs in `exd::types` (the authored `VisualDocument`, `StyleProfile`, semantic input, runtime UI `PresentationState`, and patch types) with C++ as the single authority. It ships as a static library (`exd::core`), integrates via CMake FetchContent, and compiles to WASM with zero changes.",
     "media": null,
     "gallery": null,
     "status": "alpha"
@@ -428,8 +375,8 @@
   {
     "slug": "extropian-mcp",
     "title": "Extropian MCP",
-    "description": "LLM conversational state manager with tool access to the Extropian ecosystem \u2014 solvers, geometry, and visualization behind one protocol.",
-    "tagline": "An LLM conversational state manager with tool access across the ecosystem.",
+    "description": "The MCP agent host for the Extropian ecosystem \u2014 an AI agent that drives LLM providers and acts on whatever Extropian repos are registered as tools, with conversational state and hooks.",
+    "tagline": "An AI agent host that drives LLMs with tool access across the Extropian ecosystem.",
     "category": [
       "generative-ai",
       "core-platform"
@@ -443,28 +390,30 @@
     "order": 11,
     "featuredOnHome": false,
     "capabilities": [
-      "Conversational state management for LLM-driven engineering workflows",
-      "Tool access to ecosystem components \u2014 solvers, geometry, and visualization",
-      "Session persistence with reproducible conversation state",
-      "Plugs into existing LLM clients via the Model Context Protocol"
+      "Drives LLM providers (Ollama / OpenCode) with JSON-mediated tool calls",
+      "Tool registry over registered Extropian repos, loaded from each repo's prompts/ folder",
+      "Conversational state management \u2014 Q&A turns, history budgeting, reproducible snapshots",
+      "Hooks so an embedding host can load conversation state into spatial-ui widgets",
+      "MCP-shaped tool definitions ready for future tools/list and tools/call server adapters"
     ],
     "foundation": [
-      "Built on Extropian Core primitives",
-      "Exposes Extropian Physics, Geometry, and Render capabilities as tools"
+      "Built on extropian-core shared types as the schema authority",
+      "Per-repo prompts-folder convention: each registered repo teaches the AI how to use its tools",
+      "Provider abstraction for local (Ollama) and code-agent (OpenCode) LLM backends"
     ],
     "uses": [
       "core"
     ],
-    "body": "Extropian MCP brings the ecosystem to the LLM: a conversational state manager that gives language models structured tool access to Extropian solvers, geometry, and visualization \u2014 so a chat session can configure simulations, query models, and pull results instead of just talking about them.\n\nState is managed explicitly and reproducibly, so a conversation that produced a design or a result can be replayed, inspected, and continued.",
+    "body": "Extropian MCP is the agent host of the Extropian ecosystem: an AI agent that drives LLM providers (Ollama / OpenCode) and acts on the ecosystem by calling whichever repos are registered as tools \u2014 spatial-ui, geometry, assets, physics, optimization, and others. It also manages conversational state (Q&A turns, history budgeting) with hooks so an embedding host can load that state into widgets, plus optional voice support via hooks.\n\nRegistered repos each ship a `prompts/` folder whose files teach the AI how to use that repo's tools \u2014 extropian-mcp loads them at runtime, with no embedded prompts. Tool definitions are MCP-shaped (name, description, input JSON Schema), so a future MCP-server adapter over the registry maps one-to-one onto `tools/list` / `tools/call`.\n\n\"MCP\" names the product category, not protocol conformance: extropian-mcp is the agent-runtime library that an Extropian host embeds; it does not (yet) speak the MCP JSON-RPC protocol. Server and client adapters are planned. The current version (v0.3) was rebuilt as the generic agent host after the visual-document-specific machinery moved to extropian-spatial-ui, and ships with a passing test suite.",
     "media": null,
     "gallery": null,
-    "status": "planned"
+    "status": "in-development"
   },
   {
     "slug": "extropian-voice",
     "title": "Extropian Voice",
-    "description": "Open source text-to-speech and speech-to-text for engineering software \u2014 Extropian Voice.",
-    "tagline": "Text-to-speech and speech-to-text for engineering software.",
+    "description": "The audio layer of the Extropian stack \u2014 microphone capture, voice activity detection, speech-to-text, and text-to-speech for desktop and browser.",
+    "tagline": "Capture, transcribe, and synthesize speech \u2014 one audio library for desktop and browser.",
     "category": [
       "engineering-ui"
     ],
@@ -475,28 +424,30 @@
     "order": 12,
     "featuredOnHome": false,
     "capabilities": [
-      "Text-to-speech synthesis for training, guidance, and status reporting",
-      "Speech-to-text recognition for hands-free interaction in lab and shop environments",
-      "Real-time audio pipelines built for interactive use",
-      "Embeddable in any Extropian interface or your own application"
+      "Microphone capture and speaker playback with pluggable audio backends (SDL3 native, Web Audio API in-browser)",
+      "Real-time voice activity detection from raw PCM with speech/energy signals",
+      "Speech-to-text via local Whisper or cloud Deepgram/OpenAI providers",
+      "Text-to-speech via local Piper or cloud ElevenLabs/OpenAI providers",
+      "End-to-end voice pipeline wiring capture \u2192 VAD \u2192 transcribe \u2192 synthesize \u2192 playback"
     ],
     "foundation": [
-      "Built on Extropian Core primitives",
-      "Pairs with Extropian Spatial UI for voice-driven interaction"
+      "C++23 static library with extropian-core Signal<T> eventing",
+      "Platform-agnostic shared core (compiles to WASM) over SDL3 / Web Audio API backends",
+      "Provider abstraction layer supporting local (Whisper, Piper) and cloud (Deepgram, ElevenLabs, OpenAI) engines"
     ],
     "uses": [
       "core"
     ],
-    "body": "Engineering software should listen as well as it shows. Extropian Voice adds text-to-speech and speech-to-text to the ecosystem \u2014 synthesis for guidance and reporting, recognition for hands-free control where keyboards are impractical.\n\nIt is open source under Apache 2.0, so teams can embed voice interaction in their own products as freely as the rest of the Core-based stack.",
+    "body": "Engineering software should listen as well as it shows. Extropian Voice is the audio layer of the Extropian dependency stack: it owns microphone capture, speaker playback, voice activity detection, speech-to-text transcription, and text-to-speech synthesis, wired together through a `VoiceService` state machine (Idle \u2192 Listening \u2192 UserSpeaking \u2192 Processing \u2192 Speaking \u2192 Interrupted). It is deliberately low-level \u2014 conversation turn-taking, transcript routing, and UI live in other Extropian components, not here.\n\nThe core compiles unchanged for both native and WASM. Platform I/O is dispatched behind `AudioCapture`/`AudioPlayback` interfaces \u2014 SDL3 on desktop, Web Audio API via Emscripten in the browser. Speech-to-text and text-to-speech go through provider abstractions: local Whisper (whisper.cpp) and Piper TTS on desktop, and cloud Deepgram/ElevenLabs/OpenAI over HTTP.\n\nIt is built on extropian-core's `Signal<T>` event system and builds as a static library with optional provider backends toggled at configure time.",
     "media": null,
     "gallery": null,
-    "status": "alpha"
+    "status": "in-development"
   },
   {
     "slug": "extropian-app",
     "title": "Extropian App",
-    "description": "Cross-platform window and event management with SDL3 \u2014 the application shell for Extropian software.",
-    "tagline": "Window and event management with SDL3 \u2014 the application shell.",
+    "description": "The desktop application shell for Extropian \u2014 SDL3 window, OpenGL 4.6 context, input, and main loop exposed through the abstract core::WindowState interface.",
+    "tagline": "The desktop application shell for Extropian \u2014 SDL3 windows, OpenGL context, input, and main loop.",
     "category": [
       "core-platform"
     ],
@@ -509,21 +460,23 @@
     "order": 15,
     "featuredOnHome": false,
     "capabilities": [
-      "Cross-platform window creation and management via SDL3",
-      "Unified event handling \u2014 input, focus, and application lifecycle",
-      "GL context setup for Render and Spatial UI applications",
-      "Embeddable shell for existing native applications"
+      "SDL3 window creation with an OpenGL 4.6 core profile context",
+      "Per-frame keyboard, mouse, scroll, and gamepad input snapshots",
+      "FPS vs UI input modes with normal/hidden/captured cursor control",
+      "Minimal Application lifecycle (on_startup/on_update/on_shutdown) around a main loop",
+      "Implements core::WindowState so the renderer stays SDL-free"
     ],
     "foundation": [
-      "Platform layer beneath the ecosystem's desktop applications",
-      "Pairs with Extropian Render for GL context creation and swap control"
+      "SDL3 for windowing, GL context, input, and gamepad",
+      "OpenGL 4.6 core profile",
+      "extropian-core for the WindowState interface, math types, clock, and logging"
     ],
     "uses": [
       "core"
     ],
-    "body": "Every desktop application starts with a window and an event loop. Extropian App is the ecosystem's application shell: cross-platform window and event management built on SDL3, with GL context setup for the rendering stack.\n\nIt keeps platform code in one maintained place so products like the CAE Workbench target features instead of operating systems.",
+    "body": "Every desktop application starts with a window and an event loop. Extropian App is the desktop platform library of the ecosystem: it creates an SDL3 window with an OpenGL 4.6 core profile context, polls input events, and exposes them through the abstract `core::WindowState` interface defined in extropian-core \u2014 so downstream systems (like the renderer) never touch SDL3 directly.\n\nThe framework is intentionally minimal: a `Window` class wraps the SDL3 window and GL context, an `EventState` captures a per-frame snapshot of keyboard, mouse, scroll, and gamepad input, and an `Application` base class provides an `on_startup` / `on_update` / `on_shutdown` lifecycle around the main loop. It depends only on extropian-core; it deliberately excludes rendering, audio, and AI orchestration, which live in other Extropian libraries.\n\nCurrently Linux-focused, with SDL3 providing the cross-platform abstraction for Windows, macOS, and mobile.",
     "media": null,
     "gallery": null,
-    "status": "alpha"
+    "status": "in-development"
   }
 ]

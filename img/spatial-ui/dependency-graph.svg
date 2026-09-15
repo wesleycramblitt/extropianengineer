@@ -1,0 +1,585 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"
+      font-family="system-ui, sans-serif" style="background:#0a0d16">
+      <defs>
+        <pattern id="exd-print-grid" width="26" height="26" patternUnits="userSpaceOnUse">
+          <circle cx="1.4" cy="1.4" r="1.4" fill="rgba(140, 160, 220, .05)"></circle>
+        </pattern>
+      </defs>
+      <rect x="0" y="0" width="1920" height="1080" fill="url(#exd-print-grid)"></rect>
+      <text x="44" y="46" font-size="15" letter-spacing="2" fill="#718cff">C++23 · 2.5D · no DOM</text>
+      <text x="44" y="98" font-size="52" font-weight="800" fill="#e8ecff">Extropian Spatial UI</text>
+      <text x="44" y="140" font-size="19" fill="#8b93b0">Widgets as ordinary ECS entities — pure math layout (exd-layout), pure mesh generation (exd-ui), and a</text><text x="44" y="166" font-size="19" fill="#8b93b0">dirty-tag resolution pipeline (exd-scene-renderer) in one 2.5D SceneGraph. No DOM.</text>
+      <g>
+        <rect x="1142" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1156" y="124" font-size="30" font-weight="800" fill="#e8ecff">3</text>
+        <text x="1156" y="148" font-size="12.5" fill="#8b93b0">modules</text>
+      </g><g>
+        <rect x="1330" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1344" y="124" font-size="30" font-weight="800" fill="#e8ecff">154</text>
+        <text x="1344" y="148" font-size="12.5" fill="#8b93b0">headers</text>
+      </g><g>
+        <rect x="1518" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1532" y="124" font-size="30" font-weight="800" fill="#e8ecff">117</text>
+        <text x="1532" y="148" font-size="12.5" fill="#8b93b0">unit tests</text>
+      </g><g>
+        <rect x="1706" y="86" width="170" height="82" rx="12" fill="none" stroke="rgba(122, 145, 200, .22)"></rect>
+        <text x="1720" y="124" font-size="30" font-weight="800" fill="#e8ecff">43k</text>
+        <text x="1720" y="148" font-size="12.5" fill="#8b93b0">loc</text>
+      </g>
+      <g>
+        <text x="44" y="194" font-size="21" font-weight="700" fill="#e8ecff">exd-layout — pure math layout</text>
+        <text x="44" y="213" font-size="12.5" fill="#8b93b0">Flex engine, 14 strategies, edge routing — no ECS, no GPU</text>
+        <g transform="translate(44 304.4117647058824) scale(0.9516806722689075)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s0-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s0-exd-mk-owns" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#ffd166"></path></marker><marker id="s0-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker><marker id="s0-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker><marker id="s0-exd-mk-calls" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#c792ea"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="952" height="224" fill="url(#s0-exd-grid)"></rect>
+        <path class="edge" data-from="layout-engine" data-to="strategies" d="M 440 96 C 476 96, 476 61, 507 61" fill="none"
+        stroke="#ffd166" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s0-exd-mk-owns)"></path><path class="edge" data-from="flex" data-to="measure-cache" d="M 440 166 C 476 166, 476 131, 507 131" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="edge-bundler" data-to="edge-router" d="M 192 26 C 228 26, 228 26, 259 26" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="edge-router" data-to="strategies" d="M 440 26 C 476 26, 476 61, 507 61" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="canvas-grid" data-to="layout-engine" d="M 192 96 C 228 96, 228 96, 259 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s0-exd-mk-uses)"></path><path class="edge" data-from="strategies" data-to="core-g" d="M 688 61 C 724 61, 724 96, 755 96" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s0-exd-mk-depends)"></path><path class="edge" data-from="ui-g" data-to="flex" d="M 192 166 C 228 166, 228 166, 259 166" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s0-exd-mk-calls)"></path><g class="node drill" data-node="flex" tabindex="0" role="button"
+        aria-label="flex (drill in)" transform="translate(264,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">flex</text>
+        
+        <text class="meta" x="28" y="44">flex.hpp</text>
+        
+        <text class="chev" x="166" y="30" text-anchor="end">›</text>
+      </g><g class="node" data-node="layout-engine" tabindex="0" role="button"
+        aria-label="layout-engine" transform="translate(264,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">layout-engine</text>
+        
+        <text class="meta" x="28" y="44">layout_engine.hpp</text>
+        
+        
+      </g><g class="node" data-node="measure-cache" tabindex="0" role="button"
+        aria-label="measure-cache" transform="translate(512,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">measure-cache</text>
+        
+        <text class="meta" x="28" y="44">measure_cache.hpp</text>
+        
+        
+      </g><g class="node" data-node="strategies" tabindex="0" role="button"
+        aria-label="strategies" transform="translate(512,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#63b8ff"></rect>
+        <text class="icon" x="13" y="28" fill="#63b8ff">▤</text>
+        <text class="lbl" x="28" y="28">strategies</text>
+        
+        <text class="meta" x="28" y="44">strategies/</text>
+        
+        
+      </g><g class="node" data-node="edge-router" tabindex="0" role="button"
+        aria-label="edge-router" transform="translate(264,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">edge-router</text>
+        
+        <text class="meta" x="28" y="44">edge_router.hpp</text>
+        
+        
+      </g><g class="node" data-node="edge-bundler" tabindex="0" role="button"
+        aria-label="edge-bundler" transform="translate(16,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">edge-bundler</text>
+        
+        <text class="meta" x="28" y="44">edge_bundler.hpp</text>
+        
+        
+      </g><g class="node" data-node="canvas-grid" tabindex="0" role="button"
+        aria-label="canvas-grid" transform="translate(16,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">canvas-grid</text>
+        
+        <text class="meta" x="28" y="44">canvas_grid.hpp</text>
+        
+        
+      </g><g class="node ext" data-node="ui-g" tabindex="0" role="button"
+        aria-label="exd-ui" transform="translate(16,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">exd-ui</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node ext" data-node="core-g" tabindex="0" role="button"
+        aria-label="core" transform="translate(760,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">core</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g><g>
+        <text x="970" y="194" font-size="21" font-weight="700" fill="#e8ecff">exd-ui — mesh generation</text>
+        <text x="970" y="213" font-size="12.5" fill="#8b93b0">Stateless widget generators + headless controllers, WASM-safe</text>
+        <g transform="translate(970 362.8218232044199) scale(0.6256906077348067)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s1-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s1-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker><marker id="s1-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="1448" height="154" fill="url(#s1-exd-grid)"></rect>
+        <path class="edge" data-from="widget-builder" data-to="generators" d="M 688 61 C 724 61, 724 96, 755 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="generators" data-to="text-engine" d="M 936 96 C 972 96, 972 61, 1003 61" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="text-engine" data-to="ui-text-factory" d="M 1184 61 C 1220 61, 1220 96, 1251 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="generators" data-to="geometry-g" d="M 936 96 C 1096 96, 1096 26, 1251 26" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-depends)"></path><path class="edge" data-from="text-engine" data-to="geometry-g" d="M 1184 61 C 1220 61, 1220 26, 1251 26" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-depends)"></path><path class="edge" data-from="interaction" data-to="widget-builder" d="M 192 26 C 352 26, 352 61, 507 61" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-depends)"></path><path class="edge" data-from="ui-schema" data-to="widget-builder" d="M 440 61 C 476 61, 476 61, 507 61" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><path class="edge" data-from="semantic-builder" data-to="ui-schema" d="M 192 96 C 228 96, 228 61, 259 61" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s1-exd-mk-depends)"></path><path class="edge" data-from="widget-builder" data-to="core-g" d="M 688 61 C 724 61, 724 26, 755 26" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s1-exd-mk-uses)"></path><g class="node" data-node="widget-builder" tabindex="0" role="button"
+        aria-label="widget-builder" transform="translate(512,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">widget-builder</text>
+        
+        <text class="meta" x="28" y="44">widget_builder.hpp</text>
+        
+        
+      </g><g class="node" data-node="generators" tabindex="0" role="button"
+        aria-label="generators" transform="translate(760,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#63b8ff"></rect>
+        <text class="icon" x="13" y="28" fill="#63b8ff">▤</text>
+        <text class="lbl" x="28" y="28">generators</text>
+        
+        <text class="meta" x="28" y="44">ui.hpp</text>
+        
+        
+      </g><g class="node" data-node="text-engine" tabindex="0" role="button"
+        aria-label="text-engine" transform="translate(1008,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#a78bfa"></rect>
+        <text class="icon" x="13" y="28" fill="#a78bfa">⬡</text>
+        <text class="lbl" x="28" y="28">text-engine</text>
+        
+        <text class="meta" x="28" y="44">text_engine.hpp</text>
+        
+        
+      </g><g class="node" data-node="ui-text-factory" tabindex="0" role="button"
+        aria-label="ui-text-factory" transform="translate(1256,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">ui-text-factory</text>
+        
+        <text class="meta" x="28" y="44">ui_text_factory.hpp</text>
+        
+        
+      </g><g class="node" data-node="interaction" tabindex="0" role="button"
+        aria-label="interaction" transform="translate(16,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#63b8ff"></rect>
+        <text class="icon" x="13" y="28" fill="#63b8ff">▤</text>
+        <text class="lbl" x="28" y="28">interaction</text>
+        
+        <text class="meta" x="28" y="44">interaction/</text>
+        
+        
+      </g><g class="node drill" data-node="ui-schema" tabindex="0" role="button"
+        aria-label="ui-schema (drill in)" transform="translate(264,35)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">ui-schema</text>
+        
+        <text class="meta" x="28" y="44">ui_schema.hpp</text>
+        
+        <text class="chev" x="166" y="30" text-anchor="end">›</text>
+      </g><g class="node" data-node="semantic-builder" tabindex="0" role="button"
+        aria-label="semantic-builder" transform="translate(16,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#c792ea"></rect>
+        <text class="icon" x="13" y="28" fill="#c792ea">ƒ</text>
+        <text class="lbl" x="28" y="28">semantic-builder</text>
+        
+        <text class="meta" x="28" y="44">ui_schema.hpp</text>
+        
+        
+      </g><g class="node ext" data-node="geometry-g" tabindex="0" role="button"
+        aria-label="geometry" transform="translate(1256,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">geometry</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node ext" data-node="core-g" tabindex="0" role="button"
+        aria-label="core" transform="translate(760,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">core</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g><g>
+        <text x="44" y="616" font-size="21" font-weight="700" fill="#e8ecff">exd-scene-renderer — pipeline</text>
+        <text x="44" y="635" font-size="12.5" fill="#8b93b0">Dirty-tag systems wire widgets into render components</text>
+        <g transform="translate(44 693.1029411764706) scale(0.9516806722689075)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s2-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s2-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker><marker id="s2-exd-mk-calls" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#c792ea"></path></marker><marker id="s2-exd-mk-depends" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b93b0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="952" height="294" fill="url(#s2-exd-grid)"></rect>
+        <path class="edge" data-from="systems" data-to="components" d="M 440 166 C 476 166, 476 26, 507 26" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="systems" data-to="dirty-tags" d="M 440 166 C 476 166, 476 96, 507 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="systems" data-to="pick" d="M 440 166 C 476 166, 476 166, 507 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="input-bridge" data-to="systems" d="M 192 96 C 228 96, 228 166, 259 166" fill="none"
+        stroke="#c792ea" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="5 4"
+        marker-end="url(#s2-exd-mk-calls)"></path><path class="edge" data-from="input-bridge" data-to="input-mapper" d="M 192 96 C 228 96, 228 96, 259 96" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="systems" data-to="render-g" d="M 440 166 C 476 166, 476 236, 507 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><path class="edge" data-from="components" data-to="core-g" d="M 688 26 C 724 26, 724 131, 755 131" fill="none"
+        stroke="#8b93b0" stroke-width="1.3" stroke-opacity=".5" 
+        marker-end="url(#s2-exd-mk-depends)"></path><path class="edge" data-from="systems" data-to="core-g" d="M 440 166 C 600 166, 600 131, 755 131" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s2-exd-mk-uses)"></path><g class="node drill" data-node="systems" tabindex="0" role="button"
+        aria-label="systems (drill in)" transform="translate(264,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#63b8ff"></rect>
+        <text class="icon" x="13" y="28" fill="#63b8ff">▤</text>
+        <text class="lbl" x="28" y="28">systems</text>
+        
+        <text class="meta" x="28" y="44">systems/</text>
+        
+        <text class="chev" x="166" y="30" text-anchor="end">›</text>
+      </g><g class="node" data-node="components" tabindex="0" role="button"
+        aria-label="components" transform="translate(512,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#63b8ff"></rect>
+        <text class="icon" x="13" y="28" fill="#63b8ff">▤</text>
+        <text class="lbl" x="28" y="28">components</text>
+        
+        <text class="meta" x="28" y="44">components/</text>
+        
+        
+      </g><g class="node" data-node="dirty-tags" tabindex="0" role="button"
+        aria-label="dirty-tags" transform="translate(512,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">dirty-tags</text>
+        
+        <text class="meta" x="28" y="44">widget_builder.hpp</text>
+        
+        
+      </g><g class="node" data-node="input-bridge" tabindex="0" role="button"
+        aria-label="input-bridge" transform="translate(16,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">input-bridge</text>
+        
+        <text class="meta" x="28" y="44">input_bridge.hpp</text>
+        
+        
+      </g><g class="node" data-node="input-mapper" tabindex="0" role="button"
+        aria-label="input-mapper" transform="translate(264,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">input-mapper</text>
+        
+        <text class="meta" x="28" y="44">input_mapper.hpp</text>
+        
+        
+      </g><g class="node" data-node="camera-controls" tabindex="0" role="button"
+        aria-label="camera-controls" transform="translate(16,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff7ab8"></rect>
+        <text class="icon" x="13" y="28" fill="#ff7ab8">◆</text>
+        <text class="lbl" x="28" y="28">camera-controls</text>
+        
+        <text class="meta" x="28" y="44">camera_controls.hpp</text>
+        
+        
+      </g><g class="node drill" data-node="pick" tabindex="0" role="button"
+        aria-label="pick (drill in)" transform="translate(512,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#4dd8d0"></rect>
+        <text class="icon" x="13" y="28" fill="#4dd8d0">≣</text>
+        <text class="lbl" x="28" y="28">pick</text>
+        
+        <text class="meta" x="28" y="44">components/render.hpp</text>
+        
+        <text class="chev" x="166" y="30" text-anchor="end">›</text>
+      </g><g class="node ext" data-node="render-g" tabindex="0" role="button"
+        aria-label="render" transform="translate(512,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">render</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node ext" data-node="core-g" tabindex="0" role="button"
+        aria-label="core" transform="translate(760,105)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">core</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g><g>
+        <text x="970" y="616" font-size="21" font-weight="700" fill="#e8ecff">Widget catalog + demo</text>
+        <text x="970" y="635" font-size="12.5" fill="#8b93b0">Four generator families, one ECS demo, headless verification</text>
+        <g transform="translate(1025.967741935484 652) scale(0.8341013824884793)"><style>
+      .lbl { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 650; line-height: 1.1; fill: #e8ecff; }
+      .kindline { font-family: ui-monospace, monospace; font-size: 9px; line-height: 1.2; text-transform: uppercase; letter-spacing: .08em; fill: #8b93b0; }
+      .meta { font-family: ui-monospace, monospace; font-size: 10px; line-height: 1.2; fill: #5a6280; }
+      .desc { font-family: system-ui, sans-serif; font-size: 11px; line-height: 1.25; fill: #8b93b0; opacity: .92; }
+      .icon { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; }
+      .chev { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.1; fill: #8b93b0; }
+      .chip { fill: #131a2e; stroke: rgba(110,130,180,.28); stroke-width: 1.1; }
+      .node.selected .chip { stroke: #718cff; stroke-width: 2; }
+      .node.ext .chip { stroke-dasharray: 4 3; }
+      .edge { stroke-opacity: .5; }</style><defs>
+      <pattern id="s3-exd-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(140,160,220,.05)"></circle>
+      </pattern>
+      <marker id="s3-exd-mk-uses" viewBox="0 0 10 10" refX="8.5" refY="5"
+          markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#4dd8d0"></path></marker>
+    </defs>
+        <rect x="0" y="0" width="952" height="434" fill="url(#s3-exd-grid)"></rect>
+        <path class="edge" data-from="controls" data-to="ui-g" d="M 192 26 C 476 26, 476 236, 755 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="containers" data-to="ui-g" d="M 192 166 C 476 166, 476 236, 755 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="charts" data-to="ui-g" d="M 192 236 C 476 236, 476 236, 755 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="diagrams" data-to="ui-g" d="M 192 306 C 476 306, 476 236, 755 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="demo" data-to="scene-renderer-g" d="M 688 201 C 724 201, 724 166, 755 166" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="demo" data-to="ui-g" d="M 688 201 C 724 201, 724 236, 755 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="smoke-test" data-to="demo" d="M 440 201 C 476 201, 476 201, 507 201" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="headless" data-to="smoke-test" d="M 192 96 C 228 96, 228 201, 259 201" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><path class="edge" data-from="research" data-to="ui-g" d="M 192 376 C 476 376, 476 236, 755 236" fill="none"
+        stroke="#4dd8d0" stroke-width="1.3" stroke-opacity=".5"  stroke-dasharray="1.5 4"
+        marker-end="url(#s3-exd-mk-uses)"></path><g class="node" data-node="controls" tabindex="0" role="button"
+        aria-label="controls" transform="translate(16,0)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#63b8ff"></rect>
+        <text class="icon" x="13" y="28" fill="#63b8ff">▤</text>
+        <text class="lbl" x="28" y="28">controls</text>
+        
+        <text class="meta" x="28" y="44">ui/controls</text>
+        
+        
+      </g><g class="node" data-node="containers" tabindex="0" role="button"
+        aria-label="containers" transform="translate(16,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#63b8ff"></rect>
+        <text class="icon" x="13" y="28" fill="#63b8ff">▤</text>
+        <text class="lbl" x="28" y="28">containers</text>
+        
+        <text class="meta" x="28" y="44">ui/display</text>
+        
+        
+      </g><g class="node" data-node="charts" tabindex="0" role="button"
+        aria-label="charts" transform="translate(16,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#63b8ff"></rect>
+        <text class="icon" x="13" y="28" fill="#63b8ff">▤</text>
+        <text class="lbl" x="28" y="28">charts</text>
+        
+        <text class="meta" x="28" y="44">ui/charts</text>
+        
+        
+      </g><g class="node" data-node="diagrams" tabindex="0" role="button"
+        aria-label="diagrams" transform="translate(16,280)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#63b8ff"></rect>
+        <text class="icon" x="13" y="28" fill="#63b8ff">▤</text>
+        <text class="lbl" x="28" y="28">diagrams</text>
+        
+        <text class="meta" x="28" y="44">ui/diagrams</text>
+        
+        
+      </g><g class="node" data-node="demo" tabindex="0" role="button"
+        aria-label="demo" transform="translate(512,175)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#ff6b6b"></rect>
+        <text class="icon" x="13" y="28" fill="#ff6b6b">▧</text>
+        <text class="lbl" x="28" y="28">demo</text>
+        
+        <text class="meta" x="28" y="44">demos/src/main.cpp</text>
+        
+        
+      </g><g class="node" data-node="smoke-test" tabindex="0" role="button"
+        aria-label="smoke-test" transform="translate(264,175)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#8ce99a"></rect>
+        <text class="icon" x="13" y="28" fill="#8ce99a">✓</text>
+        <text class="lbl" x="28" y="28">smoke-test</text>
+        
+        <text class="meta" x="28" y="44">demos/tests/interaction_test.cpp</text>
+        
+        
+      </g><g class="node" data-node="headless" tabindex="0" role="button"
+        aria-label="headless" transform="translate(16,70)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#f6c177"></rect>
+        <text class="icon" x="13" y="28" fill="#f6c177">❋</text>
+        <text class="lbl" x="28" y="28">headless</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node" data-node="research" tabindex="0" role="button"
+        aria-label="research" transform="translate(16,350)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#d3b88f"></rect>
+        <text class="icon" x="13" y="28" fill="#d3b88f">¶</text>
+        <text class="lbl" x="28" y="28">research</text>
+        
+        <text class="meta" x="28" y="44">docs/research/</text>
+        
+        
+      </g><g class="node ext" data-node="ui-g" tabindex="0" role="button"
+        aria-label="exd-ui" transform="translate(760,210)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">exd-ui</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g><g class="node ext" data-node="scene-renderer-g" tabindex="0" role="button"
+        aria-label="exd-scene-renderer" transform="translate(760,140)">
+        <rect class="chip" x="0" y="0" width="176" height="52" rx="9"></rect>
+        <rect class="bar" x="0" y="6" width="3.5" height="40" rx="1.75" fill="#5a6280"></rect>
+        <text class="icon" x="13" y="28" fill="#5a6280">◈</text>
+        <text class="lbl" x="28" y="28">exd-scene-renderer</text>
+        
+        <text class="meta" x="28" y="44"></text>
+        
+        
+      </g></g>
+      </g>
+      <g transform="translate(44 1032)"><text x="0" y="0" font-size="16" fill="#a78bfa">⬡</text></g><g transform="translate(140 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">lib</text></g><g transform="translate(236 1032)"><text x="0" y="0" font-size="16" fill="#63b8ff">▤</text></g><g transform="translate(332 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">package</text></g><g transform="translate(428 1032)"><text x="0" y="0" font-size="16" fill="#6ee7a0">◈</text></g><g transform="translate(524 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">module</text></g><g transform="translate(620 1032)"><text x="0" y="0" font-size="16" fill="#ff7ab8">◆</text></g><g transform="translate(716 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">class</text></g><g transform="translate(812 1032)"><text x="0" y="0" font-size="16" fill="#4dd8d0">≣</text></g><g transform="translate(908 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">data</text></g><g transform="translate(1004 1032)"><text x="0" y="0" font-size="16" fill="#c792ea">ƒ</text></g><g transform="translate(1100 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">function</text></g><g transform="translate(1196 1032)"><text x="0" y="0" font-size="16" fill="#ff6b6b">▧</text></g><g transform="translate(1292 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">ui</text></g><g transform="translate(1388 1032)"><text x="0" y="0" font-size="16" fill="#8ce99a">✓</text></g><g transform="translate(1484 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">test</text></g><g transform="translate(1580 1032)"><text x="0" y="0" font-size="16" fill="#f6c177">❋</text></g><g transform="translate(1676 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">concept</text></g><g transform="translate(1772 1032)"><text x="0" y="0" font-size="16" fill="#d3b88f">¶</text></g><g transform="translate(1868 1032)">
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">doc</text></g><g transform="translate(1964 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#ffd166" stroke-width="2.4" ></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">owns</text></g><g transform="translate(2060 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#4dd8d0" stroke-width="2.4" stroke-dasharray="2 5"></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">uses</text></g><g transform="translate(2156 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#8b93b0" stroke-width="2.4" ></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">depends on</text></g><g transform="translate(2252 1032)"><line x1="0" y1="0" x2="26" y2="0" stroke="#c792ea" stroke-width="2.4" stroke-dasharray="6 4"></line>
+          <text x="0" y="0" font-size="13.5" fill="#8b93b0">calls</text></g>
+    </svg>

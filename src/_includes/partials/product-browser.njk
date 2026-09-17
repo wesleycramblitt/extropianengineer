@@ -49,12 +49,7 @@
         data-pb-cat="{{ item.data.category | join(' ') }}"
         data-pb-search="{{ (item.data.title ~ ' ' ~ item.data.tagline) | lower }}"
         aria-pressed="false">
-        {%- set singleMedia = [item.data.media] if item.data.media else [] -%}
-        {%- set manualGallery = item.data.gallery or [] -%}
-        {%- set autoGallery = gallery[item.data.slug] if (gallery and gallery[item.data.slug]) else [] -%}
-        {%- set frames = manualGallery if manualGallery.length else (autoGallery if autoGallery.length else singleMedia) -%}
-        {%- set thumb = frames[0] if frames.length else none -%}
-        <span class="pb-item-glyph pv-{{ (item.data.category)[0] }}">{% if thumb and thumb.type == 'image' %}<img src="{{ thumb.src }}" alt="" loading="lazy">{% elif thumb and thumb.poster %}<img src="{{ thumb.poster }}" alt="" loading="lazy">{% else %}{{ item.data.title | glyph }}{% endif %}</span>
+        <span class="pb-item-glyph pv-{{ (item.data.category)[0] }}">{{ item.data.title | glyph }}</span>
         <span class="pb-item-text">
           <span class="pb-item-name">{{ item.data.title }}</span>
           {%- if item.data.type %}

@@ -22,9 +22,9 @@ module.exports = [
     summary: "Building a commercial-grade interactive UI/UX for a hypersonic flow solver — model editing, boundary conditions, batch processing, save/load with reproducibility.",
     detail: [
       "HyperFat is a CFD solver with adaptive mesh refinement for hypersonic flows. The underlying solver was powerful but inaccessible to non-developers.",
-      "I am building a commercial-grade interactive UI/UX — editing models and boundary conditions, managing batch processes, save/load scenes with reproducibility, and a command-bus architecture separating the UI from computational operations. Active contract with Whoosh HPC Lab LLC."
+      "I built a commercial-grade interactive preprocessing UI/UX — editing models and boundary conditions, managing batch processes, save/load scenes with reproducibility, and a command-bus architecture separating the UI from computational operations. Active contract with Whoosh HPC Lab LLC."
     ],
-    media: { type: "video", src: "/vid/whoosh.webm", interactive: false },
+    media: { type: "video", src: "/vid/whoosh.mp4", interactive: false },
     quote: null
   } ,
   {

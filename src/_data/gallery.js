@@ -1,7 +1,8 @@
 /* Auto-discover gallery assets from img/<slug>/ and vid/<slug>/ folders.
    Returns { [slug]: [ {type, src, poster?, caption} ] }
    - Images/GIFs in img/<slug>/ -> type: "image"
-   - Videos in vid/<slug>/       -> type: "video" (poster: img/<slug>/<video-stem>.jpg if exists)
+   - Videos in vid/<slug>/       -> type: "video" (poster: img/<slug>/<video-stem>.jpg
+                                   or, as fallback, the shared img/posters/<video-stem>.jpg)
    - Sorted alphabetically by filename
    - Caption derived from filename stem (kebab/snake -> Title Case)
    - Manual `gallery` in products.json takes precedence if present. */
@@ -12,6 +13,7 @@ function slugifyStem(stem) {
   return stem
     .replace(/^[0-9]+[-_]/, "")
     .replace(/[-_]/g, " ")
+    .replace(/([a-zA-Z])(\d+)$/, "$1 $2") // "render2" -> "Render 2"
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
@@ -77,6 +79,8 @@ function discoverGallery() {
         const stem = path.parse(file).name;
         const posterPath = `/img/${slug}/${stem}.jpg`;
         const absPoster = path.join(imgRoot, slug, `${stem}.jpg`);
+        const sharedPosterPath = `/img/posters/${stem}.jpg`;
+        const absSharedPoster = path.join(imgRoot, "posters", `${stem}.jpg`);
 
         const frame = {
           type: "video",
@@ -84,6 +88,7 @@ function discoverGallery() {
           caption: slugifyStem(stem),
         };
         if (fs.existsSync(absPoster)) frame.poster = posterPath;
+        else if (fs.existsSync(absSharedPoster)) frame.poster = sharedPosterPath;
 
         if (!gallery[slug]) gallery[slug] = [];
         gallery[slug].push(frame);

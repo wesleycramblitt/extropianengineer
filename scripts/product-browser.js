@@ -3,6 +3,9 @@
       list rail; the stage shows the active product with a slideshow
    - .pb-slideshow elements outside a browser (product detail pages)
      get slideshow behavior automatically
+   - Slides sit still by default: the auto-advance timer only runs when
+     data-autoplay="true" is set. Active video slides still play (videos
+     are the content); navigation is manual via arrows/dots.
    All content is server-rendered; this script only toggles/enhances. */
 (function () {
   "use strict";
@@ -71,10 +74,11 @@
     if (prev) prev.addEventListener("click", function () { advance(-1); });
     if (next) next.addEventListener("click", function () { advance(1); });
 
+    var AUTOPLAY = ss.dataset.autoplay === "true";
     var timer = null;
     function startTimer() {
       stopTimer();
-      if (frames.length > 1 && !REDUCED && ss.dataset.autoplay !== "false") {
+      if (frames.length > 1 && !REDUCED && AUTOPLAY) {
         timer = setInterval(function () {
           if (!ss._paused) advance(1);
         }, 4200);
@@ -85,7 +89,7 @@
     ss._stopTimer = stopTimer;
     ss._show = show;
 
-    if (ss.dataset.autoplay !== "false") {
+    if (AUTOPLAY) {
       ss.addEventListener("pointerenter", function () { ss._paused = true; });
       ss.addEventListener("pointerleave", function () { ss._paused = false; });
       ss.addEventListener("focusin", function () { ss._paused = true; });
@@ -93,7 +97,7 @@
     }
 
     render(0);
-    if (ss.dataset.autoplay !== "false") startTimer();
+    if (AUTOPLAY) startTimer();
   }
 
   /* ── product browser ────────────────────────────────────────────── */
@@ -142,7 +146,11 @@
       panels.forEach(function (x) { if (x.dataset.pbPanel === slug) p = x; });
       if (p) {
         var ss = p.querySelector(".pb-slideshow");
-        if (ss) { setupSlideshow(ss); ss._startTimer(); activeSS = ss; }
+        if (ss) {
+          setupSlideshow(ss);
+          if (ss.dataset.autoplay === "true") ss._startTimer();
+          activeSS = ss;
+        }
       }
     }
 

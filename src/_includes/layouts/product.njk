@@ -30,7 +30,7 @@
 {%- set frames = gallery or singleMedia -%}
 {%- if frames and frames.length > 0 %}
 <div class="wrap wrap--wide">
-  <div class="pb-slideshow product-gallery" data-autoplay="true">
+  <div class="pb-slideshow product-gallery">
     <div class="pb-frames">
       {%- for frame in frames %}
       {%- if frame.type == 'video' %}

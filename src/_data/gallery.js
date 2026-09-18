@@ -3,7 +3,8 @@
    - Images/GIFs in img/<slug>/ -> type: "image"
    - Videos in vid/<slug>/       -> type: "video" (poster: img/<slug>/<video-stem>.jpg
                                    or, as fallback, the shared img/posters/<video-stem>.jpg)
-   - Sorted alphabetically by filename
+   - Order: videos FIRST, then images — each group alphabetical by filename.
+     (Videos are the hero media; renaming files only reorders within a type.)
    - Caption derived from filename stem (kebab/snake -> Title Case)
    - Manual `gallery` in products.json takes precedence if present. */
 const fs = require("fs");
@@ -13,14 +14,15 @@ function slugifyStem(stem) {
   return stem
     .replace(/^[0-9]+[-_]/, "")
     .replace(/[-_]/g, " ")
-    .replace(/([a-zA-Z])(\d+)$/, "$1 $2") // "render2" -> "Render 2"
+    .replace(/([a-zA-Z])(\d+)/g, "$1 $2") // "render2" -> "Render 2", "render3_x" -> "Render 3 X"
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 function discoverGallery() {
   const imgRoot = path.resolve(__dirname, "../../img");
   const vidRoot = path.resolve(__dirname, "../../vid");
-  const gallery = {};
+  const images = {}; // slug -> [image frames]
+  const videos = {}; // slug -> [video frames]
 
   // Discover image frames
   if (fs.existsSync(imgRoot)) {
@@ -59,7 +61,7 @@ function discoverGallery() {
         });
       }
 
-      if (frames.length) gallery[slug] = frames;
+      if (frames.length) images[slug] = frames;
     }
   }
 
@@ -90,12 +92,20 @@ function discoverGallery() {
         if (fs.existsSync(absPoster)) frame.poster = posterPath;
         else if (fs.existsSync(absSharedPoster)) frame.poster = sharedPosterPath;
 
-        if (!gallery[slug]) gallery[slug] = [];
-        gallery[slug].push(frame);
+        if (!videos[slug]) videos[slug] = [];
+        videos[slug].push(frame);
       }
     }
   }
 
+  // Combine: videos first, then images (each group alphabetical within type).
+  // A manual `gallery` array in products.json overrides this order per product.
+  const gallery = {};
+  const allSlugs = Array.from(new Set([...Object.keys(images), ...Object.keys(videos)]));
+  for (const slug of allSlugs) {
+    const frames = [...(videos[slug] || []), ...(images[slug] || [])];
+    if (frames.length) gallery[slug] = frames;
+  }
   return gallery;
 }
 

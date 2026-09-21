@@ -125,6 +125,44 @@
     "status": "in-development"
   },
   {
+    "slug": "extropian-webview",
+    "title": "Extropian Webview",
+    "description": "Engine-agnostic webview panels for the Extropian ecosystem \u2014 offscreen HTML/CSS/JS surfaces rendered to GPU textures and composited into the scene as overlay HUDs or 2.5D panels. The modern UI/UX of the web with desktop GPU power, in a lightweight, performant package.",
+    "tagline": "The modern UI/UX of the web with desktop GPU power \u2014 offscreen HTML/CSS/JS panels composited into ECS scenes, lightweight and performant.",
+    "category": [
+      "engineering-ui"
+    ],
+    "type": "Modular repository",
+    "licensing": [
+      "Source Available (PolyForm Shield)",
+      "Binary Distribution (Proprietary)",
+      "Internal Use (Proprietary)"
+    ],
+    "order": 4,
+    "featuredOnHome": false,
+    "capabilities": [
+      "Offscreen HTML/CSS/JS surfaces rendered to GPU textures and drawn as textured quads in the same ECS scene graph as 3D geometry \u2014 no native child windows, one GPU path",
+      "Dock webviews as camera-fixed overlay HUD panels or place them in the world as 2.5D scene quads with perspective",
+      "Mouse, keyboard, and focus input routed into webviews; a small JS library (window.exd) links page JavaScript to the ECS over a JSON message protocol",
+      "Engine-agnostic IWebViewEngine contract with swappable backends \u2014 Chromium via CEF offscreen rendering, headless MockEngine for tests and demos, factory injection for apps",
+      "Lightweight by design: engine-agnostic core depends only on extropian-core and compiles to WASM; GPU, window, and input wiring stay isolated in the scene module"
+    ],
+    "foundation": [
+      "Two-tier design mirrored on extropian-spatial-ui: WASM-safe exd::webview core (descriptor, builder, engine contract, message protocol) plus exd::webview_scene ECS wiring built on extropian-core, extropian-render, and extropian-app",
+      "Webview quads drawn through render::UiPipeline::Texture \u2014 the textured-quad UI pipeline variant in extropian-render",
+      "The concrete browser engine (Chromium via CEF offscreen rendering) lives in the sibling extropian-webview-cef repo, implementing IWebViewEngine"
+    ],
+    "uses": [
+      "core",
+      "render",
+      "extropian-app"
+    ],
+    "body": "Extropian Webview brings the modern UI/UX of the web to the desktop GPU stack, in a lightweight, performant package. A webview is an ordinary spatial entity: an offscreen HTML/CSS/JS surface rendered to a GPU texture by a swappable browser engine, then drawn as a textured UI quad in the same `ecs::Registry` and `ecs::SceneGraph` as 3D geometry and spatial-UI widgets.\n\nPanels are authored with a `WebViewComponent` descriptor \u2014 inline HTML, a local `file://` page, or a remote URL \u2014 and built with `build_webview_panel`. They dock as camera-fixed overlay HUDs or float in the world as 2.5D scene quads. Mouse, keyboard, and focus events route into the page, and a small JS library (`window.exd`) talks back to the ECS and the broader app over a JSON message protocol \u2014 so a model tree, dashboard, or configuration UI can be written in HTML/CSS/JS and still drive engine state directly.\n\nConventional embedded webviews (WebView2, WKWebView, WebKitGTK, Tauri/wry) render into a native child window and cannot be composited into a 2.5D scene. Extropian Webview\u2019s contract is offscreen rendering \u2192 BGRA framebuffer \u2192 GL texture: one GPU path for both overlay docking and scene placement. The core module depends only on extropian-core and compiles to WASM with zero changes; browser engines plug in behind the `IWebViewEngine` contract \u2014 Chromium via CEF offscreen rendering in the sibling extropian-webview-cef repo, or the headless `MockEngine` for tests and demos.",
+    "media": null,
+    "gallery": null,
+    "status": "in-development"
+  },
+  {
     "slug": "render",
     "title": "Extropian Render",
     "description": "A modular, ECS-based 3D rendering framework for the Extropian ecosystem \u2014 multi-pass scenes, built-in cameras, picking, and a 3D transform gizmo.",

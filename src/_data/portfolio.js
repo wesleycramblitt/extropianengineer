@@ -25,7 +25,7 @@ module.exports = [
       "I built a commercial-grade interactive preprocessing UI/UX — editing models and boundary conditions, managing batch processes, save/load scenes with reproducibility, and a command-bus architecture separating the UI from computational operations. Active contract with Whoosh HPC Lab LLC."
     ],
     media: { type: "video", src: "/vid/whoosh.mp4", interactive: false },
-    quote: null
+    quote: { text: "We are a small company developing multiphysics engineering simulation software and contracted Wes to develop the prototype and framework for our user interface. This was a very ambitious project, and we knew that the requirements for long-lasting infrastructure like this were significant. Wes absolutely delivered. Each deliverable we asked for was well-designed and well-documented, with accompanying tests and verification. The design of the interface was consistent with our own existing software, making it easy to integrate into our existing toolset. Wes was professional and independent, keeping the project on-schedule. We highly recommend Wes to anyone considering working with him.", by: "William van Noordt, Co-Founder, Whoosh HPC Lab" }
   } ,
   {
     id: "capars",
